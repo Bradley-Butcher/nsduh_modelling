@@ -1,0 +1,2771 @@
+INFO 2022-11-23 12:06:14,164 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-23 12:06:32,018 [root:load.py:load:9]
+Loaded 3047082 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-23 12:06:32,019 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-23 12:06:35,410 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-23 12:06:35,411 [root:preprocess.py:preprocess:7]
+Starting Preprocessing..
+
+INFO 2022-11-23 12:06:35,412 [root:preprocess.py:preprocess:8]
+Processing age
+
+INFO 2022-11-23 12:06:36,034 [root:preprocess.py:preprocess:10]
+Processing last case
+
+INFO 2022-11-23 12:15:10,573 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-23 12:15:23,489 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path)
+
+
+INFO 2022-11-23 12:15:25,880 [root:load.py:load:9]
+Loaded 3047082 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-23 12:15:25,882 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-23 12:15:27,292 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-23 12:15:27,293 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-23 12:15:27,294 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-23 12:15:27,946 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-23 12:18:17,650 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-23 12:18:29,975 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:23: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  return pd.read_csv(hc_path).iloc[sample_idxs]
+
+
+INFO 2022-11-23 12:18:32,329 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-23 12:18:32,330 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-23 12:18:32,358 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-23 12:18:32,360 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-23 12:18:32,361 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-23 12:18:32,376 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:48:53,840 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:49:12,054 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:23: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  return pd.read_csv(hc_path).iloc[sample_idxs]
+
+
+INFO 2022-11-24 10:49:15,966 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:49:16,003 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:49:16,128 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:49:16,131 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:49:16,132 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:49:16,220 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:49:49,278 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:49:49,532 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 10:49:49,585 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:49:49,586 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:49:49,622 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:49:49,624 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:49:49,625 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:49:49,652 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:53:51,810 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:53:52,062 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 10:53:52,122 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:53:52,123 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:53:52,158 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:53:52,159 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:53:52,160 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:53:52,178 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:53:54,707 [root:preprocess.py:preprocess:14]
+Processing failed to appear
+
+INFO 2022-11-24 10:56:01,845 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:56:02,075 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 10:56:02,141 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:56:02,142 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:56:02,178 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:56:02,180 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:56:02,181 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:56:02,197 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:56:04,198 [root:preprocess.py:preprocess:14]
+Processing failed to appear
+
+INFO 2022-11-24 10:56:34,875 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:56:35,127 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 10:56:35,177 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:56:35,178 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:56:35,217 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:56:35,219 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:56:35,220 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:56:35,238 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:58:57,925 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:58:58,169 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 10:58:58,215 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:58:58,217 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:58:58,251 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:58:58,252 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:58:58,253 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:58:58,272 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:59:39,098 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 10:59:39,316 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 10:59:39,371 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 10:59:39,372 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 10:59:39,413 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 10:59:39,416 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 10:59:39,417 [root:preprocess.py:preprocess:10]
+Processing age
+
+INFO 2022-11-24 10:59:39,434 [root:preprocess.py:preprocess:12]
+Processing last case
+
+INFO 2022-11-24 10:59:41,450 [root:preprocess.py:preprocess:14]
+Processing failed to appear
+
+INFO 2022-11-24 11:07:35,554 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:07:35,864 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 11:07:35,920 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:07:35,921 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:07:35,956 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:07:35,958 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:07:35,958 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:07:35,977 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:07:35,997 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:07:38,045 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:08:52,198 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:08:52,397 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 11:08:52,445 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:08:52,446 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:08:52,478 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:08:52,479 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:08:52,480 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:08:52,498 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:08:52,519 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:08:54,459 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:09:12,432 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:09:12,612 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 11:09:12,659 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:09:12,660 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:09:12,695 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:09:12,696 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:09:12,697 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:09:12,715 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:09:12,736 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:09:14,678 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:09:28,691 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:09:28,886 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 11:09:28,935 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:09:28,936 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:09:28,974 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:09:28,976 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:09:28,977 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:09:28,996 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:09:29,014 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:09:30,919 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:09:31,772 [root:preprocess.py:preprocess:18]
+Processing prior convictions
+
+INFO 2022-11-24 11:09:54,762 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:09:54,963 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, nrows=50_000)
+
+
+INFO 2022-11-24 11:09:55,011 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:09:55,013 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:09:55,045 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:09:55,046 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:09:55,048 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:09:55,066 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:09:55,097 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:09:57,071 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:13:04,052 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:13:07,628 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=2_500_000, nrows=50_000)
+
+
+INFO 2022-11-24 11:13:07,696 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:13:07,697 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:13:36,462 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:13:40,241 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=2_500_000, nrows=50_000)
+
+
+INFO 2022-11-24 11:14:35,088 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:14:38,741 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:14:38,812 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:14:38,813 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:14:38,848 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:14:38,850 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:14:38,851 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:14:38,876 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:14:38,897 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:14:41,127 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:22:47,808 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:22:51,561 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:22:51,630 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:22:51,632 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:22:51,664 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:22:51,665 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:22:51,666 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:22:51,687 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:22:51,705 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:22:54,020 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:23:37,846 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:23:41,480 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:23:41,548 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:23:41,549 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:23:41,582 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:23:41,583 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:23:41,584 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:23:41,603 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:23:41,620 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:23:43,895 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+WARNING 2022-11-24 11:23:44,023 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:105: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  prior_df[["fta_lt_2yr", "fta_gt_2yr"]] = prior_df.progress_apply(_fta_2yrs, axis=1, result_type="expand")
+
+
+WARNING 2022-11-24 11:23:44,026 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:105: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  prior_df[["fta_lt_2yr", "fta_gt_2yr"]] = prior_df.progress_apply(_fta_2yrs, axis=1, result_type="expand")
+
+
+INFO 2022-11-24 11:26:12,337 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:26:16,186 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:26:16,258 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:26:16,259 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:26:16,296 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:26:16,297 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:26:16,298 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:26:16,326 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:26:16,344 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:26:18,671 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:29:32,377 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:29:35,874 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:29:35,945 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:29:35,946 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:29:35,983 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:29:35,985 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:29:35,986 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:29:36,007 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:29:36,038 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:29:38,287 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:31:21,856 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:31:25,473 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:31:25,541 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:31:25,542 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:31:25,583 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:31:25,584 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:31:25,587 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:31:25,607 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:31:25,625 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:31:27,836 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:31:34,005 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:31:37,752 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:31:37,832 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:31:37,834 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:31:37,884 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:31:37,885 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:31:37,886 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:31:37,908 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:31:37,927 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:31:40,171 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:31:40,343 [root:preprocess.py:preprocess:18]
+Processing prior convictions
+
+INFO 2022-11-24 11:35:53,416 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:35:57,278 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:35:57,361 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:35:57,363 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:35:57,396 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:35:57,397 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:35:57,399 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:35:57,421 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:35:57,441 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:35:59,668 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:35:59,865 [root:preprocess.py:preprocess:18]
+Processing prior convictions
+
+WARNING 2022-11-24 11:35:59,931 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:159: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  prior_df["drug.conviction"] = prior_df.progress_apply(_drug_conviction, axis=1)
+
+
+INFO 2022-11-24 11:37:47,308 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:37:50,925 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:37:50,991 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:37:50,992 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:37:51,022 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:37:51,024 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:37:51,025 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:37:51,047 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:37:51,068 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:37:53,291 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:37:53,486 [root:preprocess.py:preprocess:18]
+Processing prior convictions
+
+INFO 2022-11-24 11:38:14,348 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:38:18,101 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:38:18,164 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:38:18,165 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:38:18,194 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:38:18,196 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:38:18,197 [root:preprocess.py:preprocess:10]
+Converting date columns
+
+INFO 2022-11-24 11:38:18,217 [root:preprocess.py:preprocess:12]
+Processing age
+
+INFO 2022-11-24 11:38:18,235 [root:preprocess.py:preprocess:14]
+Processing last case
+
+INFO 2022-11-24 11:38:20,466 [root:preprocess.py:preprocess:16]
+Processing failed to appear
+
+INFO 2022-11-24 11:38:20,642 [root:preprocess.py:preprocess:18]
+Processing prior convictions
+
+INFO 2022-11-24 11:43:57,159 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:44:01,084 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:44:01,173 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:44:01,174 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:44:01,234 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:44:01,236 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:44:01,238 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:44:49,046 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:44:52,648 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:44:52,712 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:44:52,714 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:44:52,742 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:44:52,744 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:44:52,745 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:44:52,764 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:44:52,786 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:44:52,805 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:44:55,071 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:45:52,967 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:45:56,534 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:45:56,597 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:45:56,598 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:45:56,626 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:45:56,627 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:45:56,628 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:45:56,642 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:45:56,668 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:45:56,687 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:45:58,920 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:46:36,815 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:46:40,285 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:46:40,349 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:46:40,350 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:46:40,379 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:46:40,380 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:46:40,381 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:46:40,394 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:46:40,416 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:46:40,436 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:46:42,679 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:46:42,880 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 11:47:32,088 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:47:35,835 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:47:35,900 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:47:35,902 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:47:35,929 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:47:35,930 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:47:35,931 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:47:35,945 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:47:35,965 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:47:35,982 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:47:38,362 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:47:53,505 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:47:57,230 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:47:57,295 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:47:57,296 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:47:57,338 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:47:57,339 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:47:57,340 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:47:57,354 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:47:57,373 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:47:57,390 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:47:59,648 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:50:39,899 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:50:43,546 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:50:43,624 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:50:43,625 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:50:43,654 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:50:43,655 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:50:43,656 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:50:43,669 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:50:43,691 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:50:43,707 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:50:45,919 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:51:43,124 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:51:46,758 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:51:46,827 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:51:46,828 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:51:46,872 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:51:46,873 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:51:46,874 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:51:46,888 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:51:46,908 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:51:46,928 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:51:49,259 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:52:26,577 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:52:30,104 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:52:30,164 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:52:30,165 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:52:30,193 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:52:30,194 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:52:30,195 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:52:30,208 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:52:30,230 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:52:30,248 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:52:32,430 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:52:32,553 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 11:57:50,497 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:57:53,978 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:57:54,061 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:57:54,062 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:57:54,090 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:57:54,091 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:57:54,092 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:57:54,105 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:57:54,125 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:57:54,143 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:57:56,301 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:57:56,437 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 11:58:47,915 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 11:58:51,627 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 11:58:51,709 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 11:58:51,710 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 11:58:51,764 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 11:58:51,766 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 11:58:51,767 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 11:58:51,781 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 11:58:51,805 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 11:58:51,825 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 11:58:54,234 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 11:58:54,370 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:01:55,037 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:01:58,774 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:01:58,846 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:01:58,847 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:01:58,879 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:01:58,881 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:01:58,881 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:01:58,897 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:01:58,921 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:01:58,945 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:02:01,265 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:02:01,388 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:02:51,981 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:02:55,956 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:02:56,068 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:02:56,069 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:02:56,100 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:02:56,101 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:02:56,102 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:03:33,967 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:03:37,627 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:03:37,709 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:03:37,710 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:03:37,738 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:03:37,739 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:03:37,740 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:03:37,755 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:03:37,774 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:03:37,793 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:03:39,979 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:03:40,103 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:08:19,216 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:08:22,991 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:08:23,060 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:08:23,061 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:08:23,092 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:08:23,093 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:08:23,094 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:08:23,110 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:08:23,145 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:08:23,167 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:08:25,594 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:08:25,730 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:08:26,348 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:09:22,543 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:09:26,439 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:09:26,527 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:09:26,528 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:09:26,559 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:09:26,560 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:09:26,561 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:09:26,577 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:09:26,598 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:09:26,617 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:09:28,958 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:09:29,104 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:09:29,766 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:09:29,947 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:11:36,398 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:11:40,126 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:11:40,190 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:11:40,191 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:11:40,223 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:11:40,224 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:11:40,225 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:11:40,242 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:11:40,266 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:11:40,286 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:11:42,635 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:11:42,758 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:11:43,395 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:11:43,588 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+WARNING 2022-11-24 12:11:43,684 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:228: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  current_df["current.felony"] = current_df["case.degree"].str.contains("F")
+
+
+WARNING 2022-11-24 12:11:45,586 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:229: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  current_df["current.violent"] = current_df.apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-11-24 12:11:45,600 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:230: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  current_df["current.conviction"] = current_df["calc.disp"].str.contains("Guilty")
+
+
+INFO 2022-11-24 12:11:45,963 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:12:07,156 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:12:11,019 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:12:11,094 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:12:11,096 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:12:11,141 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:12:11,143 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:12:11,144 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:12:11,171 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:12:11,194 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:12:11,213 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:12:13,526 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:12:13,648 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:12:14,279 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:12:14,460 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:12:16,982 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:16:22,634 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:16:26,417 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:16:26,496 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:16:26,497 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:16:26,529 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:16:26,530 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:16:26,531 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:16:26,549 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:16:26,570 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:16:26,596 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:16:28,917 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:16:29,059 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:16:29,711 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:16:29,900 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:16:32,352 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:17:43,042 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:17:46,768 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:17:46,837 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:17:46,839 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:17:46,872 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:17:46,873 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:17:46,874 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:17:46,892 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:17:46,925 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:17:46,946 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:17:49,366 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:17:49,513 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:17:50,147 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:17:50,361 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:17:52,846 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:22:55,779 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:22:59,266 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:22:59,333 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:22:59,334 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:22:59,367 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:22:59,368 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:22:59,369 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:22:59,385 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:22:59,418 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:22:59,436 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:23:01,649 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:23:01,772 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:23:02,388 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:23:02,570 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:23:04,844 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+WARNING 2022-11-24 12:23:04,932 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:253: FutureWarning: Dropping invalid columns in SeriesGroupBy.agg is deprecated. In a future version, a TypeError will be raised. Before calling .agg, select only columns which should be valid for the function.
+  agg = df.groupby(groups).agg(
+
+
+INFO 2022-11-24 12:23:39,656 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:23:43,220 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:23:43,288 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:23:43,290 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:23:43,322 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:23:43,324 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:23:43,325 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:23:43,346 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:23:43,374 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:23:43,392 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:23:45,680 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:23:45,802 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:23:46,387 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:23:46,576 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:23:48,851 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+WARNING 2022-11-24 12:23:49,127 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:254: FutureWarning: Dropping invalid columns in SeriesGroupBy.agg is deprecated. In a future version, a TypeError will be raised. Before calling .agg, select only columns which should be valid for the function.
+  agg = df.groupby(groups).agg(
+
+
+INFO 2022-11-24 12:24:50,219 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:24:53,782 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:24:53,863 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:24:53,865 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:24:53,896 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:24:53,897 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:24:53,898 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:24:53,916 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:24:53,944 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:24:53,964 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:24:56,158 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:24:56,276 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:24:56,864 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:24:57,051 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:24:59,385 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:28:05,579 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:28:09,227 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:28:09,296 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:28:09,298 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:28:09,331 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:28:09,332 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:28:09,333 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:28:09,349 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:28:09,381 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:28:09,401 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:28:11,700 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:28:11,816 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:28:12,404 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:28:12,575 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:28:14,849 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:28:38,295 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:28:41,810 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:28:41,875 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:28:41,876 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:28:41,906 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:28:41,907 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:28:41,908 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:28:41,924 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:28:41,949 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:28:41,970 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:28:44,251 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:28:44,399 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:28:44,992 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:28:45,166 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:28:47,444 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:29:18,508 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:29:22,078 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:29:22,145 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:29:22,146 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:29:22,177 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:29:22,179 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:29:22,179 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:29:22,195 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:29:22,224 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:29:22,246 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:29:24,485 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:29:24,617 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:29:25,180 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:29:25,364 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:29:27,566 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:30:31,500 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:30:35,087 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:30:35,168 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:30:35,170 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:30:35,204 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:30:35,205 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:30:35,206 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:30:35,224 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:30:35,247 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:30:35,268 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:30:37,548 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:30:37,681 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:30:38,262 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:30:38,444 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:30:40,652 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:30:50,106 [root:preprocess.py:preprocess:28]
+Done!
+
+INFO 2022-11-24 12:31:52,635 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:31:56,314 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:31:56,378 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:31:56,380 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:31:56,408 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:31:56,409 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:31:56,410 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:31:56,428 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:31:56,454 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:31:56,475 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:31:58,845 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:31:59,001 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:31:59,618 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:31:59,822 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:32:02,148 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:32:34,274 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:32:37,756 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, skiprows=range(1, 2_500_000), nrows=50_000)
+
+
+INFO 2022-11-24 12:32:37,821 [root:load.py:load:9]
+Loaded 50000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:32:37,823 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:32:37,852 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:32:37,853 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:32:37,854 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:32:37,871 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:32:37,905 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:32:37,924 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:32:40,140 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:32:40,273 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:32:40,878 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 12:32:41,048 [root:preprocess.py:preprocess:24]
+Processing current charge
+
+INFO 2022-11-24 12:32:43,392 [root:preprocess.py:preprocess:26]
+Processing criminal history
+
+INFO 2022-11-24 12:32:52,423 [root:preprocess.py:preprocess:28]
+Done!
+
+INFO 2022-11-24 12:36:06,693 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 12:36:20,320 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path)
+
+
+INFO 2022-11-24 12:36:22,476 [root:load.py:load:9]
+Loaded 3047082 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 12:36:22,477 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 12:36:23,917 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 12:36:23,918 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 12:36:23,919 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 12:36:24,746 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 12:36:25,569 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 12:36:26,041 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 12:37:39,212 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 12:37:54,558 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 12:40:13,255 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 14:24:32,374 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 14:24:49,651 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path)
+
+
+INFO 2022-11-24 14:24:51,752 [root:load.py:load:9]
+Loaded 3047082 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 14:24:51,753 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 14:24:53,175 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 14:24:53,176 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 14:24:53,177 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 14:24:54,084 [root:preprocess.py:preprocess:12]
+Converting date columns
+
+INFO 2022-11-24 14:24:54,920 [root:preprocess.py:preprocess:14]
+Processing age
+
+INFO 2022-11-24 14:24:55,389 [root:preprocess.py:preprocess:16]
+Processing last case
+
+INFO 2022-11-24 14:26:09,420 [root:preprocess.py:preprocess:18]
+Processing failed to appear
+
+INFO 2022-11-24 14:26:21,850 [root:preprocess.py:preprocess:20]
+Processing prior convictions
+
+INFO 2022-11-24 14:28:41,244 [root:preprocess.py:preprocess:22]
+Processing pending charges
+
+INFO 2022-11-24 14:39:23,241 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 14:39:42,169 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True)
+
+
+INFO 2022-11-24 14:39:44,295 [root:load.py:load:9]
+Loaded 3047082 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 14:39:44,297 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 14:39:45,917 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 14:39:45,919 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 14:39:45,920 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 14:40:17,735 [root:preprocess.py:preprocess:14]
+Converting date columns
+
+INFO 2022-11-24 14:40:24,538 [root:preprocess.py:preprocess:18]
+Processing age
+
+INFO 2022-11-24 14:40:28,053 [root:preprocess.py:preprocess:22]
+Processing last case
+
+INFO 2022-11-24 14:42:15,276 [root:preprocess.py:preprocess:26]
+Processing failed to appear
+
+INFO 2022-11-24 14:43:12,454 [root:preprocess.py:preprocess:30]
+Processing prior convictions
+
+INFO 2022-11-24 14:45:18,932 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 14:45:24,003 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, nrows=1_000_000)
+
+
+INFO 2022-11-24 14:45:24,683 [root:load.py:load:9]
+Loaded 1000000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 14:45:24,684 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 14:45:25,167 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 14:45:25,168 [root:preprocess.py:preprocess:9]
+Starting Preprocessing..
+
+INFO 2022-11-24 14:45:25,169 [root:preprocess.py:preprocess:10]
+Converting generic operations
+
+INFO 2022-11-24 14:45:25,426 [root:preprocess.py:preprocess:13]
+Converting date columns
+
+INFO 2022-11-24 14:45:25,685 [root:preprocess.py:preprocess:16]
+Processing age
+
+INFO 2022-11-24 14:45:25,869 [root:preprocess.py:preprocess:19]
+Processing last case
+
+INFO 2022-11-24 14:45:55,837 [root:preprocess.py:preprocess:22]
+Processing failed to appear
+
+INFO 2022-11-24 14:45:58,741 [root:preprocess.py:preprocess:25]
+Processing prior convictions
+
+INFO 2022-11-24 14:58:44,897 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 14:58:48,724 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, nrows=1_000_000)
+
+
+INFO 2022-11-24 14:58:49,480 [root:load.py:load:9]
+Loaded 1000000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 14:58:49,482 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 14:58:49,950 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 14:58:49,951 [root:preprocess.py:preprocess:10]
+Starting Preprocessing..
+
+INFO 2022-11-24 14:58:49,952 [root:preprocess.py:preprocess:11]
+Converting generic operations
+
+INFO 2022-11-24 14:58:50,215 [root:preprocess.py:preprocess:14]
+Assign unique id
+
+INFO 2022-11-24 14:58:58,081 [root:preprocess.py:preprocess:17]
+Converting date columns
+
+INFO 2022-11-24 14:58:58,859 [root:preprocess.py:preprocess:20]
+Processing age
+
+INFO 2022-11-24 14:58:59,023 [root:preprocess.py:preprocess:23]
+Processing last case
+
+INFO 2022-11-24 14:59:26,152 [root:preprocess.py:preprocess:26]
+Processing failed to appear
+
+INFO 2022-11-24 14:59:29,093 [root:preprocess.py:preprocess:29]
+Processing prior convictions
+
+INFO 2022-11-24 15:00:12,536 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+INFO 2022-11-24 15:00:13,894 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-11-24 15:00:17,835 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-11-24 15:04:44,348 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 15:04:44,737 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, nrows=1_000_00)
+
+
+INFO 2022-11-24 15:04:44,824 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 15:04:44,825 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 15:04:44,888 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 15:04:44,890 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-24 15:04:44,891 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-24 15:04:44,923 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-24 15:04:45,693 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-24 15:04:45,798 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-11-24 15:04:45,824 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-11-24 15:04:49,702 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-11-24 15:04:49,997 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-11-24 15:04:50,439 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+INFO 2022-11-24 15:04:50,588 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-11-24 15:04:50,868 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-11-24 15:06:11,952 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-24 15:06:12,314 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, nrows=1_000_00)
+
+
+INFO 2022-11-24 15:06:12,415 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-24 15:06:12,416 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-24 15:06:12,473 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-24 15:06:12,474 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-24 15:06:12,475 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-24 15:06:12,509 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-24 15:06:13,303 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-24 15:06:13,387 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-11-24 15:06:13,413 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-11-24 15:06:17,266 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-11-24 15:06:17,582 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-11-24 15:06:17,976 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+INFO 2022-11-24 15:06:18,117 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-11-24 15:06:18,369 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-11-24 15:06:33,389 [root:preprocess.py:preprocess:41]
+Done!
+
+INFO 2022-11-25 09:35:31,802 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-25 09:35:32,283 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, nrows=1_000_00)
+
+
+INFO 2022-11-25 09:35:32,370 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:35:32,371 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:35:32,433 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:35:32,434 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:35:32,435 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:35:32,466 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:35:33,261 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:35:33,371 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-11-25 09:35:33,418 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-11-25 09:35:37,311 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-11-25 09:35:37,600 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-11-25 09:35:38,014 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+INFO 2022-11-25 09:37:36,917 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-25 09:37:37,296 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (6,20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, nrows=1_000_00)
+
+
+INFO 2022-11-25 09:37:37,372 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:37:37,374 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:37:37,435 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:37:37,436 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:37:37,437 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:37:37,478 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:37:38,250 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:39:04,253 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-25 09:39:06,298 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_000_000), nrows=1_000_00)
+
+
+INFO 2022-11-25 09:39:06,383 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:39:06,384 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:39:06,451 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:39:06,452 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:39:06,453 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:39:06,483 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:39:07,248 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:39:40,486 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:39:44,302 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:39:44,304 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:39:44,373 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:39:44,375 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:39:44,376 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:39:44,408 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:39:45,161 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:40:24,213 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-25 09:40:25,803 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_000_000), nrows=1_000_00)
+
+
+INFO 2022-11-25 09:40:25,885 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:40:25,886 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:40:25,954 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:40:25,955 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:40:25,956 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:40:25,987 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:40:26,717 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:41:40,287 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-25 09:41:42,697 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_500_000), nrows=100_000)
+
+
+INFO 2022-11-25 09:41:42,784 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:41:42,785 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:41:42,857 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:41:42,859 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:41:42,859 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:41:42,892 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:41:43,656 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:42:01,733 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:42:03,764 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:42:03,765 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:42:03,823 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:42:03,824 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:42:03,825 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:42:03,856 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:42:04,611 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:42:31,929 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:42:33,679 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:42:33,680 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:42:33,739 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:42:33,740 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:42:33,741 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:42:33,780 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:42:34,527 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:42:58,896 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:43:00,745 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:43:00,746 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:43:00,807 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:43:00,809 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:43:00,810 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:43:00,842 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:43:01,587 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:43:21,407 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:43:23,398 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:43:23,400 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:43:23,476 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:43:23,477 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:43:23,478 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:43:23,523 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:43:24,286 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:47:33,087 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:47:35,252 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:47:35,254 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:47:35,323 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:47:35,325 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:47:35,327 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:47:35,360 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:47:36,134 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:47:36,238 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-11-25 09:47:36,267 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-11-25 09:47:57,556 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:47:59,623 [root:load.py:load:9]
+Loaded 100000 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:47:59,624 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:47:59,690 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:47:59,692 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:47:59,692 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:47:59,724 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:48:00,487 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:48:00,596 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-11-25 09:48:00,624 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-11-25 09:48:04,065 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-11-25 09:48:04,297 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-11-25 09:48:05,438 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-11-25 09:49:14,570 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:238: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-11-25 09:49:14,573 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-11-25 09:49:14,683 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-11-25 09:49:17,949 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-11-25 09:49:31,638 [root:preprocess.py:preprocess:41]
+Done!
+
+INFO 2022-11-25 09:51:19,607 [root:load.py:load:7]
+Loading data from /home/dev/Code/nsduh_modelling/data/neulaw
+
+WARNING 2022-11-25 09:51:30,343 [py.warnings:warnings.py:_showwarnmsg:109]
+/home/dev/Code/nsduh_modelling/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-11-25 09:51:31,658 [root:load.py:load:9]
+Loaded 1847083 rows from /home/dev/Code/nsduh_modelling/data/neulaw
+
+INFO 2022-11-25 09:51:31,660 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-11-25 09:51:32,547 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-11-25 09:51:32,548 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-11-25 09:51:32,549 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-11-25 09:51:33,094 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-11-25 09:51:47,408 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-11-25 09:51:48,987 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-11-25 09:51:49,304 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-11-25 09:52:35,890 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-11-25 09:52:43,745 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-11-25 09:54:22,699 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+INFO 2022-11-25 09:54:29,442 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-11-25 09:55:12,502 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-11-25 09:58:06,399 [root:preprocess.py:preprocess:41]
+Done!
+

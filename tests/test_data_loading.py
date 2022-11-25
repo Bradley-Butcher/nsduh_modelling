@@ -1,4 +1,4 @@
-from nsduh_model.load import load_nsduh
+from cj_pipeline.load import load_nsduh
 
 def test_load():
     df = load_nsduh(max_rows=1000)
