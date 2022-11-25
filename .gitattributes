@@ -12,3 +12,4 @@ data/nsduh/NSDUH_2016_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2017_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2018_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2019_Tab.txt filter=lfs diff=lfs merge=lfs -text
+data/processed/criminal_history.csv filter=lfs diff=lfs merge=lfs -text
