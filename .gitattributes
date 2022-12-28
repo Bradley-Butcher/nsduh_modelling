@@ -15,3 +15,5 @@ data/nsduh/nsduh_compressed.zip filter=lfs diff=lfs merge=lfs -text
 data/processed/criminal_history.csv filter=lfs diff=lfs merge=lfs -text
 data/processed/ncvs.csv filter=lfs diff=lfs merge=lfs -text
 data/processed/nsduh.csv filter=lfs diff=lfs merge=lfs -text
+data/rais/calculated_rais.csv filter=lfs diff=lfs merge=lfs -text
+data/rais/coef_ogrs3.csv filter=lfs diff=lfs merge=lfs -text
