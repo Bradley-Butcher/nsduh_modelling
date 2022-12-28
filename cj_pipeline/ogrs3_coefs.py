@@ -1,61 +1,61 @@
 """Script to calculate OGRS3 coefficients for a given row of data."""
 
 def get_ogrs3_conviction_coef(row):
-    if row['prior.conviction'] == 0 and row['conviction'] == 0 and row['prior.n.arrest.not.dismissed'] == 0:
+    if row['conviction_count'] == 0 and row['current.conviction'] == 0 and row['not_dismissed_count'] == 0:
         return 0
-    elif row['prior.conviction'] == 0 and row['conviction'] == 0 and row['prior.n.arrest.not.dismissed'] == 1:
+    elif row['conviction_count'] == 0 and row['current.conviction'] == 0 and row['not_dismissed_count'] == 1:
         return 0.083100501
-    elif row['prior.conviction'] == 0 and row['conviction'] == 1 and row['prior.n.arrest.not.dismissed'] == 0:
+    elif row['conviction_count'] == 0 and row['current.conviction'] == 1 and row['not_dismissed_count'] == 0:
         return 0.126142106
-    elif row['conviction'] == 1 and row['prior.conviction'] > 0:
+    elif row['current.conviction'] == 1 and row['conviction_count'] > 0:
         return 0.463062792
     else:
         return 0.34859587
 
 def ogrs3_gender_coef(row):
     if row['def.gender'] == 'Male':
-        if row['def.age.years'] >= 10 and row['def.age.years'] < 12:
+        if row['current.age.numeric'] >= 10 and row['current.age.numeric'] < 12:
             return 0
-        elif row['def.age.years'] >= 12 and row['def.age.years'] < 14:
+        elif row['current.age.numeric'] >= 12 and row['current.age.numeric'] < 14:
             return 0.083922902
-        elif row['def.age.years'] >= 14 and row['def.age.years'] < 16:
+        elif row['current.age.numeric'] >= 14 and row['current.age.numeric'] < 16:
             return 0.075775765
-        elif row['def.age.years'] >= 16 and row['def.age.years'] < 18:
+        elif row['current.age.numeric'] >= 16 and row['current.age.numeric'] < 18:
             return -0.061594199
-        elif row['def.age.years'] >= 18 and row['def.age.years'] < 21:
+        elif row['current.age.numeric'] >= 18 and row['current.age.numeric'] < 21:
             return -0.625103618
-        elif row['def.age.years'] >= 21 and row['def.age.years'] < 25:
+        elif row['current.age.numeric'] >= 21 and row['current.age.numeric'] < 25:
             return -1.051515067
-        elif row['def.age.years'] >= 25 and row['def.age.years'] < 30:
+        elif row['current.age.numeric'] >= 25 and row['current.age.numeric'] < 30:
             return -1.166679288
-        elif row['def.age.years'] >= 30 and row['def.age.years'] < 35:
+        elif row['current.age.numeric'] >= 30 and row['current.age.numeric'] < 35:
             return -1.325976554
-        elif row['def.age.years'] >= 35 and row['def.age.years'] < 40:
+        elif row['current.age.numeric'] >= 35 and row['current.age.numeric'] < 40:
             return -1.368045933
-        elif row['def.age.years'] >= 40 and row['def.age.years'] < 50:
+        elif row['current.age.numeric'] >= 40 and row['current.age.numeric'] < 50:
             return -1.499690953
         else:
             return -2.025261458
     elif row['def.gender'] == 'Female':
-        if row['def.age.years'] >= 10 and row['def.age.years'] < 12:
+        if row['current.age.numeric'] >= 10 and row['current.age.numeric'] < 12:
             return -0.785038489
-        elif row['def.age.years'] >= 12 and row['def.age.years'] < 14:
+        elif row['current.age.numeric'] >= 12 and row['current.age.numeric'] < 14:
             return -0.613852078
-        elif row['def.age.years'] >= 14 and row['def.age.years'] < 16:
+        elif row['current.age.numeric'] >= 14 and row['current.age.numeric'] < 16:
             return -0.669521331
-        elif row['def.age.years'] >= 16 and row['def.age.years'] < 18:
+        elif row['current.age.numeric'] >= 16 and row['current.age.numeric'] < 18:
             return -0.959179629
-        elif row['def.age.years'] >= 18 and row['def.age.years'] < 21:
+        elif row['current.age.numeric'] >= 18 and row['current.age.numeric'] < 21:
             return -0.897480934
-        elif row['def.age.years'] >= 21 and row['def.age.years'] < 25:
+        elif row['current.age.numeric'] >= 21 and row['current.age.numeric'] < 25:
             return -1.028488454
-        elif row['def.age.years'] >= 25 and row['def.age.years'] < 30:
+        elif row['current.age.numeric'] >= 25 and row['current.age.numeric'] < 30:
             return -1.052777806
-        elif row['def.age.years'] >= 30 and row['def.age.years'] < 35:
+        elif row['current.age.numeric'] >= 30 and row['current.age.numeric'] < 35:
             return -1.129127959
-        elif row['def.age.years'] >= 35 and row['def.age.years'] < 40:
+        elif row['current.age.numeric'] >= 35 and row['current.age.numeric'] < 40:
             return -1.42187494
-        elif row['def.age.years'] >= 40 and row['def.age.years'] < 50:
+        elif row['current.age.numeric'] >= 40 and row['current.age.numeric'] < 50:
             return -1.524652221
         else:
             return -2.44983716

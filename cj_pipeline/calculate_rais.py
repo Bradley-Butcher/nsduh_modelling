@@ -12,8 +12,7 @@ def load_criminal_history():
     logger.info('Loading criminal history')
     return pd.read_csv(data_path / "processed" / "criminal_history.csv")
 
-def calculate_rais():
-    df = load_criminal_history()
+def calculate_rais(df: pd.DataFrame):
     logger.info('Calculating Risk Assesment Instruments')
     logger.info('Calculating NCA')
     df = get_nca(df)
@@ -27,10 +26,10 @@ def get_nca(df: pd.DataFrame):
     def _calc_nca(row):
         score = 0
         score += 0 if row['current.age.numeric'] >= 23 else 2
-        score += 3 if row['pending.charge'] > 0 else 0
+        score += 3 if row['pending_charge_count'] > 0 else 0
         score += 1 if row['misdemeanor_count'] > 0 else 0
         score += 1 if row['felony_count'] > 0 else 0
-        score += 2 if row['violent_count'] >= 3 else 1 if row['violent_count'] > 0 else 0
+        score += 2 if row['violent_conviction_count'] >= 3 else 1 if row['violent_conviction_count'] > 0 else 0
         score += 2 if row['fta_lt_2yr_count'] >= 2 else 1 if row['fta_lt_2yr_count'] > 0 else 0
         score += 2 if row['incarceration_count'] > 0 else 0
         match score:
@@ -50,7 +49,7 @@ def get_nvca(df: pd.DataFrame):
         score = 0
         score += 2 if row['violent_pending_count'] > 0 else 0
         score += 1 if row['violent_pending_count'] == 1 and row['current.age.numeric'] < 21 else 0
-        score += 1 if row['pending.charge'] > 0 else 0
+        score += 1 if row['pending_charge_count'] > 0 else 0
         score += 1 if row['conviction_count'] > 0 else 0
         score += 1 if row['felony_count'] > 0 else 0
         score += 2 if row['violent_conviction_count'] >= 3 else 1 if row['violent_conviction_count'] > 0 else 0
@@ -69,7 +68,7 @@ def get_nvca(df: pd.DataFrame):
 def get_fta(df: pd.DataFrame):
     def _calc_fta(row):
         score = 0
-        score += 1 if row['pending.charge'] > 0 else 0
+        score += 1 if row['pending_charge_count'] > 0 else 0
         score += 1 if row['conviction_count'] > 0 else 0
         score += 4 if row['fta_lt_2yr_count'] >= 2 else 2 if row['fta_lt_2yr_count'] > 0 else 0
         score += 1 if row['fta_gt_2yr_count'] > 0 else 0
@@ -99,7 +98,6 @@ def get_vprai(df: pd.DataFrame):
     return df
     
 def get_ogrs3(df: pd.DataFrame):
-    # read_csv(here('data', 'offender', 'coef_ogrs3.csv'))
     coefs = pd.read_csv(data_path / "rais" / "coef_ogrs3.csv")
     df = df.merge(coefs, left_on='most_serious_offense', right_on='calc.detailed', how='left')
     def _calc_ogrs3(row):
@@ -114,3 +112,9 @@ def get_ogrs3(df: pd.DataFrame):
     df['ogrs3'] = df.progress_apply(_calc_ogrs3, axis=1)
     df.drop(columns=['coef'], inplace=True)
     return df
+
+
+if __name__ == "__main__":
+    history = load_criminal_history()
+    rais = calculate_rais(history)
+    rais.to_csv(data_path / "rais" / "calculated_rais.csv", index=False)
