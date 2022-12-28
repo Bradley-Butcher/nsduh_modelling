@@ -4,6 +4,8 @@ This repository contains the data and code for the paper "Differential Enforceme
 
 ## Install
 
+Note: The code required python 3.10 or later.
+
 This repository requires poetry - install it using `pip install poetry`.
 
 Then, install the dependencies using `poetry install`.
