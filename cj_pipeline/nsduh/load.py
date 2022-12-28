@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 from cj_pipeline.nsduh.preprocessing import preprocess, get_variables
 
-data_path = Path(__file__).parents[1] / 'data'
+data_path = Path(__file__).parents[2] / 'data' / 'nsduh'
 years = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
 
 

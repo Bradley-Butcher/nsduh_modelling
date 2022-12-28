@@ -5,10 +5,10 @@ from functools import partial
 def process_bkdrug(df: pd.DataFrame):
     df["BKDRUG"] = df["BKDRUG"].astype("int")
     d = {
-        1: "Yes",
-        2: "No",
-        3: "Yes",
-        99: "No"
+        1: 1,
+        2: 0,
+        3: 1,
+        99: 0
     }
     df['BKDRUG'] = df['BKDRUG'].map(d)
     df = df.dropna(subset=['BKDRUG'], axis=0)
@@ -128,4 +128,17 @@ def preprocess(df: pd.DataFrame):
         df = variable_pp[variable](df)
     df = total_drug_use(df)
     df = df.rename(columns=variable_names)
+    counts = df.groupby(["Race", "Age", "Sex"]).size().to_frame("count").reset_index()
+    df = df.groupby(["Race", "Age", "Sex"]).agg(
+        {
+            "Marijuana Past Year": "sum",
+            "Cocaine Past Year": "sum",
+            "Heroin Past Year": "sum",
+            "Crack Past Year": "sum",
+            "Total Drug Use": "sum",
+            "Sold Drugs Past Year": "sum",
+            "Arrested": "sum"
+        }
+    )
+    df = df.merge(counts, on=["Race", "Age", "Sex"])
     return df

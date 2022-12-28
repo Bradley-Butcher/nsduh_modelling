@@ -34,6 +34,9 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     logger.info("Processing pending charges")
     df = _get_pending(df)
 
+    logger.info("Get most serious offense")
+    df = _get_most_serious_offense(df)
+
     logger.info("Processing current charge")
     df = _current_charge(df)
     logger.info("Processing criminal history")
@@ -230,7 +233,7 @@ def _get_pending(df: pd.DataFrame) -> pd.DataFrame:
     # Only prior cases
     prior_df = df[(df["diff"] > 0) | (df["diff"].isna())].copy()
     # Only pending cases
-    pending_df = pending_df[(pending_df["last.off.date"] - pending_df["disp.date"]).dt.days < 0]
+    pending_df = prior_df[(prior_df["last.off.date"] - prior_df["disp.date"]).dt.days < 0]
 
 
     pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
@@ -251,12 +254,14 @@ def _current_charge(df: pd.DataFrame) -> pd.DataFrame:
     current_df["current.felony"] = current_df["case.degree"].str.contains("F")
     current_df["current.violent"] = current_df.apply(_violent_conviction, pending=True, axis=1)
     current_df["current.conviction"] = current_df["calc.disp"].str.contains("Guilty")
+    current_df["current.age.numeric"] = current_df["age"]
 
     current_df = current_df[[
         "uuid", 
         "current.felony", 
         "current.violent", 
-        "current.conviction"
+        "current.conviction",
+        "current.age.numeric",
     ]]
 
     df = df.merge(current_df, on=["uuid"], how="left")
@@ -269,6 +274,49 @@ def _current_charge(df: pd.DataFrame) -> pd.DataFrame:
 
 
 #  =================== Calculate Criminal History ===================
+
+def _get_most_serious_offense_degree(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Get the most serious offense for each defendant
+    """
+    def _degree(degree):
+        match degree:
+            case _ if degree == "M":
+                return 2
+            case _ if degree == "MA":
+                return 3
+            case _ if degree == "MB":
+                return 2
+            case _ if degree == "MC":
+                return 1
+            case _ if degree == "FS":
+                return 4
+            case _ if degree == "F3":
+                return 5
+            case _ if degree == "F2":
+                return 6
+            case _ if degree == "F1":
+                return 7
+            case _ if degree == "FC":
+                return 8
+            case _ if degree == "F":
+                return 6
+            case _:
+                return 0
+    tqdm.pandas(desc='Calculating degree of offense')
+    df["degree_num"] = df['case.degree'].progress_apply(_degree)
+    return df
+
+def _get_most_serious_offense(df: pd.DataFrame):
+    groups = ['def.gender', 'def.race', 'def.uid']
+    df = _get_most_serious_offense_degree(df)
+    def _most_serious_offense(group):
+            return group["calc.detailed"][group["degree_num"] == group["degree_num"].max()].iloc[0]
+    srs_off = df.groupby(groups).progress_apply(_most_serious_offense)
+    srs_off = srs_off.to_frame("most_serious_offense").reset_index()
+    df = df.merge(srs_off, on=groups, how="left")
+    return df
+
 
 def _get_criminal_history(df: pd.DataFrame) -> pd.DataFrame:
     groups = ['def.gender', 'def.race', 'def.uid']
@@ -289,9 +337,11 @@ def _get_criminal_history(df: pd.DataFrame) -> pd.DataFrame:
             "age": "min",
             "violent.pending": "sum",
             "pending.charge": "sum",
-            "current.felony": "sum",
-            "current.violent": "sum",
-            "current.conviction": "sum",
+            "current.felony": "first",
+            "current.violent": "first",
+            "current.conviction": "first",
+            "current.age.numeric": "first",
+            "most_serious_offense": "first"
         }
     ).reset_index()
     # offenses = df.groupby(groups).apply(_count_offense)
@@ -313,6 +363,7 @@ def _get_criminal_history(df: pd.DataFrame) -> pd.DataFrame:
         "felony": "felony_count",
         "violent.pending": "violent_pending_count",
         "pending.charge": "pending_charge_count",
+        "calc.detailed": "most_serious_offense"
         }, axis=1)
     # df["age.first.arrest"] = df["age.first.arrest"].astype(int) / 365.25
 

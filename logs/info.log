@@ -2769,3 +2769,1250 @@ Processing criminal history
 INFO 2022-11-25 09:58:06,399 [root:preprocess.py:preprocess:41]
 Done!
 
+INFO 2022-12-22 12:39:11,912 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 12:39:22,152 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 12:39:23,952 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 12:39:23,954 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 12:39:25,353 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 12:39:25,354 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 12:39:25,355 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 12:39:25,965 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 12:39:40,365 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 12:39:42,772 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 12:39:43,104 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 12:40:15,131 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 12:40:24,083 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 12:42:21,919 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+INFO 2022-12-22 12:43:36,562 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 12:43:46,524 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 12:43:48,497 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 12:43:48,499 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 12:43:49,844 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 12:43:49,845 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 12:43:49,846 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 12:43:50,473 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 12:44:04,237 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 12:44:06,545 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 12:44:06,870 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 12:44:37,819 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 12:44:46,702 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 12:46:42,181 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 12:46:45,834 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:236: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 12:46:45,837 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:237: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 12:46:50,920 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-12-22 12:47:36,832 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-12-22 12:49:17,829 [root:preprocess.py:preprocess:41]
+Done!
+
+INFO 2022-12-22 14:20:41,434 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 14:20:51,799 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 14:20:53,636 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 14:20:53,637 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 14:20:55,043 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 14:20:55,044 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 14:20:55,045 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 14:20:55,654 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 14:21:10,524 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 14:21:12,922 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 14:21:13,253 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 14:21:45,482 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 14:21:54,238 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 14:23:53,315 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 14:23:56,993 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:236: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 14:23:56,996 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:237: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 14:24:01,522 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-12-22 14:32:26,026 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 14:32:36,534 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 14:32:38,469 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 14:32:38,472 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 14:32:39,860 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 14:32:39,862 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 14:32:39,863 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 14:32:40,482 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 14:32:54,680 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 14:32:56,970 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 14:32:57,281 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 14:33:29,351 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 14:33:39,110 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 14:35:39,231 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 14:35:42,906 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:236: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 14:35:42,909 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:237: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 14:35:47,229 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-12-22 14:37:46,721 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 14:37:55,646 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 14:37:57,459 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 14:37:57,461 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 14:37:58,814 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 14:37:58,816 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 14:37:58,816 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 14:37:59,423 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 14:38:13,649 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 14:38:15,985 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 14:38:16,296 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 14:38:49,022 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 14:38:58,400 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 14:40:57,206 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 14:41:00,960 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:236: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 14:41:00,972 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:237: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 14:41:06,528 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-12-22 14:41:53,793 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-12-22 14:43:32,151 [root:preprocess.py:preprocess:41]
+Done!
+
+INFO 2022-12-22 15:13:34,605 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 15:13:44,504 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 15:13:46,270 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 15:13:46,273 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 15:13:47,568 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 15:13:47,570 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 15:13:47,571 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 15:13:48,187 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 15:14:02,272 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 15:14:04,567 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 15:14:04,876 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 15:14:36,269 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 15:14:44,721 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 15:16:37,319 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 15:16:40,872 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:236: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 15:16:40,875 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:237: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 15:16:44,959 [root:preprocess.py:preprocess:37]
+Processing current charge
+
+INFO 2022-12-22 15:17:29,507 [root:preprocess.py:preprocess:39]
+Processing criminal history
+
+INFO 2022-12-22 15:27:54,543 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 15:28:04,518 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 15:28:06,472 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 15:28:06,476 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 15:28:07,848 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 15:28:07,858 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 15:28:07,860 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 15:28:30,943 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 15:34:44,672 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 15:34:54,539 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 15:35:00,977 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 15:36:22,197 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 15:36:46,185 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 15:42:37,286 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 15:42:47,991 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:236: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 15:42:47,998 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:237: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 15:53:16,761 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 15:53:26,712 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 15:53:28,574 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 15:53:28,575 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 15:53:29,914 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 15:53:29,915 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 15:53:29,916 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 15:53:30,502 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 15:53:44,798 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 15:53:47,171 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 15:53:47,487 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 15:54:20,339 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 15:54:29,507 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 15:56:26,327 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 15:56:29,949 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 15:56:29,952 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 15:56:34,669 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 16:04:36,615 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 16:04:46,490 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 16:04:48,460 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 16:04:48,462 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 16:04:49,851 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 16:04:49,853 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 16:04:49,854 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 16:04:50,493 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 16:05:04,740 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 16:05:07,001 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 16:05:07,321 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 16:05:39,843 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 16:05:49,644 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 16:07:49,157 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 16:07:52,762 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 16:07:52,766 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 16:07:57,168 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 16:09:28,433 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 16:09:37,377 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 16:09:39,201 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 16:09:39,202 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 16:09:40,519 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 16:09:40,520 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 16:09:40,521 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 16:09:41,108 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 16:09:55,378 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 16:09:57,786 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 16:09:58,095 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 16:10:29,577 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 16:10:38,551 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 16:12:38,565 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 16:12:42,237 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 16:12:42,240 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 16:12:46,565 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 16:15:18,515 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 16:15:28,489 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 16:15:30,492 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 16:15:30,493 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 16:15:31,842 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 16:15:31,843 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 16:15:31,844 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 16:15:32,458 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 16:15:46,821 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 16:15:49,148 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 16:15:49,455 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 16:16:22,174 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 16:16:31,121 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 16:18:27,958 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 16:18:31,606 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 16:18:31,609 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 16:18:36,005 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 16:18:37,464 [root:preprocess.py:preprocess:40]
+Processing current charge
+
+INFO 2022-12-22 16:19:24,374 [root:preprocess.py:preprocess:42]
+Processing criminal history
+
+INFO 2022-12-22 16:20:52,427 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 16:21:05,314 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 16:21:07,370 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 16:21:07,372 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 16:21:08,733 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 16:21:08,736 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 16:21:08,737 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 16:21:09,349 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 16:21:32,551 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 16:21:34,910 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 16:21:35,220 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 16:22:47,332 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 16:23:02,400 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 16:27:54,573 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 16:28:04,040 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 16:28:04,048 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 16:28:12,870 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 16:28:17,155 [root:preprocess.py:preprocess:40]
+Processing current charge
+
+INFO 2022-12-22 16:30:27,429 [root:preprocess.py:preprocess:42]
+Processing criminal history
+
+INFO 2022-12-22 16:34:46,829 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 16:34:55,775 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 16:34:57,739 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 16:34:57,741 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 16:34:59,062 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 16:34:59,064 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 16:34:59,065 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 16:34:59,666 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 16:35:13,996 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 16:35:16,275 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 16:35:16,577 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 16:35:47,862 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 16:35:56,497 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 16:37:47,539 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 16:37:51,148 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 16:37:51,151 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 16:37:55,587 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 16:37:57,021 [root:preprocess.py:preprocess:40]
+Processing current charge
+
+INFO 2022-12-22 16:38:41,719 [root:preprocess.py:preprocess:42]
+Processing criminal history
+
+INFO 2022-12-22 16:51:01,826 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-22 16:51:11,625 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-22 16:51:13,613 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-22 16:51:13,617 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-22 16:51:15,010 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-22 16:51:15,013 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-22 16:51:15,014 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-22 16:51:15,659 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-22 16:51:39,548 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-22 16:51:42,169 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-22 16:51:42,486 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-22 16:52:54,732 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-22 16:53:08,840 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-22 20:12:05,812 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-22 20:12:18,080 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-22 20:12:18,091 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-22 20:12:29,198 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-22 20:12:34,669 [root:preprocess.py:preprocess:40]
+Processing current charge
+
+INFO 2022-12-22 20:15:20,046 [root:preprocess.py:preprocess:42]
+Processing criminal history
+
+INFO 2022-12-23 12:29:50,210 [root:load.py:load:7]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+WARNING 2022-12-23 12:30:00,092 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/load.py:25: DtypeWarning: Columns (20,21,22,23,25,26) have mixed types. Specify dtype option on import or set low_memory=False.
+  hc = pd.read_csv(hc_path, low_memory=True, skiprows=range(1, 1_200_000))
+
+
+INFO 2022-12-23 12:30:02,484 [root:load.py:load:9]
+Loaded 1847083 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/neulaw
+
+INFO 2022-12-23 12:30:02,488 [root:load.py:load:10]
+Merging offense categories
+
+INFO 2022-12-23 12:30:03,964 [root:load.py:load:12]
+Done loading.
+
+INFO 2022-12-23 12:30:03,965 [root:preprocess.py:preprocess:12]
+Starting Preprocessing..
+
+INFO 2022-12-23 12:30:03,966 [root:preprocess.py:preprocess:13]
+Converting generic operations
+
+INFO 2022-12-23 12:30:04,601 [root:preprocess.py:preprocess:16]
+Assign unique id
+
+INFO 2022-12-23 12:30:19,845 [root:preprocess.py:preprocess:19]
+Converting date columns
+
+INFO 2022-12-23 12:30:22,218 [root:preprocess.py:preprocess:22]
+Processing age
+
+INFO 2022-12-23 12:30:22,543 [root:preprocess.py:preprocess:25]
+Processing last case
+
+INFO 2022-12-23 12:30:55,678 [root:preprocess.py:preprocess:28]
+Processing failed to appear
+
+INFO 2022-12-23 12:31:04,608 [root:preprocess.py:preprocess:31]
+Processing prior convictions
+
+INFO 2022-12-23 12:33:00,279 [root:preprocess.py:preprocess:34]
+Processing pending charges
+
+WARNING 2022-12-23 12:33:03,791 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["violent.pending"] = pending_df.progress_apply(_violent_conviction, pending=True, axis=1)
+
+
+WARNING 2022-12-23 12:33:03,794 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/neulaw/preprocess.py:240: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  pending_df["pending.charge"] = True
+
+
+INFO 2022-12-23 12:33:07,946 [root:preprocess.py:preprocess:37]
+Get most serious offense
+
+INFO 2022-12-23 12:33:09,372 [root:preprocess.py:preprocess:40]
+Processing current charge
+
+INFO 2022-12-23 12:33:55,243 [root:preprocess.py:preprocess:42]
+Processing criminal history
+
+INFO 2022-12-23 12:37:55,138 [root:preprocess.py:preprocess:44]
+Done!
+
+INFO 2022-12-23 16:42:31,949 [root:load.py:load:9]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/data/ncvs
+
+INFO 2022-12-23 16:43:19,780 [root:load.py:load:9]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/data/ncvs
+
+INFO 2022-12-23 16:43:41,196 [root:load.py:load:9]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/data/ncvs
+
+INFO 2022-12-23 16:44:13,404 [root:load.py:load:9]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-23 16:44:34,765 [root:load.py:load:11]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-23 16:44:34,768 [root:preprocess.py:preprocess:8]
+Preprocessing data
+
+INFO 2022-12-23 16:44:34,769 [root:preprocess.py:preprocess:9]
+Processing crime type
+
+INFO 2022-12-24 12:26:29,617 [root:load.py:load:11]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 12:39:43,602 [root:load.py:load:9]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 12:56:46,510 [root:load.py:load:31]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 12:57:26,501 [root:load.py:load:31]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 12:57:47,840 [root:load.py:load:33]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 12:57:47,845 [root:load.py:load:34]
+Renaming columns
+
+INFO 2022-12-24 12:57:49,323 [root:preprocess.py:preprocess:8]
+Preprocessing data
+
+INFO 2022-12-24 12:57:49,324 [root:preprocess.py:preprocess:9]
+Processing crime type
+
+INFO 2022-12-24 12:57:49,844 [root:preprocess.py:preprocess:11]
+Processing offender race
+
+INFO 2022-12-24 12:57:49,849 [root:preprocess.py:preprocess:13]
+Processing offender age
+
+INFO 2022-12-24 12:57:49,850 [root:preprocess.py:preprocess:15]
+Processing offender sex
+
+INFO 2022-12-24 12:57:49,852 [root:preprocess.py:preprocess:17]
+Processing reported to police
+
+INFO 2022-12-24 13:01:48,467 [root:load.py:load:34]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:02:11,592 [root:load.py:load:36]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:02:11,596 [root:load.py:load:37]
+Renaming columns
+
+INFO 2022-12-24 13:42:18,699 [root:load.py:load:34]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:42:41,414 [root:load.py:load:36]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:42:41,422 [root:load.py:load:37]
+Renaming columns
+
+INFO 2022-12-24 13:42:41,423 [root:preprocess.py:preprocess:8]
+Preprocessing data
+
+INFO 2022-12-24 13:42:41,423 [root:preprocess.py:preprocess:9]
+Processing crime type
+
+INFO 2022-12-24 13:43:15,011 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:43:27,599 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:44:36,223 [root:load.py:load:20]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:44:36,230 [root:load.py:load:21]
+Renaming columns
+
+INFO 2022-12-24 13:44:36,245 [root:preprocess.py:preprocess:8]
+Preprocessing data
+
+INFO 2022-12-24 13:44:36,246 [root:preprocess.py:preprocess:9]
+Processing crime type
+
+INFO 2022-12-24 13:45:55,774 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:47:16,169 [root:load.py:load:20]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:47:16,178 [root:load.py:load:21]
+Renaming columns
+
+INFO 2022-12-24 13:49:25,072 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+WARNING 2022-12-24 13:50:13,868 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/ncvs/load.py:19: DtypeWarning: Columns (3,11,13,85,183,184,212,213,215,216,217,218,231,233,239,254,361,362,363,376,378,383,387,1015) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(data_path / 'ncvs.csv')
+
+
+INFO 2022-12-24 13:50:26,604 [root:load.py:load:20]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:50:26,609 [root:load.py:load:21]
+Renaming columns
+
+INFO 2022-12-24 13:50:30,107 [root:preprocess.py:preprocess:8]
+Preprocessing data
+
+INFO 2022-12-24 13:50:30,109 [root:preprocess.py:preprocess:9]
+Processing crime type
+
+INFO 2022-12-24 13:50:42,504 [root:preprocess.py:preprocess:11]
+Processing offender race
+
+INFO 2022-12-24 13:50:57,023 [root:preprocess.py:preprocess:13]
+Processing offender age
+
+INFO 2022-12-24 13:51:25,478 [root:preprocess.py:preprocess:15]
+Processing offender sex
+
+INFO 2022-12-24 13:51:46,837 [root:preprocess.py:preprocess:17]
+Processing reported to police
+
+INFO 2022-12-24 13:52:39,892 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+WARNING 2022-12-24 13:53:23,450 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/ncvs/load.py:19: DtypeWarning: Columns (3,11,13,85,183,184,212,213,215,216,217,218,231,233,239,254,361,362,363,376,378,383,387,1015) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(data_path / 'ncvs.csv')
+
+
+INFO 2022-12-24 13:53:36,176 [root:load.py:load:20]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:53:36,179 [root:load.py:load:21]
+Renaming columns
+
+INFO 2022-12-24 13:53:39,332 [root:preprocess.py:preprocess:9]
+Preprocessing data
+
+INFO 2022-12-24 13:53:39,333 [root:preprocess.py:preprocess:10]
+Processing crime type
+
+INFO 2022-12-24 13:53:51,050 [root:preprocess.py:preprocess:12]
+Processing offender race
+
+INFO 2022-12-24 13:54:05,609 [root:preprocess.py:preprocess:14]
+Processing offender age
+
+INFO 2022-12-24 13:54:34,061 [root:preprocess.py:preprocess:16]
+Processing offender sex
+
+INFO 2022-12-24 13:54:55,403 [root:preprocess.py:preprocess:18]
+Processing reported to police
+
+INFO 2022-12-24 13:55:49,299 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+WARNING 2022-12-24 13:56:53,377 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/ncvs/load.py:19: DtypeWarning: Columns (3,11,13,85,183,184,212,213,215,216,217,218,231,233,239,254,361,362,363,376,378,383,387,1015) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(data_path / 'ncvs.csv')
+
+
+INFO 2022-12-24 13:57:06,338 [root:load.py:load:20]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 13:57:06,341 [root:load.py:load:21]
+Renaming columns
+
+INFO 2022-12-24 13:57:09,657 [root:preprocess.py:preprocess:9]
+Preprocessing data
+
+INFO 2022-12-24 13:57:09,659 [root:preprocess.py:preprocess:10]
+Processing crime type
+
+INFO 2022-12-24 13:57:21,755 [root:preprocess.py:preprocess:12]
+Processing offender race
+
+INFO 2022-12-24 13:57:38,167 [root:preprocess.py:preprocess:14]
+Processing offender age
+
+INFO 2022-12-24 13:58:07,297 [root:preprocess.py:preprocess:16]
+Processing offender sex
+
+INFO 2022-12-24 13:58:28,793 [root:preprocess.py:preprocess:18]
+Processing reported to police
+
+INFO 2022-12-24 13:58:33,075 [root:preprocess.py:preprocess:20]
+Processing arrest or charges made
+
+INFO 2022-12-24 13:59:01,094 [root:preprocess.py:preprocess:22]
+Summarizing
+
+INFO 2022-12-24 14:00:37,024 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+WARNING 2022-12-24 14:01:36,887 [py.warnings:warnings.py:_showwarnmsg:109]
+/Users/bradbutcher/Documents/Code/nsduh_model/cj_pipeline/ncvs/load.py:19: DtypeWarning: Columns (3,11,13,85,183,184,212,213,215,216,217,218,231,233,239,254,361,362,363,376,378,383,387,1015) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(data_path / 'ncvs.csv')
+
+
+INFO 2022-12-24 14:01:50,930 [root:load.py:load:20]
+Loaded 297399 rows from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-24 14:01:50,934 [root:load.py:load:21]
+Renaming columns
+
+INFO 2022-12-24 14:01:54,593 [root:preprocess.py:preprocess:9]
+Preprocessing data
+
+INFO 2022-12-24 14:01:54,595 [root:preprocess.py:preprocess:10]
+Processing crime type
+
+INFO 2022-12-24 14:02:07,395 [root:preprocess.py:preprocess:12]
+Processing offender race
+
+INFO 2022-12-24 14:02:22,448 [root:preprocess.py:preprocess:14]
+Processing offender age
+
+INFO 2022-12-24 14:02:51,937 [root:preprocess.py:preprocess:16]
+Processing offender sex
+
+INFO 2022-12-24 14:03:12,919 [root:preprocess.py:preprocess:18]
+Processing reported to police
+
+INFO 2022-12-24 14:03:17,468 [root:preprocess.py:preprocess:20]
+Processing arrest or charges made
+
+INFO 2022-12-24 14:03:47,890 [root:preprocess.py:preprocess:22]
+Summarizing
+

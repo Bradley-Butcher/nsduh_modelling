@@ -1,9 +1,6 @@
 data/ filter=lfs diff=lfs merge=lfs -text
 /data filter=lfs diff=lfs merge=lfs -text
 data/NSDUH_2019_Tab.txt filter=lfs diff=lfs merge=lfs -text
-data/neulaw/HC-crime-codes---Offenses.csv filter=lfs diff=lfs merge=lfs -text
-data/neulaw/hc.csv filter=lfs diff=lfs merge=lfs -text
-data/neulaw/neulaw_offensecat.csv filter=lfs diff=lfs merge=lfs -text
 data/nsduh/*.csv filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2013_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2014_Tab.txt filter=lfs diff=lfs merge=lfs -text
@@ -12,4 +9,9 @@ data/nsduh/NSDUH_2016_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2017_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2018_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NSDUH_2019_Tab.txt filter=lfs diff=lfs merge=lfs -text
+data/ncvs/ncvs.csv.zip filter=lfs diff=lfs merge=lfs -text
+data/neulaw/hc.csv.zip filter=lfs diff=lfs merge=lfs -text
+data/nsduh/nsduh_compressed.zip filter=lfs diff=lfs merge=lfs -text
 data/processed/criminal_history.csv filter=lfs diff=lfs merge=lfs -text
+data/processed/ncvs.csv filter=lfs diff=lfs merge=lfs -text
+data/processed/nsduh.csv filter=lfs diff=lfs merge=lfs -text
