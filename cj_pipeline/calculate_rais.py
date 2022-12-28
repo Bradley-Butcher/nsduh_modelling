@@ -20,6 +20,10 @@ def calculate_rais(df: pd.DataFrame):
     df = get_nvca(df)
     logger.info('Calculating OGRS3')
     df = get_ogrs3(df)
+    logger.info('Calculating VPR-AI')
+    df = get_vprai(df)
+    logger.info('Calculating FTA')
+    df = get_fta(df)
     return df
 
 def get_nca(df: pd.DataFrame):

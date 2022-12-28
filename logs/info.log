@@ -4016,3 +4016,177 @@ Processing arrest or charges made
 INFO 2022-12-24 14:03:47,890 [root:preprocess.py:preprocess:22]
 Summarizing
 
+INFO 2022-12-28 13:15:32,749 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:15:34,295 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:15:34,297 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:16:28,183 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:16:29,720 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:16:29,722 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:16:51,137 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:16:52,723 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:16:52,725 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:17:08,743 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:17:10,310 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:17:10,312 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:17:34,033 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:17:35,438 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:17:35,439 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:17:50,178 [root:calculate_rais.py:calculate_rais:20]
+Calculating NVCA
+
+INFO 2022-12-28 13:18:14,409 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:18:15,900 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:18:15,902 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:18:15,902 [root:calculate_rais.py:calculate_rais:20]
+Calculating NVCA
+
+INFO 2022-12-28 13:18:27,747 [root:calculate_rais.py:calculate_rais:22]
+Calculating OGRS3
+
+INFO 2022-12-28 13:20:28,596 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:20:30,208 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:20:30,209 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:20:30,210 [root:calculate_rais.py:calculate_rais:20]
+Calculating NVCA
+
+INFO 2022-12-28 13:20:42,786 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:20:44,629 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:20:44,630 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:20:44,631 [root:calculate_rais.py:calculate_rais:20]
+Calculating NVCA
+
+INFO 2022-12-28 13:20:44,632 [root:calculate_rais.py:calculate_rais:22]
+Calculating OGRS3
+
+INFO 2022-12-28 13:22:14,625 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:22:16,458 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:22:16,460 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:22:16,460 [root:calculate_rais.py:calculate_rais:20]
+Calculating NVCA
+
+INFO 2022-12-28 13:22:16,461 [root:calculate_rais.py:calculate_rais:22]
+Calculating OGRS3
+
+INFO 2022-12-28 13:22:33,567 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:22:35,053 [root:calculate_rais.py:calculate_rais:17]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:22:35,054 [root:calculate_rais.py:calculate_rais:18]
+Calculating NCA
+
+INFO 2022-12-28 13:22:49,921 [root:calculate_rais.py:calculate_rais:20]
+Calculating NVCA
+
+INFO 2022-12-28 13:23:02,627 [root:calculate_rais.py:calculate_rais:22]
+Calculating OGRS3
+
+INFO 2022-12-28 13:24:51,386 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:24:52,901 [root:calculate_rais.py:calculate_rais:16]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:24:52,904 [root:calculate_rais.py:calculate_rais:17]
+Calculating NCA
+
+INFO 2022-12-28 13:25:07,501 [root:calculate_rais.py:calculate_rais:19]
+Calculating NVCA
+
+INFO 2022-12-28 13:25:19,338 [root:calculate_rais.py:calculate_rais:21]
+Calculating OGRS3
+
+INFO 2022-12-28 13:54:14,212 [root:load.py:load:18]
+Loading data from /Users/bradbutcher/Documents/Code/nsduh_model/data/ncvs
+
+INFO 2022-12-28 13:56:01,814 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 13:56:03,300 [root:calculate_rais.py:calculate_rais:16]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 13:56:03,301 [root:calculate_rais.py:calculate_rais:17]
+Calculating NCA
+
+INFO 2022-12-28 13:56:18,052 [root:calculate_rais.py:calculate_rais:19]
+Calculating NVCA
+
+INFO 2022-12-28 13:56:29,984 [root:calculate_rais.py:calculate_rais:21]
+Calculating OGRS3
+
+INFO 2022-12-28 14:06:09,151 [root:calculate_rais.py:load_criminal_history:12]
+Loading criminal history
+
+INFO 2022-12-28 14:06:10,655 [root:calculate_rais.py:calculate_rais:16]
+Calculating Risk Assesment Instruments
+
+INFO 2022-12-28 14:06:10,656 [root:calculate_rais.py:calculate_rais:17]
+Calculating NCA
+
+INFO 2022-12-28 14:06:25,357 [root:calculate_rais.py:calculate_rais:19]
+Calculating NVCA
+
+INFO 2022-12-28 14:06:37,340 [root:calculate_rais.py:calculate_rais:21]
+Calculating OGRS3
+
+INFO 2022-12-28 14:07:18,310 [root:calculate_rais.py:calculate_rais:23]
+Calculating VPR-AI
+
+INFO 2022-12-28 14:07:30,075 [root:calculate_rais.py:calculate_rais:25]
+Calculating FTA
+
