@@ -44,7 +44,8 @@ def count_year_range(df: pd.DataFrame, start_year: int, end_year:int):
     return year_df
 
 
-if __name__ == '__main__':
-    offense_counts = init_offence_counting(start_year=2000, window=3)
-    first_df = offense_counts(year=2000)
-    second_df = offense_counts(year=2001)
+# EXAMPLE USAGE
+# if __name__ == '__main__':
+#     offense_counts = init_offence_counting(start_year=2000, window=3)
+#     first_df = offense_counts(year=2000)
+#     second_df = offense_counts(year=2001)
