@@ -25,7 +25,7 @@ def init_offence_counting(start_year: int, window: int):
 
 
 def count_year_range(df: pd.DataFrame, start_year: int, end_year:int):
-    groups = ['def.gender', 'def.race', 'def.uid', 'offense_category']
+    groups = ['def.gender', 'def.race', 'def.dob', 'def.uid', 'offense_category']
     year_df = df[(df['calc.year'] >= start_year) & (df['calc.year'] < end_year)]
     year_df = year_df.groupby(groups).agg({'offense_category': 'count'})
     year_df = year_df.unstack(level=-1)
@@ -45,7 +45,7 @@ def count_year_range(df: pd.DataFrame, start_year: int, end_year:int):
 
 
 # EXAMPLE USAGE
-# if __name__ == '__main__':
-#     offense_counts = init_offence_counting(start_year=2000, window=3)
-#     first_df = offense_counts(year=2000)
-#     second_df = offense_counts(year=2001)
+if __name__ == '__main__':
+    offense_counts = init_offence_counting(start_year=2000, window=3)
+    first_df = offense_counts(year=2000)
+    second_df = offense_counts(year=2001)
