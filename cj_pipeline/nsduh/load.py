@@ -11,7 +11,9 @@ def read_txt(year: int, max_rows: int) -> pd.DataFrame:
     kwargs = {}
     if max_rows > 0:
         kwargs['nrows'] = max_rows
-    df = pd.read_csv(year_data_path, sep='\t', usecols=get_variables(), **kwargs)
+    df = pd.read_csv(
+      year_data_path, sep='\t',
+      usecols=lambda c: c in get_variables(), **kwargs)
     df["Year"] = year
     return df
 

@@ -1,6 +1,6 @@
 from pathlib import Path
 import pandas as pd
-from tqdm import tqdm
+# from tqdm import tqdm
 
 from cj_pipeline.neulaw.load import load
 from cj_pipeline.config import logger
@@ -34,13 +34,26 @@ def count_year_range(df: pd.DataFrame, start_year: int, end_year:int):
     year_df["year_range"] = f"{start_year}-{end_year}"
     year_df = year_df.reset_index().rename(columns={df.index.name:'index'})
     year_df = year_df.rename(columns={'offense_category': 'index'})
+
+    # add age within the time-frame
+    mid_year = start_year + (end_year - start_year) // 2
+    year_df['age'] = pd.to_datetime(str(mid_year)) - pd.to_datetime(year_df['def.dob'])
+    year_df['age'] = year_df['age'].dt.days / 365.25
+    year_df = year_df[year_df['age'] > 10]  # likely data entry errors
+    year_df['age_cat'] = pd.cut(
+      year_df['age'], right=True,
+      bins=[0, 17, 30, 500], labels=['< 18', '18-30', '> 30'])
+    # TODO: standardise age calculation & binning accross files
+
     # convert to integer
     year_df["aggravated assault"] = year_df["aggravated assault"].astype(int)
+    year_df["drugs"] = year_df["drugs"].astype(int)
     year_df["robbery"] = year_df["robbery"].astype(int)
     year_df["sex offense"] = year_df['sex offense'].astype(int)
     year_df["simple assault"] = year_df["simple assault"].astype(int)
     year_df["dui"] = year_df["dui"].astype(int)
     year_df["property"] = year_df["property"].astype(int)
+
     return year_df
 
 
