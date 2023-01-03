@@ -88,27 +88,27 @@ def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
 def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
     def _offender_race(row):
         if row["c_mult_off_race_black"] == "(1) Yes":
-            return "black"
+            return "Black"
         elif row["c_mult_off_race_white"] == "(1) Yes":
-            return "white"
+            return "White"
         elif row["single_offender_race_end_2011_q4"] == "(1) White":
-            return "white"
+            return "White"
         elif row["single_offender_race_end_2011_q4"] == "(2) Black":
-            return "black"
+            return "Black"
         elif row["multiple_offender_race_of_most_end_2011_q4"] == "(1) Mostly White":
-            return "white"
+            return "White"
         elif row["multiple_offender_race_of_most_end_2011_q4"] == "(2) Mostly Black":
-            return "black"
+            return "Black"
         elif row["multiple_offender_race_of_most_start_2012_q1"] == "(1) Mostly White":
-            return "white"
+            return "White"
         elif row["multiple_offender_race_of_most_start_2012_q1"] == "(2) Mostly Black":
-            return "black"
+            return "Black"
         elif row["c_single_offender_race_white_start_2012_q1"] == "(1) Yes":
-            return "white"
+            return "White"
         elif row["c_single_offender_race_black_or_african_american_start_2012_q1"] == "(1) Yes":
-            return "black"
+            return "Black"
         else:
-            return "other"
+            return "Other"
     tqdm.pandas(desc='Processing Offender Race')
     df["offender_race"] = df.progress_apply(_offender_race, axis=1)
     return df
@@ -150,19 +150,19 @@ def _process_offender_age(df: pd.DataFrame) -> pd.DataFrame:
 def _process_offender_sex(df: pd.DataFrame) -> pd.DataFrame:
     def _offender_sex(row):
         if row["single_offender_sex"] == "(1) Male":
-            return "male"
+            return "Male"
         elif row["single_offender_sex"] == "(2) Female":
-            return "female"
+            return "Female"
         elif row["multiple_offenders_sex"] == "(1) All male":
-            return "male"
+            return "Male"
         elif row["multiple_offenders_sex"] == "(2) All female":
-            return "female"
+            return "Female"
         elif row["multiple_offenders_mostly_male_or_female"] == "(1) Mostly male":
-            return "male"
+            return "Male"
         elif row["multiple_offenders_mostly_male_or_female"] == "(2) Mostly female":
-            return "female"
+            return "Female"
         else:
-            return "other"
+            return "Other"
     tqdm.pandas(desc='Processing Offender Sex')
     df["offender_sex"] = df.progress_apply(_offender_sex, axis=1)
     return df

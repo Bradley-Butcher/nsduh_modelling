@@ -42,13 +42,20 @@ def process_catag7(df):
 
 def process_newrace2(df):
     df['NEWRACE2'] = df['NEWRACE2'].astype("int")
-    d = {
-        1: "White",
-        2: "Black",
-        7: "Hispanic",
-    }
-    df['NEWRACE2'] = df['NEWRACE2'].map(d)
-    df = df.dropna(subset=['NEWRACE2'], axis=0)
+    def _process(row):
+      if row['NEWRACE2'] == 1:
+        return 'White'
+      if row['NEWRACE2'] == 2:
+        return 'Black'
+      return 'Other'
+    df['NEWRACE2'] = df.apply(_process, axis=1)
+    # d = {
+    #     1: "White",
+    #     2: "Black",
+    #     7: "Hispanic",
+    # }
+    # df['NEWRACE2'] = df['NEWRACE2'].map(d)
+    # df = df.dropna(subset=['NEWRACE2'], axis=0)
     return df
 
 
@@ -90,6 +97,21 @@ def process_snysell(df):
     df = df.dropna(subset=['SNYSELL'], axis=0)
     return df
 
+def add_age(df):
+  def _process(row):
+    if row['CATAG7'] in (1, 2, 3):
+      return '< 18'
+    if row['CATAG7'] in (4, 5, 6):
+      return '18-30'
+    if row['CATAG6'] in (4, 5, 6):
+      return '> 30'
+    return None
+
+  df['Age'] = df.apply(_process, axis=1)
+  df = df.drop(columns=['CATAG6', 'CATAG7'])
+
+  return df
+
 variable_pp = {
     "BKDRUG": process_bkdrug,
     "IRMJFY": partial(process_drug, drug_col="IRMJFY"),
@@ -123,25 +145,8 @@ variable_names = {
     "SNYSELL": "Sold Drugs Past Year"
 }
 
-
 def get_variables():
     return list(variable_pp.keys())
-
-
-def add_age(df):
-  def _process(row):
-    if row['CATAG7'] in (1, 2, 3):
-      return '< 18'
-    if row['CATAG7'] in (4, 5, 6):
-      return '18-30'
-    if row['CATAG6'] in (4, 5, 6):
-      return '> 30'
-    return None
-
-  df['Age'] = df.apply(_process, axis=1)
-  df = df.drop(columns=['CATAG6', 'CATAG7'])
-
-  return df
 
 def preprocess(df: pd.DataFrame):
     for variable in get_variables():
