@@ -4,6 +4,7 @@ from tqdm import tqdm
 from cj_pipeline.config import logger
 import numpy as np
 
+
 def preprocess() -> pd.DataFrame:
     df = load()
     logger.info(f"Preprocessing data")
@@ -22,6 +23,7 @@ def preprocess() -> pd.DataFrame:
     logger.info("Summarizing")
     df = _summarize(df)
     return df
+
 
 def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
     def _crime_type(crime_type):
@@ -84,6 +86,7 @@ def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
     df["crime_recode"] = df["crime_type"].progress_apply(_crime_type)
     df = df[df["crime_recode"] != "other"]
     return df
+
 
 def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
     def _offender_race(row):
@@ -180,6 +183,7 @@ def _process_reported_to_police(df: pd.DataFrame) -> pd.DataFrame:
     df["reported_to_police"] = df["reported_to_police"].progress_apply(_reported_to_police)
     return df
 
+
 def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
     def _arrests_or_charges_made(row):
         if row["arrests_or_charges_made"] == "(1) Yes":
@@ -196,6 +200,7 @@ def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
     df["arrests_or_charges_made"] = df.progress_apply(_arrests_or_charges_made, axis=1)
     df = df[df["arrests_or_charges_made"].notnull()]
     return df
+
 
 def _summarize(df: pd.DataFrame) -> pd.DataFrame:
     agg = df.groupby(

@@ -1,5 +1,6 @@
 import pandas as pd
-
+from functools import reduce
+from cj_pipeline.config import logger
 
 # def process_bkdrug(df: pd.DataFrame, name: str):
 #     df[name] = df[name].astype("int")
@@ -113,11 +114,11 @@ def add_dui(df):
         return True
       if any(pd.notna(row[col]) and row[col] == 0 for col in base):
         return False
-      if any(pd.notna(row[col]) and row[col] in {2, 81, 91} for col in additional):
+      if any(pd.notna(row[col]) and row[col] in {2, 81, 91, 99} for col in additional):
         return False
-      if any(pd.notna(row[col]) and row[col] in {81, 99}
-             for col in base.difference({'DRVINMARJ2', 'DRVINDRG'})):
-        return False
+      # if any(pd.notna(row[col]) and row[col] in {81, 99}
+      #        for col in base.difference({'DRVINMARJ2', 'DRVINDRG'})):
+      #   return False
       return None
 
     df['dui'] = df.apply(_process, axis=1)
@@ -210,8 +211,8 @@ variable_pp = {
     "DRVALDR": process_integer,
     "DRVAONLY": process_integer,
     "DRVDONLY": process_integer,
-    "DRIVALD2": process_integer,
-    "DRVUNDALD": process_integer,
+    # "DRIVALD2": process_integer,
+    # "DRVUNDALD": process_integer,
 
     "YEYSELL": process_integer,
     "SNYSELL": process_integer,  # alt above transform
@@ -253,17 +254,35 @@ def get_variables():
 
 
 def preprocess(df: pd.DataFrame):
+    logger.info(f"Preprocessing data")
     for variable in get_variables():
         df = variable_pp[variable](df, name=variable)
+    logger.info(f"Preprocessing age")
     df = add_age(df)
+    logger.info(f"Preprocessing DUI")
     df = add_dui(df)
+    logger.info(f"Preprocessing drugs")
     df = add_drugs(df)
     # df = total_drug_use(df)
     df = df.rename(columns=variable_names)
 
-    groups = ["Race", "Age", "Sex"]
-    counts = df.groupby(groups).size().to_frame("count").reset_index()
-    # df = df.groupby(groups).agg(   # TODO: adapt to new pre-processing
+    logger.info(f"Computing arrest rates")
+    dfs, groups = [], ["Race", "Age", "Sex"]
+    dfs.append(df.groupby(groups).size().to_frame('count').reset_index())
+    dfs.append(df.groupby(groups).apply(
+      lambda g: g['dui_arrests'].sum() / g['dui'].sum()
+    ).to_frame('dui_arrest_rate').reset_index())
+    dfs.append(df.groupby(groups).apply(
+      lambda g: (g['drugs_arrest'] * g['drugs_use']).sum() / g['drugs_use'].sum()
+    ).to_frame('drugs_user_arrest_rate').reset_index())
+    dfs.append(df.groupby(groups).apply(
+      lambda g: (g['drugs_arrest'] * g['drugs_sold']).sum() / g['drugs_sold'].sum()
+    ).to_frame('drugs_seller_arrest_rate').reset_index())
+    dfs.append(df.groupby(groups).apply(
+      lambda g: g['drugs_arrest'].sum() / ((g['drugs_use'] + g['drugs_sold']) > 0).sum()
+    ).to_frame('drugs_any_arrest_rate').reset_index())
+    df = reduce(lambda df0, df1: pd.merge(df0, df1, on=groups), dfs)
+    # df = df.groupby(groups).agg(
     #     {
     #         "Marijuana Past Year": "sum",
     #         "Cocaine Past Year": "sum",
@@ -274,5 +293,5 @@ def preprocess(df: pd.DataFrame):
     #         "Arrested": "sum"
     #     }
     # )
-    df = df.merge(counts, on=groups)
+    # df = df.merge(counts, on=groups)
     return df
