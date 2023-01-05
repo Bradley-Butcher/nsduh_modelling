@@ -1,17 +1,42 @@
 import pandas as pd
 from pathlib import Path
 import re
-from cj_pipeline.config import logger
 from tqdm import tqdm
 import numpy as np
 import uuid
+from cj_pipeline.calculate_rais import calculate_rais
 
-def preprocess(df: pd.DataFrame) -> pd.DataFrame:
+from cj_pipeline.neulaw.load import load
+from cj_pipeline.config import logger
+
+base_path = Path(__file__).parents[2] / 'data'
+
+
+def init_rai_year_range(start_year: int, window: int):
+    logger.info("Preparing Offence Counting...")
+    df = load(base_path / 'neulaw')
+    df = df[df["calc.year"] >= start_year]
+    max_year = df["calc.year"].max()
+    def get_risk_scores(year: int):
+        if year > max_year:
+            raise ValueError(f"Year {year} is greater than max year {max_year}")
+        if year + window > max_year:
+            logger.warning(f"Year {year + window} is greater than max year {max_year}")
+        logger.info(f"Counting Offences from {year} to {year + window}")
+        count_df = preprocess(df, year, year + window)
+        rais = calculate_rais(count_df)
+        rais = rais[["def.uid", "nca", "nvca", "ogrs3", "vprai", "fta"]]
+        return rais
+    return get_risk_scores
+
+
+
+def preprocess(df: pd.DataFrame, year_start:int=-1, year_end: int=np.inf) -> pd.DataFrame:
     tqdm.pandas()
 
     logger.info("Starting Preprocessing..")
     logger.info("Converting generic operations")
-    df = _generic_preprocessing(df)
+    df = _generic_preprocessing(df, year_start=year_start, year_end=year_end)
 
     logger.info("Assign unique id")
     df = gen_unique_id(df)
@@ -53,9 +78,10 @@ def _conv_dates(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _generic_preprocessing(df: pd.DataFrame) -> pd.DataFrame:
+def _generic_preprocessing(df: pd.DataFrame, year_start: int, year_end:int) -> pd.DataFrame:
     df["off.code"] = df["off.code"].fillna(0).astype(int).astype(str)
     df["disp.literal"] = df["disp.literal"].fillna("UNKNOWN")
+    df = df[(df['calc.year'] >= year_start) & (df['calc.year'] < year_end)]
     return df
 
 
