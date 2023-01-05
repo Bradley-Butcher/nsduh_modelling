@@ -18,10 +18,12 @@ def init_offence_counting(start_year: int, window: int):
     def get_offence_counts(year: int):
         if year > max_year:
             raise ValueError(f"Year {year} is greater than max year {max_year}")
+        if year + window > max_year:
+            logger.warning(f"Year {year + window} is greater than max year {max_year}")
         logger.info(f"Counting Offences from {year} to {year + window}")
         count_df = count_year_range(harrod_county, year, year + window)
         return count_df
-    return get_offence_counts
+    return get_offence_counts, max_year
 
 
 def count_year_range(df: pd.DataFrame, start_year: int, end_year:int):
