@@ -30,7 +30,7 @@ def crime_assignment(start_year: int, window: int):
   offense_counts = init_offence_counting(start_year=start_year, window=window)
 
 
-  ## ncvs formula
+  ## example
   df = offense_counts(2000)  # TODO: delete
 
   # handle missing and special values
@@ -56,18 +56,30 @@ def crime_assignment(start_year: int, window: int):
     how='left', on=groups)
   population = population.rename(columns={'def.uid': 'population_size'})
 
+  crime_groups = ['offender_sex', 'offender_race', 'offender_age', 'crime_recode']
+  dui_col, drug_col = 'dui_arrest_rate', 'drugs_any_arrest_rate'   # TODO: alt drugs rate
+  crimes = nsduh.melt(
+    id_vars=[col for col in crime_groups if col != 'crime_recode'],
+    value_vars=[dui_col, drug_col],
+    var_name='crime_recode', value_name='arrest_rate')
+  crimes = crimes.replace({'crime_recode': {dui_col: 'dui', drug_col: 'drugs'}})
+  crimes = pd.concat([ncvs, crimes])  # fills non-matching columns with NaN
+
   # merge data
-  ncvs_groups = ['offender_sex', 'offender_race', 'offender_age', 'crime_recode']
   population = pd.merge(
-    population, ncvs, how='left', left_on=pop_groups, right_on=ncvs_groups)
-  population = population.drop(columns=ncvs_groups)  # de-duplicate columns
-  # TODO: merge in the nsduh data
+    population, crimes, how='left', left_on=pop_groups, right_on=crime_groups)
+  population = population.drop(columns=crime_groups)  # de-duplicate columns
 
   # preprocess arrest_rates where zero (differs between population and ncvs)
+  ## set zero sex offense arrest rate to mean reporting rate
   row_cond = {'def.gender': 'Female', 'offense_category': 'sex offense'}
   row_cond = subset_pd_bool(population, **row_cond)
   population.loc[row_cond, 'arrest_rate'] = population[row_cond]['reporting_rate'].mean()
-  ## set zero arrest rate to mean reporting rate
+  ## set zero dui arrest rate to the next closest category
+  row_cond = {'def.gender': 'Female', 'def.race': 'Black', 'offense_category': 'dui'}
+  zero_idx = subset_pd_bool(population, age_cat='< 18', **row_cond)
+  adj_idx = subset_pd_bool(population, age_cat='18-30', **row_cond)
+  population.loc[zero_idx, 'arrest_rate'] = population[adj_idx]['arrest_rate'].mean()
 
   # compute naive redistribution
   population['naive_count'] = lam * population['offense_count'] / population['arrest_rate']

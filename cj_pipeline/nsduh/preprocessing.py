@@ -62,7 +62,7 @@ def add_age(df):
       return '> 30'
     return None
 
-  df['Age'] = df.apply(_process, axis=1)
+  df['offender_age'] = df.apply(_process, axis=1)
   df = df.drop(columns=['CATAG6', 'CATAG7'])
   return df
 
@@ -207,7 +207,7 @@ def preprocess(min_year: int=-1, max_year: int=np.inf):
     df = df.rename(columns=variable_names)
 
     logger.info(f"Computing arrest rates")
-    dfs, groups = [], ["Race", "Age", "Sex"]
+    dfs, groups = [], ["offender_race", "offender_age", "offender_sex"]
     dfs.append(df.groupby(groups).size().to_frame('count').reset_index())
     dfs.append(df.groupby(groups).apply(
       lambda g: g['dui_arrests'].sum() / g['dui'].sum()
