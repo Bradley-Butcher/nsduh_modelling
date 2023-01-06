@@ -5,7 +5,7 @@ from cj_pipeline.config import logger
 import numpy as np
 
 
-def preprocess() -> pd.DataFrame:
+def init_ncvs_rate() -> pd.DataFrame:
     df = load()
     logger.info(f"Preprocessing data")
     logger.info(f"Processing crime type")
@@ -20,9 +20,18 @@ def preprocess() -> pd.DataFrame:
     df = _process_reported_to_police(df)
     logger.info("Processing arrest or charges made")
     df = _process_arrests_or_charges_made(df)
-    logger.info("Summarizing")
-    df = _summarize(df)
-    return df
+    years = df["ncvs_year"].unique()
+    def _summarize_year(start_year: int, end_year: int):
+        year_df = df.copy()
+        assert start_year < end_year, "Start year must be less than end year"
+        assert start_year in years, f"Start year {start_year} not in years {years}"
+        assert end_year in years, f"End year {end_year} not in years {years}"
+        year_df = year_df[year_df["ncvs_year"] >= start_year]
+        year_df = year_df[year_df["ncvs_year"] <= end_year]
+        logger.info(f"Summarizing {start_year} - {end_year}")
+        year_df = _summarize(year_df)
+        return year_df
+    return _summarize_year
 
 
 def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:

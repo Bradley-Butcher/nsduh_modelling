@@ -1,6 +1,6 @@
 import pandas as pd
 from cj_pipeline.ogrs3_coefs import get_ogrs3_conviction_coef, ogrs3_gender_coef
-from config import logger
+from cj_pipeline.config import logger
 from pathlib import Path
 from tqdm import tqdm
 import numpy as np

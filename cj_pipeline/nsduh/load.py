@@ -14,10 +14,10 @@ def read_txt(year: int, max_rows: int) -> pd.DataFrame:
     df = pd.read_csv(
       year_data_path, sep='\t',
       usecols=lambda c: c in get_variables(), **kwargs)
-    df["Year"] = year
+    df["csv_year"] = year
     return df
 
 
 def load_nsduh(max_rows: int = -1) -> pd.DataFrame:
     df = pd.concat([read_txt(year, max_rows) for year in years])
-    return preprocess(df)
+    return df
