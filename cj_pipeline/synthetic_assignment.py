@@ -7,12 +7,13 @@
 
 # Assign unobserved offenses, based on their criminal activity
 
-
-import pandas as pd
-from cj_pipeline.neulaw.assignment_preprocessing import init_offence_counting
-
+import os
 import warnings  # TODO: why subset_pd raises .iteritems() -> .items() warning?
 warnings.filterwarnings('ignore')
+
+import pandas as pd
+from collections import Counter
+from cj_pipeline.neulaw.assignment_preprocessing import init_offence_counting
 
 
 NEULAW_GROUP = ['def.gender', 'def.race', 'age_cat', 'offense_category']
@@ -39,6 +40,12 @@ def neulaw_preprocessing(df: pd.DataFrame) -> pd.DataFrame:
     id_vars=df.columns.difference(categories), value_vars=categories,
     var_name='offense_category', value_name='offense_count')
 
+  # validate the dataframe
+  n_duplicates = df.groupby(NEULAW_GROUP).apply(
+    lambda g: len(g) != g['def.uid'].nunique()).sum()
+  if n_duplicates > 0:  # some group has multiple entries per individual
+    raise RuntimeError('Duplicated entries after `pd.melt` of NEULAW.')
+
   return df
 
 
@@ -56,10 +63,10 @@ def neulaw_population_stats(df: pd.DataFrame) -> pd.DataFrame:
   return population
 
 
-def ncvs_nsduh_crime_stats(drug_col: str) -> pd.DataFrame:
+def ncvs_nsduh_crime_stats(data_path: str, drug_col: str) -> pd.DataFrame:
   dui_col = 'dui_arrest_rate'
-  ncvs = pd.read_csv('data/processed/ncvs.csv')  # TODO: add window param
-  nsduh = pd.read_csv('data/processed/nsduh.csv')  # TODO: add window param
+  ncvs = pd.read_csv(os.path.join(data_path, 'ncvs.csv'))  # TODO: add window param
+  nsduh = pd.read_csv(os.path.join(data_path, 'nsduh.csv'))  # TODO: add window param
 
   crimes = nsduh.melt(
     id_vars=[col for col in CRIMES_GROUP if col != 'crime_recode'],
@@ -89,8 +96,8 @@ def population_stats_preprocessing(population: pd.DataFrame) -> pd.DataFrame:
 
 
 def crime_assignment(
-    start_year: int, window: int, lam: float = 1.0, omega: float = 1.0):
-  # lam, omega, start_year, window = 1.0, 1.0, 2000, 3
+    data_path: str, start_year: int, window: int,
+    lam: float = 1.0, omega: float = 1.0, drug_col: str = 'drugs_any_arrest_rate'):
   offense_counts, max_year = init_offence_counting(start_year=start_year, window=window)
 
   # neulaw arrest statistics for given time-frame
@@ -98,8 +105,8 @@ def crime_assignment(
   df = neulaw_preprocessing(df)
   population = neulaw_population_stats(df)
 
-  # population crime statistics  # TODO: play with different `drug_col` choices
-  crimes = ncvs_nsduh_crime_stats(drug_col='drugs_any_arrest_rate')
+  # population crime statistics  # TODO: vary `drug_col`
+  crimes = ncvs_nsduh_crime_stats(data_path=data_path, drug_col=drug_col)
 
   # merge data
   population = pd.merge(
@@ -110,13 +117,43 @@ def crime_assignment(
   population = population_stats_preprocessing(population)
 
   # compute naive redistribution
-  population['naive_count'] = population['offense_count'] / population['arrest_rate']
-  population['naive_count'] -= population['offense_count']  # -> total unobserved crimes
-  population['naive_count'] *= lam / population['population_size']
+  population['total_crimes'] = lam * population['offense_count'] / population['arrest_rate']
+  population['unobserved_crimes'] = population['total_crimes'] - population['offense_count']
+  population['unobserved_per_person'] = population['unobserved_crimes'] / population['population_size']
 
   # merge in the counts into the original
   df = pd.merge(
-    df, population[NEULAW_GROUP + ['naive_count']], how='left', on=NEULAW_GROUP)
-  df['crime_weight'] = df['naive_count'] + omega * df['offense_count']
+    df, population[NEULAW_GROUP + ['unobserved_per_person', 'unobserved_crimes']],
+    how='left', on=NEULAW_GROUP)
+  df['crime_weight'] = df['unobserved_per_person'] + omega * df['offense_count']
 
+  # sampling code  # TODO: re-run with different seeds?!
+  def _sample(group):
+    if group['crime_weight'].sum() <= 0.0:
+      return None  # no crimes of this type (happens for some < 18 categories
+
+    samples = group.sample(
+      n=int(group['unobserved_crimes'].mean()),
+      replace=True,
+      weights=group['crime_weight']
+    )
+
+    return list(Counter(samples['def.uid']).items())
+    # return list(samples['def.uid'])
+
+  samples = df.groupby(NEULAW_GROUP).apply(_sample).to_frame('def.uid').reset_index()
+  samples = samples[samples['def.uid'].notna()]  # remove categories w/o samples
+  samples = samples.explode('def.uid')
+  samples['offense_unobserved'] = samples['def.uid'].str[1]
+  samples['def.uid'] = samples['def.uid'].str[0]
+
+  df = pd.merge(df, samples, how='left', on=NEULAW_GROUP + ['def.uid'])
+  df['offense_unobserved'] = df['offense_unobserved'].fillna(0).astype('int')
+
+  return df  # TODO: decide what to return / refactor
+
+
+if __name__ == "__main__":
+  data_path = os.path.join(os.getcwd(), '..', 'data', 'processed')
+  crime_assignment(data_path=data_path, start_year=2000, window=3)
 
