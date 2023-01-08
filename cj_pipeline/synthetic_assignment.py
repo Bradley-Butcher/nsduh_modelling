@@ -96,7 +96,7 @@ def population_stats_preprocessing(population: pd.DataFrame) -> pd.DataFrame:
 
 
 def crime_assignment(
-    data_path: str, start_year: int, window: int,
+    data_path: str, start_year: int, window: int,  # TODO: vary `drug_col`
     lam: float = 1.0, omega: float = 1.0, drug_col: str = 'drugs_any_arrest_rate'):
   offense_counts, max_year = init_offence_counting(start_year=start_year, window=window)
 
@@ -105,7 +105,7 @@ def crime_assignment(
   df = neulaw_preprocessing(df)
   population = neulaw_population_stats(df)
 
-  # population crime statistics  # TODO: vary `drug_col`
+  # population crime statistics
   crimes = ncvs_nsduh_crime_stats(data_path=data_path, drug_col=drug_col)
 
   # merge data
