@@ -1,37 +1,48 @@
-from cj_pipeline.ncvs.load import load
 import pandas as pd
 from tqdm import tqdm
 from cj_pipeline.config import logger
 import numpy as np
 
 
-def init_ncvs_rate() -> pd.DataFrame:
-    df = load()
-    logger.info(f"Preprocessing data")
-    logger.info(f"Processing crime type")
-    df = _process_crime_type(df)
-    logger.info(f"Processing offender race")
-    df = _process_offender_race(df)
-    logger.info("Processing offender age")
-    df = _process_offender_age(df)
-    logger.info("Processing offender sex")
-    df = _process_offender_sex(df)
-    logger.info("Processing reported to police")
-    df = _process_reported_to_police(df)
-    logger.info("Processing arrest or charges made")
-    df = _process_arrests_or_charges_made(df)
-    years = df["ncvs_year"].unique()
-    def _summarize_year(start_year: int, end_year: int):
-        year_df = df.copy()
-        assert start_year < end_year, "Start year must be less than end year"
-        assert start_year in years, f"Start year {start_year} not in years {years}"
-        assert end_year in years, f"End year {end_year} not in years {years}"
-        year_df = year_df[year_df["ncvs_year"] >= start_year]
-        year_df = year_df[year_df["ncvs_year"] <= end_year]
-        logger.info(f"Summarizing {start_year} - {end_year}")
-        year_df = _summarize(year_df)
-        return year_df
-    return _summarize_year
+def preprocess(df: pd.DataFrame) -> pd.DataFrame:
+  logger.info(f"Preprocessing data")
+  logger.info(f"Processing crime type")
+  df = _process_crime_type(df)
+  logger.info(f"Processing offender race")
+  df = _process_offender_race(df)
+  logger.info("Processing offender age")
+  df = _process_offender_age(df)
+  logger.info("Processing offender sex")
+  df = _process_offender_sex(df)
+  logger.info("Processing reported to police")
+  df = _process_reported_to_police(df)
+  logger.info("Processing arrest or charges made")
+  df = _process_arrests_or_charges_made(df)
+  return df
+
+
+def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
+  years = df["ncvs_year"].unique()
+  if start_year not in years:
+    raise ValueError(f'Start year {start_year} not in years')
+  if end_year not in years:
+    raise ValueError(f'End year {end_year} not in years')
+
+  year_df = df.query(f'{start_year} <= ncvs_year <= {end_year}')
+  year_df = _summarize(year_df)
+  return year_df
+  # def _summarize_year(
+  #     start_year: int = years.min(), end_year: int = years.max()
+  # ) -> pd.DataFrame:
+  #   year_df = df.copy()
+  #   assert start_year < end_year, "Start year must be less than end year"
+  #   assert start_year in years, f"Start year {start_year} not in years {years}"
+  #   assert end_year in years, f"End year {end_year} not in years {years}"
+  #   year_df = year_df[year_df["ncvs_year"] >= start_year]
+  #   year_df = year_df[year_df["ncvs_year"] <= end_year]
+  #   logger.info(f"Summarizing {start_year} - {end_year}")
+  #   year_df = _summarize(year_df)
+  #   return year_df
 
 
 def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
@@ -212,23 +223,14 @@ def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _summarize(df: pd.DataFrame) -> pd.DataFrame:
-    agg = df.groupby(
-        [
-            "crime_recode",
-            "offender_age",
-            "offender_sex",
-            "offender_race"
-        ]).agg({
-        "arrests_or_charges_made": "mean",
-        "reported_to_police": "mean",
-        }).reset_index()
-    count = df.groupby(
-        [
-            "crime_recode",
-            "offender_age",
-            "offender_sex",
-            "offender_race"
-        ]).size().to_frame("count").reset_index()
-    agg.rename(columns={"arrests_or_charges_made": "arrest_rate", "reported_to_police": "reporting_rate"}, inplace=True)
-    df = pd.merge(agg, count, on=["crime_recode", "offender_age", "offender_sex", "offender_race"])
+    groups = ["crime_recode", "offender_age", "offender_sex", "offender_race"]
+    agg = df.groupby(groups).agg(
+      {"arrests_or_charges_made": "mean", "reported_to_police": "mean",}
+    ).reset_index()
+    count = df.groupby(groups).size().to_frame("count").reset_index()
+    agg.rename(
+      columns={"arrests_or_charges_made": "arrest_rate", "reported_to_police": "reporting_rate"},
+      inplace=True
+    )
+    df = pd.merge(agg, count, on=groups)
     return df

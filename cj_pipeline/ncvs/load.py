@@ -14,6 +14,7 @@ def rename(df: pd.DataFrame) -> pd.DataFrame:
     # drop everything except that just renamed
     return df
 
+
 def load() -> pd.DataFrame:
     logger.info(f"Loading data from {data_path}")
     df = pd.read_csv(data_path / 'ncvs.csv')
