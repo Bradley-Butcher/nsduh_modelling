@@ -22,7 +22,7 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
-  years = df["ncvs_year"].unique()
+  years = df['ncvs_year'].unique()
   if start_year not in years:
     raise ValueError(f'Start year {start_year} not in years')
   if end_year not in years:
@@ -229,7 +229,8 @@ def _summarize(df: pd.DataFrame) -> pd.DataFrame:
     ).reset_index()
     count = df.groupby(groups).size().to_frame("count").reset_index()
     agg.rename(
-      columns={"arrests_or_charges_made": "arrest_rate", "reported_to_police": "reporting_rate"},
+      columns={"arrests_or_charges_made": "arrest_rate",
+               "reported_to_police": "reporting_rate"},
       inplace=True
     )
     df = pd.merge(agg, count, on=groups)

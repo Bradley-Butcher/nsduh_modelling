@@ -3,8 +3,6 @@ from functools import reduce
 from cj_pipeline.config import logger
 import numpy as np
 
-# from cj_pipeline.nsduh.load import load_nsduh  # TODO: creates circular import dependency with load.py
-
 
 def process_catag(df, name):
   df[name] = df[name].astype("int")
@@ -259,9 +257,7 @@ def get_variables():
     return set(variable_pp.keys())
 
 
-def preprocess(df: pd.DataFrame, min_year: int = -1, max_year: int = np.inf):
-    # df = load_nsduh()  # TODO: creates circular import dependency with load.py
-    df = df[(df['YEAR'] >= min_year) & (df['YEAR'] <= max_year)]
+def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"Preprocessing data")
     for variable in get_variables():
         if variable in df.columns:
@@ -277,24 +273,36 @@ def preprocess(df: pd.DataFrame, min_year: int = -1, max_year: int = np.inf):
     logger.info(f"Preprocessing drugs")
     df = add_drugs(df)
     df = df.rename(columns=variable_names)
-
-    # TODO: split into general preprocessing (above) and date specific (below)
-    #  to save computation? (the general can be already applied at load_nsduh)
-
-    logger.info(f"Computing arrest rates")
-    dfs, groups = [], ["offender_race", "offender_age", "offender_sex"]
-    dfs.append(df.groupby(groups).size().to_frame('count').reset_index())
-    dfs.append(df.groupby(groups).apply(
-      lambda g: g['dui_arrests'].sum() / g['dui'].sum()
-    ).to_frame('dui_arrest_rate').reset_index())
-    dfs.append(df.groupby(groups).apply(
-      lambda g: (g['drugs_arrest'] * g['drugs_use']).sum() / g['drugs_use'].sum()
-    ).to_frame('drugs_user_arrest_rate').reset_index())
-    dfs.append(df.groupby(groups).apply(
-      lambda g: (g['drugs_arrest'] * g['drugs_sold']).sum() / g['drugs_sold'].sum()
-    ).to_frame('drugs_seller_arrest_rate').reset_index())
-    dfs.append(df.groupby(groups).apply(
-      lambda g: g['drugs_arrest'].sum() / ((g['drugs_use'] + g['drugs_sold']) > 0).sum()
-    ).to_frame('drugs_any_arrest_rate').reset_index())
-    df = reduce(lambda df0, df1: pd.merge(df0, df1, on=groups), dfs)
     return df
+
+
+def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
+  years = df['YEAR'].unique()
+  if start_year not in years:
+    raise ValueError(f'Start year {start_year} not in years')
+  if end_year not in years:
+    raise ValueError(f'End year {end_year} not in years')
+
+  year_df = df.query(f'{start_year} <= YEAR <= {end_year}')
+  year_df = _summarize(year_df)
+  return year_df
+
+
+def _summarize(df: pd.DataFrame) -> pd.DataFrame:
+  logger.info(f"Computing arrest rates")
+  dfs, groups = [], ["offender_race", "offender_age", "offender_sex"]
+  dfs.append(df.groupby(groups).size().to_frame('count').reset_index())
+  dfs.append(df.groupby(groups).apply(
+    lambda g: g['dui_arrests'].sum() / g['dui'].sum()
+  ).to_frame('dui_arrest_rate').reset_index())
+  dfs.append(df.groupby(groups).apply(
+    lambda g: (g['drugs_arrest'] * g['drugs_use']).sum() / g['drugs_use'].sum()
+  ).to_frame('drugs_user_arrest_rate').reset_index())
+  dfs.append(df.groupby(groups).apply(
+    lambda g: (g['drugs_arrest'] * g['drugs_sold']).sum() / g['drugs_sold'].sum()
+  ).to_frame('drugs_seller_arrest_rate').reset_index())
+  dfs.append(df.groupby(groups).apply(
+    lambda g: g['drugs_arrest'].sum() / ((g['drugs_use'] + g['drugs_sold']) > 0).sum()
+  ).to_frame('drugs_any_arrest_rate').reset_index())
+  df = reduce(lambda df0, df1: pd.merge(df0, df1, on=groups), dfs)
+  return df

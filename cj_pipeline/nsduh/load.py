@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from cj_pipeline.nsduh.preprocessing import get_variables
+from cj_pipeline.nsduh.preprocess import get_variables
 
 data_path = Path(__file__).parents[2] / 'data' / 'nsduh'
 years = [2013, 2014, 2015, 2016, 2017, 2018, 2019]
@@ -15,7 +15,7 @@ def read_txt(year: int, max_rows: int) -> pd.DataFrame:
       year_data_path, sep='\t',
       usecols=lambda c: c in get_variables(), **kwargs)
     # df["csv_year"] = year  # TODO: why renamed?
-    df['YEAR'] = year  # TODO: temp reverted to match preprocessing.py
+    df['YEAR'] = year  # TODO: temp reverted to match preprocess.py
     return df
 
 
