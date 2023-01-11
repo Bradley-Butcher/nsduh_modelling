@@ -1,7 +1,6 @@
 import pandas as pd
 from functools import reduce
 from cj_pipeline.config import logger
-import numpy as np
 
 
 def process_catag(df, name):

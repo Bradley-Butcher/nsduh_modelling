@@ -225,7 +225,7 @@ def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
 def _summarize(df: pd.DataFrame) -> pd.DataFrame:
     groups = ["crime_recode", "offender_age", "offender_sex", "offender_race"]
     agg = df.groupby(groups).agg(
-      {"arrests_or_charges_made": "mean", "reported_to_police": "mean",}
+      {"arrests_or_charges_made": "mean", "reported_to_police": "mean"}
     ).reset_index()
     count = df.groupby(groups).size().to_frame("count").reset_index()
     agg.rename(

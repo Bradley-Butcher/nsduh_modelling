@@ -14,6 +14,8 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 from collections import Counter
 from cj_pipeline.neulaw.assignment_preprocessing import init_offence_counting
+from cj_pipeline.ncvs.preprocess import extract_years as ncvs_years
+from cj_pipeline.nsduh.preprocess import extract_years as nsduh_years
 
 
 NEULAW_GROUP = ['def.gender', 'def.race', 'age_cat', 'offense_category']
@@ -156,4 +158,3 @@ def crime_assignment(
 if __name__ == "__main__":
   data_path = os.path.join(os.getcwd(), '..', 'data', 'processed')
   crime_assignment(data_path=data_path, start_year=2000, window=3)
-
