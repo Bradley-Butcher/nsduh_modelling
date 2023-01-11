@@ -22,27 +22,15 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
-  years = df['ncvs_year'].unique()
-  if start_year not in years:
-    raise ValueError(f'Start year {start_year} not in years')
-  if end_year not in years:
-    raise ValueError(f'End year {end_year} not in years')
+  # years = df['ncvs_year'].unique()  # TODO: uncomment
+  # if start_year not in years:
+  #   raise ValueError(f'Start year {start_year} not in years')
+  # if end_year not in years:
+  #   raise ValueError(f'End year {end_year} not in years')
 
   year_df = df.query(f'{start_year} <= ncvs_year <= {end_year}')
   year_df = _summarize(year_df)
   return year_df
-  # def _summarize_year(
-  #     start_year: int = years.min(), end_year: int = years.max()
-  # ) -> pd.DataFrame:
-  #   year_df = df.copy()
-  #   assert start_year < end_year, "Start year must be less than end year"
-  #   assert start_year in years, f"Start year {start_year} not in years {years}"
-  #   assert end_year in years, f"End year {end_year} not in years {years}"
-  #   year_df = year_df[year_df["ncvs_year"] >= start_year]
-  #   year_df = year_df[year_df["ncvs_year"] <= end_year]
-  #   logger.info(f"Summarizing {start_year} - {end_year}")
-  #   year_df = _summarize(year_df)
-  #   return year_df
 
 
 def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
@@ -100,11 +88,11 @@ def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
             ]:
             return "property"
         else:
-            return "other"
+            return None
 
     tqdm.pandas(desc='Processing Crime Type')
-    df["crime_recode"] = df["crime_type"].progress_apply(_crime_type)
-    df = df[df["crime_recode"] != "other"]
+    df['crime_recode'] = df['crime_type'].progress_apply(_crime_type)
+    df = df.dropna(subset=['crime_recode'], axis=0)
     return df
 
 
@@ -131,7 +119,7 @@ def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
         elif row["c_single_offender_race_black_or_african_american_start_2012_q1"] == "(1) Yes":
             return "Black"
         else:
-            return "Other"
+            return None
     tqdm.pandas(desc='Processing Offender Race')
     df["offender_race"] = df.progress_apply(_offender_race, axis=1)
     return df
@@ -139,32 +127,49 @@ def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
 
 def _process_offender_age(df: pd.DataFrame) -> pd.DataFrame:
     def _offender_age(row):
+        low, mid, high = '< 18', '18-29', '> 29'
         if row["single_offender_age"] == "(1) Under 12":
-            return "< 18"
+            return low
         elif row["single_offender_age"] == "(2) 12-14":
-            return "< 18"
+            return low
         elif row["single_offender_age"] == "(3) 15-17":
-            return "< 18"
+            return low
         elif row["single_offender_age"] == "(4) 18-20":
-            return "18-30"
+            return mid
         elif row["single_offender_age"] == "(5) 21-29":
-            return "18-30"
+            return mid
         elif row["single_offender_age"] == "(6) 30+":
-            return "> 30"
-        elif (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"]) and row["multiple_offenders_age_of_oldest"] == "(1) Under 12":
-            return "< 18"
-        elif (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"]) and row["multiple_offenders_age_of_oldest"] == "(2) 12-14":
-            return "< 18"
-        elif (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"]) and row["multiple_offenders_age_of_oldest"] == "(3) 15-17":
-            return "< 18"
-        elif (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"]) and row["multiple_offenders_age_of_oldest"] == "(4) 18-20":
-            return "18-30"
-        elif (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"]) and row["multiple_offenders_age_of_oldest"] == "(5) 21-29":
-            return "18-30"
-        elif (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"]) and row["multiple_offenders_age_of_oldest"] == "(6) 30+":
-            return "> 30"
+            return high
+        elif (
+            (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"])
+            and row["multiple_offenders_age_of_oldest"] == "(1) Under 12"
+        ):
+            return low
+        elif (
+            (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"])
+            and row["multiple_offenders_age_of_oldest"] == "(2) 12-14"
+        ):
+            return low
+        elif ((row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"])
+              and row["multiple_offenders_age_of_oldest"] == "(3) 15-17"):
+            return low
+        elif (
+            (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"])
+            and row["multiple_offenders_age_of_oldest"] == "(4) 18-20"
+        ):
+            return mid
+        elif (
+            (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"])
+            and row["multiple_offenders_age_of_oldest"] == "(5) 21-29"
+        ):
+            return mid
+        elif (
+            (row["multiple_offenders_age_of_oldest"] == row["multiple_offenders_age_of_youngest"])
+            and row["multiple_offenders_age_of_oldest"] == "(6) 30+"
+        ):
+            return high
         else:
-            return "other"
+            return None
     tqdm.pandas(desc='Processing Offender Age')
     df["offender_age"] = df.progress_apply(_offender_age, axis=1)
     return df
@@ -185,7 +190,7 @@ def _process_offender_sex(df: pd.DataFrame) -> pd.DataFrame:
         elif row["multiple_offenders_mostly_male_or_female"] == "(2) Mostly female":
             return "Female"
         else:
-            return "Other"
+            return None
     tqdm.pandas(desc='Processing Offender Sex')
     df["offender_sex"] = df.progress_apply(_offender_sex, axis=1)
     return df
@@ -215,7 +220,7 @@ def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
         elif row["reported_to_police"] == 0:
             return 0
         else:
-            return np.nan
+            return None
     tqdm.pandas(desc='Processing arrests or charges made')
     df["arrests_or_charges_made"] = df.progress_apply(_arrests_or_charges_made, axis=1)
     df = df[df["arrests_or_charges_made"].notnull()]

@@ -3,25 +3,115 @@ from functools import reduce
 from cj_pipeline.config import logger
 
 
-def process_catag(df, name):
-  df[name] = df[name].astype("int")
-  df = df.dropna(subset=[name], axis=0)
-  return df
+def _nan_value(entry):
+  return entry if pd.notna(entry) else None
 
 
-# def process_newrace2(df, name):
-#     df[name] = df[name].astype("int")
-#
-#     def _process(row):
-#       if row[name] == 1:
-#         return 'White'
-#       if row[name] == 2:
-#         return 'Black'
-#       return 'Other'
-#
-#     df[name] = df.apply(_process, axis=1)
-#     df = df.dropna(subset=[name], axis=0)
-#     return df
+def _categorical_to_object_col(df, name):
+  if df[name].dtype.name == 'category':
+    df[name] = df[name].astype(object)
+
+
+def process_newrace2(df, name):
+  df[name].replace('NonHisp White', 1, inplace=True)
+  df[name].replace('NonHisp Black/Afr Am', 2, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_catag3(df, name):
+  df.replace({
+    name: {
+      '12-17 Years Old': 1,
+      '18-25 Years Old': 2,
+      '26-34 Years Old': 3,
+      '35-49 Years Old': 4,
+      '50 or Older': 5
+    }
+  }, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_dui_like(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace('Yes', 1, inplace=True)
+  df[name].replace(
+    regex=[
+      'No', 'No .*', 'LEGITIMATE SKIP', 'LEGITIMATE SKIP Logically assigned',
+      'NEVER USED ALCOHOL OR DRUGS', 'NEVER USED ALCOHOL OR DRUGS Logically assigned'],
+    value=2, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_drug_sell(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace(
+    ['1 or 2 times', '3 to 5 times', '6 to 9 times', '10 or more times'],
+    2, inplace=True)
+  df[name].replace(
+    ['0 times', 'LEGITIMATE SKIP', 'LEGITIMATE SKIP Logically assigned'],
+    1, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_bkdrug(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace(['Yes', 'Yes LOGICALLY ASSIGNED'], 1, inplace=True)
+  df[name].replace(['No', 'LEGITIMATE SKIP'], 2, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_bkdrvinf(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace(['Yes', 'Yes LOGICALLY ASSIGNED'], 1, inplace=True)
+  df[name].replace(['No', 'LEGITIMATE SKIP'], 2, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_drugmon(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace(inplace=True, regex={
+    'Used within the past month .*': 1, 'Did not use in the past month .*': 0
+  })
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+
+def process_hallrec(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace([
+    'Within the past 30 days', 'Used in the past 30 days LOGICALLY ASSIGNED'],
+    1, inplace=True)
+  df[name].replace([
+    'NEVER USED HALLUCINOGENS',
+    'More than 30 days ago but within the past 12 mos',
+    'Used >30 days ago but within pst 12 mos LOG ASSN',
+    'More than 12 months ago'],
+    0, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+  # [# 'NEVER USED HALLUCINOGENS',
+  #  # 'More than 12 months ago',
+  #  # 'More than 30 days ago but within the past 12 mos',
+  #  # 'Within the past 30 days',
+  #  'BLANK (NO ANSWER)',
+  #  'Used at some point in lifetime LOG ASSN',
+  #  'Used at some point in the past 12 mos LOG ASSN',
+  #  'REFUSED',
+  #  # 'Used >30 days ago but within pst 12 mos LOG ASSN',
+  #  # 'Used in the past 30 days LOGICALLY ASSIGNED']
+
 
 
 def process_eduhighcat(df, name):
@@ -39,7 +129,7 @@ def process_eduhighcat(df, name):
 
 
 def process_irsex(df, name):
-    df[name] = df[name].astype("int")
+    # df[name] = df[name].astype("int")  # some entries already coded as below
     d = {
         1: "Male",
         2: "Female"
@@ -52,10 +142,6 @@ def process_irsex(df, name):
 def process_integer(df, name):
   df[name] = df[name].astype(pd.Int32Dtype())  # 'int' doesn't handle NaNs
   return df
-
-
-def _nan_value(entry):
-  return entry if pd.notna(entry) else None
 
 
 def add_race(df):
@@ -97,6 +183,7 @@ def add_age(df):
     return None
 
   df['offender_age'] = df.apply(_process, axis=1)
+  df = df.dropna(subset=['offender_age'], axis=0)
   df = df.drop(columns=['CATAG3', 'CATAG6', 'CATAG7'], errors='ignore')
   return df
 
@@ -189,7 +276,7 @@ def add_drugs(df):
         return True
       if any(_nan_value(row[col]) in {1, 7} for col in grp1):
         return True
-      if any(_nan_value(row[col]) == 0 for col in grp0):
+      if any(_nan_value(row[col]) == 0 for col in grp0.union(grp1)):
         return False
       return None
     df['drugs_use'] = df.apply(_process, axis=1)
@@ -203,52 +290,46 @@ def add_drugs(df):
 
 
 variable_pp = {  # checking presence in 1992
-    "CATAG3": process_catag,
-    "CATAG6": process_catag, # not present
-    "CATAG7": process_catag, # not present
-    # "NEWRACE2": process_newrace2, # not present
-    "NEWRACE2": process_integer,
+    "CATAG3": process_catag3,
+    # "CATAG6": process_integer, # not present
+    # "CATAG7": process_integer, # not present
+    "NEWRACE2": process_newrace2, # not present
     "IRRACE": process_integer,
     "IRSEX": process_irsex, # present
-    "BKDRUG": process_integer,  # present
-    "BKDRVINF": process_integer, # present
+    "BKDRUG": process_bkdrug,  # present
+    "BKDRVINF": process_bkdrvinf, # present
     "DRVINALCO2": process_integer, # not present. alt: DRUNKDRV
     "DRVINMARJ2": process_integer, # not present
     "DRVINDRG": process_integer, # not present. potential alt: DFDRVIJN
     "DRVINDROTMJ": process_integer, # not present
     "DRVINALDRG": process_integer, # not present. potential alt: DRDRVUN
-    "DRVALDR": process_integer, # not present
-    "DRVAONLY": process_integer, # not present
-    "DRVDONLY": process_integer, # not present
-    "YEYSELL": process_integer, # not present. potential alt: SOLDDRUG
-    "SNYSELL": process_integer,  # not present. potential alt: SOLDDRUG
-    "MRJMON": process_integer, # present
-    "COCMON": process_integer, # present
-    "CRKMON": process_integer, # present
-    "HERMON": process_integer, # present
-    "HALLUCMON": process_integer, # not present
-    "LSDMON": process_integer, # not present
-    "PCPMON": process_integer, # present
-    "ECSTMOMON": process_integer, # not present
-    "DAMTFXMON": process_integer, # not present
-    "KETMINMON": process_integer, # not present
-    "SALVIAMON": process_integer, # not present
-    "INHALMON": process_integer, # not present
-    "METHAMMON": process_integer, # not present
+    "DRVALDR": process_dui_like, # not present
+    "DRVAONLY": process_dui_like, # not present
+    "DRVDONLY": process_dui_like, # not present
+    "YEYSELL": process_drug_sell, # not present. potential alt: SOLDDRUG
+    "SNYSELL": process_drug_sell,  # not present. potential alt: SOLDDRUG
+    "MRJMON": process_drugmon, # present
+    "COCMON": process_drugmon, # present
+    "CRKMON": process_drugmon, # present
+    "HERMON": process_drugmon, # present
+    "HALLUCMON": process_drugmon, # not present
+    "LSDMON": process_drugmon, # not present
+    "PCPMON": process_drugmon, # present
+    "ECSTMOMON": process_drugmon, # not present
+    "DAMTFXMON": process_drugmon, # not present
+    "KETMINMON": process_drugmon, # not present
+    "SALVIAMON": process_drugmon, # not present
+    "INHALMON": process_drugmon, # not present
+    "METHAMMON": process_drugmon, # not present
     "YEAR": process_integer, # present
 
-    "DRUNKDRV": process_integer,
-    "DRDRVUN": process_integer,
-    "DRIVEAL": process_integer,
-    "DRIVEDR": process_integer,
+    "DRUNKDRV": process_integer,  # process_dui_like
+    "DRDRVUN": process_integer,  # process_dui_like
+    "DRIVEAL": process_dui_like,
+    "DRIVEDR": process_dui_like,
     "BKOTHOFF": process_integer,
     "SOLDDRUG": process_integer,
-    "HALLREC": process_integer,
-}
-variable_names = {
-    # "NEWRACE2": "offender_race",
-    "EDUHIGHCAT": "Education",
-    "IRSEX": "offender_sex",
+    "HALLREC": process_hallrec,
 }
 
 
@@ -271,16 +352,21 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     df = add_dui(df)
     logger.info(f"Preprocessing drugs")
     df = add_drugs(df)
-    df = df.rename(columns=variable_names)
+
+    df = df.rename(columns={
+      # "NEWRACE2": "offender_race",
+      "EDUHIGHCAT": "Education",
+      "IRSEX": "offender_sex",
+    })
     return df
 
 
 def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
-  years = df['YEAR'].unique()
-  if start_year not in years:
-    raise ValueError(f'Start year {start_year} not in years')
-  if end_year not in years:
-    raise ValueError(f'End year {end_year} not in years')
+  # years = df['YEAR'].unique()  # TODO: uncomment
+  # if start_year not in years:
+  #   raise ValueError(f'Start year {start_year} not in years')
+  # if end_year not in years:
+  #   raise ValueError(f'End year {end_year} not in years')
 
   year_df = df.query(f'{start_year} <= YEAR <= {end_year}')
   year_df = _summarize(year_df)

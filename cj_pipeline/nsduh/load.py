@@ -25,8 +25,7 @@ def read_nsduh(year: int, max_rows: int) -> pd.DataFrame:
         **kwargs
       )
 
-    # df["csv_year"] = year  # TODO: why renamed?
-    df['YEAR'] = year  # TODO: temp reverted to match preprocess.py
+    df['YEAR'] = year
     return df
 
 
