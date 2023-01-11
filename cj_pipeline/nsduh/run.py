@@ -8,4 +8,4 @@ if __name__ == "__main__":
     base_path = Path(__file__).parents[2] / 'data' / 'nsduh'
     nsduh = load_nsduh()
     nsduh = preprocess(nsduh)
-    # nsduh.to_csv(base_path.parent / "processed" / 'nsduh.csv', index=False)  # TODO: uncomment
+    nsduh.to_csv(base_path.parent / "processed" / 'nsduh.csv', index=False)
