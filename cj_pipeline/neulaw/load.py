@@ -12,10 +12,12 @@ def load(base_path: Path):
     logger.info(f"Done loading.")
     return hc
 
+
 def merge_offense_categories(base_path: Path, df: pd.DataFrame) -> pd.DataFrame:
     category_csv = pd.read_csv(base_path / 'neulaw_offensecat.csv')
     df = df.merge(category_csv, on='calc.detailed', how='left')
     return df
+
 
 def _load_hc(base_path: Path, sample_idxs: list[int] | None = None) -> pd.DataFrame:
     hc_path = base_path / 'hc.csv'
