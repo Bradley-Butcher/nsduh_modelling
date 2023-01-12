@@ -1,3 +1,4 @@
+import tqdm
 import pandas as pd
 from functools import reduce
 from cj_pipeline.config import logger
@@ -111,42 +112,27 @@ def process_hallrec(df, name):
     0, inplace=True)
   df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
   return process_integer(df, name)
-  # [# 'NEVER USED HALLUCINOGENS',
-  #  # 'More than 12 months ago',
-  #  # 'More than 30 days ago but within the past 12 mos',
-  #  # 'Within the past 30 days',
-  #  'BLANK (NO ANSWER)',
-  #  'Used at some point in lifetime LOG ASSN',
-  #  'Used at some point in the past 12 mos LOG ASSN',
-  #  'REFUSED',
-  #  # 'Used >30 days ago but within pst 12 mos LOG ASSN',
-  #  # 'Used in the past 30 days LOGICALLY ASSIGNED']
-
-
-
-def process_eduhighcat(df, name):
-    df[name] = df[name].astype("int")
-    d = {
-        1: "<High School",
-        2: "High School",
-        3: "Some College",
-        4: "College Graduate",
-        5: "12-17 years old",
-    }
-    df[name] = df[name].map(d)
-    df = df.dropna(subset=[name], axis=0)
-    return df
 
 
 def process_irsex(df, name):
-    # df[name] = df[name].astype("int")  # some entries already coded as below
-    d = {
-        1: "Male",
-        2: "Female"
-    }
-    df[name] = df[name].map(d)
-    df = df.dropna(subset=[name], axis=0)
-    return df
+  df[name].replace(1, 'Male', inplace=True)
+  df[name].replace(2, 'Female', inplace=True)
+  df = df.dropna(subset=[name], axis=0)
+  return df
+
+
+# def process_eduhighcat(df, name):
+#     df[name] = df[name].astype("int")  # likely not updated for stata
+#     d = {
+#         1: "<High School",
+#         2: "High School",
+#         3: "Some College",
+#         4: "College Graduate",
+#         5: "12-17 years old",
+#     }
+#     df[name] = df[name].map(d)
+#     df = df.dropna(subset=[name], axis=0)
+#     return df
 
 
 variable_pp = {  # checking presence in 1992
@@ -199,18 +185,10 @@ def get_variables():
 
 def add_race(df):
   def _process(row):
-    col = 'NEWRACE2'
-    if _nan_value(row[col]) == 1:
+    if _nan_value(row['NEWRACE2']) == 1 or _nan_value(row['IRRACE']) == 4:
       return 'White'
-    if _nan_value(row[col]) == 2:
+    if _nan_value(row['NEWRACE2']) == 2 or _nan_value(row['IRRACE']) == 3:
       return 'Black'
-
-    col = 'IRRACE'
-    if _nan_value(row[col]) == 3:
-      return 'Black'
-    if _nan_value(row[col]) == 4:
-      return 'White'
-
     return None
 
   df['offender_race'] = df.apply(_process, axis=1)
@@ -346,7 +324,7 @@ def add_drugs(df):
 
 def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"Preprocessing data")
-    for variable in get_variables():
+    for variable in tqdm.tqdm(get_variables()):
         if variable in df.columns:
             df = variable_pp[variable](df, name=variable)
         else:
@@ -368,7 +346,7 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def compute_arrest_rates(df: pd.DataFrame) -> pd.DataFrame:
+def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   groups = ['offender_race', 'offender_age', 'offender_sex', 'YEAR']
   spec = {
     'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
@@ -383,11 +361,13 @@ def compute_arrest_rates(df: pd.DataFrame) -> pd.DataFrame:
     x_col, y_col, smooth_col = 'YEAR', f'{var}_ar', f'{var}_sar'
     data = grouped.apply(spec[var]).to_frame(y_col).reset_index()
     inputs = data[x_col].to_numpy()[:, None]
-    weights = dfs[0]['count'] # grouped.size()
+    weights = dfs[0]['count']  # grouped.size()
 
     model = LinearRegression()
     model.fit(inputs, data[y_col], weights)
-    data[smooth_col] = model.predict(inputs)
+    smoothed = model.predict(inputs).clip(min=eps)
+    data[smooth_col] = smoothed
+
     dfs.append(data)
     # print(var, data[y_col].min(), data[smooth_col].min(), (data[y_col] - data[smooth_col]).min())
 
