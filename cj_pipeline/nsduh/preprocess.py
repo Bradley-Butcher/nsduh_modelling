@@ -1,6 +1,11 @@
 import pandas as pd
 from functools import reduce
 from cj_pipeline.config import logger
+from sklearn.linear_model import LinearRegression
+
+
+def _sdiv(a, b):
+  return a / b if b != 0 else 0
 
 
 def _nan_value(entry):
@@ -10,6 +15,11 @@ def _nan_value(entry):
 def _categorical_to_object_col(df, name):
   if df[name].dtype.name == 'category':
     df[name] = df[name].astype(object)
+
+
+def process_integer(df, name):
+  df[name] = df[name].astype(pd.Int32Dtype())  # 'int' doesn't handle NaNs
+  return df
 
 
 def process_newrace2(df, name):
@@ -139,9 +149,52 @@ def process_irsex(df, name):
     return df
 
 
-def process_integer(df, name):
-  df[name] = df[name].astype(pd.Int32Dtype())  # 'int' doesn't handle NaNs
-  return df
+variable_pp = {  # checking presence in 1992
+    "CATAG3": process_catag3,
+    # "CATAG6": process_integer, # not present
+    # "CATAG7": process_integer, # not present
+    "NEWRACE2": process_newrace2, # not present
+    "IRRACE": process_integer,
+    "IRSEX": process_irsex, # present
+    "BKDRUG": process_bkdrug,  # present
+    "BKDRVINF": process_bkdrvinf, # present
+    "DRVINALCO2": process_integer, # not present. alt: DRUNKDRV
+    "DRVINMARJ2": process_integer, # not present
+    "DRVINDRG": process_integer, # not present. potential alt: DFDRVIJN
+    "DRVINDROTMJ": process_integer, # not present
+    "DRVINALDRG": process_integer, # not present. potential alt: DRDRVUN
+    "DRVALDR": process_dui_like, # not present
+    "DRVAONLY": process_dui_like, # not present
+    "DRVDONLY": process_dui_like, # not present
+    "YEYSELL": process_drug_sell, # not present. potential alt: SOLDDRUG
+    "SNYSELL": process_drug_sell,  # not present. potential alt: SOLDDRUG
+    "MRJMON": process_drugmon, # present
+    "COCMON": process_drugmon, # present
+    "CRKMON": process_drugmon, # present
+    "HERMON": process_drugmon, # present
+    "HALLUCMON": process_drugmon, # not present
+    "LSDMON": process_drugmon, # not present
+    "PCPMON": process_drugmon, # present
+    "ECSTMOMON": process_drugmon, # not present
+    "DAMTFXMON": process_drugmon, # not present
+    "KETMINMON": process_drugmon, # not present
+    "SALVIAMON": process_drugmon, # not present
+    "INHALMON": process_drugmon, # not present
+    "METHAMMON": process_drugmon, # not present
+    "YEAR": process_integer, # present
+
+    "DRUNKDRV": process_integer,  # process_dui_like
+    "DRDRVUN": process_integer,  # process_dui_like
+    "DRIVEAL": process_dui_like,
+    "DRIVEDR": process_dui_like,
+    "BKOTHOFF": process_integer,
+    "SOLDDRUG": process_integer,
+    "HALLREC": process_hallrec,
+}
+
+
+def get_variables():
+    return set(variable_pp.keys())
 
 
 def add_race(df):
@@ -278,6 +331,8 @@ def add_drugs(df):
         return True
       if any(_nan_value(row[col]) == 0 for col in grp0.union(grp1)):
         return False
+      if any(_nan_value(row[col]) in {2, 3, 12, 91} for col in grp1):
+        return False
       return None
     df['drugs_use'] = df.apply(_process, axis=1)
     df = df.drop(columns=list(union), errors='ignore')
@@ -287,54 +342,6 @@ def add_drugs(df):
   df = _drugs_sold(df)
   df = _drugs_use(df)
   return df
-
-
-variable_pp = {  # checking presence in 1992
-    "CATAG3": process_catag3,
-    # "CATAG6": process_integer, # not present
-    # "CATAG7": process_integer, # not present
-    "NEWRACE2": process_newrace2, # not present
-    "IRRACE": process_integer,
-    "IRSEX": process_irsex, # present
-    "BKDRUG": process_bkdrug,  # present
-    "BKDRVINF": process_bkdrvinf, # present
-    "DRVINALCO2": process_integer, # not present. alt: DRUNKDRV
-    "DRVINMARJ2": process_integer, # not present
-    "DRVINDRG": process_integer, # not present. potential alt: DFDRVIJN
-    "DRVINDROTMJ": process_integer, # not present
-    "DRVINALDRG": process_integer, # not present. potential alt: DRDRVUN
-    "DRVALDR": process_dui_like, # not present
-    "DRVAONLY": process_dui_like, # not present
-    "DRVDONLY": process_dui_like, # not present
-    "YEYSELL": process_drug_sell, # not present. potential alt: SOLDDRUG
-    "SNYSELL": process_drug_sell,  # not present. potential alt: SOLDDRUG
-    "MRJMON": process_drugmon, # present
-    "COCMON": process_drugmon, # present
-    "CRKMON": process_drugmon, # present
-    "HERMON": process_drugmon, # present
-    "HALLUCMON": process_drugmon, # not present
-    "LSDMON": process_drugmon, # not present
-    "PCPMON": process_drugmon, # present
-    "ECSTMOMON": process_drugmon, # not present
-    "DAMTFXMON": process_drugmon, # not present
-    "KETMINMON": process_drugmon, # not present
-    "SALVIAMON": process_drugmon, # not present
-    "INHALMON": process_drugmon, # not present
-    "METHAMMON": process_drugmon, # not present
-    "YEAR": process_integer, # present
-
-    "DRUNKDRV": process_integer,  # process_dui_like
-    "DRDRVUN": process_integer,  # process_dui_like
-    "DRIVEAL": process_dui_like,
-    "DRIVEDR": process_dui_like,
-    "BKOTHOFF": process_integer,
-    "SOLDDRUG": process_integer,
-    "HALLREC": process_hallrec,
-}
-
-
-def get_variables():
-    return set(variable_pp.keys())
 
 
 def preprocess(df: pd.DataFrame) -> pd.DataFrame:
@@ -353,41 +360,37 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
     logger.info(f"Preprocessing drugs")
     df = add_drugs(df)
 
-    df = df.rename(columns={
-      # "NEWRACE2": "offender_race",
-      "EDUHIGHCAT": "Education",
-      "IRSEX": "offender_sex",
-    })
+    df = df.rename(columns={"EDUHIGHCAT": "education", "IRSEX": "offender_sex"})
+
+    logger.info('Compute arrest rates')
+    df = compute_arrest_rates(df)
+
     return df
 
 
-def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
-  # years = df['YEAR'].unique()  # TODO: uncomment
-  # if start_year not in years:
-  #   raise ValueError(f'Start year {start_year} not in years')
-  # if end_year not in years:
-  #   raise ValueError(f'End year {end_year} not in years')
+def compute_arrest_rates(df: pd.DataFrame) -> pd.DataFrame:
+  groups = ['offender_race', 'offender_age', 'offender_sex', 'YEAR']
+  spec = {
+    'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
+    'drugs_use': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_use']).sum(), g['drugs_use'].sum()),
+    'drugs_sell': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_sold']).sum(), g['drugs_sold'].sum()),
+    'drugs_any': lambda g: _sdiv(g['drugs_arrest'].sum(), ((g['drugs_use'] + g['drugs_sold']) > 0).sum())
+  }
 
-  year_df = df.query(f'{start_year} <= YEAR <= {end_year}')
-  year_df = _summarize(year_df)
-  return year_df
+  grouped = df.groupby(groups)
+  dfs = [grouped.size().to_frame('count').reset_index()]
+  for var in spec:
+    x_col, y_col, smooth_col = 'YEAR', f'{var}_ar', f'{var}_sar'
+    data = grouped.apply(spec[var]).to_frame(y_col).reset_index()
+    inputs = data[x_col].to_numpy()[:, None]
+    weights = dfs[0]['count'] # grouped.size()
 
+    model = LinearRegression()
+    model.fit(inputs, data[y_col], weights)
+    data[smooth_col] = model.predict(inputs)
+    dfs.append(data)
+    # print(var, data[y_col].min(), data[smooth_col].min(), (data[y_col] - data[smooth_col]).min())
 
-def _summarize(df: pd.DataFrame) -> pd.DataFrame:
-  logger.info(f"Computing arrest rates")
-  dfs, groups = [], ["offender_race", "offender_age", "offender_sex"]
-  dfs.append(df.groupby(groups).size().to_frame('count').reset_index())
-  dfs.append(df.groupby(groups).apply(
-    lambda g: g['dui_arrests'].sum() / g['dui'].sum()
-  ).to_frame('dui_arrest_rate').reset_index())
-  dfs.append(df.groupby(groups).apply(
-    lambda g: (g['drugs_arrest'] * g['drugs_use']).sum() / g['drugs_use'].sum()
-  ).to_frame('drugs_user_arrest_rate').reset_index())
-  dfs.append(df.groupby(groups).apply(
-    lambda g: (g['drugs_arrest'] * g['drugs_sold']).sum() / g['drugs_sold'].sum()
-  ).to_frame('drugs_seller_arrest_rate').reset_index())
-  dfs.append(df.groupby(groups).apply(
-    lambda g: g['drugs_arrest'].sum() / ((g['drugs_use'] + g['drugs_sold']) > 0).sum()
-  ).to_frame('drugs_any_arrest_rate').reset_index())
   df = reduce(lambda df0, df1: pd.merge(df0, df1, on=groups), dfs)
   return df
+
