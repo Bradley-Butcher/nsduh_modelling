@@ -1,36 +1,7 @@
 import pandas as pd
 from tqdm import tqdm
 from cj_pipeline.config import logger
-import numpy as np
-
-
-def preprocess(df: pd.DataFrame) -> pd.DataFrame:
-  logger.info(f"Preprocessing data")
-  logger.info(f"Processing crime type")
-  df = _process_crime_type(df)
-  logger.info(f"Processing offender race")
-  df = _process_offender_race(df)
-  logger.info("Processing offender age")
-  df = _process_offender_age(df)
-  logger.info("Processing offender sex")
-  df = _process_offender_sex(df)
-  logger.info("Processing reported to police")
-  df = _process_reported_to_police(df)
-  logger.info("Processing arrest or charges made")
-  df = _process_arrests_or_charges_made(df)
-  return df
-
-
-def extract_years(df: pd.DataFrame, start_year: int, end_year: int) -> pd.DataFrame:
-  # years = df['ncvs_year'].unique()  # TODO: uncomment
-  # if start_year not in years:
-  #   raise ValueError(f'Start year {start_year} not in years')
-  # if end_year not in years:
-  #   raise ValueError(f'End year {end_year} not in years')
-
-  year_df = df.query(f'{start_year} <= ncvs_year <= {end_year}')
-  year_df = _summarize(year_df)
-  return year_df
+from sklearn.linear_model import LinearRegression
 
 
 def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
@@ -203,7 +174,7 @@ def _process_reported_to_police(df: pd.DataFrame) -> pd.DataFrame:
         elif reported_to_police == "(2) No":
             return 0
         else:
-            return np.nan
+            return None
     tqdm.pandas(desc='Processing Reported to the Police')
     df["reported_to_police"] = df["reported_to_police"].progress_apply(_reported_to_police)
     return df
@@ -227,16 +198,51 @@ def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def _summarize(df: pd.DataFrame) -> pd.DataFrame:
-    groups = ["crime_recode", "offender_age", "offender_sex", "offender_race"]
-    agg = df.groupby(groups).agg(
+def preprocess(df: pd.DataFrame) -> pd.DataFrame:
+  logger.info(f"Preprocessing data")
+  logger.info(f"Processing crime type")
+  df = _process_crime_type(df)
+  logger.info(f"Processing offender race")
+  df = _process_offender_race(df)
+  logger.info("Processing offender age")
+  df = _process_offender_age(df)
+  logger.info("Processing offender sex")
+  df = _process_offender_sex(df)
+  logger.info("Processing reported to police")
+  df = _process_reported_to_police(df)
+  logger.info("Processing arrest or charges made")
+  df = _process_arrests_or_charges_made(df)
+
+  logger.info('Compute arrest rates')
+  df = compute_arrest_rates(df)
+
+  return df
+
+
+def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
+    x_col, y_col, smooth_col = 'ncvs_year', 'arrest_rate', 'arrest_rate_smooth'
+    groups = ["offender_race", "offender_age", "offender_sex", "crime_recode", "ncvs_year"]
+
+    grouped = df.groupby(groups)
+    agg = grouped.agg(
       {"arrests_or_charges_made": "mean", "reported_to_police": "mean"}
     ).reset_index()
-    count = df.groupby(groups).size().to_frame("count").reset_index()
+    agg = pd.merge(
+      agg, grouped.size().to_frame("count").reset_index(), on=groups)
     agg.rename(
       columns={"arrests_or_charges_made": "arrest_rate",
                "reported_to_police": "reporting_rate"},
-      inplace=True
-    )
-    df = pd.merge(agg, count, on=groups)
-    return df
+      inplace=True)
+
+    agg[smooth_col] = None
+    for var in agg.crime_recode.unique():
+      data = agg[agg.crime_recode == var]
+      inputs = data[x_col].to_numpy()[:, None]
+      weights = data['count']
+
+      model = LinearRegression()
+      model.fit(inputs, data[y_col], weights)
+      smoothed = model.predict(inputs).clip(min=eps)
+      agg.loc[agg.crime_recode == var, smooth_col] = smoothed
+
+    return agg
