@@ -38,3 +38,4 @@ data/nsduh/NSDUH_2009_Tab.txt filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NHSDA-1999-DS0001-data-stata.dta filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NHSDA-2000-DS0001-data-stata.dta filter=lfs diff=lfs merge=lfs -text
 data/nsduh/NHSDA-2001-DS0001-data-stata.dta filter=lfs diff=lfs merge=lfs -text
+data/processed/synth_crimes.csv filter=lfs diff=lfs merge=lfs -text
