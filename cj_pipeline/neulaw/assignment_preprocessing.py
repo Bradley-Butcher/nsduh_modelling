@@ -30,11 +30,6 @@ def init_neulaw(start_year: int, window: int):
           id_vars=years_df.columns.difference(CRIMES), value_vars=CRIMES,
           var_name='offense_category', value_name='offense_count')
 
-        # set age_cat based on which dataset contains the crime statistics
-        nsduh_ids = years_df['offense_category'].isin(('dui', 'drugs'))
-        years_df['age_cat'] = years_df['age_ncvs']
-        years_df.loc[nsduh_ids, 'age_cat'] = years_df.loc[nsduh_ids, 'age_nsduh']
-
         return years_df
 
     return get_entries, max_year

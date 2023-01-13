@@ -4,7 +4,7 @@ warnings.filterwarnings('ignore')
 import pandas as pd
 from collections import Counter
 
-from cj_pipeline.config import CRIMES_GROUP, NEULAW_GROUP, NEULAW_TO_NCVS, NEULAW_TO_NSDUH
+from cj_pipeline.config import BASE_DIR, CRIMES_GROUP, NEULAW_TO_NCVS, NEULAW_TO_NSDUH
 from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, init_nsduh
 
 
@@ -15,21 +15,8 @@ def subset_pd_bool(df, **kwargs):
   return cond
 
 
-# def population_stats_preprocessing(population: pd.DataFrame) -> pd.DataFrame:
-#   # TODO: necessary pre-processing may vary for different year windows
-#
-#   # set zero sex offense arrest rate to mean reporting rate
-#   row_cond = {'def.gender': 'Female', 'offense_category': 'sex offense'}
-#   row_cond = subset_pd_bool(population, **row_cond)
-#   population.loc[row_cond, 'arrest_rate'] = population[row_cond]['reporting_rate'].mean()
-#
-#   # set zero dui arrest rate to the next closest category
-#   row_cond = {'def.gender': 'Female', 'def.race': 'Black', 'offense_category': 'dui'}
-#   zero_idx = subset_pd_bool(population, age_cat='< 18', **row_cond)
-#   adj_idx = subset_pd_bool(population, age_cat='18-30', **row_cond)
-#   population.loc[zero_idx, 'arrest_rate'] = population[adj_idx]['arrest_rate'].mean()
-#
-#   return population
+def subset_pd(df, **kwargs):
+  return df[subset_pd_bool(df, **kwargs)]
 
 
 def crime_assignment(
@@ -47,7 +34,8 @@ def crime_assignment(
   nsduh = nsduh_gen(start_year)
 
   def _add_unobserved(pop):
-    pop['total_crimes'] = lam * pop['offense_count'] / pop[arrest_col]
+    total_crimes = (lam * pop['offense_count'] / pop[arrest_col]).round()
+    pop['total_crimes'] = total_crimes.astype(pd.Int32Dtype())
     pop['unobserved_crimes'] = pop['total_crimes'] - pop['offense_count']
     pop['unobserved_per_person'] = pop['unobserved_crimes'] / pop['pop_size']
     return pop
@@ -62,7 +50,6 @@ def crime_assignment(
     offenses = pd.merge(
       offenses, crimes, how='left', left_on=group_all, right_on=CRIMES_GROUP)
     offenses = offenses.drop(columns=CRIMES_GROUP)  # de-duplicate columns
-    # TODO: pre-processing necessary w/o smoothing?
     offenses = _add_unobserved(offenses)
     return offenses
 
@@ -80,30 +67,61 @@ def crime_assignment(
              how='left', on=NEULAW_TO_NSDUH)
   ])
   df['crime_weight'] = df['unobserved_per_person'] + omega * df['offense_count']
+  # TODO: values in `unobserved_per_person` seem larger than w/ smoothing!
 
-  # TODO: the values in `unobserved_per_person` seem larger than w/o smoothing!!!
+  # TODO: df is melted, so you need to condition on offense_category
+  def _sample_unobserved(groups, offenses):
+    ans = []
+    for crime in offenses['offense_category'].unique():
+      def _sample(group):  # TODO: re-run with different seeds?!
+        if (group['offense_category'].unique() != crime).any():
+          raise ValueError(f'expected only entries for crime "{crime}"; '
+                           f'got {group["offense_category"].unique()}')
+        if group['crime_weight'].sum() <= 0.0:
+          return None  # no crimes of this type (happens for some < 18 categories)
+        n_samples = group[group['offense_category'] == crime]['unobserved_crimes']
+        n_samples = int(n_samples.mean())  # all are the same
+        samples = group.sample(
+          n=n_samples, replace=True, weights=group['crime_weight'])
+        return list(Counter(samples['def.uid']).items())
 
-  # sampling code  # TODO: re-run with different seeds?!
-  def _sample(group):
-    if group['crime_weight'].sum() <= 0.0:
-      return None  # no crimes of this type (happens for some < 18 categories
-    samples = group.sample(
-      n=int(group['unobserved_crimes'].mean()),
-      replace=True, weights=group['crime_weight'])
-    return list(Counter(samples['def.uid']).items())
+      # df is melted over crimes -> subset only individual records for `crime`
+      grouped = subset_pd(df, offense_category=crime).groupby(groups)
+      samples = grouped.apply(_sample).to_frame('def.uid').reset_index()
+      samples = samples[samples['def.uid'].notna()]  # remove categories w/o samples
+      samples = samples.explode('def.uid')
+      samples['offense_unobserved'] = samples['def.uid'].str[1]
+      samples['def.uid'] = samples['def.uid'].str[0]
 
-  groups = NEULAW_GROUP + ['age_cat']
-  samples = df.groupby(groups).apply(_sample).to_frame('def.uid').reset_index()
-  samples = samples[samples['def.uid'].notna()]  # remove categories w/o samples
-  samples = samples.explode('def.uid')
-  samples['offense_unobserved'] = samples['def.uid'].str[1]
-  samples['def.uid'] = samples['def.uid'].str[0]
+      ans.append(samples)
 
-  df = pd.merge(df, samples, how='left', on=groups + ['def.uid'])
+    return pd.concat(ans)
+
+  samples_ncvs = _sample_unobserved(NEULAW_TO_NCVS, offenses=offenses_ncvs)
+  samples_nsduh = _sample_unobserved(NEULAW_TO_NSDUH, offenses=offenses_nsduh)
+
+  nsduh_ids = df['offense_category'].isin(('dui', 'drugs'))
+  df = pd.concat([
+    pd.merge(df[~nsduh_ids], samples_ncvs, how='left', on=NEULAW_TO_NCVS + ['def.uid']),
+    pd.merge(df[nsduh_ids], samples_nsduh, how='left', on=NEULAW_TO_NSDUH + ['def.uid'])
+  ])
   df['offense_unobserved'] = df['offense_unobserved'].fillna(0).astype('int')
+  df['offense_total'] = df['offense_count'] + df['offense_unobserved']
+
+  df = pd.pivot_table(
+    df, columns='offense_category', values='offense_total', sort=False,
+    index=[
+      'def.gender', 'def.race', 'def.uid', 'def.dob', 'year_range'
+      # 'age', 'age_ncvs', 'age_nsduh',
+    ]
+  ).reset_index()
 
   return df
 
 
 if __name__ == "__main__":
-  crime_assignment(start_year=2009, window=3)
+  start_year, window = 1992, 20   # 2009, 3
+  data_path = BASE_DIR / 'data' / 'processed'
+  df = crime_assignment(start_year=start_year, window=window)
+  df.to_csv(data_path / f'synth_crimes.csv', index=False)
+  # df.to_csv(data_path / f'synth_{start_year}_{window}.csv', index=False)
