@@ -22,10 +22,9 @@ def subset_pd(df, **kwargs):
 def crime_assignment(
     start_year: int, window: int, lam: float = 1.0, omega: float = 1.0,
     drug_col: str = 'drugs_any', arrest_col: str = 'arrest_rate_smooth'
-    # TODO: vary `drug_col`
-):
+):   # TODO: vary `drug_col`
   # load data for given time-frame
-  neulaw_gen, _ = init_neulaw(start_year, window=window)
+  neulaw_gen, _ = init_neulaw(start_year, window=window, melt=True)
   ncvs_gen, _ = init_ncvs(start_year, window=window)
   nsduh_gen, _ = init_nsduh(start_year, window=window, drug_col=drug_col)
 
@@ -69,7 +68,6 @@ def crime_assignment(
   df['crime_weight'] = df['unobserved_per_person'] + omega * df['offense_count']
   # TODO: values in `unobserved_per_person` seem larger than w/ smoothing!
 
-  # TODO: df is melted, so you need to condition on offense_category
   def _sample_unobserved(groups, offenses):
     ans = []
     for crime in offenses['offense_category'].unique():
@@ -111,8 +109,7 @@ def crime_assignment(
   df = pd.pivot_table(
     df, columns='offense_category', values='offense_total', sort=False,
     index=[
-      'def.gender', 'def.race', 'def.uid', 'def.dob', 'year_range'
-      # 'age', 'age_ncvs', 'age_nsduh',
+      'def.gender', 'def.race', 'def.uid', 'def.dob', 'year_range', 'age_cat'
     ]
   ).reset_index()
 
@@ -120,7 +117,7 @@ def crime_assignment(
 
 
 if __name__ == "__main__":
-  start_year, window = 1992, 20   # 2009, 3
+  start_year, window = 1992, 20   # 2009, 3  # TODO
   data_path = BASE_DIR / 'data' / 'processed'
   df = crime_assignment(start_year=start_year, window=window)
   df.to_csv(data_path / f'synth_crimes.csv', index=False)

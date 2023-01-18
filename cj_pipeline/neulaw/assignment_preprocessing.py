@@ -7,7 +7,7 @@ from cj_pipeline.neulaw.load import load as load_neulaw
 base_path = Path(__file__).parents[2] / 'data'
 
 
-def init_neulaw(start_year: int, window: int):
+def init_neulaw(start_year: int, window: int, melt: bool = False):
     logger.info("Preparing offence counting ...")
     df = load_neulaw(base_path / 'neulaw')
 
@@ -25,10 +25,11 @@ def init_neulaw(start_year: int, window: int):
         _check_year_validity(year, max_year=max_year, window=window)
         years_df = _preprocess_neulaw(df, start_year=year, end_year=year + window)
 
-        # convert from wide to tall
-        years_df = years_df.melt(
-          id_vars=years_df.columns.difference(CRIMES), value_vars=CRIMES,
-          var_name='offense_category', value_name='offense_count')
+        if melt:
+          # convert from wide to tall
+          years_df = years_df.melt(
+            id_vars=years_df.columns.difference(CRIMES), value_vars=CRIMES,
+            var_name='offense_category', value_name='offense_count')
 
         return years_df
 
@@ -120,6 +121,7 @@ def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
     year_df['age_ncvs'] = pd.cut(
       year_df['age'], right=True,
       bins=[0, 17, 29, 500], labels=['< 18', '18-29', '> 29']).astype('str')
+    year_df['age_cat'] = year_df['age_ncvs']  # for now take as default
 
     # remove all underage entries
     year_df = year_df[(year_df['age_nsduh'] != '< 18') &
