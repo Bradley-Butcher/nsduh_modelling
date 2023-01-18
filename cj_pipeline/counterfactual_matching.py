@@ -56,12 +56,32 @@ def _binarize_offenses(df: pd.DataFrame):
   return df
 
 
+def _matching_model(score_df, matching_alg):
+  matching_alg = matching_alg.lower()
+  if matching_alg not in {'dame', 'flame', 'hybrid'}:
+    raise ValueError(f'Unknown matching algorithm "{matching_alg}"')
+
+  # TODO: sensitivity analysis wrt params of the matching algorithms?
+  if matching_alg == 'dame':
+    model = dame_flame.matching.DAME(repeats=True)
+  else:
+    model = dame_flame.matching.FLAME(repeats=True)
+  kwargs = {'pre_dame': 1} if matching_alg == 'hybrid' else {}
+
+  model.fit(score_df, **kwargs)
+  _ = model.predict(score_df)
+
+  return model
+
+
+
 def average_treatment_effect(
     start_year: int,
     window: int,
     treatment: str,
     binary_treatment_set: dict[str, int],
     observed_only: bool = True,
+    matching_alg: str = 'flame',
 ) -> pd.DataFrame:
   rai_func = init_rai_year_range(start_year=start_year, window=window)
   if observed_only:
@@ -73,11 +93,9 @@ def average_treatment_effect(
     synth_data_path = BASE_DIR / 'data' / 'processed' / 'synth_crimes.csv'
     synth_crimes = pd.read_csv(synth_data_path)
     offense_count_func = lambda *args, **kwargs: synth_crimes  # TODO !!!
-
-  # TODO: unify max_year incl vs exclusive
-
   rai_dfs = rai_func(start_year)
   offense_dfs = offense_count_func(start_year)
+  # TODO: unify max_year incl vs exclusive
 
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
   df = df[scores + offenses + demographics]
@@ -85,7 +103,6 @@ def average_treatment_effect(
   df = _binarize_treatment(df, treatment, binary_treatment_set)
   for dem in set(demographics) - set([treatment]):
     df[dem] = pd.Categorical(df[dem]).codes
-
   # TODO: normalise scores by scale!
 
   all_score_df = df[scores]
@@ -103,16 +120,11 @@ def average_treatment_effect(
     after_len = len(score_df)
     logger.info(f"Dropped {before_len - after_len} rows with missing values for {score}")
 
-    model = dame_flame.matching.DAME()
-    model.fit(score_df)
-    _ = model.predict(score_df)
+    model = _matching_model(score_df, matching_alg=matching_alg)
     ate = dame_flame.utils.post_processing.ATE(matching_object=model)
     logger.info(f"ATE for treatment: {treatment}. outcome: {score} is {ate}")
 
-    results.append({
-      'score': score,
-      'ate': ate
-    })
+    results.append({'score': score, 'ate': ate})
   return pd.DataFrame(results)
 
 
