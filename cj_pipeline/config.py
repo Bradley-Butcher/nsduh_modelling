@@ -10,7 +10,6 @@ LOGS_DIR = Path(BASE_DIR, "logs")
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 CRIMES = ['aggravated assault', 'drugs', 'dui', 'property', 'robbery', 'sex offense', 'simple assault']
-
 NEULAW_GROUP = ['def.gender', 'def.race', 'offense_category']  # 'age_cat'
 CRIMES_GROUP = ['offender_sex', 'offender_race', 'crime_recode',  'offender_age']
 NEULAW_TO_NCVS = NEULAW_GROUP + ['age_ncvs']

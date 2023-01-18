@@ -90,7 +90,7 @@ def init_nsduh(start_year: int, window: int, drug_col: str):
   return get_entries, max_year
 
 
-def _check_year_validity(year, max_year, window):
+def _check_year_validity(year: int, max_year: int, window: int):
   if year > max_year:
     raise ValueError(f"Year {year} is greater than max year {max_year}")
   if year + window > max_year:
