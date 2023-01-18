@@ -8,32 +8,29 @@ base_path = Path(__file__).parents[2] / 'data'
 
 
 def init_neulaw(start_year: int, window: int, melt: bool = False):
-    logger.info("Preparing offence counting ...")
-    df = load_neulaw(base_path / 'neulaw')
+  logger.info("Preparing offence counting ...")
+  df = load_neulaw(base_path / 'neulaw')
 
-    # subset year and handle special column values
-    df = df[df['calc.year'] >= start_year]
-    df = df[df['def.gender'].isin(('Female', 'Male'))]
-    df = df[df['def.race'].isin(('Black', 'White'))]
-    # df = df[~df['def.race'].isin(('Unknown', 'Missing'))]
-    # df = df.replace({'def.race': {'Asian': 'Other', 'Indian': 'Other'}})
-    max_year = df['calc.year'].max()
+  # subset year and handle special column values
+  df = df[df['calc.year'] >= start_year]
+  df = df[df['def.gender'].isin(('Female', 'Male'))]
+  df = df[df['def.race'].isin(('Black', 'White'))]
+  max_year = df['calc.year'].max()
 
-    # add year category according to window
-    def get_entries(year: int):
-        logger.info(f'Extracting Neulaw for years {year}-{year + window}')
-        _check_year_validity(year, max_year=max_year, window=window)
-        years_df = _preprocess_neulaw(df, start_year=year, end_year=year + window)
+  # add year category according to window
+  def get_entries(year: int):
+    logger.info(f'Extracting Neulaw for years {year}-{year + window}')
+    _check_year_validity(year, max_year=max_year, window=window)
 
-        if melt:
-          # convert from wide to tall
-          years_df = years_df.melt(
-            id_vars=years_df.columns.difference(CRIMES), value_vars=CRIMES,
-            var_name='offense_category', value_name='offense_count')
+    years_df = _preprocess_neulaw(df, start_year=year, end_year=year + window)
+    if melt:
+      # convert from wide to tall
+      years_df = years_df.melt(
+        id_vars=years_df.columns.difference(CRIMES), value_vars=CRIMES,
+        var_name='offense_category', value_name='offense_count')
+    return years_df
 
-        return years_df
-
-    return get_entries, max_year
+  return get_entries, max_year
 
 
 def init_ncvs(start_year: int, window: int):
@@ -45,9 +42,10 @@ def init_ncvs(start_year: int, window: int):
 
   def get_entries(year: int):
     _check_year_validity(year, max_year=max_year, window=window)
+
     years_df = ncvs.query(f'{year} <= ncvs_year <= {year + window}')
     years_df = years_df.groupby(CRIMES_GROUP, as_index=False).agg({
-      'arrest_rate': 'mean', 'arrest_rate_smooth': 'mean',
+      'arrest_rate': 'mean', 'arrest_rate_smooth': 'mean',  # avg rate in window
       'reporting_rate': 'mean', 'count': 'sum'
     })
     return years_df
@@ -64,6 +62,7 @@ def init_nsduh(start_year: int, window: int, drug_col: str):
 
   def get_entries(year: int):
     _check_year_validity(year, max_year=max_year, window=window)
+
     years_df = nsduh.query(f'{year} <= YEAR <= {year + window}')
 
     groups = [var for var in CRIMES_GROUP if var != 'crime_recode']
@@ -98,44 +97,44 @@ def _check_year_validity(year: int, max_year: int, window: int):
 
 
 def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
-    groups = ['def.gender', 'def.race', 'def.dob', 'def.uid', 'offense_category']
+  groups = ['def.gender', 'def.race', 'def.dob', 'def.uid', 'offense_category']
 
-    year_df = df.query(f'{start_year} <= `calc.year` <= {end_year}')
-    year_df = year_df.groupby(groups).agg({'offense_category': 'count'})
-    year_df = year_df.unstack(level=-1)
-    year_df = year_df.droplevel(level=0, axis=1)
-    year_df = year_df.fillna(0)
+  year_df = df.query(f'{start_year} <= `calc.year` <= {end_year}')
+  year_df = year_df.groupby(groups).agg({'offense_category': 'count'})
+  year_df = year_df.unstack(level=-1)
+  year_df = year_df.droplevel(level=0, axis=1)
+  year_df = year_df.fillna(0)
 
-    year_df['year_range'] = f'{start_year}-{end_year}'
-    year_df = year_df.reset_index().rename(columns={df.index.name: 'index'})
-    year_df = year_df.rename(columns={'offense_category': 'index'})
+  year_df['year_range'] = f'{start_year}-{end_year}'
+  year_df = year_df.reset_index().rename(columns={df.index.name: 'index'})
+  year_df = year_df.rename(columns={'offense_category': 'index'})
 
-    # add age within the time-frame
-    mid_year = pd.to_datetime(str(start_year + (end_year - start_year) // 2))
-    year_df['age'] = mid_year - pd.to_datetime(year_df['def.dob'])
-    year_df['age'] = year_df['age'].dt.days / 365.25
-    year_df = year_df[year_df['age'] > 10]  # likely data entry errors
-    year_df['age_nsduh'] = pd.cut(
-      year_df['age'], right=True,
-      bins=[0, 17, 34, 500], labels=['< 18', '18-34', '> 34']).astype('str')
-    year_df['age_ncvs'] = pd.cut(
-      year_df['age'], right=True,
-      bins=[0, 17, 29, 500], labels=['< 18', '18-29', '> 29']).astype('str')
-    year_df['age_cat'] = year_df['age_ncvs']  # for now take as default
+  # add age within the time-frame
+  mid_year = pd.to_datetime(str(start_year + (end_year - start_year) // 2))
+  year_df['age'] = mid_year - pd.to_datetime(year_df['def.dob'])
+  year_df['age'] = year_df['age'].dt.days / 365.25
+  year_df = year_df[year_df['age'] > 10]  # likely data entry errors
+  year_df['age_nsduh'] = pd.cut(
+    year_df['age'], right=True,
+    bins=[0, 17, 34, 500], labels=['< 18', '18-34', '> 34']).astype('str')
+  year_df['age_ncvs'] = pd.cut(
+    year_df['age'], right=True,
+    bins=[0, 17, 29, 500], labels=['< 18', '18-29', '> 29']).astype('str')
+  year_df['age_cat'] = year_df['age_ncvs']  # for now take as default
 
-    # remove all underage entries
-    year_df = year_df[(year_df['age_nsduh'] != '< 18') &
-                      (year_df['age_ncvs'] != '< 18')]
+  # remove all underage entries
+  year_df = year_df[(year_df['age_nsduh'] != '< 18') &
+                    (year_df['age_ncvs'] != '< 18')]
 
-    # convert to integer
-    for col in CRIMES:
-      year_df[col] = year_df[col].astype(int)
+  # convert to integer
+  for col in CRIMES:
+    year_df[col] = year_df[col].astype(int)
 
-    return year_df
+  return year_df
 
 
 # EXAMPLE USAGE
 if __name__ == '__main__':
-    offense_counts = init_neulaw(start_year=2000, window=3)
-    first_df = offense_counts(year=2000)
-    second_df = offense_counts(year=2001)
+  offense_counts = init_neulaw(start_year=2000, window=3)
+  first_df = offense_counts(year=2000)
+  second_df = offense_counts(year=2001)

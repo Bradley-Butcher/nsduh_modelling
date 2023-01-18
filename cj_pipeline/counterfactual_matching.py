@@ -27,7 +27,7 @@ MATCHING_ALGS = [
 
 
 FLAGS = flags.FLAGS
-flags.DEFINE_bool('synth', False, 'Use synthetic data.')
+flags.DEFINE_bool('synth', True, 'Use synthetic data.')
 flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('window', 20, 'No. of years to include after `start_year`.')
 flags.DEFINE_enum('matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
@@ -80,7 +80,7 @@ def _matching_model(score_df, matching_alg):
   return model
 
 
-def average_treatment_effect(
+def average_treatment_effect(   # TODO: does rai *always* match the synth dataset?
     start_year: int,
     window: int,
     treatment: str,
@@ -96,7 +96,7 @@ def average_treatment_effect(
   if use_synth:
     logger.info('Estimating based on synthethic crime record')
     synth_data_path = BASE_DIR / 'data' / 'processed' / 'synth_crimes.csv'
-    offense_dfs = pd.read_csv(synth_data_path)
+    offense_dfs = pd.read_csv(synth_data_path)  # TODO: replace by auto-loading
   else:
     logger.info('Estimating based on recorded crime only')
     offense_count_func, _ = init_neulaw(

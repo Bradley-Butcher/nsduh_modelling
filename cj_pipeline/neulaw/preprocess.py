@@ -10,7 +10,6 @@ from cj_pipeline.neulaw.load import load
 from cj_pipeline.config import logger
 
 base_path = Path(__file__).parents[2] / 'data'
-scratch_path = base_path / 'scratch'
 
 
 def init_rai_year_range(start_year: int, window: int):
@@ -26,7 +25,7 @@ def init_rai_year_range(start_year: int, window: int):
         if year + window > max_year:
             logger.warning(f"Year {year + window} is greater than max year {max_year}")
 
-        file_path = scratch_path / f'rais_{year}-{year+window}.csv'
+        file_path = base_path / 'scratch' / f'rais_{year}-{year+window}.csv'
         if file_path.is_file():
           rais = pd.read_csv(file_path)
         else:
