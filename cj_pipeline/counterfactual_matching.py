@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 from absl import app, flags
 
@@ -31,7 +32,7 @@ flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
 flags.DEFINE_enum('matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
 
-flags.DEFINE_bool('synth', True, 'Use synthetic data.')
+flags.DEFINE_bool('synth', False, 'Use synthetic data.')
 flags.DEFINE_integer('window', 2, 'No. of years to prepend.')  # TODO: make no of years in the window
 flags.DEFINE_float('lam', 1.0, 'Multiplier of total crimes estimate.')
 flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
@@ -153,8 +154,11 @@ def main(_):
     window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )
 
+  custom_flags = FLAGS.get_key_flags_for_module(__file__)
+  custom_flags = {f.name: f.value for f in custom_flags}
+
   print(df)
-  print(FLAGS.flags_into_string())
+  print(custom_flags)
 
   data_path = BASE_DIR / 'data' / 'counterfact'
   data_path /= f'{FLAGS.start_year}-{FLAGS.end_year}_{FLAGS.window}'
@@ -172,7 +176,8 @@ def main(_):
   file_name = '_'.join(file_name)
 
   df.to_csv(data_path / f'{file_name}.csv', index=False)
-  FLAGS.append_flags_into_file(data_path / f'{file_name}.config')
+  with open(data_path / f'{file_name}.json', 'w') as file:
+    json.dump(custom_flags, file, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":
