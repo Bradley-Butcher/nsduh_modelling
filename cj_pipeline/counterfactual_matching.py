@@ -129,15 +129,15 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
     score_df["outcome"] = all_score_df[score]
     before_len = len(score_df)
     score_df = score_df.dropna(subset=["outcome"])
-    after_len = len(score_df)
+    n_dropped = len(score_df) - before_len
     logger.info(
-      f"Dropped {before_len - after_len} rows with missing values for {score}")
+      f"Dropped {n_dropped} rows with missing values for {score}")
 
     model = _matching_model(score_df, matching_alg=matching_alg)
     ate = dame_flame.utils.post_processing.ATE(matching_object=model)
     logger.info(f"ATE for treatment: {treatment}. outcome: {score} is {ate}")
 
-    results.append({'score': score, 'ate': ate})
+    results.append({'score': score, 'ate': ate, 'dropped': n_dropped})
   return pd.DataFrame(results)
 
 
