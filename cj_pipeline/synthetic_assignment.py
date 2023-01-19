@@ -88,9 +88,9 @@ def _sample_unobserved(df, groups, n_samples_div, rng):
 def _window_sampler(
     start_year, end_year, window, lam, omega, arrest_col, drug_col, rng):
   # load data for given time-frame
-  neulaw_gen, _ = init_neulaw(start_year, end_year=end_year, melt=True)
-  ncvs_gen, _ = init_ncvs(start_year, end_year=end_year)
-  nsduh_gen, _ = init_nsduh(start_year, end_year=end_year, drug_col=drug_col)
+  neulaw_gen, _ = init_neulaw(start_year, window=window, melt=True)
+  ncvs_gen, _ = init_ncvs(start_year, window=window)
+  nsduh_gen, _ = init_nsduh(start_year, window=window, drug_col=drug_col)
 
   def _window(last_year: int, n_samples_div: float = 1.0):
     year = last_year - window

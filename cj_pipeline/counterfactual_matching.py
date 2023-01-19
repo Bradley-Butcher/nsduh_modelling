@@ -107,7 +107,7 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
   else:
     logger.info('Estimating based on recorded crime only')
     offense_count_func, _ = init_neulaw(
-      start_year=start_year, end_year=end_year, melt=False)
+      start_year=start_year, window=end_year - start_year, melt=False)
     offense_dfs = offense_count_func(start_year)
 
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
