@@ -34,6 +34,7 @@ def _file_path(start_year, end_year, window, lam, omega, seed):
   file_name = f'lam{lam:.2f}_om{omega:.2f}-{seed}.csv'
   data_path = BASE_DIR / 'data' / 'scratch' / 'synth'
   data_path /= f'{start_year}-{end_year}_{window}'
+  data_path.mkdir(parents=True, exist_ok=True)
   return data_path / file_name
 
 

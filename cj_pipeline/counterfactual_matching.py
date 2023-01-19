@@ -153,12 +153,26 @@ def main(_):
     window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )
 
-  year_range = f'{FLAGS.start_year}-{FLAGS.start_year + FLAGS.window}'
-  file_name = f'{FLAGS.matching}_{year_range}'
-  file_name += '_synth' if FLAGS.synth else ''
-  df.to_csv(BASE_DIR / 'data' / 'counterfact' / file_name, index=False)
+  data_path = BASE_DIR / 'data' / 'counterfact'
+  data_path /= f'{FLAGS.start_year}-{FLAGS.end_year}_{FLAGS.window}'
+  data_path.mkdir(parents=True, exist_ok=True)
+
+  file_name = [
+    ('synth' if FLAGS.synth else 'observed'),
+    f'{FLAGS.matching}',
+  ]
+  file_name += [] if not FLAGS.synth else [
+    f'lam{FLAGS.lam:.2f}',
+    f'om{FLAGS.omega:.2f}',
+    f'{FLAGS.seed}',
+  ]
+  file_name = '_'.join(file_name)
+
+  df.to_csv(data_path / file_name + '.csv', index=False)
+  FLAGS.append_flags_into_file(data_path / file_name + '.config')
 
   print(df)
+  print(FLAGS.flags_into_string())
 
 
 if __name__ == "__main__":
