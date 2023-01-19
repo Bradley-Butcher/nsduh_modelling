@@ -1,22 +1,40 @@
-import logging
-
 import numpy as np
 import pandas as pd
-from absl import app, flags
 from functools import partial
 from collections import Counter
 
-from cj_pipeline.config import BASE_DIR, CRIMES, CRIMES_GROUP, NEULAW_TO_NCVS, NEULAW_TO_NSDUH
+from cj_pipeline.config import BASE_DIR, CRIMES, CRIMES_GROUP, NEULAW_TO_NCVS, NEULAW_TO_NSDUH, logger
 from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, init_nsduh
 
 
-FLAGS = flags.FLAGS
-flags.DEFINE_integer('start_year', 1992, 'Initial year of records.')
-flags.DEFINE_integer('end_year', 2012, 'Final year of records.')
-flags.DEFINE_integer('window', 20, 'No. of years to include after `start_year`.')
-flags.DEFINE_float('lam', 1.0, 'Multiplier of total crimes estimate.')
-flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
-flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
+def get_synth(
+    start_year: int, end_year: int, window: int, seed: int = 0,
+    lam: float = 1, omega: float = 1,
+) -> pd.DataFrame:
+  drug_col, arrest_col = 'drugs_any', 'arrest_rate_smooth'
+  file_path = _file_path(
+    start_year=start_year, end_year=end_year, window=window,
+    seed=seed, lam=lam, omega=omega)
+
+  logger.info(f'Loading synth assignments {start_year}-{end_year} ({window})')
+  if file_path.is_file():
+    logger.info('Loading from the disk')
+    df = pd.read_csv(file_path)
+  else:
+    logger.info('Generating the synthetic data')
+    df = rolling_crime_assignment(
+      start_year=start_year, end_year=end_year, window=window, seed=seed,
+      lam=lam, omega=omega, drug_col=drug_col, arrest_col=arrest_col)
+    df.to_csv(file_path, index=False)
+
+  return df
+
+
+def _file_path(start_year, end_year, window, lam, omega, seed):
+  file_name = f'lam{lam:.2f}_om{omega:.2f}-{seed}.csv'
+  data_path = BASE_DIR / 'data' / 'scratch' / 'synth'
+  data_path /= f'{start_year}-{end_year}_{window}'
+  return data_path / file_name
 
 
 def _add_unobserved(pop, lam, arrest_col):
@@ -67,17 +85,18 @@ def _sample_unobserved(df, groups, n_samples_div, rng):
   return samples
 
 
-def _window_sampler(start_year, window, lam, omega, arrest_col, drug_col, rng):
+def _window_sampler(
+    start_year, end_year, window, lam, omega, arrest_col, drug_col, rng):
   # load data for given time-frame
-  neulaw_gen, _ = init_neulaw(start_year, window=window, melt=True)
-  ncvs_gen, _ = init_ncvs(start_year, window=window)
-  nsduh_gen, _ = init_nsduh(start_year, window=window, drug_col=drug_col)
+  neulaw_gen, _ = init_neulaw(start_year, end_year=end_year, melt=True)
+  ncvs_gen, _ = init_ncvs(start_year, end_year=end_year)
+  nsduh_gen, _ = init_nsduh(start_year, end_year=end_year, drug_col=drug_col)
 
-  def _window(end_year: int, n_samples_div: float = 1.0):
-    year = end_year - window
-    if year < start_year:
+  def _window(last_year: int, n_samples_div: float = 1.0):
+    year = last_year - window
+    if not start_year <= year <= end_year:
       raise ValueError(
-        f'End year {end_year} not compatible with start year {start_year} '
+        f'Last year {last_year} not compatible with start year {start_year} '
         f'and window {window}.')
 
     # load data for given time-frame
@@ -130,12 +149,13 @@ def rolling_crime_assignment(
     start_year: int, end_year: int, window: int, seed: int, **kwargs
 ) -> pd.DataFrame:
   rng = np.random.RandomState(seed=seed)
-  sample_window = _window_sampler(start_year, window, rng=rng, **kwargs)
+  sample_window = _window_sampler(
+    start_year=start_year, end_year=end_year, window=window, rng=rng, **kwargs)
   years_in_window = window + 1  # end_year (= start_year + window) is included
 
   samples = []
   for idx, window_end in enumerate(range(start_year + window, end_year + 1)):
-    logging.info(f'Sampling for year window ending by year {window_end}')
+    logger.info(f'Sampling for year window ending by year {window_end}')
     samples.append(sample_window(
       window_end, n_samples_div=1 if idx == 0 else years_in_window))
 
@@ -144,22 +164,27 @@ def rolling_crime_assignment(
   return df
 
 
-def main(_):
-  df = rolling_crime_assignment(
-    start_year=FLAGS.start_year,
-    end_year=FLAGS.end_year,
-    window=FLAGS.window,
-    lam=FLAGS.lam,
-    omega=FLAGS.omega,
-    seed=FLAGS.seed,
-    drug_col='drugs_any',
-    arrest_col='arrest_rate_smooth',
-  )  # TODO: vary `drug_col` and `seed`
+def main():
+  start_year, end_year, window = 1992, 2012, 3
+  lam, omega, seed = 1.0, 1.0, 0
 
-  data_path = BASE_DIR / 'data' / 'scratch'   # TODO: add rolling and other stuff (+ create folders if does not exist)
-  # df.to_csv(data_path / f'synth_crimes.csv', index=False)
-  # df.to_csv(data_path / f'synth_{start_year}_{window}.csv', index=False)
+  df = rolling_crime_assignment(
+    start_year=start_year,
+    end_year=end_year,
+    window=window,
+    lam=lam,
+    omega=omega,
+    seed=seed,
+    drug_col='drugs_any',  # TODO: vary `drug_col`
+    arrest_col='arrest_rate_smooth',
+  )
+
+  file_path = _file_path(
+    start_year=start_year, end_year=end_year, window=window,
+    lam=lam, omega=omega, seed=seed)
+  file_path.parents[0].mkdir(parents=True, exists_ok=True)
+  df.to_csv(file_path, index=False)
 
 
 if __name__ == "__main__":
-  app.run(main)
+  main()

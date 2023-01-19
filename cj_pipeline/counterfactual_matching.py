@@ -4,6 +4,7 @@ from absl import app, flags
 from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw
 from cj_pipeline.neulaw.preprocess import init_rai_year_range
 from cj_pipeline.config import logger, BASE_DIR, CRIMES
+from cj_pipeline.synthetic_assignment import get_synth
 
 import dame_flame
 
@@ -25,12 +26,16 @@ MATCHING_ALGS = [
   'hybrid',
 ]
 
-
 FLAGS = flags.FLAGS
-flags.DEFINE_bool('synth', True, 'Use synthetic data.')
 flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
-flags.DEFINE_integer('window', 20, 'No. of years to include after `start_year`.')
+flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
 flags.DEFINE_enum('matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
+
+flags.DEFINE_bool('synth', True, 'Use synthetic data.')
+flags.DEFINE_integer('window', 2, 'No. of years to prepend.')  # TODO: make no of years in the window
+flags.DEFINE_float('lam', 1.0, 'Multiplier of total crimes estimate.')
+flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
+flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
 
 
 def _min_max_scale(df: pd.DataFrame) -> pd.DataFrame:
@@ -42,7 +47,8 @@ def _binarize_treatment(
     treatment: str,
     binary_treatment_set: dict[str, int]
 ) -> pd.DataFrame:
-  assert len(binary_treatment_set) == 2, "binary_treatment_set must have 2 keys"
+  if len(binary_treatment_set) != 2:
+    raise ValueError("binary_treatment_set must have 2 keys")
 
   df = df.copy()
   if "Rest" in binary_treatment_set.keys():
@@ -55,7 +61,7 @@ def _binarize_treatment(
   return df
 
 
-def _binarize_crimes(df: pd.DataFrame):
+def _binarize_crimes(df: pd.DataFrame) -> pd.DataFrame:
   for crime in CRIMES:
     df[crime] = pd.Categorical(
       pd.cut(df[crime], right=True, bins=[-1, 1, 2, 9, 100_000])).codes
@@ -82,25 +88,26 @@ def _matching_model(score_df, matching_alg):
 
 def average_treatment_effect(   # TODO: does rai *always* match the synth dataset?
     start_year: int,
-    window: int,
+    end_year: int,
     treatment: str,
     binary_treatment_set: dict[str, int],
     use_synth: bool = False,
     matching_alg: str = 'flame',
+    **kwargs  # passed to the synthetic assignment when `use_synth` is true
 ) -> pd.DataFrame:
   logger.info('Loading RAI scores')
-  rai_func = init_rai_year_range(start_year=start_year, window=window)
+  rai_func = init_rai_year_range(start_year=start_year, end_year=end_year)
   rai_dfs = rai_func(start_year)
 
   logger.info('Loading offense counts')
   if use_synth:
     logger.info('Estimating based on synthethic crime record')
-    synth_data_path = BASE_DIR / 'data' / 'processed' / 'synth_crimes.csv'
-    offense_dfs = pd.read_csv(synth_data_path)  # TODO: replace by auto-loading
+    offense_dfs = get_synth(
+      start_year=start_year, end_year=end_year, **kwargs)
   else:
     logger.info('Estimating based on recorded crime only')
     offense_count_func, _ = init_neulaw(
-      start_year=start_year, window=window, melt=False)
+      start_year=start_year, end_year=end_year, melt=False)
     offense_dfs = offense_count_func(start_year)
 
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
@@ -137,11 +144,13 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
 def main(_):
   df = average_treatment_effect(
     start_year=FLAGS.start_year,
-    window=FLAGS.window,
+    end_year=FLAGS.end_year,
     treatment='def.race',
     binary_treatment_set={"Black": 1, "White": 0},
     use_synth=FLAGS.synth,
-    matching_alg=FLAGS.matching
+    matching_alg=FLAGS.matching,
+    # parameters to the synth generator
+    window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )
 
   year_range = f'{FLAGS.start_year}-{FLAGS.start_year + FLAGS.window}'

@@ -12,24 +12,24 @@ from cj_pipeline.config import logger
 base_path = Path(__file__).parents[2] / 'data'
 
 
-def init_rai_year_range(start_year: int, window: int):
+def init_rai_year_range(start_year: int, end_year: int):
     logger.info("Preparing Offence Counting...")
     df = load(base_path / 'neulaw')
     df = df[df["calc.year"] >= start_year]
     max_year = df["calc.year"].max()
+    if end_year > max_year:
+      logger.warning(f"Year {end_year} is greater than max year {max_year}")
 
     def get_risk_scores(year: int):
-        logger.info(f"Counting Offences from {year} to {year + window}")
+        logger.info(f"Counting Offences from {year} to {end_year}")
         if year > max_year:
             raise ValueError(f"Year {year} is greater than max year {max_year}")
-        if year + window > max_year:
-            logger.warning(f"Year {year + window} is greater than max year {max_year}")
 
-        file_path = base_path / 'scratch' / f'rais_{year}-{year+window}.csv'
+        file_path = base_path / 'scratch' / f'rais_{year}-{end_year}.csv'
         if file_path.is_file():
           rais = pd.read_csv(file_path)
         else:
-          count_df = preprocess(df, year, year + window)
+          count_df = preprocess(df, year, end_year)
           rais = calculate_rais(count_df)
           rais = rais[["def.uid", "nca", "nvca", "ogrs3", "vprai", "fta"]]
           rais.to_csv(file_path, index=False)
@@ -39,7 +39,9 @@ def init_rai_year_range(start_year: int, window: int):
     return get_risk_scores
 
 
-def preprocess(df: pd.DataFrame, year_start:int=-1, year_end: int=np.inf) -> pd.DataFrame:
+def preprocess(
+    df: pd.DataFrame, year_start:int=-1, year_end: int=np.inf
+) -> pd.DataFrame:
     tqdm.pandas()
 
     logger.info("Starting Preprocessing..")

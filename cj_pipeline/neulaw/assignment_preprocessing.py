@@ -7,22 +7,25 @@ from cj_pipeline.neulaw.load import load as load_neulaw
 base_path = Path(__file__).parents[2] / 'data'
 
 
-def init_neulaw(start_year: int, window: int, melt: bool = False):
+def init_neulaw(start_year: int, end_year: int, melt: bool = False):
   logger.info("Preparing offence counting ...")
   df = load_neulaw(base_path / 'neulaw')
 
   # subset year and handle special column values
-  df = df[df['calc.year'] >= start_year]
+  df = df.query(f'{start_year} <= `calc.year` <= {end_year}')
   df = df[df['def.gender'].isin(('Female', 'Male'))]
   df = df[df['def.race'].isin(('Black', 'White'))]
   max_year = df['calc.year'].max()
+  if end_year > max_year:
+    logger.warning(f"Year {end_year} is greater than max year {max_year}")
 
   # add year category according to window
   def get_entries(year: int):
-    logger.info(f'Extracting Neulaw for years {year}-{year + window}')
-    _check_year_validity(year, max_year=max_year, window=window)
+    logger.info(f'Extracting Neulaw for years {year}-{end_year}')
+    if year > max_year:
+      raise ValueError(f"Year {year} is greater than max year {max_year}")
 
-    years_df = _preprocess_neulaw(df, start_year=year, end_year=year + window)
+    years_df = _preprocess_neulaw(df, start_year=year, end_year=end_year)
     if melt:
       # convert from wide to tall
       years_df = years_df.melt(
@@ -33,37 +36,42 @@ def init_neulaw(start_year: int, window: int, melt: bool = False):
   return get_entries, max_year
 
 
-def init_ncvs(start_year: int, window: int):
+def init_ncvs(start_year: int, end_year: int):
   logger.info('Preparing NCVS record extraction ...')
   ncvs = pd.read_csv(base_path / 'processed' / 'ncvs.csv')
   ncvs = ncvs[ncvs['offender_age'] != '< 18']
   ncvs = ncvs[ncvs['ncvs_year'] >= start_year]
   max_year = ncvs['ncvs_year'].max()
+  if end_year > max_year:
+    raise ValueError(f"Year {end_year} is greater than max year {max_year}.")
 
   def get_entries(year: int):
-    _check_year_validity(year, max_year=max_year, window=window)
+    if year > max_year:
+      raise ValueError(f"Year {year} is greater than max year {max_year}.")
 
-    years_df = ncvs.query(f'{year} <= ncvs_year <= {year + window}')
+    years_df = ncvs.query(f'{year} <= ncvs_year <= {end_year}')
     years_df = years_df.groupby(CRIMES_GROUP, as_index=False).agg({
       'arrest_rate': 'mean', 'arrest_rate_smooth': 'mean',  # avg rate in window
-      'reporting_rate': 'mean', 'count': 'sum'
-    })
+      'reporting_rate': 'mean', 'count': 'sum'})
     return years_df
 
   return get_entries, max_year
 
 
-def init_nsduh(start_year: int, window: int, drug_col: str):
+def init_nsduh(start_year: int, end_year: int, drug_col: str):
   logger.info('Preparing NSDUH record counting ...')
   nsduh = pd.read_csv(base_path / 'processed' / 'nsduh.csv')
   nsduh = nsduh[nsduh['offender_age'] != '< 18']
   nsduh = nsduh[nsduh['YEAR'] >= start_year]
   max_year = nsduh['YEAR'].max()
+  if end_year > max_year:
+    raise ValueError(f"Year {end_year} is greater than max year {max_year}.")
 
   def get_entries(year: int):
-    _check_year_validity(year, max_year=max_year, window=window)
+    if year > max_year:
+      raise ValueError(f"Year {year} is greater than max year {max_year}.")
 
-    years_df = nsduh.query(f'{year} <= YEAR <= {year + window}')
+    years_df = nsduh.query(f'{year} <= YEAR <= {end_year}')
 
     groups = [var for var in CRIMES_GROUP if var != 'crime_recode']
     arrest_cols = years_df.columns.difference(groups + ['YEAR', 'count'])
@@ -87,13 +95,6 @@ def init_nsduh(start_year: int, window: int, drug_col: str):
     return years_df
 
   return get_entries, max_year
-
-
-def _check_year_validity(year: int, max_year: int, window: int):
-  if year > max_year:
-    raise ValueError(f"Year {year} is greater than max year {max_year}")
-  if year + window > max_year:
-    logger.warning(f"Year {year + window} is greater than max year {max_year}")
 
 
 def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
@@ -135,6 +136,6 @@ def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
 
 # EXAMPLE USAGE
 if __name__ == '__main__':
-  offense_counts = init_neulaw(start_year=2000, window=3)
+  offense_counts, _ = init_neulaw(start_year=2000, end_year=2003)
   first_df = offense_counts(year=2000)
   second_df = offense_counts(year=2001)
