@@ -1,3 +1,4 @@
+import git
 import json
 import pandas as pd
 from absl import app, flags
@@ -154,8 +155,10 @@ def main(_):
     window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )
 
+  repo = git.Repo(search_parent_directories=True)
   custom_flags = FLAGS.get_key_flags_for_module(__file__)
   custom_flags = {f.name: f.value for f in custom_flags}
+  custom_flags['commit'] = repo.head.commit.hexsha
 
   print(df)
   print(custom_flags)
