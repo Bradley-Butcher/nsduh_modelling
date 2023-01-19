@@ -129,7 +129,7 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
     score_df["outcome"] = all_score_df[score]
     before_len = len(score_df)
     score_df = score_df.dropna(subset=["outcome"])
-    n_dropped = len(score_df) - before_len
+    n_dropped = before_len - len(score_df)
     logger.info(
       f"Dropped {n_dropped} rows with missing values for {score}")
 
