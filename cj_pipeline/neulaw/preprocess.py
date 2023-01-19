@@ -29,6 +29,7 @@ def init_rai_year_range(start_year: int, end_year: int):
         if file_path.is_file():
           rais = pd.read_csv(file_path)
         else:
+          file_path.parents[0].mkdir(parents=True, exist_ok=True)
           count_df = preprocess(df, year, end_year)
           rais = calculate_rais(count_df)
           rais = rais[["def.uid", "nca", "nvca", "ogrs3", "vprai", "fta"]]
