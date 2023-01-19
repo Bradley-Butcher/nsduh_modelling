@@ -153,6 +153,9 @@ def main(_):
     window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )
 
+  print(df)
+  print(FLAGS.flags_into_string())
+
   data_path = BASE_DIR / 'data' / 'counterfact'
   data_path /= f'{FLAGS.start_year}-{FLAGS.end_year}_{FLAGS.window}'
   data_path.mkdir(parents=True, exist_ok=True)
@@ -168,11 +171,8 @@ def main(_):
   ]
   file_name = '_'.join(file_name)
 
-  df.to_csv(data_path / file_name + '.csv', index=False)
-  FLAGS.append_flags_into_file(data_path / file_name + '.config')
-
-  print(df)
-  print(FLAGS.flags_into_string())
+  df.to_csv(data_path / f'{file_name}.csv', index=False)
+  FLAGS.append_flags_into_file(data_path / f'{file_name}.config')
 
 
 if __name__ == "__main__":
