@@ -33,6 +33,9 @@ flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
 flags.DEFINE_enum('matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
 
+flags.DEFINE_spaceseplist('crime_bins', "-1, 0, 1, 2, 9, 100000",
+                          'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
+
 flags.DEFINE_bool('synth', False, 'Use synthetic data.')
 flags.DEFINE_integer('window', 2, 'No. of years to prepend.')  # TODO: make no of years in the window
 flags.DEFINE_float('lam', 1.0, 'Multiplier of total crimes estimate.')
@@ -63,10 +66,10 @@ def _binarize_treatment(
   return df
 
 
-def _binarize_crimes(df: pd.DataFrame) -> pd.DataFrame:
+def _binarize_crimes(df: pd.DataFrame, bins: list) -> pd.DataFrame:
   for crime in CRIMES:
     df[crime] = pd.Categorical(
-      pd.cut(df[crime], right=True, bins=[-1, 1, 2, 9, 100_000])).codes
+      pd.cut(df[crime], right=True, bins=bins)).codes
   return df
 
 
@@ -95,6 +98,7 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
     binary_treatment_set: dict[str, int],
     use_synth: bool = False,
     matching_alg: str = 'flame',
+    crime_bins: tuple = (-1, 0, 1, 2, 9, 100_000),
     **kwargs  # passed to the synthetic assignment when `use_synth` is true
 ) -> pd.DataFrame:
   logger.info('Loading RAI scores')
@@ -114,7 +118,7 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
 
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
   df = df[SCORES + CRIMES + DEMOGRAPHICS]
-  df = _binarize_crimes(df)
+  df = _binarize_crimes(df, bins=list(crime_bins))
   df = _binarize_treatment(df, treatment, binary_treatment_set)
   for dem in set(DEMOGRAPHICS) - set([treatment]):
     df[dem] = pd.Categorical(df[dem]).codes
@@ -144,6 +148,7 @@ def average_treatment_effect(   # TODO: does rai *always* match the synth datase
 
 
 def main(_):
+  crime_bins = tuple(int(n) for n in FLAGS.crime_bins)
   df = average_treatment_effect(
     start_year=FLAGS.start_year,
     end_year=FLAGS.end_year,
@@ -151,6 +156,7 @@ def main(_):
     binary_treatment_set={"Black": 1, "White": 0},
     use_synth=FLAGS.synth,
     matching_alg=FLAGS.matching,
+    crime_bins=crime_bins,
     # parameters to the synth generator
     window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )
