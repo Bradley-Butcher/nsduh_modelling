@@ -33,7 +33,7 @@ flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
 flags.DEFINE_enum('matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
 
-flags.DEFINE_spaceseplist('crime_bins', "-1, 0, 1, 2, 9, 100000",
+flags.DEFINE_spaceseplist('crime_bins', "-1 0 1 2 9 100000",
                           'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
 
 flags.DEFINE_bool('synth', False, 'Use synthetic data.')
