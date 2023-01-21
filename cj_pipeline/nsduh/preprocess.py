@@ -373,6 +373,8 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     model = LinearRegression()
     model.fit(x_train, y_train, weights)
     smoothed = model.predict(x_test).clip(min=eps)
+
     agg[smooth_col] = smoothed
+    agg = pd.merge(agg, data, how='left', on=groups)
 
   return agg
