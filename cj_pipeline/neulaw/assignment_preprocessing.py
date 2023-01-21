@@ -121,8 +121,7 @@ def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
   year_df['age_cat'] = year_df['age_ncvs']  # for now take as default
 
   # remove all underage entries
-  year_df = year_df[(year_df['age_nsduh'] != '< 18') &
-                    (year_df['age_ncvs'] != '< 18')]
+  year_df = year_df[year_df['age_cat'] != '< 18']
 
   # convert to integer
   for col in CRIMES:

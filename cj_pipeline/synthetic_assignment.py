@@ -45,7 +45,19 @@ def rolling_crime_assignment(
       window_end, n_samples_div=1 if idx == 0 else years_in_window))
 
   df = pd.concat(samples)
+  df = df.drop(columns=['age_cat'])  # may conflict as people age between windows
   df = df.groupby(df.columns.difference(CRIMES).to_list()).sum().reset_index()
+
+  # recompute age based on the final year
+  age = pd.to_datetime(str(end_year)) - pd.to_datetime(df['def.dob'])
+  age = age.dt.days / 365.25
+  df = df[age > 10]  # likely data entry errors
+  df['age_cat'] = pd.cut(
+    age, right=True, bins=[0, 17, 29, 500],
+    labels=['< 18', '18-29', '> 29']).astype('str')
+  df = df[df['age_cat'] != '< 18']  # remove all underage entries
+  # TODO: code duplication with assignment_preprocessing.py
+
   return df
 
 

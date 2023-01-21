@@ -91,7 +91,7 @@ def _matching_model(score_df, matching_alg):
   return model
 
 
-def average_treatment_effect(   # TODO: does rai *always* match the synth dataset?
+def average_treatment_effect(
     start_year: int,
     end_year: int,
     treatment: str,
