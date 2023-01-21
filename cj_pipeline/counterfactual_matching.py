@@ -1,5 +1,6 @@
 import git
 import json
+import datetime
 import pandas as pd
 from absl import app, flags
 
@@ -148,6 +149,7 @@ def average_treatment_effect(
 
 
 def main(_):
+  exp_start = datetime.datetime.now()
   crime_bins = tuple(int(n) for n in FLAGS.crime_bins)
   df = average_treatment_effect(
     start_year=FLAGS.start_year,
@@ -171,6 +173,7 @@ def main(_):
 
   data_path = BASE_DIR / 'data' / 'counterfact'
   data_path /= f'{FLAGS.start_year}-{FLAGS.end_year}_{FLAGS.window}'
+  data_path /= f'{exp_start.month:02d}-{exp_start.day:02d}-{exp_start.hour:02d}'
   data_path.mkdir(parents=True, exist_ok=True)
 
   file_name = [
