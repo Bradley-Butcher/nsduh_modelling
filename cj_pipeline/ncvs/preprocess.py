@@ -1,3 +1,4 @@
+import itertools
 import pandas as pd
 from tqdm import tqdm
 from cj_pipeline.config import logger
@@ -93,6 +94,7 @@ def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
             return None
     tqdm.pandas(desc='Processing Offender Race')
     df["offender_race"] = df.progress_apply(_offender_race, axis=1)
+    df = df.dropna(subset=['offender_race'], axis=0)
     return df
 
 
@@ -143,6 +145,7 @@ def _process_offender_age(df: pd.DataFrame) -> pd.DataFrame:
             return None
     tqdm.pandas(desc='Processing Offender Age')
     df["offender_age"] = df.progress_apply(_offender_age, axis=1)
+    df = df.dropna(subset=['offender_age'], axis=0)
     return df
 
 
@@ -164,6 +167,7 @@ def _process_offender_sex(df: pd.DataFrame) -> pd.DataFrame:
             return None
     tqdm.pandas(desc='Processing Offender Sex')
     df["offender_sex"] = df.progress_apply(_offender_sex, axis=1)
+    df = df.dropna(subset=['offender_sex'], axis=0)
     return df
 
 
@@ -234,15 +238,21 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
                "reported_to_police": "reporting_rate"},
       inplace=True)
 
+    # ensure we predict data for all years and groups
+    all_combinations = itertools.product(*[df[c].unique() for c in groups])
+    all_combinations = pd.DataFrame(all_combinations, columns=groups)
+    agg = pd.merge(all_combinations, agg, how='left', on=groups)
+
     agg[smooth_col] = None
     for var in agg.crime_recode.unique():
-      data = agg[agg.crime_recode == var]
-      inputs = data[x_col].to_numpy()[:, None]
-      weights = data['count']
+      data = agg[(agg.crime_recode == var) & agg.arrest_rate.notna()]
+      x_train = data[x_col].to_numpy()[:, None]
+      y_train, weights = data[y_col], data['count']
+      x_test = agg[agg.crime_recode == var][x_col].to_numpy()[:, None]
 
       model = LinearRegression()
-      model.fit(inputs, data[y_col], weights)
-      smoothed = model.predict(inputs).clip(min=eps)
+      model.fit(x_train, y_train, weights)
+      smoothed = model.predict(x_test).clip(min=eps)
       agg.loc[agg.crime_recode == var, smooth_col] = smoothed
 
     return agg

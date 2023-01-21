@@ -355,6 +355,7 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     'drugs_any': lambda g: _sdiv(g['drugs_arrest'].sum(), ((g['drugs_use'] + g['drugs_sold']) > 0).sum())
   }
 
+  # TODO: add itertools.product to predict all groups and years
   grouped = df.groupby(groups)
   dfs = [grouped.size().to_frame('count').reset_index()]
   for var in spec:
@@ -369,7 +370,6 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     data[smooth_col] = smoothed
 
     dfs.append(data)
-    # print(var, data[y_col].min(), data[smooth_col].min(), (data[y_col] - data[smooth_col]).min())
 
   df = reduce(lambda df0, df1: pd.merge(df0, df1, on=groups), dfs)
   return df
