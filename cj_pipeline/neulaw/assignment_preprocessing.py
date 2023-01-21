@@ -108,8 +108,8 @@ def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
   year_df = year_df.rename(columns={'offense_category': 'index'})
 
   # add age within the time-frame
-  mid_year = pd.to_datetime(str(start_year + (end_year - start_year) // 2))
-  year_df['age'] = mid_year - pd.to_datetime(year_df['def.dob'])
+  age_year = pd.to_datetime(str(end_year))  # age at which all crimes were commited
+  year_df['age'] = age_year - pd.to_datetime(year_df['def.dob'])
   year_df['age'] = year_df['age'].dt.days / 365.25
   year_df = year_df[year_df['age'] > 10]  # likely data entry errors
   year_df['age_nsduh'] = pd.cut(
