@@ -1,4 +1,5 @@
 import tqdm
+import itertools
 import pandas as pd
 from functools import reduce
 from cj_pipeline.config import logger
@@ -354,23 +355,24 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     'drugs_sell': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_sold']).sum(), g['drugs_sold'].sum()),
     'drugs_any': lambda g: _sdiv(g['drugs_arrest'].sum(), ((g['drugs_use'] + g['drugs_sold']) > 0).sum())
   }
-
-  # TODO: add itertools.product to predict all groups and years
   grouped = df.groupby(groups)
-  dfs = [grouped.size().to_frame('count').reset_index()]
+  counts = grouped.size().to_frame('count').reset_index()
+
+  # ensure we predict data for all years and groups
+  all_combinations = itertools.product(*[df[c].unique() for c in groups])
+  all_combinations = pd.DataFrame(all_combinations, columns=groups)
+  agg = pd.merge(all_combinations, counts, how='left', on=groups)
+
   for var in spec:
     x_col, y_col, smooth_col = 'YEAR', f'{var}_ar', f'{var}_sar'
     data = grouped.apply(spec[var]).to_frame(y_col).reset_index()
-    inputs = data[x_col].to_numpy()[:, None]
-    weights = dfs[0]['count']  # grouped.size()
+    x_train = data[x_col].to_numpy()[:, None]
+    y_train, weights = data[y_col], counts['count']
+    x_test = agg[x_col].to_numpy()[:, None]
 
     model = LinearRegression()
-    model.fit(inputs, data[y_col], weights)
-    smoothed = model.predict(inputs).clip(min=eps)
-    data[smooth_col] = smoothed
+    model.fit(x_train, y_train, weights)
+    smoothed = model.predict(x_test).clip(min=eps)
+    agg[smooth_col] = smoothed
 
-    dfs.append(data)
-
-  df = reduce(lambda df0, df1: pd.merge(df0, df1, on=groups), dfs)
-  return df
-
+  return agg
