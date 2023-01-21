@@ -185,7 +185,6 @@ def main(_):
   file_name += ['b'.join(FLAGS.crime_bins[1:-1])]
   file_name = '_'.join(file_name)
 
-
   df.to_csv(data_path / f'{file_name}.csv', index=False)
   with open(data_path / f'{file_name}.json', 'w') as file:
     json.dump(custom_flags, file, ensure_ascii=False, indent=2)
