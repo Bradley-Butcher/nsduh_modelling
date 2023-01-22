@@ -142,6 +142,7 @@ variable_pp = {  # checking presence in 1992
     # "CATAG7": process_integer, # not present
     "NEWRACE2": process_newrace2, # not present
     "IRRACE": process_integer,
+    "IRHOIND": process_integer,
     "IRSEX": process_irsex, # present
     "BKDRUG": process_bkdrug,  # present
     "BKDRVINF": process_bkdrvinf, # present
@@ -186,6 +187,8 @@ def get_variables():
 
 def add_race(df):
   def _process(row):
+    if _nan_value(row['NEWRACE2']) == 7 or _nan_value(row['IRHOIND']) == 1:
+      return 'Hispanic'
     if _nan_value(row['NEWRACE2']) == 1 or _nan_value(row['IRRACE']) == 4:
       return 'White'
     if _nan_value(row['NEWRACE2']) == 2 or _nan_value(row['IRRACE']) == 3:
