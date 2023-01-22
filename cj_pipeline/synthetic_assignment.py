@@ -9,7 +9,7 @@ from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, 
 
 def get_synth(
     start_year: int, end_year: int, window: int, seed: int = 0,
-    lam: float = 1, omega: float = 1, drug_col: str = 'drugs_any'
+    lam: float = 1, omega: float = 1
 ) -> pd.DataFrame:
   arrest_col = 'arrest_rate_smooth'
   file_path = _file_path(
@@ -24,7 +24,7 @@ def get_synth(
     logger.info('Generating the synthetic data')
     df = rolling_crime_assignment(
       start_year=start_year, end_year=end_year, window=window, seed=seed,
-      lam=lam, omega=omega, drug_col=drug_col, arrest_col=arrest_col)
+      lam=lam, omega=omega, arrest_col=arrest_col)
     df.to_csv(file_path, index=False)
 
   return df
@@ -47,16 +47,7 @@ def rolling_crime_assignment(
   df = pd.concat(samples)
   df = df.drop(columns=['age_cat'])  # may conflict as people age between windows
   df = df.groupby(df.columns.difference(CRIMES).to_list()).sum().reset_index()
-
-  # recompute age based on the final year
-  age = pd.to_datetime(str(end_year)) - pd.to_datetime(df['def.dob'])
-  age = age.dt.days / 365.25
-  df = df[age > 10]  # likely data entry errors
-  df['age_cat'] = pd.cut(
-    age, right=True, bins=[0, 17, 29, 500],
-    labels=['< 18', '18-29', '> 29']).astype('str')
-  df = df[df['age_cat'] != '< 18']  # remove all underage entries
-  # TODO: code duplication with assignment_preprocessing.py
+  df = _add_age(df, end_year=end_year)
 
   return df
 
@@ -69,6 +60,19 @@ def _file_path(start_year, end_year, window, lam, omega, seed):
   return data_path / file_name
 
 
+def _add_age(df, end_year):  # TODO: code duplication with assignment_preprocessing.py
+  age = pd.to_datetime(str(end_year)) - pd.to_datetime(df['def.dob'])
+  age = age.dt.days / 365.25
+
+  df = df[age > 10]  # likely data entry errors
+  df['age_cat'] = pd.cut(
+    age, right=True, bins=[0, 17, 29, 500],
+    labels=['< 18', '18-29', '> 29']).astype('str')
+  df = df[df['age_cat'] != '< 18']  # remove all underage entries
+
+  return df
+
+
 def _count_unobserved(pop, lam, arrest_col):
   total_crimes = lam * pop['offense_count'] / pop[arrest_col]
   pop['total_crimes'] = total_crimes.round().astype(pd.Int32Dtype())
@@ -78,7 +82,6 @@ def _count_unobserved(pop, lam, arrest_col):
 
 
 def _sample_unobserved(df, groups, n_samples_div, rng):
-  # sampling function
   def _sample(group):
     if group['unobserved_crimes'].nunique() > 1:
       raise ValueError(f'Conflicting no. of unobserved crimes to be generated '
@@ -119,6 +122,7 @@ def _add_unobserved(
     offenses, crimes, how='left', left_on=group_all, right_on=CRIMES_GROUP)
   offenses = offenses.drop(columns=CRIMES_GROUP)  # de-duplicate columns
 
+  # compute sampling weights
   offenses = _count_unobserved(offenses, lam=lam, arrest_col=arrest_col)
   if offenses['unobserved_per_person'].isna().sum() > 0:
     raise RuntimeError('Failed to assign unobserved offenses')
@@ -126,6 +130,7 @@ def _add_unobserved(
   df = pd.merge(df, offenses[unobs_cols(group_all)], how='left', on=group_all)
   df['crime_weight'] = df['unobserved_per_person'] + omega * df['offense_count']
 
+  # sample unobserved
   samples = _sample_unobserved(
     df=df, groups=group_all, n_samples_div=n_samples_div, rng=rng)
   df = pd.merge(df, samples, how='left', on=group_all + ['def.uid'])
@@ -136,11 +141,11 @@ def _add_unobserved(
 
 
 def _window_sampler(
-    start_year, end_year, window, lam, omega, arrest_col, drug_col, rng):
+    start_year, end_year, window, lam, omega, arrest_col, rng):
   # load data for given time-frame
-  neulaw_gen, _ = init_neulaw(start_year, window=window, melt=True)
   ncvs_gen, _ = init_ncvs(start_year, window=window)
-  nsduh_gen, _ = init_nsduh(start_year, window=window, drug_col=drug_col)
+  nsduh_gen, _ = init_nsduh(start_year, window=window)
+  neulaw_gen, _ = init_neulaw(start_year, window=window, melt=True)
 
   def _window(window_end: int, n_samples_div: float = 1.0):
     year = window_end - window
@@ -156,7 +161,7 @@ def _window_sampler(
 
     # sample new unobserved crimes
     len_before = len(df)
-    nsduh_ids = df['offense_category'].isin(['dui', 'drugs'])
+    nsduh_ids = df['offense_category'].isin(['dui', 'drugs_use', 'drugs_sell'])
     _sample = partial(
       _add_unobserved, lam=lam, omega=omega, arrest_col=arrest_col,
       n_samples_div=n_samples_div, rng=rng
@@ -190,7 +195,6 @@ def main():
     lam=lam,
     omega=omega,
     seed=seed,
-    drug_col='drugs_any',  # TODO: vary `drug_col`
     arrest_col='arrest_rate_smooth',
   )
 

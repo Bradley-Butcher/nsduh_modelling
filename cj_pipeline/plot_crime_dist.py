@@ -16,7 +16,6 @@ def main():
   lam = 1.0
   omega = 1.0
   seed = 0
-  drug_col = 'drug_any'  # 'drugs_any', 'drugs_sell', 'drugs_use'
 
   # load non synth
   neulaw_gen, _ = init_neulaw(
@@ -26,7 +25,7 @@ def main():
   # load synth
   synth = get_synth(
     start_year=start_year, end_year=end_year, window=window,
-    lam=lam, omega=omega, seed=seed, drug_col=drug_col)
+    lam=lam, omega=omega, seed=seed)
 
   def _plot(df, name):
     fig, ax = plt.subplots(3, 3, figsize=(12, 12))
@@ -37,7 +36,7 @@ def main():
 
     ax[0, 0].legend()
     fig.tight_layout()
-    fig.suptitle(name, y=0.15)
+    fig.suptitle(name, x=0.85, y=0.15)
 
   _plot(synth, 'synth')
   _plot(non_synth, 'non synth')

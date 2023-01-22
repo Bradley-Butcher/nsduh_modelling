@@ -9,9 +9,13 @@ BASE_DIR = Path(__file__).parents[1]
 LOGS_DIR = Path(BASE_DIR, "logs")
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
-CRIMES = ['aggravated assault', 'drugs', 'dui', 'property', 'robbery', 'sex offense', 'simple assault']
-NEULAW_GROUP = ['def.gender', 'def.race', 'offense_category']  # 'age_cat'
+CRIMES = [
+  'aggravated assault', 'property', 'robbery', 'sex offense', 'simple assault',
+  # 'dui', 'drugs',
+  'dui', 'drugs_use', 'drugs_sell',
+]
 CRIMES_GROUP = ['offender_sex', 'offender_race', 'crime_recode',  'offender_age']
+NEULAW_GROUP = ['def.gender', 'def.race', 'offense_category']  # 'age_cat'
 NEULAW_TO_NCVS = NEULAW_GROUP + ['age_ncvs']
 NEULAW_TO_NSDUH = NEULAW_GROUP + ['age_nsduh']
 # CAVEAT: *order* of CRIMES_GROUP and NEULAW_TO_* + ['age_*'] must match

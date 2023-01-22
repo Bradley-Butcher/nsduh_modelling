@@ -32,16 +32,14 @@ MATCHING_ALGS = [
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
-flags.DEFINE_enum('matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
-flags.DEFINE_enum('drug_col', 'drugs_any', ('drugs_any', 'drugs_sell', 'drugs_use'),
-                  help='Count any, selling-only, or use-only drug offenses.')
-# TODO: currently only changes the rate from nsduh
-
-flags.DEFINE_spaceseplist('crime_bins', "-1 0 1 2 9 100000",
-                          'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
+flags.DEFINE_enum(
+  'matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
+flags.DEFINE_spaceseplist(
+  'crime_bins', "-1 0 1 2 9 100000",
+  'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
 
 flags.DEFINE_bool('synth', False, 'Use synthetic data.')
-flags.DEFINE_integer('window', 2, 'No. of years to prepend.')  # TODO: make no of years in the window
+flags.DEFINE_integer('window', 2, 'No. of years to prepend.')
 flags.DEFINE_float('lam', 1.0, 'Multiplier of total crimes estimate.')
 flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
 flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
@@ -77,7 +75,6 @@ def _binarize_crimes(df: pd.DataFrame, bins: list) -> pd.DataFrame:
   return df
 
 
-# TODO: sensitivity analysis wrt params of the matching algorithms?
 def _matching_model(score_df, matching_alg):
   matching_alg = matching_alg.lower()
   if matching_alg not in MATCHING_ALGS:
@@ -100,7 +97,6 @@ def average_treatment_effect(
     end_year: int,
     treatment: str,
     binary_treatment_set: dict[str, int],
-    drug_col: str = 'drugs_any',
     use_synth: bool = False,
     matching_alg: str = 'flame',
     crime_bins: tuple = (-1, 0, 1, 2, 9, 100_000),
@@ -114,13 +110,12 @@ def average_treatment_effect(
   if use_synth:
     logger.info('Estimating based on synthethic crime record')
     offense_dfs = get_synth(
-      start_year=start_year, end_year=end_year, drug_col=drug_col, **kwargs)
+      start_year=start_year, end_year=end_year, **kwargs)
   else:
     logger.info('Estimating based on recorded crime only')
     offense_count_func, _ = init_neulaw(
       start_year=start_year, window=end_year - start_year, melt=False)
     offense_dfs = offense_count_func(start_year)
-    # TODO: take into account drug_col !!!
 
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
   df = df[SCORES + CRIMES + DEMOGRAPHICS]
@@ -164,7 +159,6 @@ def main(_):
     use_synth=FLAGS.synth,
     matching_alg=FLAGS.matching,
     crime_bins=crime_bins,
-    drug_col=FLAGS.drug_col,
     # parameters to the synth generator
     window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
   )

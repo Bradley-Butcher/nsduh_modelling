@@ -7,7 +7,11 @@ from cj_pipeline.neulaw.load import load as load_neulaw
 base_path = Path(__file__).parents[2] / 'data'
 
 
-def init_neulaw(start_year: int, window: int, melt: bool = False):
+def init_neulaw(
+    start_year: int,
+    window: int,
+    melt: bool = False,
+):
   logger.info("Preparing offence counting ...")
   df = load_neulaw(base_path / 'neulaw')
 
@@ -52,10 +56,8 @@ def init_ncvs(start_year: int, window: int):
   return get_entries, max_year
 
 
-def init_nsduh(start_year: int, window: int, drug_col: str):
+def init_nsduh(start_year: int, window: int):
   logger.info('Preparing NSDUH record counting ...')
-  if drug_col not in ('drugs_any', 'drugs_sell', 'drugs_use'):
-    raise ValueError(f'Illegal value for the drug columns "{drug_col}".')
 
   nsduh = pd.read_csv(base_path / 'processed' / 'nsduh.csv')
   nsduh = nsduh[nsduh['offender_age'] != '< 18']
@@ -72,17 +74,23 @@ def init_nsduh(start_year: int, window: int, drug_col: str):
     agg_fns['count'] = 'sum'
     years_df = years_df.groupby(groups, as_index=False).agg(agg_fns)
 
-    def _melt(suffix, col_name):
-      dui_suffix, drug_suffix = 'dui' + suffix, drug_col + suffix
+    def _melt(crime, suffix, col_name):
       melted = years_df.melt(
-        id_vars=groups, value_vars=[dui_suffix, drug_suffix],
+        id_vars=groups, value_vars=crime + suffix,
         var_name='crime_recode', value_name=col_name)
-      melted = melted.replace(
-        {'crime_recode': {dui_suffix: 'dui', drug_suffix: 'drugs'}})
+      melted = melted.replace({'crime_recode': {crime + suffix: crime}})
       return melted
 
-    arrests = _melt('_ar', 'arrest_rate')
-    smoothed_arrests = _melt('_sar', 'arrest_rate_smooth')
+    arrests = pd.concat([
+      _melt(crime='dui', suffix='_ar', col_name='arrest_rate'),
+      _melt(crime='drugs_sell', suffix='_ar', col_name='arrest_rate'),
+      _melt(crime='drugs_use', suffix='_ar', col_name='arrest_rate'),
+    ])
+    smoothed_arrests = pd.concat([
+      _melt(crime='dui', suffix='_sar', col_name='arrest_rate_smooth'),
+      _melt(crime='drugs_sell', suffix='_sar', col_name='arrest_rate_smooth'),
+      _melt(crime='drugs_use', suffix='_sar', col_name='arrest_rate_smooth'),
+    ])
     years_df = pd.merge(arrests, smoothed_arrests, on=CRIMES_GROUP)
 
     return years_df
