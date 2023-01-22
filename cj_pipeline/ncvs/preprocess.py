@@ -247,16 +247,26 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     all_combinations = pd.DataFrame(all_combinations, columns=groups)
     agg = pd.merge(all_combinations, agg, how='left', on=groups)
 
-    agg[smooth_col] = None
-    for var in agg.crime_recode.unique():
-      data = agg[(agg.crime_recode == var) & agg.arrest_rate.notna()]
+    # compute smoothed arrest rates
+    def _smooth(group):
+      data = group[group.arrest_rate.notna()]
+      x_test = group[x_col].to_numpy()[:, None]
+      if len(data) == 0:
+        return list(zip(x_test.squeeze(1), [None] * len(x_test)))
       x_train = data[x_col].to_numpy()[:, None]
       y_train, weights = data[y_col], data['count']
-      x_test = agg[agg.crime_recode == var][x_col].to_numpy()[:, None]
 
       model = LinearRegression()
       model.fit(x_train, y_train, weights)
       smoothed = model.predict(x_test).clip(min=eps)
-      agg.loc[agg.crime_recode == var, smooth_col] = smoothed
 
+      return list(zip(x_test.squeeze(1), smoothed))
+
+    reg_groups = [g for g in groups if g != 'ncvs_year']
+    smoothed = agg.groupby(reg_groups).apply(_smooth).to_frame(smooth_col).reset_index()
+    smoothed = smoothed.explode(smooth_col)
+    smoothed['ncvs_year'] = smoothed[smooth_col].str[0].astype(agg['ncvs_year'].dtype)
+    smoothed[smooth_col] = smoothed[smooth_col].str[1]
+
+    agg = pd.merge(agg, smoothed, how='left', on=groups)
     return agg
