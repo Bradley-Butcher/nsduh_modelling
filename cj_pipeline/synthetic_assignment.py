@@ -9,9 +9,9 @@ from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, 
 
 def get_synth(
     start_year: int, end_year: int, window: int, seed: int = 0,
-    lam: float = 1, omega: float = 1,
+    lam: float = 1, omega: float = 1, drug_col: str = 'drugs_any'
 ) -> pd.DataFrame:
-  drug_col, arrest_col = 'drugs_any', 'arrest_rate_smooth'
+  arrest_col = 'arrest_rate_smooth'
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
     seed=seed, lam=lam, omega=omega)
@@ -197,7 +197,7 @@ def main():
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
     lam=lam, omega=omega, seed=seed)
-  file_path.parents[0].mkdir(parents=True, exists_ok=True)
+  file_path.parents[0].mkdir(parents=True, exist_ok=True)
   df.to_csv(file_path, index=False)
 
 
