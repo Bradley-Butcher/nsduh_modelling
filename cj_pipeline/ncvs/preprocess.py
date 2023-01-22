@@ -70,10 +70,14 @@ def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
 
 def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
     def _offender_race(row):
-        if row["c_mult_off_race_black"] == "(1) Yes":
+        if row["multiple_offenders_hispanic_non_hispanic_start_2012_q1"] == "(1) Mostly Hispanic or Latino":
+            return "Hispanic"
+        elif row["c_mult_off_race_black"] == "(1) Yes":
             return "Black"
         elif row["c_mult_off_race_white"] == "(1) Yes":
             return "White"
+        elif row["single_offender_hispanic_latino_start_2012_q1"] == "(1) Yes":
+            return "Hispanic"
         elif row["single_offender_race_end_2011_q4"] == "(1) White":
             return "White"
         elif row["single_offender_race_end_2011_q4"] == "(2) Black":
