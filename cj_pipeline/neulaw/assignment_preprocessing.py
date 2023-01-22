@@ -54,6 +54,9 @@ def init_ncvs(start_year: int, window: int):
 
 def init_nsduh(start_year: int, window: int, drug_col: str):
   logger.info('Preparing NSDUH record counting ...')
+  if drug_col not in ('drugs_any', 'drugs_sell', 'drugs_use'):
+    raise ValueError(f'Illegal value for the drug columns "{drug_col}".')
+
   nsduh = pd.read_csv(base_path / 'processed' / 'nsduh.csv')
   nsduh = nsduh[nsduh['offender_age'] != '< 18']
   nsduh = nsduh[nsduh['YEAR'] >= start_year]
