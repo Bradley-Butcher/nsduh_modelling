@@ -354,7 +354,10 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   groups = ['offender_race', 'offender_age', 'offender_sex', 'YEAR']
   spec = {
     'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
-    'drugs_use': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_use']).sum(), g['drugs_use'].sum()),
+    'drugs_use': lambda g: _sdiv(
+      (g['drugs_arrest'] * g['drugs_use'] * (1 - g['drugs_sold'])).sum(),
+      (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
+    ),
     'drugs_sell': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_sold']).sum(), g['drugs_sold'].sum()),
     'drugs_any': lambda g: _sdiv(g['drugs_arrest'].sum(), ((g['drugs_use'] + g['drugs_sold']) > 0).sum())
   }
