@@ -350,7 +350,7 @@ def _get_most_serious_offense_degree(df: pd.DataFrame) -> pd.DataFrame:
   return df
 
 def _get_most_serious_offense(df: pd.DataFrame):
-  groups = ['def.gender', 'def.race', 'def.uid']
+  groups = ['def.gender', 'def.race', 'calc.race', 'def.uid']
   df = _get_most_serious_offense_degree(df)
   def _most_serious_offense(group):
     return group["calc.detailed"][group["degree_num"] == group["degree_num"].max()].iloc[0]
@@ -361,7 +361,7 @@ def _get_most_serious_offense(df: pd.DataFrame):
 
 
 def _get_criminal_history(df: pd.DataFrame) -> pd.DataFrame:
-  groups = ['def.gender', 'def.race', 'def.uid']
+  groups = ['def.gender', 'def.race', 'calc.race', 'def.uid']
   agg = df.groupby(groups).agg(
     {
       "age_cat": _age_max,
@@ -411,6 +411,7 @@ def _get_criminal_history(df: pd.DataFrame) -> pd.DataFrame:
 
   agg = agg[agg["def.gender"] != "Missing"]
   agg = agg[agg["def.race"] != "Missing"]
+  agg = agg[agg["calc.race"] != "Missing"]
   agg = agg.dropna(subset=["age_first_arrest"], axis=0)
 
   return agg

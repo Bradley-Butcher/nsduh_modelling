@@ -18,7 +18,7 @@ def init_neulaw(
   # subset year and handle special column values
   df = df[df['calc.year'] >= start_year]
   df = df[df['def.gender'].isin(('Female', 'Male'))]
-  df = df[df['def.race'].isin(('Black', 'White'))]
+  df = df[df['calc.race'].isin(('Black', 'White', 'Hispanic'))]
   max_year = df['calc.year'].max()
 
   # add year category according to window
@@ -106,7 +106,7 @@ def _check_year_validity(year: int, max_year: int, window: int):
 
 
 def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
-  groups = ['def.gender', 'def.race', 'def.dob', 'def.uid', 'offense_category']
+  groups = ['def.gender', 'calc.race', 'def.dob', 'def.uid', 'offense_category']
 
   year_df = df.query(f'{start_year} <= `calc.year` <= {end_year}')
   year_df = year_df.groupby(groups).agg({'offense_category': 'count'})
