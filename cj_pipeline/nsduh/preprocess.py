@@ -363,18 +363,36 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   all_combinations = pd.DataFrame(all_combinations, columns=groups)
   agg = pd.merge(all_combinations, counts, how='left', on=groups)
 
-  for var in spec:
-    x_col, y_col, smooth_col = 'YEAR', f'{var}_ar', f'{var}_sar'
-    data = grouped.apply(spec[var]).to_frame(y_col).reset_index()
+  # compute arrest rates and smooth them
+  x_test = agg['YEAR'].unique()[:, None]  # same for all groups
+
+  def _smooth(group):
+    data = group[group[y_col].notna()]
+    if len(data) == 0:
+      return list(zip(x_test.squeeze(1), [None] * len(x_test)))
     x_train = data[x_col].to_numpy()[:, None]
-    y_train, weights = data[y_col], counts['count']
-    x_test = agg[x_col].to_numpy()[:, None]
+    y_train, weights = data[y_col], data['count']
 
     model = LinearRegression()
     model.fit(x_train, y_train, weights)
     smoothed = model.predict(x_test).clip(min=eps)
 
-    agg[smooth_col] = smoothed
-    agg = pd.merge(agg, data, how='left', on=groups)
+    return list(zip(x_test.squeeze(1), smoothed))
+
+  for crime in spec:
+    x_col, y_col, smooth_col = 'YEAR', f'{crime}_ar', f'{crime}_sar'
+    avail_data = pd.merge(
+      grouped.apply(spec[crime]).to_frame(y_col).reset_index(), counts,
+      how='left', on=groups)
+
+    reg_groups = [g for g in groups if g != 'YEAR']
+    smoothed = avail_data.groupby(reg_groups).apply(
+      _smooth).to_frame(smooth_col).reset_index()
+    smoothed = smoothed.explode(smooth_col)
+    smoothed['YEAR'] = smoothed[smooth_col].str[0].astype(agg['YEAR'].dtype)
+    smoothed[smooth_col] = smoothed[smooth_col].str[1]
+
+    agg = pd.merge(agg, smoothed, how='left', on=groups)
+    agg = pd.merge(agg, avail_data[groups + [y_col]], how='left', on=groups)
 
   return agg
