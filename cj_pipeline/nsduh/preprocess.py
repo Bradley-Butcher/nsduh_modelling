@@ -142,6 +142,7 @@ variable_pp = {  # checking presence in 1992
     # "CATAG7": process_integer, # not present
     "NEWRACE2": process_newrace2, # not present
     "IRRACE": process_integer,
+    "IRHOIND": process_integer,
     "IRSEX": process_irsex, # present
     "BKDRUG": process_bkdrug,  # present
     "BKDRVINF": process_bkdrvinf, # present
@@ -186,6 +187,8 @@ def get_variables():
 
 def add_race(df):
   def _process(row):
+    if _nan_value(row['NEWRACE2']) == 7 or _nan_value(row['IRHOIND']) == 1:
+      return 'Hispanic'
     if _nan_value(row['NEWRACE2']) == 1 or _nan_value(row['IRRACE']) == 4:
       return 'White'
     if _nan_value(row['NEWRACE2']) == 2 or _nan_value(row['IRRACE']) == 3:
@@ -351,7 +354,10 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   groups = ['offender_race', 'offender_age', 'offender_sex', 'YEAR']
   spec = {
     'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
-    'drugs_use': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_use']).sum(), g['drugs_use'].sum()),
+    'drugs_use': lambda g: _sdiv(
+      (g['drugs_arrest'] * g['drugs_use'] * (1 - g['drugs_sold'])).sum(),
+      (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
+    ),
     'drugs_sell': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_sold']).sum(), g['drugs_sold'].sum()),
     'drugs_any': lambda g: _sdiv(g['drugs_arrest'].sum(), ((g['drugs_use'] + g['drugs_sold']) > 0).sum())
   }
