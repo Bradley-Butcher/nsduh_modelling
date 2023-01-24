@@ -14,51 +14,51 @@ CRIMES = [
   # 'dui', 'drugs',
   'dui', 'drugs_use', 'drugs_sell',
 ]
-CRIMES_GROUP = ['offender_sex', 'offender_race', 'crime_recode',  'offender_age']
-NEULAW_GROUP = ['def.gender', 'def.race', 'offense_category']  # 'age_cat'
-NEULAW_TO_NCVS = NEULAW_GROUP + ['age_ncvs']
-NEULAW_TO_NSDUH = NEULAW_GROUP + ['age_nsduh']
+CRIMES_GROUP = ['offender_sex', 'offender_race', 'crime_recode', 'offender_age']
+# NEULAW_GROUP = ['def.gender', 'def.race', 'offense_category']  # 'age_cat'
+NEULAW_TO_NCVS = ['def.gender', 'def.race', 'offense_category', 'age_ncvs']
+NEULAW_TO_NSDUH = ['def.gender', 'calc.race', 'offense_category', 'age_nsduh']
 # CAVEAT: *order* of CRIMES_GROUP and NEULAW_TO_* + ['age_*'] must match
 #  -> see synthetic_assignment.py for usage (left_on/right_on pd.merge)
 
 logging_config = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "minimal": {"format": "%(message)s"},
-        "detailed": {
-            "format": "%(levelname)s %(asctime)s [%(name)s:%(filename)s:%(funcName)s:%(lineno)d]\n%(message)s\n"
-        },
+  "version": 1,
+  "disable_existing_loggers": False,
+  "formatters": {
+    "minimal": {"format": "%(message)s"},
+    "detailed": {
+      "format": "%(levelname)s %(asctime)s [%(name)s:%(filename)s:%(funcName)s:%(lineno)d]\n%(message)s\n"
     },
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "stream": sys.stdout,
-            "formatter": "minimal",
-            "level": logging.DEBUG,
-        },
-        "info": {
-            "class": "logging.handlers.RotatingFileHandler",
-            "filename": Path(LOGS_DIR, "info.log"),
-            "maxBytes": 10485760,  # 1 MB
-            "backupCount": 10,
-            "formatter": "detailed",
-            "level": logging.INFO,
-        },
-        "error": {
-            "class": "logging.handlers.RotatingFileHandler",
-            "filename": Path(LOGS_DIR, "error.log"),
-            "maxBytes": 10485760,  # 1 MB
-            "backupCount": 10,
-            "formatter": "detailed",
-            "level": logging.ERROR,
-        },
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "stream": sys.stdout,
+      "formatter": "minimal",
+      "level": logging.DEBUG,
     },
-    "root": {
-        "handlers": ["console", "info", "error"],
-        "level": logging.INFO,
-        "propagate": True,
+    "info": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "filename": Path(LOGS_DIR, "info.log"),
+      "maxBytes": 10485760,  # 1 MB
+      "backupCount": 10,
+      "formatter": "detailed",
+      "level": logging.INFO,
     },
+    "error": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "filename": Path(LOGS_DIR, "error.log"),
+      "maxBytes": 10485760,  # 1 MB
+      "backupCount": 10,
+      "formatter": "detailed",
+      "level": logging.ERROR,
+    },
+  },
+  "root": {
+    "handlers": ["console", "info", "error"],
+    "level": logging.INFO,
+    "propagate": True,
+  },
 }
 
 print(logging)

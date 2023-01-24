@@ -75,7 +75,10 @@ def _add_age(df, end_year):  # TODO: code duplication with assignment_preprocess
 
 def _count_unobserved(pop, lam, arrest_col):
   total_crimes = lam * pop['offense_count'] / pop[arrest_col]
-  pop['total_crimes'] = total_crimes.round().astype(pd.Int32Dtype())
+  pop['total_crimes'] = np.where(
+    pop[arrest_col] > 0,  # TODO: add warning when this is False
+    total_crimes, pop['offense_count']
+  ).round().astype('int')
   pop['unobserved_crimes'] = pop['total_crimes'] - pop['offense_count']
   pop['unobserved_per_person'] = pop['unobserved_crimes'] / pop['pop_size']
   return pop
@@ -176,7 +179,7 @@ def _window_sampler(
     # convert back into the wide format
     df = pd.pivot_table(
       df, columns='offense_category', values='offense_total', sort=False,
-      index=['def.gender', 'def.race', 'def.uid', 'def.dob', 'age_cat']
+      index=['def.gender', 'calc.race', 'def.uid', 'def.dob', 'age_cat']
     ).reset_index()
 
     return df

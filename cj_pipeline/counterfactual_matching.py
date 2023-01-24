@@ -19,7 +19,8 @@ SCORES = [
   'fta'
 ]
 DEMOGRAPHICS = [
-  "def.race",
+ "calc.race",
+  # "def.race",
   "def.gender",
   "age_cat",
 ]
@@ -154,7 +155,8 @@ def main(_):
   df = average_treatment_effect(
     start_year=FLAGS.start_year,
     end_year=FLAGS.end_year,
-    treatment='def.race',
+    # treatment='def.race',
+    treatment='calc.race',
     binary_treatment_set={"Black": 1, "White": 0},
     use_synth=FLAGS.synth,
     matching_alg=FLAGS.matching,

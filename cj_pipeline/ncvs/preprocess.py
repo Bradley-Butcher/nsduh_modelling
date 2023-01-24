@@ -70,14 +70,10 @@ def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
 
 def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
     def _offender_race(row):
-        if row["multiple_offenders_hispanic_non_hispanic_start_2012_q1"] == "(1) Mostly Hispanic or Latino":
-            return "Hispanic"
-        elif row["c_mult_off_race_black"] == "(1) Yes":
+        if row["c_mult_off_race_black"] == "(1) Yes":
             return "Black"
         elif row["c_mult_off_race_white"] == "(1) Yes":
             return "White"
-        elif row["single_offender_hispanic_latino_start_2012_q1"] == "(1) Yes":
-            return "Hispanic"
         elif row["single_offender_race_end_2011_q4"] == "(1) White":
             return "White"
         elif row["single_offender_race_end_2011_q4"] == "(2) Black":
@@ -100,6 +96,12 @@ def _process_offender_race(df: pd.DataFrame) -> pd.DataFrame:
     df["offender_race"] = df.progress_apply(_offender_race, axis=1)
     df = df.dropna(subset=['offender_race'], axis=0)
     return df
+
+# For adding Hispanic, add:
+#         if row["multiple_offenders_hispanic_non_hispanic_start_2012_q1"] == "(1) Mostly Hispanic or Latino":
+#             return "Hispanic"
+#        elif row["single_offender_hispanic_latino_start_2012_q1"] == "(1) Yes":
+#           return "Hispanic"
 
 
 def _process_offender_age(df: pd.DataFrame) -> pd.DataFrame:
