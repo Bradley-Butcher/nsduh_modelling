@@ -29,14 +29,23 @@ MATCHING_ALGS = [
   'flame',
   'hybrid',
 ]
+ETHNICITIES = [
+  'Black',
+  'White',
+  'Hispanic',
+]
 
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
 flags.DEFINE_enum(
   'matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
+flags.DEFINE_enum(
+  'baseline', 'White', ETHNICITIES, help=f'One of {ETHNICITIES}')
+flags.DEFINE_enum(
+  'treatment', 'Black', ETHNICITIES, help=f'One of {ETHNICITIES}')
 flags.DEFINE_spaceseplist(
-  'crime_bins', "-1 0 1 2 9 100000",
+  'crime_bins', "-1 0 1 2 4 9 19 49 99 100000",
   'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
 
 flags.DEFINE_bool('synth', False, 'Use synthetic data.')
@@ -157,7 +166,7 @@ def main(_):
     end_year=FLAGS.end_year,
     # treatment='def.race',
     treatment='calc.race',
-    binary_treatment_set={"Black": 1, "White": 0},
+    binary_treatment_set={FLAGS.baseline: 0, FLAGS.treatment: 1},
     use_synth=FLAGS.synth,
     matching_alg=FLAGS.matching,
     crime_bins=crime_bins,
@@ -179,6 +188,7 @@ def main(_):
   data_path.mkdir(parents=True, exist_ok=True)
 
   file_name = [
+    f'{FLAGS.baseline}-{FLAGS.treatment}',
     ('synth' if FLAGS.synth else 'observed'),
     f'{FLAGS.matching}',
   ]

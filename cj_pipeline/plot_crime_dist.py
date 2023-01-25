@@ -9,6 +9,7 @@ from cj_pipeline.config import CRIMES
 
 def main():
   start_year, end_year = 1992, 2012
+  race_col = 'calc.race'  # 'def.race'
 
   # crime_bins = crime_bins,
   # parameters to the synth generator
@@ -30,8 +31,8 @@ def main():
   def _plot(df, name):
     fig, ax = plt.subplots(3, 3, figsize=(12, 12))
     for a, crime in zip(ax.flat, CRIMES):
-      for race in df['def.race'].unique():
-        a.hist(df[df['def.race'] == race][crime], 20, log=True, label=race, alpha=0.5)
+      for race in df[race_col].unique():
+        a.hist(df[df[race_col] == race][crime], 20, log=True, label=race, alpha=0.5)
       a.set_title(crime)
 
     ax[0, 0].legend()
@@ -40,6 +41,7 @@ def main():
 
   _plot(synth, 'synth')
   _plot(non_synth, 'non synth')
+  plt.show()
 
 
 
