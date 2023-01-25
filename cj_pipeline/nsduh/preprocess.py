@@ -358,8 +358,14 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
       (g['drugs_arrest'] * g['drugs_use'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
     ),
-    'drugs_sell': lambda g: _sdiv((g['drugs_arrest'] * g['drugs_sold']).sum(), g['drugs_sold'].sum()),
-    'drugs_any': lambda g: _sdiv(g['drugs_arrest'].sum(), ((g['drugs_use'] + g['drugs_sold']) > 0).sum())
+    'drugs_sell': lambda g: _sdiv(
+      (g['drugs_arrest'] * g['drugs_sold']).sum(),
+      g['drugs_sold'].sum()
+    ),
+    'drugs_any': lambda g: _sdiv(
+      g['drugs_arrest'].sum(),
+      ((g['drugs_use'] + g['drugs_sold']) > 0).sum()
+    )
   }
   grouped = df.groupby(groups)
   counts = grouped.size().to_frame('count').reset_index()
@@ -371,25 +377,25 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
 
   # compute arrest rates and smooth them
   x_test = agg['YEAR'].unique()[:, None]  # same for all groups
-
-  def _smooth(group):
-    data = group[group[y_col].notna()]
-    if len(data) == 0:
-      return list(zip(x_test.squeeze(1), [None] * len(x_test)))
-    x_train = data[x_col].to_numpy()[:, None]
-    y_train, weights = data[y_col], data['count']
-
-    model = LinearRegression()
-    model.fit(x_train, y_train, weights)
-    smoothed = model.predict(x_test).clip(min=eps)
-
-    return list(zip(x_test.squeeze(1), smoothed))
-
   for crime in spec:
     x_col, y_col, smooth_col = 'YEAR', f'{crime}_ar', f'{crime}_sar'
     avail_data = pd.merge(
       grouped.apply(spec[crime]).to_frame(y_col).reset_index(), counts,
       how='left', on=groups)
+
+    def _smooth(group):
+      data = group[group[y_col].notna()]
+      data = data[data[y_col] > 0]
+      if len(data) == 0:
+        return list(zip(x_test.squeeze(1), [None] * len(x_test)))
+      x_train = data[x_col].to_numpy()[:, None]
+      y_train, weights = data[y_col], data['count']
+
+      model = LinearRegression()
+      model.fit(x_train, y_train, weights)
+      smoothed = model.predict(x_test).clip(min=eps)
+
+      return list(zip(x_test.squeeze(1), smoothed))
 
     reg_groups = [g for g in groups if g != 'YEAR']
     smoothed = avail_data.groupby(reg_groups).apply(

@@ -252,6 +252,7 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     # compute smoothed arrest rates
     def _smooth(group):
       data = group[group.arrest_rate.notna()]
+      data = data[data.arrest_rate > 0]
       x_test = group[x_col].to_numpy()[:, None]
       if len(data) == 0:
         return list(zip(x_test.squeeze(1), [None] * len(x_test)))
