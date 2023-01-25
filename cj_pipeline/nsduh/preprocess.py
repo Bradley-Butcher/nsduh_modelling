@@ -352,6 +352,7 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
 
 def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   groups = ['offender_race', 'offender_age', 'offender_sex', 'YEAR']
+  reg_groups = [g for g in groups if g != 'YEAR']
   spec = {
     'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
     'drugs_use': lambda g: _sdiv(
@@ -387,6 +388,8 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
       data = group[group[y_col].notna()]
       data = data[data[y_col] > 0]
       if len(data) == 0:
+        logger.warn(f'no arrest data to smooth for group: '
+                    f'{group[reg_groups].drop_duplicates().iloc[0].to_dict()}')
         return list(zip(x_test.squeeze(1), [None] * len(x_test)))
       x_train = data[x_col].to_numpy()[:, None]
       y_train, weights = data[y_col], data['count']
@@ -394,10 +397,11 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
       model = LinearRegression()
       model.fit(x_train, y_train, weights)
       smoothed = model.predict(x_test).clip(min=eps)
+      if pd.isna(smoothed).sum() > 0:
+        raise RuntimeError('NaN values in smoothed regression')
 
       return list(zip(x_test.squeeze(1), smoothed))
 
-    reg_groups = [g for g in groups if g != 'YEAR']
     smoothed = avail_data.groupby(reg_groups).apply(
       _smooth).to_frame(smooth_col).reset_index()
     smoothed = smoothed.explode(smooth_col)

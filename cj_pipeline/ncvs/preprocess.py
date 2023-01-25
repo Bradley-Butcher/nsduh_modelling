@@ -232,6 +232,7 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
 def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     x_col, y_col, smooth_col = 'ncvs_year', 'arrest_rate', 'arrest_rate_smooth'
     groups = ["offender_race", "offender_age", "offender_sex", "crime_recode", "ncvs_year"]
+    reg_groups = [g for g in groups if g != 'ncvs_year']
 
     grouped = df.groupby(groups)
     agg = grouped.agg(
@@ -255,17 +256,21 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
       data = data[data.arrest_rate > 0]
       x_test = group[x_col].to_numpy()[:, None]
       if len(data) == 0:
+        logger.warn(f'no arrest data to smooth for group: '
+                    f'{group[reg_groups].drop_duplicates().iloc[0].to_dict()}')
         return list(zip(x_test.squeeze(1), [None] * len(x_test)))
+
       x_train = data[x_col].to_numpy()[:, None]
       y_train, weights = data[y_col], data['count']
 
       model = LinearRegression()
       model.fit(x_train, y_train, weights)
       smoothed = model.predict(x_test).clip(min=eps)
+      if pd.isna(smoothed).sum() > 0:
+        raise RuntimeError('NaN values in smoothed regression')
 
       return list(zip(x_test.squeeze(1), smoothed))
 
-    reg_groups = [g for g in groups if g != 'ncvs_year']
     smoothed = agg.groupby(reg_groups).apply(_smooth).to_frame(smooth_col).reset_index()
     smoothed = smoothed.explode(smooth_col)
     smoothed['ncvs_year'] = smoothed[smooth_col].str[0].astype(agg['ncvs_year'].dtype)
