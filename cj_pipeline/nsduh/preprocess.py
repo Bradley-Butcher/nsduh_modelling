@@ -88,6 +88,24 @@ def process_bkdrvinf(df, name):
   df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
   return process_integer(df, name)
 
+def process_booked(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace(['Yes', 'Yes LOGICALLY ASSIGNED',
+                    'Yes LOGICALLY ASSIGNED (PROBATON OR PAROLE=1)'], 1, inplace=True)
+  df[name].replace(['No', 'LEGITIMATE SKIP'], 2, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
+def process_nobooky2(df, name):
+  _categorical_to_object_col(df, name)
+
+  df[name].replace(['One time', 'Two times', 'Three or more times'], 1, inplace=True)
+  df[name].replace(['None', 'LEGITIMATE SKIP',
+                    'LEGITIMATE SKIP (BOOKED=2)'], 0, inplace=True)
+  df[name] = pd.to_numeric(df[name], errors='coerce')  # set all else to NaN
+  return process_integer(df, name)
+
 
 def process_drugmon(df, name):
   _categorical_to_object_col(df, name)
@@ -178,6 +196,9 @@ variable_pp = {  # checking presence in 1992
     "BKOTHOFF": process_integer,
     "SOLDDRUG": process_integer,
     "HALLREC": process_hallrec,
+
+    "BOOKED": process_booked,
+    "NOBOOKY2": process_nobooky2,
 }
 
 
@@ -261,8 +282,38 @@ def add_dui(df):
     df = df.drop(columns=['BKDRVINF', 'BKOTHOFF'], errors='ignore')
     return df
 
+  #df = _dui(df)
+  #df = _dui_arrest(df)
+  #return df
+
+  def _dui_any_arrest(df):
+    def _process(row):
+      if _nan_value(row['dui']) is True and _nan_value(row['BOOKED']) in {1, 3}:
+        return True
+      if _nan_value(row['BOOKED']) in {2}:
+        return False
+      return None
+
+    df['dui_any_arrests'] = df.apply(_process, axis=1)
+    df = df.drop(columns={'BOOKED'}, errors='ignore')
+    return df
+
+  def _dui_any_arrest_12(df):
+    def _process(row):
+      if _nan_value(row['dui']) is True and _nan_value(row['NOBOOKY2']) in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}:
+        return True
+      if _nan_value(row['NOBOOKY2']) in {0, 999}:
+        return False
+      return None
+
+    df['dui_any_arrests_12'] = df.apply(_process, axis=1)
+    df = df.drop(columns={'BOOKED'}, errors='ignore')
+    return df
+
   df = _dui(df)
   df = _dui_arrest(df)
+  df = _dui_any_arrest(df)
+  df = _dui_any_arrest_12(df)
   return df
 
 
@@ -355,6 +406,8 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   reg_groups = [g for g in groups if g != 'YEAR']
   spec = {
     'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
+    'dui_any': lambda g: _sdiv(g['dui_any_arrests'].sum(), g['dui'].sum()),
+    'dui_any_12': lambda g: _sdiv(g['dui_any_arrests_12'].sum(), g['dui'].sum()),
     'drugs_use': lambda g: _sdiv(
       (g['drugs_arrest'] * g['drugs_use'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
