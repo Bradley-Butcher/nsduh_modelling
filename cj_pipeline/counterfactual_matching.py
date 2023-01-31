@@ -34,6 +34,7 @@ FLAGS = flags.FLAGS
 flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
 flags.DEFINE_integer('n_subsample', None, 'Number of subsamples')
+flags.DEFINE_bool('repeat_match', False, 'Repeat samples in matching')
 flags.DEFINE_enum(
   'matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
 flags.DEFINE_enum(
@@ -81,15 +82,15 @@ def _binarize_crimes(df: pd.DataFrame, bins: list) -> pd.DataFrame:
   return df
 
 
-def _matching_model(score_df, matching_alg):
+def _matching_model(score_df, matching_alg, repeat_match):
   matching_alg = matching_alg.lower()
   if matching_alg not in MATCHING_ALGS:
     raise ValueError(f'Unknown matching algorithm "{matching_alg}"')
 
   if matching_alg == 'dame':
-    model = dame_flame.matching.DAME(repeats=True)
+    model = dame_flame.matching.DAME(repeats=repeat_match)
   else:
-    model = dame_flame.matching.FLAME(repeats=True)
+    model = dame_flame.matching.FLAME(repeats=repeat_match)
   kwargs = {'pre_dame': 1} if matching_alg == 'hybrid' else {}
 
   model.fit(score_df)
@@ -105,6 +106,7 @@ def average_treatment_effect(
     binary_treatment_set: dict[str, int],
     use_synth: bool = False,
     matching_alg: str = 'flame',
+    repeat_match: bool = False,
     n_subsample: int = None,
     seed: int = None,
     crime_bins: tuple = (-1, 0, 1, 2, 9, 100_000),
@@ -154,7 +156,8 @@ def average_treatment_effect(
       n_subsample = min(n_subsample, len(score_df))
       score_df = score_df.sample(n=n_subsample, random_state=rng)
 
-    model = _matching_model(score_df, matching_alg=matching_alg)
+    model = _matching_model(
+      score_df, matching_alg=matching_alg, repeat_match=repeat_match)
     ate = dame_flame.utils.post_processing.ATE(matching_object=model)
     att = dame_flame.utils.post_processing.ATT(matching_object=model)
     # cate = dame_flame.utils.post_processing.CATE(matching_object=model)
@@ -164,7 +167,7 @@ def average_treatment_effect(
 
     results.append({
       'score': score, 'dropped': n_dropped,
-      'ate': ate, 'att': att, #'cate': cate,
+      'ate': ate, 'att': att,  # 'cate': cate,
     })
   return pd.DataFrame(results)
 
@@ -179,6 +182,7 @@ def main(_):
     binary_treatment_set={FLAGS.baseline: 0, FLAGS.treatment: 1},
     use_synth=FLAGS.synth,
     matching_alg=FLAGS.matching,
+    repeat_match=FLAGS.repeat_match,
     n_subsample=FLAGS.n_subsample,
     crime_bins=crime_bins,
     seed=FLAGS.seed,
@@ -204,6 +208,7 @@ def main(_):
     f'{FLAGS.baseline}-{FLAGS.treatment}',
     ('synth' if FLAGS.synth else 'observed'),
     f'{FLAGS.matching}',
+    'mrep' if FLAGS.repeat_match else 'nomrep',
   ]
   file_name += [] if not FLAGS.synth else [
     'nolam' if FLAGS.lam is None else f'lam3e{int(FLAGS.lam * 1000)}'
