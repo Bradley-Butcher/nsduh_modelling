@@ -60,7 +60,7 @@ def _binarize_treatment(
     df: pd.DataFrame,
     treatment: str,
     binary_treatment_set: dict[str, int]
-) -> pd.DataFrame:
+):
   if len(binary_treatment_set) != 2:
     raise ValueError("binary_treatment_set must have 2 keys")
 
@@ -72,14 +72,26 @@ def _binarize_treatment(
       binary_treatment_set[o_i] = binary_treatment_set["Rest"]
   df = df[df[treatment].isin(list(binary_treatment_set.keys()))]
   df[treatment] = df[treatment].map(binary_treatment_set)
-  return df
+  return df, {'treated': {v: k for k, v in binary_treatment_set.items()}}
 
 
-def _binarize_crimes(df: pd.DataFrame, bins: list) -> pd.DataFrame:
+def _binarize_crimes(df: pd.DataFrame, bins: list):
+  codes = {}
+  _proc = lambda i: str(i.right) if i.length == 1 else f'{i.left + 1}-{i.right}'
   for crime in CRIMES:
-    df[crime] = pd.Categorical(
-      pd.cut(df[crime], right=True, bins=bins)).codes
-  return df
+    categorical = pd.Categorical(pd.cut(df[crime], right=True, bins=bins))
+    codes[crime] = dict(enumerate(map(_proc, categorical.categories)))
+    df[crime] = categorical.codes
+  return df, codes
+
+
+def _binarize_demographics(df, treatment):
+  codes = {}
+  for dem in set(DEMOGRAPHICS) - {treatment}:
+    categorical = pd.Categorical(df[dem])
+    codes[dem] = dict(enumerate(categorical.categories))
+    df[dem] = categorical.codes
+  return df, codes
 
 
 def _matching_model(score_df, matching_alg, repeat_match):
@@ -94,9 +106,10 @@ def _matching_model(score_df, matching_alg, repeat_match):
   kwargs = {'pre_dame': 1} if matching_alg == 'hybrid' else {}
 
   model.fit(score_df)
-  _ = model.predict(score_df, **kwargs)
+  cates = model.predict(score_df, **kwargs).drop_duplicates()
+  cates['cate'] = dame_flame.utils.post_processing.CATE(model, cates.index)
 
-  return model
+  return model, cates
 
 
 def average_treatment_effect(
@@ -111,7 +124,7 @@ def average_treatment_effect(
     seed: int = None,
     crime_bins: tuple = (-1, 0, 1, 2, 9, 100_000),
     **kwargs  # passed to the synthetic assignment when `use_synth` is true
-) -> pd.DataFrame:
+):
   rng = np.random.RandomState(seed)
 
   logger.info('Loading RAI scores')
@@ -129,18 +142,20 @@ def average_treatment_effect(
       start_year=start_year, window=end_year - start_year)
     offense_dfs = offense_count_func(start_year)
 
+  codes = {}
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
   df = df[SCORES + CRIMES + DEMOGRAPHICS]
-  df = _binarize_crimes(df, bins=list(crime_bins))
-  df = _binarize_treatment(df, treatment, binary_treatment_set)
-  for dem in set(DEMOGRAPHICS) - set([treatment]):
-    df[dem] = pd.Categorical(df[dem]).codes
+  df, crime_codes = _binarize_crimes(df, bins=list(crime_bins))
+  df, treat_codes = _binarize_treatment(df, treatment, binary_treatment_set)
+  df, dem_codes = _binarize_demographics(df, treatment=treatment)
+  codes.update(crime_codes); codes.update(treat_codes); codes.update(dem_codes)
 
   all_score_df = _min_max_scale(df[SCORES])
   df = df.drop(columns=SCORES)
   df = df.rename(columns={treatment: 'treated'})
 
   results = []
+  conditional_results = []
   for score in SCORES:
     logger.info(f"Calculating ATE for treatment: {treatment}. outcome: {score}")
     score_df = df.copy()
@@ -156,26 +171,28 @@ def average_treatment_effect(
       n_subsample = min(n_subsample, len(score_df))
       score_df = score_df.sample(n=n_subsample, random_state=rng)
 
-    model = _matching_model(
+    model, cates = _matching_model(
       score_df, matching_alg=matching_alg, repeat_match=repeat_match)
     ate = dame_flame.utils.post_processing.ATE(matching_object=model)
     att = dame_flame.utils.post_processing.ATT(matching_object=model)
-    # cate = dame_flame.utils.post_processing.CATE(matching_object=model)
+    cates = cates.replace(codes)
+    cates['score'] = score
+
     logger.info(
       f"ATE for treatment: {treatment}. outcome: {score} is "
-      f"ate={ate} att={att}")  # cate={cate}")
-
+      f"ate={ate} att={att}")
     results.append({
       'score': score, 'dropped': n_dropped,
       'ate': ate, 'att': att,  # 'cate': cate,
     })
-  return pd.DataFrame(results)
+    conditional_results.append(cates)
+  return pd.DataFrame(results), pd.concat(conditional_results)
 
 
 def main(_):
   exp_start = datetime.datetime.now()
   crime_bins = tuple(int(n) for n in FLAGS.crime_bins)
-  df = average_treatment_effect(
+  ates, cates = average_treatment_effect(
     start_year=FLAGS.start_year,
     end_year=FLAGS.end_year,
     treatment='calc.race',
@@ -195,7 +212,7 @@ def main(_):
   custom_flags = {f.name: f.value for f in custom_flags}
   custom_flags['commit'] = repo.head.commit.hexsha
 
-  print(df)
+  print(ates)
   print(custom_flags)
 
   data_path = BASE_DIR / 'data' / 'counterfact'
@@ -218,7 +235,8 @@ def main(_):
   file_name += ['b'.join(FLAGS.crime_bins[1:-1])]
   file_name = '_'.join(file_name)
 
-  df.to_csv(data_path / f'{file_name}.csv', index=False)
+  ates.to_csv(data_path / f'{file_name}-ate.csv', index=False)
+  cates.to_csv(data_path / f'{file_name}-cate.csv', index=False)
   with open(data_path / f'{file_name}.json', 'w') as file:
     json.dump(custom_flags, file, ensure_ascii=False, indent=2)
 
