@@ -8,13 +8,12 @@ from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, 
 
 
 def get_synth(
-    start_year: int, end_year: int, window: int, seed: int = 0,
-    lam: float = 1, omega: float = 1
+    start_year: int, end_year: int, window: int, seed: int = 0, omega: float = 1
 ) -> pd.DataFrame:
   arrest_col = 'arrest_rate_smooth'
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
-    seed=seed, lam=lam, omega=omega)
+    seed=seed, omega=omega)
 
   logger.info(f'Loading synth assignments {start_year}-{end_year} ({window})')
   if file_path.is_file():
@@ -23,8 +22,8 @@ def get_synth(
   else:
     logger.info('Generating the synthetic data')
     df = rolling_crime_assignment(
-      start_year=start_year, end_year=end_year, window=window, seed=seed,
-      lam=lam, omega=omega, arrest_col=arrest_col)
+      start_year=start_year, end_year=end_year, window=window,
+      omega=omega, arrest_col=arrest_col, seed=seed,)
     df.to_csv(file_path, index=False)
 
   return df
@@ -52,8 +51,8 @@ def rolling_crime_assignment(
   return df
 
 
-def _file_path(start_year, end_year, window, lam, omega, seed):
-  file_name = f'lam{lam:.2f}_om{omega:.2f}-{seed}.csv'
+def _file_path(start_year, end_year, window, omega, seed):
+  file_name = f'om{omega:.2f}-{seed}.csv'
   data_path = BASE_DIR / 'data' / 'scratch' / 'synth'
   data_path /= f'{start_year}-{end_year}_{window}'
   data_path.mkdir(parents=True, exist_ok=True)
@@ -73,10 +72,10 @@ def _add_age(df, end_year):  # TODO: code duplication with assignment_preprocess
   return df
 
 
-def _count_unobserved(pop, lam, arrest_col):
-  total_crimes = lam * pop['offense_count'] / pop[arrest_col]
+def _count_unobserved(pop, arrest_col, lambda_col):
+  total_crimes = pop[lambda_col] * pop['offense_count'] / pop[arrest_col]
   pop['total_crimes'] = np.where(
-    pop[arrest_col] > 0,  # TODO: add warning when this is False
+    pop[arrest_col] > 0,
     total_crimes, pop['offense_count']
   ).round().astype('int')
   pop['unobserved_crimes'] = pop['total_crimes'] - pop['offense_count']
@@ -113,7 +112,8 @@ def _sample_unobserved(df, groups, n_samples_div, rng):
 
 
 def _add_unobserved(
-    df, group_all, crimes, lam, omega, arrest_col, n_samples_div, rng):
+    df, group_all, crimes, omega, n_samples_div,
+    lambda_col, arrest_col, rng):
   groups = [col for col in group_all if col != 'offense_category']
 
   offenses = df.groupby(group_all, as_index=False)['offense_count'].sum()
@@ -125,8 +125,19 @@ def _add_unobserved(
     offenses, crimes, how='left', left_on=group_all, right_on=CRIMES_GROUP)
   offenses = offenses.drop(columns=CRIMES_GROUP)  # de-duplicate columns
 
+  # log missing and illegal values if any
+  if offenses[arrest_col].isna().sum() > 0:
+    logger.warning(
+      f'groups with NaN arrest rates:\n'
+      f'{offenses[offenses[arrest_col].isna()][group_all + [arrest_col]]}')
+  if (offenses[arrest_col] <= 0).sum() > 0:
+    logger.warning(
+      f'groups with non-positive arrest rates:\n'
+      f'{offenses[offenses[arrest_col] <= 0][group_all + [arrest_col]]}')
+
   # compute sampling weights
-  offenses = _count_unobserved(offenses, lam=lam, arrest_col=arrest_col)
+  offenses = _count_unobserved(
+    offenses, arrest_col=arrest_col, lambda_col=lambda_col)
   if offenses['unobserved_per_person'].isna().sum() > 0:
     raise RuntimeError('Failed to assign unobserved offenses')
   unobs_cols = lambda c: c + ['unobserved_per_person', 'unobserved_crimes']
@@ -144,11 +155,11 @@ def _add_unobserved(
 
 
 def _window_sampler(
-    start_year, end_year, window, lam, omega, arrest_col, rng):
+    start_year, end_year, window, omega, arrest_col, rng):
   # load data for given time-frame
   ncvs_gen, _ = init_ncvs(start_year, window=window)
   nsduh_gen, _ = init_nsduh(start_year, window=window)
-  neulaw_gen, _ = init_neulaw(start_year, window=window, melt=True)
+  neulaw_gen, _ = init_neulaw(start_year, window=window)
 
   def _window(window_end: int, n_samples_div: float = 1.0):
     year = window_end - window
@@ -162,19 +173,25 @@ def _window_sampler(
     ncvs = ncvs_gen(year)
     nsduh = nsduh_gen(year)
 
+    # convert neulaw from wide to tall
+    df = df.melt(
+      id_vars=df.columns.difference(CRIMES), value_vars=CRIMES,
+      var_name='offense_category', value_name='offense_count'
+    )
+
     # sample new unobserved crimes
     len_before = len(df)
     nsduh_ids = df['offense_category'].isin(['dui', 'drugs_use', 'drugs_sell'])
     _sample = partial(
-      _add_unobserved, lam=lam, omega=omega, arrest_col=arrest_col,
+      _add_unobserved, omega=omega, arrest_col=arrest_col,
       n_samples_div=n_samples_div, rng=rng
     )
     df = pd.concat([
-      _sample(df=df[~nsduh_ids], group_all=NEULAW_TO_NCVS, crimes=ncvs),
-      _sample(df=df[nsduh_ids], group_all=NEULAW_TO_NSDUH, crimes=nsduh),
+      _sample(df=df[~nsduh_ids], group_all=NEULAW_TO_NCVS, crimes=ncvs, lambda_col='lambda'),
+      _sample(df=df[nsduh_ids], group_all=NEULAW_TO_NSDUH, crimes=nsduh, lambda_col='lambda_smooth'),
     ])
     if len(df) != len_before:
-      raise RuntimeError('Bug: sampling of unobserved changed size of the data')
+      raise RuntimeError('Bug: sampling of unobserved changed the size of the data')
 
     # convert back into the wide format
     df = pd.pivot_table(
@@ -189,21 +206,21 @@ def _window_sampler(
 
 def main():
   start_year, end_year, window = 1992, 2012, 3
-  lam, omega, seed = 1.0, 1.0, 0
+  # lam, omega, seed = 1.0, 1.0, 0
+  omega, seed = 1.0, 0
 
   df = rolling_crime_assignment(
     start_year=start_year,
     end_year=end_year,
     window=window,
-    lam=lam,
+    # lam=lam,
     omega=omega,
     seed=seed,
     arrest_col='arrest_rate_smooth',
   )
 
   file_path = _file_path(
-    start_year=start_year, end_year=end_year, window=window,
-    lam=lam, omega=omega, seed=seed)
+    start_year=start_year, end_year=end_year, window=window, omega=omega, seed=seed)
   file_path.parents[0].mkdir(parents=True, exist_ok=True)
   df.to_csv(file_path, index=False)
 

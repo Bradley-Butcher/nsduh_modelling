@@ -1,18 +1,15 @@
 from pathlib import Path
 import pandas as pd
 
-from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP
+from functools import reduce, lru_cache
+from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP, DEMOGRAPHICS
 from cj_pipeline.neulaw.load import load as load_neulaw
 
 base_path = Path(__file__).parents[2] / 'data'
 
 
-def init_neulaw(
-    start_year: int,
-    window: int,
-    melt: bool = False,
-):
-  logger.info("Preparing offence counting ...")
+@lru_cache
+def _get_neulaw(start_year: int) -> pd.DataFrame:
   df = load_neulaw(base_path / 'neulaw')
 
   # subset year and handle special column values
@@ -20,19 +17,21 @@ def init_neulaw(
   df = df[df['def.gender'].isin(('Female', 'Male'))]
   df = df[df['calc.race'].isin(('Black', 'White', 'Hispanic'))]
   df = df[df['def.race'].isin(('Black', 'White'))]
+
+  return df
+
+
+def init_neulaw(start_year: int, window: int):
+  logger.info("Preparing offence counting ...")
+
+  df = _get_neulaw(start_year)
   max_year = df['calc.year'].max()
 
   # add year category according to window
   def get_entries(year: int):
     logger.info(f'Extracting Neulaw for years {year}-{year + window}')
     _check_year_validity(year, max_year=max_year, window=window)
-
     years_df = _preprocess_neulaw(df, start_year=year, end_year=year + window)
-    if melt:
-      # convert from wide to tall
-      years_df = years_df.melt(
-        id_vars=years_df.columns.difference(CRIMES), value_vars=CRIMES,
-        var_name='offense_category', value_name='offense_count')
     return years_df
 
   return get_entries, max_year
@@ -45,13 +44,21 @@ def init_ncvs(start_year: int, window: int):
   ncvs = ncvs[ncvs['ncvs_year'] >= start_year]
   max_year = ncvs['ncvs_year'].max()
 
+  # computes lambdas on all of neulaw
+  neulaw = _get_neulaw(start_year)
+  neulaw = _preprocess_neulaw(
+    neulaw, start_year=start_year, end_year=neulaw['calc.year'].max())
+  lambdas = _ncvs_crime_lambdas(neulaw)
+
   def get_entries(year: int):
     _check_year_validity(year, max_year=max_year, window=window)
+    # lambdas = _ncvs_crime_lambdas(neulaw)
     years_df = ncvs.query(f'{year} <= ncvs_year <= {year + window}')
     years_df = years_df.groupby(CRIMES_GROUP, as_index=False).agg({
       'arrest_rate': 'mean', 'arrest_rate_smooth': 'mean',  # avg rate in window
       'reporting_rate': 'mean', 'count': 'sum'
     })
+    years_df = pd.merge(years_df, lambdas, how='left', on=CRIMES_GROUP)
     return years_df
 
   return get_entries, max_year
@@ -82,17 +89,24 @@ def init_nsduh(start_year: int, window: int):
       melted = melted.replace({'crime_recode': {crime + suffix: crime}})
       return melted
 
+    nsduh_crimes = ['dui', 'drugs_sell', 'drugs_use']
     arrests = pd.concat([
-      _melt(crime='dui', suffix='_ar', col_name='arrest_rate'),
-      _melt(crime='drugs_sell', suffix='_ar', col_name='arrest_rate'),
-      _melt(crime='drugs_use', suffix='_ar', col_name='arrest_rate'),
+      _melt(crime=c, suffix='_ar', col_name='arrest_rate') for c in nsduh_crimes
     ])
     smoothed_arrests = pd.concat([
-      _melt(crime='dui', suffix='_sar', col_name='arrest_rate_smooth'),
-      _melt(crime='drugs_sell', suffix='_sar', col_name='arrest_rate_smooth'),
-      _melt(crime='drugs_use', suffix='_sar', col_name='arrest_rate_smooth'),
+      _melt(crime=c, suffix='_sar', col_name='arrest_rate_smooth') for c in nsduh_crimes
     ])
-    years_df = pd.merge(arrests, smoothed_arrests, on=CRIMES_GROUP)
+    lambdas = pd.concat([
+      _melt(crime=c, suffix='_lam_ar', col_name='lambda') for c in nsduh_crimes
+    ])
+    smoothed_lambdas = pd.concat([
+      _melt(crime=c, suffix='_lam_sar', col_name='lambda_smooth') for c in nsduh_crimes
+    ])
+
+    years_df = reduce(
+      lambda df0, df1: pd.merge(df0, df1, on=CRIMES_GROUP),
+      [arrests, smoothed_arrests, lambdas, smoothed_lambdas]
+    )
 
     return years_df
 
@@ -142,8 +156,40 @@ def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):
   return year_df
 
 
-# EXAMPLE USAGE
+def _ncvs_crime_lambdas(neulaw):
+  lambdas = []
+  neulaw['n_crimes'] = neulaw[CRIMES].sum(axis=1)
+  for crime in CRIMES:
+    grouped = neulaw[neulaw[crime] > 0].groupby(DEMOGRAPHICS)
+    lam = grouped.apply(lambda g: (g['n_crimes'] > 1).mean())
+    lambdas.append(lam.to_frame(crime).reset_index())
+
+  lambdas = reduce(
+    lambda df0, df1: pd.merge(df0, df1, on=DEMOGRAPHICS, how='left'), lambdas)
+  lambdas = lambdas.melt(
+    id_vars=DEMOGRAPHICS, value_vars=CRIMES,
+    var_name='crime_recode', value_name='lambda')
+  lambdas.rename(
+    columns={
+      'calc.race': 'offender_race',
+      'def.gender': 'offender_sex',
+      'age_cat': 'offender_age'
+    },
+    inplace=True,
+  )
+
+  return lambdas
+
+
+# # EXAMPLE USAGE
+# if __name__ == '__main__':
+#   offense_counts, _ = init_neulaw(start_year=2000, window=3)
+#   first_df = offense_counts(year=2000)
+#   second_df = offense_counts(year=2001)
+
 if __name__ == '__main__':
-  offense_counts, _ = init_neulaw(start_year=2000, window=3)
-  first_df = offense_counts(year=2000)
-  second_df = offense_counts(year=2001)
+  neulaw_gen, _ = init_neulaw(start_year=1992, window=20)
+
+  years_df = neulaw_gen(1992)
+  lambdas = _ncvs_crime_lambdas(years_df)
+  lambdas.to_csv(base_path / 'processed' / 'crime_lambdas.csv', index=False)

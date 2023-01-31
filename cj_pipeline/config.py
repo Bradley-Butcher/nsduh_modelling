@@ -9,6 +9,13 @@ BASE_DIR = Path(__file__).parents[1]
 LOGS_DIR = Path(BASE_DIR, "logs")
 LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
+DEMOGRAPHICS = [
+  "calc.race",
+  # "def.race",
+  "def.gender",
+  "age_cat",
+]
+
 CRIMES = [
   'aggravated assault', 'property', 'robbery', 'sex offense', 'simple assault',
   # 'dui', 'drugs',

@@ -6,7 +6,7 @@ from absl import app, flags
 
 from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw
 from cj_pipeline.neulaw.preprocess import init_rai_year_range
-from cj_pipeline.config import logger, BASE_DIR, CRIMES
+from cj_pipeline.config import logger, BASE_DIR, CRIMES, DEMOGRAPHICS
 from cj_pipeline.synthetic_assignment import get_synth
 
 import dame_flame
@@ -17,12 +17,6 @@ SCORES = [
   'ogrs3',
   'vprai',
   'fta'
-]
-DEMOGRAPHICS = [
- "calc.race",
-  # "def.race",
-  "def.gender",
-  "age_cat",
 ]
 MATCHING_ALGS = [
   'dame',
@@ -45,12 +39,11 @@ flags.DEFINE_enum(
 flags.DEFINE_enum(
   'treatment', 'Black', ETHNICITIES, help=f'One of {ETHNICITIES}')
 flags.DEFINE_spaceseplist(
-  'crime_bins', "-1 0 1 2 4 9 19 49 99 100000",
+  'crime_bins', "-1 0 1 2 4 9 100000",
   'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
 
 flags.DEFINE_bool('synth', False, 'Use synthetic data.')
 flags.DEFINE_integer('window', 2, 'No. of years to prepend.')
-flags.DEFINE_float('lam', 1.0, 'Multiplier of total crimes estimate.')
 flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
 flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
 
@@ -124,7 +117,7 @@ def average_treatment_effect(
   else:
     logger.info('Estimating based on recorded crime only')
     offense_count_func, _ = init_neulaw(
-      start_year=start_year, window=end_year - start_year, melt=False)
+      start_year=start_year, window=end_year - start_year)
     offense_dfs = offense_count_func(start_year)
 
   df = pd.merge(offense_dfs, rai_dfs, on=['def.uid'])
@@ -171,7 +164,7 @@ def main(_):
     matching_alg=FLAGS.matching,
     crime_bins=crime_bins,
     # parameters to the synth generator
-    window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega, seed=FLAGS.seed
+    window=FLAGS.window, omega=FLAGS.omega, seed=FLAGS.seed
   )
 
   repo = git.Repo(search_parent_directories=True)
@@ -193,7 +186,6 @@ def main(_):
     f'{FLAGS.matching}',
   ]
   file_name += [] if not FLAGS.synth else [
-    f'lam3e{int(FLAGS.lam * 1000)}',
     f'om3e{int(FLAGS.omega * 1000)}',
     f'{FLAGS.seed}',
   ]

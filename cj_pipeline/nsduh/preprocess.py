@@ -1,7 +1,6 @@
 import tqdm
 import itertools
 import pandas as pd
-from functools import reduce
 from cj_pipeline.config import logger
 from sklearn.linear_model import LinearRegression
 
@@ -294,7 +293,7 @@ def add_dui(df):
         return False
       return None
 
-    df['dui_any_arrest'] = df.apply(_process, axis=1)
+    df['dui_lam'] = df.apply(_process, axis=1)
     #df = df.drop(columns={'BOOKED'}, errors='ignore')
     return df
 
@@ -306,7 +305,7 @@ def add_dui(df):
         return False
       return None
 
-    df['dui_any_arrest_12'] = df.apply(_process, axis=1)
+    df['dui_lam_12'] = df.apply(_process, axis=1)
     #df = df.drop(columns={'BOOKED'}, errors='ignore')
     return df
 
@@ -359,7 +358,7 @@ def add_drugs(df):
         return False
       return None
 
-    df['drugs_sold_any_arrest'] = df.apply(_process, axis=1)
+    df['drugs_sold_lam'] = df.apply(_process, axis=1)
     return df
 
   def _drugs_sold_any_arrest_12(df):
@@ -370,7 +369,7 @@ def add_drugs(df):
         return False
       return None
 
-    df['drugs_sold_any_arrest_12'] = df.apply(_process, axis=1)
+    df['drugs_sold_lam_12'] = df.apply(_process, axis=1)
     return df
 
 
@@ -397,25 +396,25 @@ def add_drugs(df):
 
   def _drugs_use_any_arrest(df):
     def _process(row):
-      if _nan_value(row['drugs_use']) is True and _nan_value(row['BOOKED']) in {1, 3}:
+      if _nan_value(row['drugs_use']) and _nan_value(row['BOOKED']) in {1, 3}:
         return True
       if _nan_value(row['BOOKED']) in {2}:
         return False
       return None
 
-    df['drugs_use_any_arrest'] = df.apply(_process, axis=1)
+    df['drugs_use_lam'] = df.apply(_process, axis=1)
     df = df.drop(columns={'BOOKED'}, errors='ignore')
     return df
 
   def _drugs_use_any_arrest_12(df):
     def _process(row):
-      if _nan_value(row['drugs_use']) is True and _nan_value(row['NOBOOKY2']) in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}:
+      if _nan_value(row['drugs_use']) and _nan_value(row['NOBOOKY2']) in list(range(1, 21)):
         return True
       if _nan_value(row['NOBOOKY2']) in {0, 999}:
         return False
       return None
 
-    df['drugs_use_any_arrest_12'] = df.apply(_process, axis=1)
+    df['drugs_use_lam_12'] = df.apply(_process, axis=1)
     df = df.drop(columns={'NOBOOKY2'}, errors='ignore')
     return df
 
@@ -458,28 +457,28 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
   reg_groups = [g for g in groups if g != 'YEAR']
   spec = {
     'dui': lambda g: _sdiv(g['dui_arrests'].sum(), g['dui'].sum()),
-    'dui_any': lambda g: _sdiv(g['dui_any_arrest'].sum(), g['dui'].sum()),
-    'dui_any_12': lambda g: _sdiv(g['dui_any_arrest_12'].sum(), g['dui'].sum()),
+    'dui_lam': lambda g: _sdiv(g['dui_lam'].sum(), g['dui'].sum()),
+    'dui_lam_12': lambda g: _sdiv(g['dui_lam_12'].sum(), g['dui'].sum()),
 
     'drugs_use': lambda g: _sdiv(
       (g['drugs_arrest'] * g['drugs_use'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
     ),
-    'drugs_use_any': lambda g: _sdiv(
-      (g['drugs_use_any_arrest'] * (1 - g['drugs_sold'])).sum(),
+    'drugs_use_lam': lambda g: _sdiv(
+      (g['drugs_use_lam'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
     ),
-    'drugs_use_any_12': lambda g: _sdiv(
-      (g['drugs_use_any_arrest_12'] * (1 - g['drugs_sold'])).sum(),
+    'drugs_use_lam': lambda g: _sdiv(
+      (g['drugs_use_lam_12'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
     ),
     'drugs_sell': lambda g: _sdiv(
       (g['drugs_arrest'] * g['drugs_sold']).sum(),
       g['drugs_sold'].sum()
     ),
-    'drugs_sell_any': lambda g: _sdiv(g['drugs_sold_any_arrest'].sum(), g['drugs_sold'].sum()),
+    'drugs_sell_lam': lambda g: _sdiv(g['drugs_sold_lam'].sum(), g['drugs_sold'].sum()),
 
-    'drugs_sell_any_12': lambda g: _sdiv(g['drugs_sold_any_arrest_12'].sum(), g['drugs_sold'].sum()),
+    'drugs_sell_lam_12': lambda g: _sdiv(g['drugs_sold_lam_12'].sum(), g['drugs_sold'].sum()),
 
     'drugs_any': lambda g: _sdiv(
       g['drugs_arrest'].sum(),
