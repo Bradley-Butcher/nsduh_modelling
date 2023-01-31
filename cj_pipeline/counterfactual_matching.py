@@ -1,6 +1,7 @@
 import git
 import json
 import datetime
+import numpy as np
 import pandas as pd
 from absl import app, flags
 
@@ -32,6 +33,7 @@ ETHNICITIES = [
 FLAGS = flags.FLAGS
 flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
 flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
+flags.DEFINE_integer('n_subsample', None, 'Number of subsamples')
 flags.DEFINE_enum(
   'matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
 flags.DEFINE_enum(
@@ -44,6 +46,7 @@ flags.DEFINE_spaceseplist(
 
 flags.DEFINE_bool('synth', False, 'Use synthetic data.')
 flags.DEFINE_integer('window', 2, 'No. of years to prepend.')
+flags.DEFINE_float('lam', None, 'Multiplier of total crimes.')
 flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
 flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
 
@@ -102,9 +105,13 @@ def average_treatment_effect(
     binary_treatment_set: dict[str, int],
     use_synth: bool = False,
     matching_alg: str = 'flame',
+    n_subsample: int = None,
+    seed: int = None,
     crime_bins: tuple = (-1, 0, 1, 2, 9, 100_000),
     **kwargs  # passed to the synthetic assignment when `use_synth` is true
 ) -> pd.DataFrame:
+  rng = np.random.RandomState(seed)
+
   logger.info('Loading RAI scores')
   rai_func = init_rai_year_range(start_year=start_year, end_year=end_year)
   rai_dfs = rai_func(start_year)
@@ -113,7 +120,7 @@ def average_treatment_effect(
   if use_synth:
     logger.info('Estimating based on synthethic crime record')
     offense_dfs = get_synth(
-      start_year=start_year, end_year=end_year, **kwargs)
+      start_year=start_year, end_year=end_year, seed=seed, **kwargs)
   else:
     logger.info('Estimating based on recorded crime only')
     offense_count_func, _ = init_neulaw(
@@ -143,11 +150,22 @@ def average_treatment_effect(
     logger.info(
       f"Dropped {n_dropped} rows with missing values for {score}")
 
+    if n_subsample is not None:
+      n_subsample = min(n_subsample, len(score_df))
+      score_df = score_df.sample(n=n_subsample, random_state=rng)
+
     model = _matching_model(score_df, matching_alg=matching_alg)
     ate = dame_flame.utils.post_processing.ATE(matching_object=model)
-    logger.info(f"ATE for treatment: {treatment}. outcome: {score} is {ate}")
+    att = dame_flame.utils.post_processing.ATT(matching_object=model)
+    # cate = dame_flame.utils.post_processing.CATE(matching_object=model)
+    logger.info(
+      f"ATE for treatment: {treatment}. outcome: {score} is "
+      f"ate={ate} att={att}")  # cate={cate}")
 
-    results.append({'score': score, 'ate': ate, 'dropped': n_dropped})
+    results.append({
+      'score': score, 'dropped': n_dropped,
+      'ate': ate, 'att': att, #'cate': cate,
+    })
   return pd.DataFrame(results)
 
 
@@ -157,14 +175,15 @@ def main(_):
   df = average_treatment_effect(
     start_year=FLAGS.start_year,
     end_year=FLAGS.end_year,
-    # treatment='def.race',
     treatment='calc.race',
     binary_treatment_set={FLAGS.baseline: 0, FLAGS.treatment: 1},
     use_synth=FLAGS.synth,
     matching_alg=FLAGS.matching,
+    n_subsample=FLAGS.n_subsample,
     crime_bins=crime_bins,
+    seed=FLAGS.seed,
     # parameters to the synth generator
-    window=FLAGS.window, omega=FLAGS.omega, seed=FLAGS.seed
+    window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega,
   )
 
   repo = git.Repo(search_parent_directories=True)
@@ -181,11 +200,13 @@ def main(_):
   data_path.mkdir(parents=True, exist_ok=True)
 
   file_name = [
+    'subsampled' if FLAGS.n_subsample is not None else '',
     f'{FLAGS.baseline}-{FLAGS.treatment}',
     ('synth' if FLAGS.synth else 'observed'),
     f'{FLAGS.matching}',
   ]
   file_name += [] if not FLAGS.synth else [
+    'nolam' if FLAGS.lam is None else f'lam3e{int(FLAGS.lam * 1000)}'
     f'om3e{int(FLAGS.omega * 1000)}',
     f'{FLAGS.seed}',
   ]

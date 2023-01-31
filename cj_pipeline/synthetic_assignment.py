@@ -8,12 +8,13 @@ from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, 
 
 
 def get_synth(
-    start_year: int, end_year: int, window: int, seed: int = 0, omega: float = 1
+    start_year: int, end_year: int, window: int,
+    seed: int = 0, lam: float = None, omega: float = 1
 ) -> pd.DataFrame:
   arrest_col = 'arrest_rate_smooth'
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
-    seed=seed, omega=omega)
+    lam=lam, omega=omega, seed=seed)
 
   logger.info(f'Loading synth assignments {start_year}-{end_year} ({window})')
   if file_path.is_file():
@@ -23,7 +24,7 @@ def get_synth(
     logger.info('Generating the synthetic data')
     df = rolling_crime_assignment(
       start_year=start_year, end_year=end_year, window=window,
-      omega=omega, arrest_col=arrest_col, seed=seed,)
+      lam=lam, omega=omega, arrest_col=arrest_col, seed=seed)
     df.to_csv(file_path, index=False)
 
   return df
@@ -51,8 +52,9 @@ def rolling_crime_assignment(
   return df
 
 
-def _file_path(start_year, end_year, window, omega, seed):
-  file_name = f'om{omega:.2f}-{seed}.csv'
+def _file_path(start_year, end_year, window, lam, omega, seed):
+  file_name = ('nolam' if lam is None else f'lam{lam:.2f}')
+  file_name += f'om{omega:.2f}-{seed}.csv'
   data_path = BASE_DIR / 'data' / 'scratch' / 'synth'
   data_path /= f'{start_year}-{end_year}_{window}'
   data_path.mkdir(parents=True, exist_ok=True)
@@ -72,8 +74,9 @@ def _add_age(df, end_year):  # TODO: code duplication with assignment_preprocess
   return df
 
 
-def _count_unobserved(pop, arrest_col, lambda_col):
-  total_crimes = pop[lambda_col] * pop['offense_count'] / pop[arrest_col]
+def _count_unobserved(pop, lam, arrest_col, lambda_col):
+  total_crimes = pop['offense_count'] / pop[arrest_col]
+  total_crimes *= pop[lambda_col] if lam is None else lam
   pop['total_crimes'] = np.where(
     pop[arrest_col] > 0,
     total_crimes, pop['offense_count']
@@ -112,7 +115,7 @@ def _sample_unobserved(df, groups, n_samples_div, rng):
 
 
 def _add_unobserved(
-    df, group_all, crimes, omega, n_samples_div,
+    df, group_all, crimes, lam, omega, n_samples_div,
     lambda_col, arrest_col, rng):
   groups = [col for col in group_all if col != 'offense_category']
 
@@ -137,7 +140,7 @@ def _add_unobserved(
 
   # compute sampling weights
   offenses = _count_unobserved(
-    offenses, arrest_col=arrest_col, lambda_col=lambda_col)
+    offenses, lam=lam, arrest_col=arrest_col, lambda_col=lambda_col)
   if offenses['unobserved_per_person'].isna().sum() > 0:
     raise RuntimeError('Failed to assign unobserved offenses')
   unobs_cols = lambda c: c + ['unobserved_per_person', 'unobserved_crimes']
@@ -155,7 +158,7 @@ def _add_unobserved(
 
 
 def _window_sampler(
-    start_year, end_year, window, omega, arrest_col, rng):
+    start_year, end_year, window, lam, omega, arrest_col, rng):
   # load data for given time-frame
   ncvs_gen, _ = init_ncvs(start_year, window=window)
   nsduh_gen, _ = init_nsduh(start_year, window=window)
@@ -183,7 +186,7 @@ def _window_sampler(
     len_before = len(df)
     nsduh_ids = df['offense_category'].isin(['dui', 'drugs_use', 'drugs_sell'])
     _sample = partial(
-      _add_unobserved, omega=omega, arrest_col=arrest_col,
+      _add_unobserved, lam=lam, omega=omega, arrest_col=arrest_col,
       n_samples_div=n_samples_div, rng=rng
     )
     df = pd.concat([
@@ -206,21 +209,21 @@ def _window_sampler(
 
 def main():
   start_year, end_year, window = 1992, 2012, 3
-  # lam, omega, seed = 1.0, 1.0, 0
-  omega, seed = 1.0, 0
+  lam, omega, seed = 1.0, 1.0, 0
 
   df = rolling_crime_assignment(
     start_year=start_year,
     end_year=end_year,
     window=window,
-    # lam=lam,
+    lam=lam,
     omega=omega,
     seed=seed,
     arrest_col='arrest_rate_smooth',
   )
 
   file_path = _file_path(
-    start_year=start_year, end_year=end_year, window=window, omega=omega, seed=seed)
+    start_year=start_year, end_year=end_year, window=window,
+    lam=lam, omega=omega, seed=seed)
   file_path.parents[0].mkdir(parents=True, exist_ok=True)
   df.to_csv(file_path, index=False)
 
