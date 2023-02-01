@@ -127,7 +127,7 @@ def average_treatment_effect(
     repeat_match: bool = False,
     n_subsample: int = None,
     seed: int = None,
-    crime_bins: tuple = (-1, 0, 1, 2, 9, 100_000),
+    crime_bins: tuple = (-1, 0, 1, 2, 4, 9, 100_000),
     **kwargs  # passed to the synthetic assignment when `use_synth` is true
 ):
   rng = np.random.RandomState(seed)
