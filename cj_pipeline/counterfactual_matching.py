@@ -106,8 +106,13 @@ def _matching_model(score_df, matching_alg, repeat_match):
   kwargs = {'pre_dame': 1} if matching_alg == 'hybrid' else {}
 
   model.fit(score_df)
-  cates = model.predict(score_df, **kwargs).drop_duplicates()
+  matches = model.predict(score_df, **kwargs)
+  cates = matches.drop_duplicates()
   cates['cate'] = dame_flame.utils.post_processing.CATE(model, cates.index)
+  counts = matches.value_counts().to_frame('group_size').reset_index()
+  cates = pd.merge(
+    cates, counts, how='left', on=cates.columns.difference(['cate']).to_list(),
+  )
 
   return model, cates
 
