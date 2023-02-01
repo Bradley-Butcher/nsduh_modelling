@@ -16,6 +16,14 @@ DEMOGRAPHICS = [
   "age_cat",
 ]
 
+SCORES = [
+  'nca',
+  'nvca',
+  'ogrs3',
+  'vprai',
+  'fta'
+]
+
 CRIMES = [
   'aggravated assault', 'property', 'robbery', 'sex offense', 'simple assault',
   # 'dui', 'drugs',

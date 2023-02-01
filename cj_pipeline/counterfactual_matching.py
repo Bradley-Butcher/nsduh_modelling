@@ -7,18 +7,11 @@ from absl import app, flags
 
 from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw
 from cj_pipeline.neulaw.preprocess import init_rai_year_range
-from cj_pipeline.config import logger, BASE_DIR, CRIMES, DEMOGRAPHICS
+from cj_pipeline.config import logger, BASE_DIR, CRIMES, SCORES, DEMOGRAPHICS
 from cj_pipeline.synthetic_assignment import get_synth
 
 import dame_flame
 
-SCORES = [
-  'nca',
-  'nvca',
-  'ogrs3',
-  'vprai',
-  'fta'
-]
 MATCHING_ALGS = [
   'dame',
   'flame',
