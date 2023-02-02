@@ -226,7 +226,7 @@ def main(_):
     'mrep' if FLAGS.repeat_match else 'nomrep',
   ]
   file_name += [] if not FLAGS.synth else [
-    'nolam' if FLAGS.lam is None else f'lam3e{int(FLAGS.lam * 1000)}'
+    'nolam' if FLAGS.lam is None else f'lam3e{int(FLAGS.lam * 1000)}',
     f'om3e{int(FLAGS.omega * 1000)}',
     f'{FLAGS.seed}',
   ]
