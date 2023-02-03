@@ -4,9 +4,10 @@ import pandas as pd
 
 from cj_pipeline.config import SCORES
 RESULTS_DIR = pathlib.Path(__file__).parents[0] / 'data'
+RESULTS_PATH = RESULTS_DIR / 'results.csv'
 
 
-def main():
+def aggregate(drop_constant_cols: bool = True):
   results = []
   for path_object in RESULTS_DIR.rglob('*.json'):
     with open(path_object, 'r') as f:
@@ -18,17 +19,21 @@ def main():
     results.append(experiment)
   results = pd.DataFrame(results)
 
-  results = results[results.columns[results.nunique() > 1]]  # .to_list() + ['seed']
-  if 'seed' in results.columns:
-    gcols = results.columns.difference(['seed'] + SCORES).to_list()
-    results = pd.merge(
-      results.groupby(gcols, dropna=False, as_index=False)[SCORES].mean(),
-      results.groupby(gcols, dropna=False, as_index=False)[SCORES].std(),
-      how='left', on=gcols, suffixes=('_mean', '_std'),
-    )
+  const_cols = results.columns[results.nunique() == 1]
+  varying_cols = results.columns.difference(const_cols)
+  if drop_constant_cols:
+    results = results[varying_cols.to_list() + ['seed']]
+  # if 'seed' in varying_cols:  # compute always
+  gcols = results.columns.difference(['seed'] + SCORES).to_list()
+  results = pd.merge(
+    results.groupby(gcols, dropna=False, as_index=False)[SCORES].mean(),
+    results.groupby(gcols, dropna=False, as_index=False)[SCORES].sem(),
+    how='left', on=gcols, suffixes=('_mean', '_sem'),
+  )
 
-  results.to_csv(RESULTS_DIR / 'results.csv', index=False)
+  return results
 
 
 if __name__ == '__main__':
-  main()
+  results = aggregate(drop_constant_cols=True)
+  results.to_csv(RESULTS_PATH, index=False)

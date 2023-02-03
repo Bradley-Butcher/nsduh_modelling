@@ -1,8 +1,7 @@
 import pandas as pd
-
-import matplotlib.pyplot as plt
 import seaborn as sns
 
+from cj_pipeline.results.utils import barplot
 from cj_pipeline.config import BASE_DIR
 DATA_DIR = BASE_DIR / 'data' / 'processed'
 
@@ -84,37 +83,11 @@ def plot_arrests(df, age_label_order, gap=0.2, width=0.3):
   sns.set(font_scale=1.25)
 
   df['ci'] = 1.96 * df['sem']
-
-  grid = sns.FacetGrid(
-    df,
-    row='offender_race',
-    col='crime_recode',
-    hue='offender_age',
-    margin_titles=True,
-    despine=True,
-  )
-
-  def errplot(x, y, yerr, **kwargs):
-    ax = plt.gca()
-    data = kwargs.pop('data')
-    positions = {
-      'Female': {
-        '18-29': 0, '18-34': 0,
-        '> 29': width, '> 34': width
-      },
-      'Male': {
-        '18-29': 2 * width + gap, '18-34': 2 * width + gap,
-        '> 29': 3 * width + gap, '> 34': 3 * width + gap,
-      }
-    }
-    for _, row in data.iterrows():
-      xpos = positions[row[x]][row['offender_age']]
-      ax.bar(xpos, row[y], yerr=row[yerr], width=width, **kwargs)
-    ax.set_xticks([width / 2, 2.5 * width + gap])
-    ax.set_xticklabels(['Female', 'Male'])
-
-  grid.map_dataframe(
-    errplot, x='offender_sex', y='mean', yerr='ci',
+  grid = barplot(
+    df=df,
+    x='offender_sex', y='mean', yerr='ci',
+    hue='offender_age', row='offender_race', col='crime_recode',
+    width=width, gap=gap,
   )
 
   grid.fig.supxlabel('Gender')
