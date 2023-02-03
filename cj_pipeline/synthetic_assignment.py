@@ -78,8 +78,7 @@ def _count_unobserved(pop, lam, arrest_col, lambda_col):
   total_crimes = pop['offense_count'] / pop[arrest_col]
   total_crimes *= pop[lambda_col] if lam is None else lam
   pop['total_crimes'] = np.where(
-    pop[arrest_col] > 0,
-    total_crimes, pop['offense_count']
+    pop[arrest_col] > 0, total_crimes, pop['offense_count']
   ).round().astype('int')
   pop['unobserved_crimes'] = pop['total_crimes'] - pop['offense_count']
   pop['unobserved_per_person'] = pop['unobserved_crimes'] / pop['pop_size']

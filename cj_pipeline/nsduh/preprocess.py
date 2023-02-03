@@ -468,7 +468,7 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
       (g['drugs_use_lam'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
     ),
-    'drugs_use_lam': lambda g: _sdiv(
+    'drugs_use_lam_12': lambda g: _sdiv(
       (g['drugs_use_lam_12'] * (1 - g['drugs_sold'])).sum(),
       (g['drugs_use'] * (1 - g['drugs_sold'])).sum()
     ),
@@ -476,14 +476,19 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
       (g['drugs_arrest'] * g['drugs_sold']).sum(),
       g['drugs_sold'].sum()
     ),
-    'drugs_sell_lam': lambda g: _sdiv(g['drugs_sold_lam'].sum(), g['drugs_sold'].sum()),
-
-    'drugs_sell_lam_12': lambda g: _sdiv(g['drugs_sold_lam_12'].sum(), g['drugs_sold'].sum()),
+    'drugs_sell_lam': lambda g: _sdiv(
+      g['drugs_sold_lam'].sum(),
+      g['drugs_sold'].sum()
+    ),
+    'drugs_sell_lam_12': lambda g: _sdiv(
+      g['drugs_sold_lam_12'].sum(),
+      g['drugs_sold'].sum()
+    ),
 
     'drugs_any': lambda g: _sdiv(
       g['drugs_arrest'].sum(),
       ((g['drugs_use'] + g['drugs_sold']) > 0).sum()
-    )
+    ),
   }
   grouped = df.groupby(groups)
   counts = grouped.size().to_frame('count').reset_index()
