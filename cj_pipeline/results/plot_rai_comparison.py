@@ -67,7 +67,7 @@ def _load_observed():
   return observed
 
 
-def plot_rais(df, gap=0.1, width=0.2):
+def plot_rais(df, gap=0.1, width=0.2, exclude=None):
   sns.set_style('whitegrid')
   sns.set(font_scale=1.25)
 
@@ -77,6 +77,9 @@ def plot_rais(df, gap=0.1, width=0.2):
     offset = observed[observed.score == score]['mean'].iloc[0]
     synth.loc[idx, 'mean'] = 100 * (synth[idx]['mean'] - offset)
     synth.loc[idx, 'sem'] = 100 * synth[idx]['sem']
+
+  if exclude is not None:
+    synth = synth[~synth.score.isin(exclude)]
 
   synth['ci'] = 1.96 * synth['sem']
   synth['score'] = synth['score'].str.upper()
@@ -99,4 +102,4 @@ def plot_rais(df, gap=0.1, width=0.2):
 
 if __name__ == '__main__':
   df = _load_data()
-  plot_rais(df)
+  plot_rais(df, exclude=['fta'])

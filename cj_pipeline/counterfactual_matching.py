@@ -169,7 +169,7 @@ def average_treatment_effect(
     logger.info(
       f"Dropped {n_dropped} rows with missing values for {score}")
 
-    if n_subsample is not None:
+    if n_subsample is not None:  # TODO: move subsampling outside for-score-loop
       n_subsample = min(n_subsample, len(score_df))
       score_df = score_df.sample(n=n_subsample, random_state=rng)
 
