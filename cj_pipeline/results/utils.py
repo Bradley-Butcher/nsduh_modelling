@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -26,9 +27,9 @@ def barplot(
   positions = {
     _nan2none(x_i): {
       _nan2none(h_i): i_x * (group_width + gap) + i_h * width
-      for i_h, h_i in enumerate(hues)  # omega -> within group
+      for i_h, h_i in enumerate(hues)  # within bar group
     }
-    for i_x, x_i in enumerate(xs)  # lam -> different groups
+    for i_x, x_i in enumerate(xs)  # different bar groups
   }
   xticks, xlabels = list(zip(*[
     (i_x * (group_width + gap) + group_width / 2, x_i)
@@ -50,7 +51,10 @@ def barplot(
     data = kwargs.pop('data')
     for _, row in data.iterrows():
       xpos = positions[_nan2none(row[x])][_nan2none(row[hue])]
-      ax.bar(xpos, row[y], yerr=row[yerr], width=width, align='edge', **kwargs)
+      err = np.array([
+        np.minimum(row[yerr], row[y]), np.minimum(row[yerr], 1 - row[y])
+      ])[:, None]
+      ax.bar(xpos, row[y], yerr=err, width=width, align='edge', **kwargs)
     ax.set_xticks(xticks)
     ax.set_xticklabels(xlabels, rotation=tick_rotation)
   grid.map_dataframe(errplot, x=x, y=y, yerr=yerr)
