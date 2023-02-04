@@ -27,7 +27,7 @@ def smooth_arrest_rates(
     smooth_col: str,
     mode: str,
 ) -> pd.DataFrame:
-  reg_groups = [g for g in groups if g != x_col]
+  smooth_groups = [g for g in groups if g != x_col]
 
   def _smooth(group):
     data = group[group[arrest_col].notna()]
@@ -39,7 +39,7 @@ def smooth_arrest_rates(
     )
     if len(data) == 0:
       logger.warn(f'no arrest data to smooth for "{arrest_col}" in group: '
-                  f'{group[reg_groups].drop_duplicates().iloc[0].to_dict()}')
+                  f'{group[smooth_groups].drop_duplicates().iloc[0].to_dict()}')
       return list(zip(x_test.squeeze(1), [None] * len(x_test)))
 
     x_train = data[x_col].to_numpy()[:, None]
@@ -49,7 +49,7 @@ def smooth_arrest_rates(
       raise RuntimeError('NaN values in smoothed regression')
     return list(zip(x_test.squeeze(1), smoothed))
 
-  smoothed = df.groupby(reg_groups).apply(
+  smoothed = df.groupby(smooth_groups).apply(
     _smooth).to_frame(smooth_col).reset_index()
   smoothed = smoothed.explode(smooth_col)
   smoothed[x_col] = smoothed[smooth_col].str[0].astype(df[x_col].dtype)
@@ -79,7 +79,7 @@ def init_smoothing(data, mode, arrest_col, count_col):
 
 def avg_smoother(x_train, y_train, weights, x_test, **_):
   weights /= np.nansum(weights)
-  smoothed = [np.nanmean(y_train * weights)] * len(x_test)
+  smoothed = [np.nansum(y_train * weights)] * len(x_test)
   return smoothed
 
 

@@ -241,7 +241,7 @@ def compute_arrest_rates(df: pd.DataFrame) -> Dict[str, pd.DataFrame]:
       {"arrests_or_charges_made": "mean", "reported_to_police": "mean"}
     ).reset_index()
     agg = pd.merge(
-      agg, grouped.size().to_frame("count").reset_index(), on=groups)
+      agg, grouped.size().to_frame(count_col).reset_index(), on=groups)
     agg.rename(
       columns={"arrests_or_charges_made": "arrest_rate",
                "reported_to_police": "reporting_rate"},
