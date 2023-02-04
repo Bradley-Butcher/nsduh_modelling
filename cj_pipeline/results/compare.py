@@ -23,8 +23,8 @@ def aggregate(drop_constant_cols: bool = True):
   varying_cols = results.columns.difference(const_cols)
   if drop_constant_cols:
     results = results[varying_cols.to_list() + ['seed']]
-  # if 'seed' in varying_cols:  # compute always
-  gcols = results.columns.difference(['seed'] + SCORES).to_list()
+  # if 'seed' in varying_cols:  # always compute
+  gcols = results.columns.difference(SCORES + ['seed']).to_list()
   results = pd.merge(
     results.groupby(gcols, dropna=False, as_index=False)[SCORES].mean(),
     results.groupby(gcols, dropna=False, as_index=False)[SCORES].sem(),

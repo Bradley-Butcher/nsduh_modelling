@@ -7,16 +7,20 @@ import uuid
 
 from cj_pipeline.calculate_rais import calculate_rais
 from cj_pipeline.neulaw.load import load
-from cj_pipeline.utils import merge_drugs
 from cj_pipeline.config import logger
 
 base_path = Path(__file__).parents[2] / 'data'
 
 
+def _merge_drugs(df):
+  df['offense_category'].replace(  # original behaviour -> modify if needed
+    ['drugs_use', 'drugs_sell'], 'drugs', inplace=True)
+
+
 def init_rai_year_range(start_year: int, end_year: int):
   logger.info("Preparing Offence Counting...")
   df = load(base_path / 'neulaw')
-  merge_drugs(df)
+  _merge_drugs(df)
 
   df = df[df["calc.year"] >= start_year]
   max_year = df["calc.year"].max()
@@ -48,7 +52,7 @@ def preprocess(
   tqdm.pandas()
 
   logger.info("Starting Preprocessing..")
-  merge_drugs(df)
+  _merge_drugs(df)
 
   logger.info("Converting generic operations")
   df = _generic_preprocessing(df, year_start=year_start, year_end=year_end)

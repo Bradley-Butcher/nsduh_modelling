@@ -1,8 +1,11 @@
 import itertools
 import pandas as pd
 from tqdm import tqdm
-from cj_pipeline.config import logger
-from sklearn.linear_model import LinearRegression
+
+from cj_pipeline.utils import smooth_arrest_rates
+from cj_pipeline.config import logger, SMOOTHING
+
+from typing import Dict
 
 
 def _process_crime_type(df: pd.DataFrame) -> pd.DataFrame:
@@ -208,7 +211,7 @@ def _process_arrests_or_charges_made(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def preprocess(df: pd.DataFrame) -> pd.DataFrame:
+def preprocess(df: pd.DataFrame) -> Dict[str, pd.DataFrame]:
   logger.info(f"Preprocessing data")
   logger.info(f"Processing crime type")
   df = _process_crime_type(df)
@@ -222,17 +225,16 @@ def preprocess(df: pd.DataFrame) -> pd.DataFrame:
   df = _process_reported_to_police(df)
   logger.info("Processing arrest or charges made")
   df = _process_arrests_or_charges_made(df)
-
   logger.info('Compute arrest rates')
-  df = compute_arrest_rates(df)
+  dfs = compute_arrest_rates(df)
 
-  return df
+  return dfs
 
 
-def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
-    x_col, y_col, smooth_col = 'ncvs_year', 'arrest_rate', 'arrest_rate_smooth'
-    groups = ["offender_race", "offender_age", "offender_sex", "crime_recode", "ncvs_year"]
-    reg_groups = [g for g in groups if g != 'ncvs_year']
+def compute_arrest_rates(df: pd.DataFrame) -> Dict[str, pd.DataFrame]:
+    x_col, count_col = 'ncvs_year', 'count'
+    arrest_col, smooth_col = 'arrest_rate', 'arrest_rate_smooth'
+    groups = ['offender_race', 'offender_age', 'offender_sex', 'crime_recode', x_col]
 
     grouped = df.groupby(groups)
     agg = grouped.agg(
@@ -251,30 +253,19 @@ def compute_arrest_rates(df: pd.DataFrame, eps: float = 0.0) -> pd.DataFrame:
     agg = pd.merge(all_combinations, agg, how='left', on=groups)
 
     # compute smoothed arrest rates
-    def _smooth(group):
-      data = group[group.arrest_rate.notna()]
-      data = data[data.arrest_rate > 0]
-      x_test = group[x_col].to_numpy()[:, None]
-      if len(data) == 0:
-        logger.warn(f'no arrest data to smooth for group: '
-                    f'{group[reg_groups].drop_duplicates().iloc[0].to_dict()}')
-        return list(zip(x_test.squeeze(1), [None] * len(x_test)))
+    smoothed = {}
+    x_test = agg[x_col].unique()[:, None]
+    for mode in SMOOTHING:
+      smoothed_arrests = smooth_arrest_rates(
+        df=agg,
+        groups=groups,
+        x_test=x_test,
+        x_col=x_col,
+        count_col=count_col,
+        arrest_col=arrest_col,
+        smooth_col=smooth_col,
+        mode=mode,
+      )
+      smoothed[mode] = pd.merge(agg, smoothed_arrests, how='left', on=groups)
 
-      x_train = data[x_col].to_numpy()[:, None]
-      y_train, weights = data[y_col], data['count']
-
-      model = LinearRegression()
-      model.fit(x_train, y_train, weights)
-      smoothed = model.predict(x_test).clip(min=eps)
-      if pd.isna(smoothed).sum() > 0:
-        raise RuntimeError('NaN values in smoothed regression')
-
-      return list(zip(x_test.squeeze(1), smoothed))
-
-    smoothed = agg.groupby(reg_groups).apply(_smooth).to_frame(smooth_col).reset_index()
-    smoothed = smoothed.explode(smooth_col)
-    smoothed['ncvs_year'] = smoothed[smooth_col].str[0].astype(agg['ncvs_year'].dtype)
-    smoothed[smooth_col] = smoothed[smooth_col].str[1]
-
-    agg = pd.merge(agg, smoothed, how='left', on=groups)
-    return agg
+    return smoothed

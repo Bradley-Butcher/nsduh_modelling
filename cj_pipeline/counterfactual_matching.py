@@ -5,10 +5,10 @@ import numpy as np
 import pandas as pd
 from absl import app, flags
 
-from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw
-from cj_pipeline.neulaw.preprocess import init_rai_year_range
-from cj_pipeline.config import logger, BASE_DIR, CRIMES, SCORES, DEMOGRAPHICS
 from cj_pipeline.synthetic_assignment import get_synth
+from cj_pipeline.neulaw.preprocess import init_rai_year_range
+from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw
+from cj_pipeline.config import logger, BASE_DIR, CRIMES, SCORES, DEMOGRAPHICS, SMOOTHING
 
 import dame_flame
 
@@ -24,16 +24,18 @@ ETHNICITIES = [
 ]
 
 FLAGS = flags.FLAGS
-flags.DEFINE_integer('start_year', 1992, 'Initial year of records')
-flags.DEFINE_integer('end_year', 2012, 'Initial year of records')
-flags.DEFINE_integer('n_subsample', None, 'Number of subsamples')
-flags.DEFINE_bool('repeat_match', False, 'Repeat samples in matching')
+flags.DEFINE_string('exp_name', '', 'Name of the experiment.')
+
+flags.DEFINE_integer('start_year', 1992, 'Initial year of records.')
+flags.DEFINE_integer('end_year', 2012, 'Initial year of records.')
+flags.DEFINE_integer('n_subsample', None, 'Number of subsamples.')
+flags.DEFINE_bool('repeat_match', False, 'Repeat samples in matching.')
 flags.DEFINE_enum(
   'matching', 'flame', MATCHING_ALGS, help=f'One of {MATCHING_ALGS}.')
 flags.DEFINE_enum(
-  'baseline', 'White', ETHNICITIES, help=f'One of {ETHNICITIES}')
+  'baseline', 'White', ETHNICITIES, help=f'One of {ETHNICITIES}.')
 flags.DEFINE_enum(
-  'treatment', 'Black', ETHNICITIES, help=f'One of {ETHNICITIES}')
+  'treatment', 'Black', ETHNICITIES, help=f'One of {ETHNICITIES}.')
 flags.DEFINE_spaceseplist(
   'crime_bins', "-1 0 1 2 4 9 100000",
   'Right ends of the crime bins (inclusive); e.g., "[-1, 1, 9, 1000]".')
@@ -43,6 +45,8 @@ flags.DEFINE_integer('window', 2, 'No. of years to prepend.')
 flags.DEFINE_float('lam', None, 'Multiplier of total crimes.')
 flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
 flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
+flags.DEFINE_enum(
+  'smoothing', 'lr_pr', SMOOTHING, help=f'One of {SMOOTHING}.')
 
 
 def _min_max_scale(df: pd.DataFrame) -> pd.DataFrame:
@@ -202,7 +206,10 @@ def main(_):
     crime_bins=crime_bins,
     seed=FLAGS.seed,
     # parameters to the synth generator
-    window=FLAGS.window, lam=FLAGS.lam, omega=FLAGS.omega,
+    window=FLAGS.window,
+    lam=FLAGS.lam,
+    omega=FLAGS.omega,
+    smoothing_mode=FLAGS.smoothing,
   )
 
   repo = git.Repo(search_parent_directories=True)
@@ -213,9 +220,11 @@ def main(_):
   print(ates)
   print(custom_flags)
 
+  dir_name = f'{FLAGS.exp_name}_' if len(FLAGS.exp_name) > 1 else ''
+  dir_name += f'{exp_start.month:02d}-{exp_start.day:02d}-{exp_start.hour:02d}'
   data_path = BASE_DIR / 'data' / 'counterfact'
   data_path /= f'{FLAGS.start_year}-{FLAGS.end_year}_{FLAGS.window}'
-  data_path /= f'{exp_start.month:02d}-{exp_start.day:02d}-{exp_start.hour:02d}'
+  data_path /= dir_name
   data_path.mkdir(parents=True, exist_ok=True)
 
   file_name = [
@@ -228,6 +237,7 @@ def main(_):
   file_name += [] if not FLAGS.synth else [
     'nolam' if FLAGS.lam is None else f'lam3e{int(FLAGS.lam * 1000)}',
     f'om3e{int(FLAGS.omega * 1000)}',
+    f'{FLAGS.smoothing}',
     f'{FLAGS.seed}',
   ]
   file_name += ['b'.join(FLAGS.crime_bins[1:-1])]

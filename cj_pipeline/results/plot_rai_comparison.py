@@ -29,7 +29,9 @@ def _load_data():
     )
     return ans
 
-  id_vars = ['lam', 'omega', 'synth']
+  id_vars = df.columns[df.nunique() > 1]
+  id_vars = [c for c in id_vars if not c[:c.find('_')] in SCORES]
+  # id_vars = ['lam', 'omega', 'synth']
   df = pd.merge(
     _melt(id_vars, suffix='_mean', value_name='mean'),
     _melt(id_vars, suffix='_sem', value_name='sem'),
@@ -55,6 +57,7 @@ def _load_observed():
     n_subsample=exp.n_subsample,
     crime_bins=tuple(int(n) for n in exp.crime_bins.split()),
     seed=0,  # TODO: only affects subsampling -> don't iterate atm
+    smoothing_mode=exp.smoothing,
   )
 
   observed = pd.DataFrame({

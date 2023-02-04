@@ -11,6 +11,7 @@ from cj_pipeline.config import CRIMES
 def main():
   start_year, end_year = 1992, 2012
   race_col = 'calc.race'  # 'def.race'
+  smoothing_mode = 'lr_pr'
 
   # parameters to the synth generator
   window = 2
@@ -25,7 +26,7 @@ def main():
   # load synth
   synth = get_synth(
     start_year=start_year, end_year=end_year, window=window,
-    omega=omega, seed=seed)
+    omega=omega, smoothing_mode=smoothing_mode, seed=seed)
 
   # load rais
   rai_func = init_rai_year_range(start_year=start_year, end_year=end_year)

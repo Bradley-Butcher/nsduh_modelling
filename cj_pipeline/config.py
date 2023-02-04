@@ -24,6 +24,15 @@ SCORES = [
   'fta'
 ]
 
+SMOOTHING = [
+  'lr_pc',    # positive count
+  'lr_pr',    # positive rate
+  'lr_all',   # all values
+  'avg_pc',   # positive count
+  'avg_pr',   # positive rate
+  'avg_all',  # all values
+]
+
 CRIMES = [
   'aggravated assault', 'property', 'robbery', 'sex offense', 'simple assault',
   # 'dui', 'drugs',

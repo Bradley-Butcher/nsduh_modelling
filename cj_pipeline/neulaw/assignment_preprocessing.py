@@ -2,8 +2,8 @@ from pathlib import Path
 import pandas as pd
 
 from functools import reduce, lru_cache
-from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP, DEMOGRAPHICS
 from cj_pipeline.neulaw.load import load as load_neulaw
+from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP, DEMOGRAPHICS
 
 base_path = Path(__file__).parents[2] / 'data'
 
@@ -37,9 +37,9 @@ def init_neulaw(start_year: int, window: int):
   return get_entries, max_year
 
 
-def init_ncvs(start_year: int, window: int):
+def init_ncvs(start_year: int, window: int, smoothing_mode: str):
   logger.info('Preparing NCVS record extraction ...')
-  ncvs = pd.read_csv(base_path / 'processed' / 'ncvs.csv')
+  ncvs = pd.read_csv(base_path / 'processed' / f'ncvs_{smoothing_mode}.csv')
   ncvs = ncvs[ncvs['offender_age'] != '< 18']
   ncvs = ncvs[ncvs['ncvs_year'] >= start_year]
   max_year = ncvs['ncvs_year'].max()
@@ -52,7 +52,6 @@ def init_ncvs(start_year: int, window: int):
 
   def get_entries(year: int):
     _check_year_validity(year, max_year=max_year, window=window)
-    # lambdas = _ncvs_crime_lambdas(neulaw)
     years_df = ncvs.query(f'{year} <= ncvs_year <= {year + window}')
     years_df = years_df.groupby(CRIMES_GROUP, as_index=False).agg({
       'arrest_rate': 'mean', 'arrest_rate_smooth': 'mean',  # avg rate in window
@@ -64,10 +63,10 @@ def init_ncvs(start_year: int, window: int):
   return get_entries, max_year
 
 
-def init_nsduh(start_year: int, window: int):
+def init_nsduh(start_year: int, window: int, smoothing_mode: str):
   logger.info('Preparing NSDUH record counting ...')
 
-  nsduh = pd.read_csv(base_path / 'processed' / 'nsduh.csv')
+  nsduh = pd.read_csv(base_path / 'processed' / f'nsduh_{smoothing_mode}.csv')
   nsduh = nsduh[nsduh['offender_age'] != '< 18']
   nsduh = nsduh[nsduh['YEAR'] >= start_year]
   max_year = nsduh['YEAR'].max()
@@ -173,19 +172,13 @@ def _ncvs_crime_lambdas(neulaw):
     columns={
       'calc.race': 'offender_race',
       'def.gender': 'offender_sex',
-      'age_cat': 'offender_age'
+      'age_cat': 'offender_age',
     },
     inplace=True,
   )
 
   return lambdas
 
-
-# # EXAMPLE USAGE
-# if __name__ == '__main__':
-#   offense_counts, _ = init_neulaw(start_year=2000, window=3)
-#   first_df = offense_counts(year=2000)
-#   second_df = offense_counts(year=2001)
 
 if __name__ == '__main__':
   neulaw_gen, _ = init_neulaw(start_year=1992, window=20)

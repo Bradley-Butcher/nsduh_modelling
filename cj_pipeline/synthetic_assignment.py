@@ -8,13 +8,18 @@ from cj_pipeline.neulaw.assignment_preprocessing import init_neulaw, init_ncvs, 
 
 
 def get_synth(
-    start_year: int, end_year: int, window: int,
-    seed: int = 0, lam: float = None, omega: float = 1
+    start_year: int,
+    end_year: int,
+    window: int,
+    seed: int = 0,
+    lam: float = None,
+    omega: float = 1,
+    smoothing_mode: str = 'lr_pr',
 ) -> pd.DataFrame:
   arrest_col = 'arrest_rate_smooth'
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
-    lam=lam, omega=omega, seed=seed)
+    lam=lam, omega=omega, smoothing_mode=smoothing_mode, seed=seed)
 
   logger.info(f'Loading synth assignments {start_year}-{end_year} ({window})')
   if file_path.is_file():
@@ -23,8 +28,15 @@ def get_synth(
   else:
     logger.info('Generating the synthetic data')
     df = rolling_crime_assignment(
-      start_year=start_year, end_year=end_year, window=window,
-      lam=lam, omega=omega, arrest_col=arrest_col, seed=seed)
+      start_year=start_year,
+      end_year=end_year,
+      window=window,
+      lam=lam,
+      omega=omega,
+      arrest_col=arrest_col,
+      smoothing_mode=smoothing_mode,
+      seed=seed,
+    )
     df.to_csv(file_path, index=False)
 
   return df
@@ -52,9 +64,9 @@ def rolling_crime_assignment(
   return df
 
 
-def _file_path(start_year, end_year, window, lam, omega, seed):
+def _file_path(start_year, end_year, window, lam, omega, smoothing_mode, seed):
   file_name = ('nolam' if lam is None else f'lam{lam:.2f}')
-  file_name += f'om{omega:.2f}-{seed}.csv'
+  file_name += f'_om{omega:.2f}_{smoothing_mode}-{seed}.csv'
   data_path = BASE_DIR / 'data' / 'scratch' / 'synth'
   data_path /= f'{start_year}-{end_year}_{window}'
   data_path.mkdir(parents=True, exist_ok=True)
@@ -67,8 +79,8 @@ def _add_age(df, end_year):  # TODO: code duplication with assignment_preprocess
 
   df = df[age > 10]  # likely data entry errors
   df['age_cat'] = pd.cut(
-    age, right=True, bins=[0, 17, 29, 500],
-    labels=['< 18', '18-29', '> 29']).astype('str')
+    age, right=True, bins=[0, 17, 29, 500], labels=['< 18', '18-29', '> 29']
+  ).astype('str')
   df = df[df['age_cat'] != '< 18']  # remove all underage entries
 
   return df
@@ -157,11 +169,12 @@ def _add_unobserved(
 
 
 def _window_sampler(
-    start_year, end_year, window, lam, omega, arrest_col, rng):
+    start_year, end_year, window, lam, omega, arrest_col, smoothing_mode, rng
+):
   # load data for given time-frame
-  ncvs_gen, _ = init_ncvs(start_year, window=window)
-  nsduh_gen, _ = init_nsduh(start_year, window=window)
   neulaw_gen, _ = init_neulaw(start_year, window=window)
+  ncvs_gen, _ = init_ncvs(start_year, window=window, smoothing_mode=smoothing_mode)
+  nsduh_gen, _ = init_nsduh(start_year, window=window, smoothing_mode=smoothing_mode)
 
   def _window(window_end: int, n_samples_div: float = 1.0):
     year = window_end - window
@@ -189,8 +202,12 @@ def _window_sampler(
       n_samples_div=n_samples_div, rng=rng
     )
     df = pd.concat([
-      _sample(df=df[~nsduh_ids], group_all=NEULAW_TO_NCVS, crimes=ncvs, lambda_col='lambda'),
-      _sample(df=df[nsduh_ids], group_all=NEULAW_TO_NSDUH, crimes=nsduh, lambda_col='lambda_smooth'),
+      _sample(
+        df=df[~nsduh_ids], group_all=NEULAW_TO_NCVS, crimes=ncvs, lambda_col='lambda'
+      ),
+      _sample(
+        df=df[nsduh_ids], group_all=NEULAW_TO_NSDUH, crimes=nsduh, lambda_col='lambda_smooth'
+      ),
     ])
     if len(df) != len_before:
       raise RuntimeError('Bug: sampling of unobserved changed the size of the data')
@@ -209,6 +226,7 @@ def _window_sampler(
 def main():
   start_year, end_year, window = 1992, 2012, 3
   lam, omega, seed = 1.0, 1.0, 0
+  smoothing_mode = 'lr_pr'
 
   df = rolling_crime_assignment(
     start_year=start_year,
@@ -217,12 +235,13 @@ def main():
     lam=lam,
     omega=omega,
     seed=seed,
+    smoothing_mode=smoothing_mode,
     arrest_col='arrest_rate_smooth',
   )
 
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
-    lam=lam, omega=omega, seed=seed)
+    lam=lam, omega=omega, smoothing_mode=smoothing_mode, seed=seed)
   file_path.parents[0].mkdir(parents=True, exist_ok=True)
   df.to_csv(file_path, index=False)
 

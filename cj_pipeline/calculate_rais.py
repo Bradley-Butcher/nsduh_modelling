@@ -7,10 +7,12 @@ import numpy as np
 
 data_path = Path(__file__).parents[1] / 'data'
 
+
 def load_criminal_history():
     tqdm.pandas()
     logger.info('Loading criminal history')
     return pd.read_csv(data_path / "processed" / "criminal_history.csv")
+
 
 def calculate_rais(df: pd.DataFrame):
     logger.info('Calculating Risk Assesment Instruments')
@@ -25,6 +27,7 @@ def calculate_rais(df: pd.DataFrame):
     logger.info('Calculating FTA')
     df = get_fta(df)
     return df
+
 
 def get_nca(df: pd.DataFrame):
     def _calc_nca(row):
@@ -48,6 +51,7 @@ def get_nca(df: pd.DataFrame):
     df['nca'] = df.progress_apply(_calc_nca, axis=1)
     return df
 
+
 def get_nvca(df: pd.DataFrame):
     def _calc_nvca(row):
         score = 0
@@ -69,6 +73,7 @@ def get_nvca(df: pd.DataFrame):
     df['nvca'] = df.progress_apply(_calc_nvca, axis=1)
     return df
 
+
 def get_fta(df: pd.DataFrame):
     def _calc_fta(row):
         score = 0
@@ -87,6 +92,7 @@ def get_fta(df: pd.DataFrame):
     df['fta'] = df.progress_apply(_calc_fta, axis=1)
     return df
 
+
 def get_vprai(df: pd.DataFrame):
     def _calc_vprai(row):
         score = 0
@@ -100,7 +106,8 @@ def get_vprai(df: pd.DataFrame):
     tqdm.pandas(desc='Calculating VPR-AI')
     df['vprai'] = df.progress_apply(_calc_vprai, axis=1)
     return df
-    
+
+
 def get_ogrs3(df: pd.DataFrame):
     coefs = pd.read_csv(data_path / "rais" / "coef_ogrs3.csv")
     df = df.merge(coefs, left_on='most_serious_offense', right_on='calc.detailed', how='left')
