@@ -34,7 +34,8 @@ def barplot(
     (i_x * (group_width + gap) + group_width / 2, x_i)
     for i_x, x_i in enumerate(xs)
   ]))
-  xlabels = list(map(xlabel_map, xlabels))
+  if xlabel_map is not None:
+    xlabels = list(map(xlabel_map, xlabels))
 
   grid = sns.FacetGrid(
     df,

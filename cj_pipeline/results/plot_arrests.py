@@ -20,17 +20,16 @@ def _mean_and_var(df, n_years):
   return df
 
 
-def _load_ncvs():
-  # ncvs = pd.read_csv(DATA_DIR / 'ncvs_arrest_rates.csv')
-  ncvs = pd.read_csv(DATA_DIR / 'ncvs.csv')
+def _load_ncvs(smoothing):
+  ncvs = pd.read_csv(DATA_DIR / f'ncvs_{smoothing}.csv')
   ncvs = ncvs[ncvs['offender_age'] != '< 18']
   ncvs = _mean_and_var(ncvs, n_years=ncvs['ncvs_year'].nunique())
   ncvs['crime_recode'] = ncvs['crime_recode'].str.capitalize()
   return ncvs
 
 
-def _load_nsduh():
-  nsduh = pd.read_csv(DATA_DIR / 'nsduh.csv')
+def _load_nsduh(smoothing):
+  nsduh = pd.read_csv(DATA_DIR / f'nsduh_{smoothing}.csv')
   nsduh = nsduh[[c for c in nsduh.columns if not '_lam_' in c]]
   nsduh = nsduh[nsduh['offender_age'] != '< 18']
 
@@ -66,16 +65,16 @@ def _load_nsduh():
   return nsduh
 
 
-def plot_ncvs():
-  ncvs = _load_ncvs()
+def plot_ncvs(smoothing):
+  ncvs = _load_ncvs(smoothing)
   grid = plot_arrests(ncvs, age_label_order=['18-29', '> 29'])
-  grid.figure.savefig(BASE_DIR / 'data' / 'scratch' / 'ncvs_arrests.pdf')
+  grid.figure.savefig(BASE_DIR / 'data' / 'scratch' / f'ncvs_arrests_{smoothing}.pdf')
 
 
-def plot_nsduh():
-  nsduh = _load_nsduh()
+def plot_nsduh(smoothing):
+  nsduh = _load_nsduh(smoothing)
   grid = plot_arrests(nsduh, age_label_order=['18-34', '> 34'])
-  grid.figure.savefig(BASE_DIR / 'data' / 'scratch' / 'nsduh_arrests.pdf')
+  grid.figure.savefig(BASE_DIR / 'data' / 'scratch' / f'nsduh_arrests_{smoothing}.pdf')
 
 
 def plot_arrests(df, age_label_order, gap=0.2, width=0.3):
@@ -100,5 +99,6 @@ def plot_arrests(df, age_label_order, gap=0.2, width=0.3):
 
 
 if __name__ == '__main__':
-  plot_ncvs()
-  plot_nsduh()
+  smoothing = 'lr_pc'
+  plot_ncvs(smoothing)
+  plot_nsduh(smoothing)
