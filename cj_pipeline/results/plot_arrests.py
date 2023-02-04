@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 
 from cj_pipeline.results.utils import barplot
-from cj_pipeline.config import BASE_DIR
+from cj_pipeline.config import BASE_DIR, SMOOTHING
 DATA_DIR = BASE_DIR / 'data' / 'processed'
 
 
@@ -10,7 +10,7 @@ def _mean_and_var(df, n_years):
   def _sem(group):
     weights = group['count'] / group['count'].sum()
     errors = weights * (group['arrest_rate'] - group['arrest_rate_smooth'])**2
-    return (errors.mean() / n_years)**0.5
+    return (errors.sum() / n_years)**0.5
 
   groups = ['offender_race', 'offender_age', 'offender_sex', 'crime_recode']
   means = df.groupby(groups)['arrest_rate_smooth'].mean().to_frame('mean').reset_index()
@@ -99,6 +99,6 @@ def plot_arrests(df, age_label_order, gap=0.2, width=0.3):
 
 
 if __name__ == '__main__':
-  smoothing = 'lr_pc'
-  plot_ncvs(smoothing)
-  plot_nsduh(smoothing)
+  for smoothing in SMOOTHING:
+    plot_ncvs(smoothing)
+    plot_nsduh(smoothing)
