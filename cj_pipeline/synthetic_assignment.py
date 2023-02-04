@@ -14,12 +14,16 @@ def get_synth(
     seed: int = 0,
     lam: float = None,
     omega: float = 1,
-    smoothing_mode: str = 'lr_pr',
+    smoothing: str = 'lr_pr',
+    rate_mult_ncvs: dict = None,
+    rate_mult_nsduh: dict = None,
 ) -> pd.DataFrame:
   arrest_col = 'arrest_rate_smooth'
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
-    lam=lam, omega=omega, smoothing_mode=smoothing_mode, seed=seed)
+    lam=lam, omega=omega, smoothing=smoothing, seed=seed,
+    rate_mult_ncvs=rate_mult_ncvs, rate_mult_nsduh=rate_mult_nsduh,
+  )
 
   logger.info(f'Loading synth assignments {start_year}-{end_year} ({window})')
   if file_path.is_file():
@@ -34,8 +38,10 @@ def get_synth(
       lam=lam,
       omega=omega,
       arrest_col=arrest_col,
-      smoothing_mode=smoothing_mode,
+      smoothing=smoothing,
       seed=seed,
+      rate_mult_ncvs=rate_mult_ncvs,
+      rate_mult_nsduh=rate_mult_nsduh,
     )
     df.to_csv(file_path, index=False)
 
@@ -64,9 +70,20 @@ def rolling_crime_assignment(
   return df
 
 
-def _file_path(start_year, end_year, window, lam, omega, smoothing_mode, seed):
+def _file_path(
+    start_year, end_year, window, lam, omega, smoothing, seed,
+    rate_mult_ncvs, rate_mult_nsduh,
+):
+  def _rate2string(dct):
+    return '_'.join([f'{k[0]}{int(v * 1000)}' for k, v in dct.items()])
+
   file_name = ('nolam' if lam is None else f'lam{lam:.2f}')
-  file_name += f'_om{omega:.2f}_{smoothing_mode}-{seed}.csv'
+  file_name += f'_om{omega:.2f}_{smoothing}'
+  if rate_mult_ncvs is not None:
+    file_name += f'_mcvs{_rate2string(rate_mult_ncvs)}'
+  if rate_mult_nsduh is not None:
+    file_name += f'_mduh{_rate2string(rate_mult_nsduh)}'
+  file_name += f'-{seed}.csv'
   data_path = BASE_DIR / 'data' / 'scratch' / 'synth'
   data_path /= f'{start_year}-{end_year}_{window}'
   data_path.mkdir(parents=True, exist_ok=True)
@@ -169,12 +186,15 @@ def _add_unobserved(
 
 
 def _window_sampler(
-    start_year, end_year, window, lam, omega, arrest_col, smoothing_mode, rng
+    start_year, end_year, window, lam, omega, arrest_col, smoothing, rng,
+    rate_mult_ncvs, rate_mult_nsduh,
 ):
   # load data for given time-frame
   neulaw_gen, _ = init_neulaw(start_year, window=window)
-  ncvs_gen, _ = init_ncvs(start_year, window=window, smoothing_mode=smoothing_mode)
-  nsduh_gen, _ = init_nsduh(start_year, window=window, smoothing_mode=smoothing_mode)
+  ncvs_gen, _ = init_ncvs(
+    start_year, window=window, smoothing=smoothing, rate_mult=rate_mult_ncvs)
+  nsduh_gen, _ = init_nsduh(
+    start_year, window=window, smoothing=smoothing, rate_mult=rate_mult_nsduh)
 
   def _window(window_end: int, n_samples_div: float = 1.0):
     year = window_end - window
@@ -225,8 +245,8 @@ def _window_sampler(
 
 def main():
   start_year, end_year, window = 1992, 2012, 3
-  lam, omega, seed = 1.0, 1.0, 0
-  smoothing_mode = 'lr_pr'
+  lam, omega, seed, smoothing = 1.0, 1.0, 0, 'lr_pr'
+  rate_mult_ncvs, rate_mult_nsduh = None, None
 
   df = rolling_crime_assignment(
     start_year=start_year,
@@ -235,13 +255,17 @@ def main():
     lam=lam,
     omega=omega,
     seed=seed,
-    smoothing_mode=smoothing_mode,
+    smoothing=smoothing,
     arrest_col='arrest_rate_smooth',
+    rate_mult_ncvs=rate_mult_ncvs,
+    rate_mult_nsduh=rate_mult_nsduh,
   )
 
   file_path = _file_path(
     start_year=start_year, end_year=end_year, window=window,
-    lam=lam, omega=omega, smoothing_mode=smoothing_mode, seed=seed)
+    lam=lam, omega=omega, smoothing=smoothing, seed=seed,
+    rate_mult_ncvs=rate_mult_ncvs, rate_mult_nsduh=rate_mult_nsduh,
+  )
   file_path.parents[0].mkdir(parents=True, exist_ok=True)
   df.to_csv(file_path, index=False)
 

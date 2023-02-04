@@ -57,7 +57,8 @@ def _load_observed():
     n_subsample=exp.n_subsample,
     crime_bins=tuple(int(n) for n in exp.crime_bins.split()),
     seed=0,  # TODO: only affects subsampling -> don't iterate atm
-    smoothing_mode=exp.smoothing,
+    smoothing=exp.smoothing,
+    rate_mult_ncvs=None, rate_mult_nsduh=None,  # does not affect non-synth
   )
 
   observed = pd.DataFrame({

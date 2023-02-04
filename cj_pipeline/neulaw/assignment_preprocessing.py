@@ -8,19 +8,6 @@ from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP, DEMOGRAPHICS
 base_path = Path(__file__).parents[2] / 'data'
 
 
-@lru_cache
-def _get_neulaw(start_year: int) -> pd.DataFrame:
-  df = load_neulaw(base_path / 'neulaw')
-
-  # subset year and handle special column values
-  df = df[df['calc.year'] >= start_year]
-  df = df[df['def.gender'].isin(('Female', 'Male'))]
-  df = df[df['calc.race'].isin(('Black', 'White', 'Hispanic'))]
-  df = df[df['def.race'].isin(('Black', 'White'))]
-
-  return df
-
-
 def init_neulaw(start_year: int, window: int):
   logger.info("Preparing offence counting ...")
 
@@ -37,9 +24,14 @@ def init_neulaw(start_year: int, window: int):
   return get_entries, max_year
 
 
-def init_ncvs(start_year: int, window: int, smoothing_mode: str):
+def init_ncvs(
+    start_year: int,
+    window: int,
+    smoothing: str,
+    rate_mult: dict = None,
+):
   logger.info('Preparing NCVS record extraction ...')
-  ncvs = pd.read_csv(base_path / 'processed' / f'ncvs_{smoothing_mode}.csv')
+  ncvs = pd.read_csv(base_path / 'processed' / f'ncvs_{smoothing}.csv')
   ncvs = ncvs[ncvs['offender_age'] != '< 18']
   ncvs = ncvs[ncvs['ncvs_year'] >= start_year]
   max_year = ncvs['ncvs_year'].max()
@@ -58,15 +50,21 @@ def init_ncvs(start_year: int, window: int, smoothing_mode: str):
       'reporting_rate': 'mean', 'count': 'sum'
     })
     years_df = pd.merge(years_df, lambdas, how='left', on=CRIMES_GROUP)
+    _adjust_rates(years_df, rate_mult)  # inplace
     return years_df
 
   return get_entries, max_year
 
 
-def init_nsduh(start_year: int, window: int, smoothing_mode: str):
+def init_nsduh(
+    start_year: int,
+    window: int,
+    smoothing: str,
+    rate_mult: dict = None,
+):
   logger.info('Preparing NSDUH record counting ...')
 
-  nsduh = pd.read_csv(base_path / 'processed' / f'nsduh_{smoothing_mode}.csv')
+  nsduh = pd.read_csv(base_path / 'processed' / f'nsduh_{smoothing}.csv')
   nsduh = nsduh[nsduh['offender_age'] != '< 18']
   nsduh = nsduh[nsduh['YEAR'] >= start_year]
   max_year = nsduh['YEAR'].max()
@@ -90,23 +88,27 @@ def init_nsduh(start_year: int, window: int, smoothing_mode: str):
 
     nsduh_crimes = ['dui', 'drugs_sell', 'drugs_use']
     arrests = pd.concat([
-      _melt(crime=c, suffix='_ar', col_name='arrest_rate') for c in nsduh_crimes
+      _melt(crime=c, suffix='_ar', col_name='arrest_rate')
+      for c in nsduh_crimes
     ])
     smoothed_arrests = pd.concat([
-      _melt(crime=c, suffix='_sar', col_name='arrest_rate_smooth') for c in nsduh_crimes
+      _melt(crime=c, suffix='_sar', col_name='arrest_rate_smooth')
+      for c in nsduh_crimes
     ])
     lambdas = pd.concat([
-      _melt(crime=c, suffix='_lam_ar', col_name='lambda') for c in nsduh_crimes
+      _melt(crime=c, suffix='_lam_ar', col_name='lambda')
+      for c in nsduh_crimes
     ])
     smoothed_lambdas = pd.concat([
-      _melt(crime=c, suffix='_lam_sar', col_name='lambda_smooth') for c in nsduh_crimes
+      _melt(crime=c, suffix='_lam_sar', col_name='lambda_smooth')
+      for c in nsduh_crimes
     ])
 
     years_df = reduce(
       lambda df0, df1: pd.merge(df0, df1, on=CRIMES_GROUP),
       [arrests, smoothed_arrests, lambdas, smoothed_lambdas]
     )
-
+    _adjust_rates(years_df, rate_mult)  # inplace
     return years_df
 
   return get_entries, max_year
@@ -117,6 +119,29 @@ def _check_year_validity(year: int, max_year: int, window: int):
     raise ValueError(f"Year {year} is greater than max year {max_year}")
   if year + window > max_year:
     logger.warning(f"Year {year + window} is greater than max year {max_year}")
+
+
+def _adjust_rates(df, rate_mult):
+  if rate_mult is not None:
+    for race, mult in rate_mult.items():
+      idx = df['offender_race'] == race
+      df.loc[idx, 'arrest_rate'] *= mult
+      df.loc[idx, 'arrest_rate_smooth'] *= mult
+    df['arrest_rate'].clip(0, 1, inplace=True)
+    df['arrest_rate_smooth'].clip(0, 1, inplace=True)
+
+
+@lru_cache
+def _get_neulaw(start_year: int) -> pd.DataFrame:
+  df = load_neulaw(base_path / 'neulaw')
+
+  # subset year and handle special column values
+  df = df[df['calc.year'] >= start_year]
+  df = df[df['def.gender'].isin(('Female', 'Male'))]
+  df = df[df['calc.race'].isin(('Black', 'White', 'Hispanic'))]
+  df = df[df['def.race'].isin(('Black', 'White'))]
+
+  return df
 
 
 def _preprocess_neulaw(df: pd.DataFrame, start_year: int, end_year: int):

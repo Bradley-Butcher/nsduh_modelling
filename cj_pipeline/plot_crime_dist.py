@@ -26,7 +26,9 @@ def main():
   # load synth
   synth = get_synth(
     start_year=start_year, end_year=end_year, window=window,
-    omega=omega, smoothing_mode=smoothing_mode, seed=seed)
+    omega=omega, smoothing=smoothing_mode, seed=seed,
+    rate_mult_ncvs=None, rate_mult_nsduh=None,
+  )
 
   # load rais
   rai_func = init_rai_year_range(start_year=start_year, end_year=end_year)

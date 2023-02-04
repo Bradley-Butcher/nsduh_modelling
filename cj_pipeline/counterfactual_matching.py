@@ -47,6 +47,11 @@ flags.DEFINE_float('omega', 1.0, 'Multiplier of recorded crimes.')
 flags.DEFINE_integer('seed', 0, 'Seed for the random sample generation.')
 flags.DEFINE_enum(
   'smoothing', 'lr_pr', SMOOTHING, help=f'One of {SMOOTHING}.')
+flags.DEFINE_float(
+  'rate_mult_ncvs', 1.0, 'Multiply arrest rates of the treated in NCVS.')
+flags.DEFINE_float(
+  'rate_mult_nsduh', 1.0, 'Multiply arrest rates of the treated in NSDUH.')
+
 
 
 def _min_max_scale(df: pd.DataFrame) -> pd.DataFrame:
@@ -209,7 +214,9 @@ def main(_):
     window=FLAGS.window,
     lam=FLAGS.lam,
     omega=FLAGS.omega,
-    smoothing_mode=FLAGS.smoothing,
+    smoothing=FLAGS.smoothing,
+    rate_mult_ncvs={FLAGS.treatment: FLAGS.rate_mult_ncvs},
+    rate_mult_nsduh={FLAGS.treatment: FLAGS.rate_mult_nsduh},
   )
 
   repo = git.Repo(search_parent_directories=True)
@@ -237,6 +244,8 @@ def main(_):
   file_name += [] if not FLAGS.synth else [
     'nolam' if FLAGS.lam is None else f'lam3e{int(FLAGS.lam * 1000)}',
     f'om3e{int(FLAGS.omega * 1000)}',
+    f'mcvs3e{int(FLAGS.rate_mult_ncvs * 1000)}',
+    f'mcvs3e{int(FLAGS.rate_mult_nsduh * 1000)}',
     f'{FLAGS.smoothing}',
     f'{FLAGS.seed}',
   ]
