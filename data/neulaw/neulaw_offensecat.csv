@@ -1,3 +1,160 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7c1f89ca23bddda17aec7104c085c03afc98fb6fe00f5aa4635d4f1fc4a6e819
-size 3897
+calc.detailed,offense_category
+Agg Assault,aggravated assault
+Agg Assault - Family,aggravated assault
+Agg Kidnapping,
+Agg Robbery,robbery
+Agg Sexual Assault,sex offense
+Alcohol - Minor,
+Alcohol - Other,
+Animal Violence,
+Arson,
+Assault,simple assault
+Assault - Family,simple assault
+Att - Guns - Felon in Possession of Weapon,
+Att Agg Assault,aggravated assault
+Att Arson,
+Att Assault,simple assault
+Att Assault - Family,simple assault
+Att Burglary,property
+Att Burglary - Habitation,property
+Att Burglary - Vehicle,property
+Att Capital Murder,
+Att Crime Against Children,
+Att Endangering Child,
+Att Evading/Resisting/Escaping,
+Att Forgery,
+Att Fraud/Forgery/Impersonation,
+Att Indecency - Child,
+Att Kidnapping,
+Att Murder,
+Att Obstructing,
+Att Robbery,robbery
+Att Sexual Assault,sex offense
+Att Sexual Assault - Child,sex offense
+Att Theft,
+Burglary,property
+Burglary - Habitation,property
+Burglary - Sexual Intent,property
+Burglary - Vehicle,property
+Capital Murder,
+Child Custody,
+Child Porn,
+Child Sex Crime - Other,
+Computer Crime,
+Consp Murder - Any,
+Credit Card Fraud,
+Crim Mischief,
+Crim Mischief - Public Service,
+Crim Mischief F1/F2,
+Crim Mischief FS/F3,
+Crim Mischief MA,
+Crim Mischief MB,
+Crim Negligent Homicide,
+Crime Against Children,
+Crime by Public Servants,
+CS - Driving,drugs_sell
+CS Delivery,drugs_sell
+CS Delivery Marijuana,drugs_sell
+CS Delivery Marijuana L,drugs_sell
+CS Delivery Marijuana S,drugs_sell
+CS Delivery PG1 L,drugs_sell
+CS Delivery PG1 S,drugs_sell
+CS Delivery PG1/1A,drugs_sell
+CS Delivery PG2,drugs_sell
+CS Delivery PG2 L,drugs_sell
+CS Delivery PG3/4,drugs_sell
+CS Delivery Simulated,drugs_sell
+CS Other,drugs_sell
+CS Paraphernalia,drugs_sell
+CS Possession,drugs_use
+CS Possession Marijuana,drugs_use
+CS Possession Marijuana L,drugs_use
+CS Possession Marijuana S,drugs_use
+CS Possession PG1 L,drugs_use
+CS Possession PG1 S,drugs_use
+CS Possession PG1/1A,drugs_use
+CS Possession PG2,drugs_use
+CS Possession PG2 L,drugs_use
+CS Possession PG2 S,drugs_use
+CS Possession PG3/4,drugs_use
+CS Possession PG3/4 L,drugs_use
+CS Possession PG3/4 S,drugs_use
+CS Prescription,drugs_use
+Deadly Conduct,
+Disorderly Conduct,
+DWI 1ST,dui
+DWI 2ND,dui
+DWI 3RD,dui
+DWI with child,dui
+Endangering Child,
+Evading/Resisting/Escaping,
+Fiduciary Fraud,
+Fleeing from police officer,
+Forgery,
+Forgery - Check,
+Fraud - Social Services,
+Fraud/Forgery/Impersonation,
+Gambling,
+Guns - Felon in Possession of Weapon,
+Guns - Unlawful Carry,
+Harassment-Stalking,
+Impersonation,
+Indecency,
+Indecency - Child,
+Injury to Child,
+Insurance Fraud,
+Intoxicated Assault,
+Intoxicated Manslaughter,
+Kidnapping,
+Licensing,
+Low Level Crime,
+Manslaughter,
+Murder,
+Obscene Material,
+Obstructing,
+Obstructing - Failure to appear,
+Obstructing - Failure to identify,
+Obstructing - False Alarm/Report,
+Obstructing - Retaliation,
+Obstructing - Tampering,
+Organized Crime,
+Other Sex Offense,sex offense
+Pollution,
+Promote Prostitution,
+Prostitution,
+Robbery,robbery
+Sexual Assault,sex offense
+Sexual Assault - Child,sex offense
+Shooting Investigation,
+Soliciting - Child,
+SOR Violation,
+Terroristic Threat,
+Theft,property
+Theft - Coin Operated Machine,property
+Theft - Firearms,property
+Theft - Prior,property
+Theft - Unauth Use of Vehicle,property
+Theft - Vehicle,property
+Theft F1/F2,property
+Theft F3 - Service,property
+Theft from Person,property
+Theft FS/F3,property
+Theft FS/F3 - Check,property
+Theft MA,property
+Theft MA - Check,property
+Theft MA - Prior,property
+Theft MA - Service,property
+Theft MB,property
+Theft MB - Check,property
+Theft MB - Service,property
+Theft MC,property
+Traffic Offense,
+Traffic Offense - Hit and Run,
+Traffic Offense - No Insurance,
+Traffic Offense - No License,
+Traffic Offense - Reckless Driving,
+Trespass,property
+Trespass - No Initial Notice,property
+Vehicle Sticker Fraud,
+Violation of Protective Order,
+Weapons - Unlawful Possession/Conduct,

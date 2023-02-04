@@ -1,3 +1,2705 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:57769c783338f6d0ffceed285083e055919bcbcd4a1dcccde9fb4783e4602d4d
-size 167190
+crime,count,broad,detailed
+DRV UNDER INFLU OF ALC B/MINOR,46,Alcohol - Driving,DWI 1ST
+AGG DWI SBI,11,Alcohol - Driving,DWI 1ST
+BOATING W/INTOX. BAC.08,39,Alcohol - Driving,DWI 1ST
+BOATING WHILE INTOXICATED,28,Alcohol - Driving,DWI 1ST
+DRIVING WHILE INTOXICATED,143564,Alcohol - Driving,DWI 1ST
+DWI BAC>=0.15,1451,Alcohol - Driving,DWI 1ST
+DWI/OPEN ALCOHOL CONTAINER,6,Alcohol - Driving,DWI 1ST
+FLYING W/INTOX. BAC.08,1,Alcohol - Driving,DWI 1ST
+DWI 1ST,155319,Alcohol - Driving,DWI 1ST
+DWI 1ST OFFENDER BAC .08,112769,Alcohol - Driving,DWI 1ST
+DWI 1ST SBI,20,Alcohol - Driving,DWI 1ST
+OPERATE BOAT WHILE INTOX,5,Alcohol - Driving,DWI 1ST
+DRIVER CONSUMING INTOXICATING,4,Alcohol - Driving,DWI 1ST
+CONSUME ALCOHOLIC BEVERAGE-DRI,3,Alcohol - Driving,DWI 1ST
+ATT DWI,2,Alcohol - Driving,DWI 1ST
+DRIV.CONSUM.AL.BEV.W/IN 4HR.39,1,Alcohol - Driving,DWI 1ST
+FLYING WHILE INTOXICATED,1,Alcohol - Driving,DWI 1ST
+DWI 1ST OFFENDER BAC>=0.15,8767,Alcohol - Driving,DWI 1ST
+FLYING W/INTOX. 2ND BAC.08,1,Alcohol - Driving,DWI 2ND
+FLYING WHILE INTOX PRIOR INTOX,1,Alcohol - Driving,DWI 2ND
+BOATING W/INT. 2ND BAC.08,7,Alcohol - Driving,DWI 2ND
+DRIVING WHILE INTOX PRIOR INTO,23,Alcohol - Driving,DWI 2ND
+DRIVING WHILE INTOXICATED-2ND,5570,Alcohol - Driving,DWI 2ND
+DWI 2ND,25903,Alcohol - Driving,DWI 2ND
+DWI 2ND OFFENDER BAC .08,20641,Alcohol - Driving,DWI 2ND
+DWI 2ND SBI,13,Alcohol - Driving,DWI 2ND
+BOATING WHILE INTOXICATED--2ND,7,Alcohol - Driving,DWI 2ND
+DWI 2ND OFFENDER BAC>=0.15,140,Alcohol - Driving,DWI 2ND
+FLYING W/INTOX. 3RD BAC.08,1,Alcohol - Driving,DWI 3RD
+BOATING W/INT. 3RD BAC.08,9,Alcohol - Driving,DWI 3RD
+BOATING WHILE INTOXICATED--3RD,1,Alcohol - Driving,DWI 3RD
+DWI 3RD OFFENDER BAC .08,10443,Alcohol - Driving,DWI 3RD
+DWI 3RD SBI,4,Alcohol - Driving,DWI 3RD
+DWI 3RD WITH 1 EHN.,8,Alcohol - Driving,DWI 3RD
+DWI THIRD,15012,Alcohol - Driving,DWI 3RD
+DWI W/CHILD PASSENGER,884,Alcohol - Driving,DWI with child
+DWI W/CHILD UNDER 15 YOA,281,Alcohol - Driving,DWI with child
+INTOXICATED ASSLT W/VEH SBI,1263,Alcohol - Driving,Intoxicated Assault
+INTOXICATION ASSAULT,11,Alcohol - Driving,Intoxicated Assault
+BEER-SELL TO MINOR,5,Alcohol - Other,Alcohol - Minor
+PURCH ALC BY MINOR $25-200,5,Alcohol - Other,Alcohol - Minor
+ATTEMPT PUR/FURN ALCOHOL BEV M,3,Alcohol - Other,Alcohol - Minor
+MINOR CONSUMING ALCOHOLIC BEV,3,Alcohol - Other,Alcohol - Minor
+MINOR UNDER INFLUENCE ALCOHOL,3,Alcohol - Other,Alcohol - Minor
+BEER SALE BY MINOR,1,Alcohol - Other,Alcohol - Minor
+ATT PURCH ALCOHOL BY MINOR,16,Alcohol - Other,Alcohol - Minor
+CONSUME ALC BY MINOR $25-200,11,Alcohol - Other,Alcohol - Minor
+ATT SELL LIQUOR TO MINOR,36,Alcohol - Other,Alcohol - Minor
+FURN ALCOHOLIC BEV TO MINOR,21,Alcohol - Other,Alcohol - Minor
+LIQUOR-SALE BY MINOR,209,Alcohol - Other,Alcohol - Minor
+LIQUOR-SELL TO MINOR,2080,Alcohol - Other,Alcohol - Minor
+MAKE A/B AVAILABLE TO MINOR,157,Alcohol - Other,Alcohol - Minor
+MINOR POSS ALC BEV,24,Alcohol - Other,Alcohol - Minor
+POSS ALCOHOL BY MINOR $25-200,123,Alcohol - Other,Alcohol - Minor
+PURCHASE/FURNISH ALCOH TO MINO,676,Alcohol - Other,Alcohol - Minor
+SELLING BEER TO MINOR - LIC,185,Alcohol - Other,Alcohol - Minor
+SELLING BEER TO MINOR-AGT LIC,215,Alcohol - Other,Alcohol - Minor
+LIQUOR CONSUMED DUR PROH HRS,841,Alcohol - Other,Alcohol - Other
+LIQUOR DRUNK ON PREMISES,1463,Alcohol - Other,Alcohol - Other
+LIQUOR-SELL ILL HOURS,34,Alcohol - Other,Alcohol - Other
+LIQUOR-SERVING A DRUNK,1956,Alcohol - Other,Alcohol - Other
+LIQUOR-VIOLATION,9765,Alcohol - Other,Alcohol - Other
+POSS OF ILLICIT ALCOHOLIC BEV,234,Alcohol - Other,Alcohol - Other
+PUBLIC INTOX W/3 PRIOR CONVICT,868,Alcohol - Other,Alcohol - Other
+PUBLIC INTOXICATION,188,Alcohol - Other,Alcohol - Other
+SOLICITING DRINKS FROM CUSTOME,130,Alcohol - Other,Alcohol - Other
+LIQUOR-MFR ILLEGALLY,6,Alcohol - Other,Alcohol - Other
+CONSUMPTION ON OFF PREMISE LIC,5,Alcohol - Other,Alcohol - Other
+UNAUTH. USE OF LIQUOR LIC PERM,4,Alcohol - Other,Alcohol - Other
+LIQUID-DRY AREA SALE,3,Alcohol - Other,Alcohol - Other
+LIQUOR CONSUMED ON SCHOOL PROP,3,Alcohol - Other,Alcohol - Other
+REFUSE ALLOW INSP/ALC. PREMISE,3,Alcohol - Other,Alcohol - Other
+BEER-POSS DRY AREA,2,Alcohol - Other,Alcohol - Other
+BEER-PREMISES VIOL,2,Alcohol - Other,Alcohol - Other
+DRUNKENESS,2,Alcohol - Other,Alcohol - Other
+BEER-LICENSE VIOLATION,1,Alcohol - Other,Alcohol - Other
+DEL ALCOH FROM LIC PREM,1,Alcohol - Other,Alcohol - Other
+DRUNK,1,Alcohol - Other,Alcohol - Other
+FORGERY COUNTERFEIT ALC BEV ST,1,Alcohol - Other,Alcohol - Other
+LIQUOR-TRANSPORT TO DRY AREA,1,Alcohol - Other,Alcohol - Other
+POSS/CONS ALCOH BEV IN PARK WH,1,Alcohol - Other,Alcohol - Other
+LIQUOR VIOLATION,12,Alcohol - Other,Alcohol - Other
+LIQUOR-DRY AREA POSS FOR SALE,11,Alcohol - Other,Alcohol - Other
+OPEN ALCOHOLIC BVG CONTAINER I,11,Alcohol - Other,Alcohol - Other
+SALE OF ALC BEV PROHIBITED HOU,10,Alcohol - Other,Alcohol - Other
+ATTACK ON ASSIST ANIMAL,2,Animal Violence,Animal Violence
+CRUELTY NON-LIVESTOCK ANIMALS,143,Animal Violence,Animal Violence
+CRUELTY TO ANIMALS,1526,Animal Violence,Animal Violence
+DOG ATTACK,6,Animal Violence,Animal Violence
+DOG FIGHTING,126,Animal Violence,Animal Violence
+EXOTIC HARM FSH/SHELFSH/PLNT N,81,Animal Violence,Animal Violence
+TAKE CERTAIN WILDLIFE W/O CONS,8,Animal Violence,Animal Violence
+ATTD. EXOTIC HARM FSH/SHLFSH/P,5,Animal Violence,Animal Violence
+DOG FIGHTING FOR PECUNIARY BEN,3,Animal Violence,Animal Violence
+DOG FIGHTING FOR BENEFIT,2,Animal Violence,Animal Violence
+ATTEMPT CRUELTY TO ANIMAL,1,Animal Violence,Animal Violence
+CAUSE/OWN/TRAIN DOG FIGHTS,1,Animal Violence,Animal Violence
+CRUELTY TO NON-L/STOCK ANIM W/,1,Animal Violence,Animal Violence
+SPECTATOR DOG FIGHT,1,Animal Violence,Animal Violence
+ARSON,2986,Arson,Arson
+ARSON - EXPLOSION,27,Arson,Arson
+ARSON - EXPLOSION-BODILY INJ,1,Arson,Arson
+ARSON - MANUF CONT SUBSTANCE,3,Arson,Arson
+ARSON AND BODILY INJURY,14,Arson,Arson
+ARSON BLDG/HAB/VEH RKLS CAUSE,17,Arson,Arson
+ARSON-BLDG/HAB/VEH BODILY INJ,472,Arson,Arson
+ARSON-BODILY INJURY OR DEATH,80,Arson,Arson
+ARSON-BUILD/HAB/VEH-UNK OWNER,189,Arson,Arson
+ARSON-BUILDING/HABITATION/VEH,1040,Arson,Arson
+ATT ARSON,380,Arson,Att Arson
+SOLICIT ARSON,1,Arson,Att Arson
+AGG ASLT MV/DIS FRARM HAB/BLDG,1,Assault - Nonsexual,Agg Assault
+AGG ASLT SBI BY MTR VCH,10,Assault - Nonsexual,Agg Assault
+AGG ASLT W/DEADLY WPN 1ENH.,4,Assault - Nonsexual,Agg Assault
+AGG ASLT-SBI RECKLESS,773,Assault - Nonsexual,Agg Assault
+AGG ASLT-SBI/DEADLY WEAPON,4993,Assault - Nonsexual,Agg Assault
+AGG ASLT-SER BOD INJURY,1756,Assault - Nonsexual,Agg Assault
+AGG ASSAULT,444,Assault - Nonsexual,Agg Assault
+AGG ASSAULT BY PB SERVANT,134,Assault - Nonsexual,Agg Assault
+AGG ASSAULT SEC OFFICER,10,Assault - Nonsexual,Agg Assault
+AGG ASSAULT W/DEADLY WEAPON,18194,Assault - Nonsexual,Agg Assault
+AGG ASSAULT-DEADLY WEAPON RECK,3,Assault - Nonsexual,Agg Assault
+AGG ASSAULT-PEACE OFFICER,31,Assault - Nonsexual,Agg Assault
+AGG ASSAULT-POLICE OFFICER,56,Assault - Nonsexual,Agg Assault
+AGG ASSLT AGAINST PB SERVANT,913,Assault - Nonsexual,Agg Assault
+AGG ASSLT AGNST WIT/INFORMANT,25,Assault - Nonsexual,Agg Assault
+AGG ASSLT JAIL OR TDC GUARD,3,Assault - Nonsexual,Agg Assault
+AGG ASSLT P/OFF RETAL DEAD/WPN,9,Assault - Nonsexual,Agg Assault
+AGG ASSLT-12.44B,652,Assault - Nonsexual,Agg Assault
+AGG ASSLT-D/W-PO,413,Assault - Nonsexual,Agg Assault
+AGG ASSLT-DEADLY WPN,10071,Assault - Nonsexual,Agg Assault
+AGG ASSLT-P/O BODILY INJURY,32,Assault - Nonsexual,Agg Assault
+AGG ASSLT-PEACE OFFICER,3122,Assault - Nonsexual,Agg Assault
+AGG ASSLT-SER BOD INJURY,2894,Assault - Nonsexual,Agg Assault
+AGGASLTW/MTVEH,1,Assault - Nonsexual,Agg Assault
+ASSLT-AGGRAVATED POLICE OFF,34,Assault - Nonsexual,Agg Assault
+ASSLT-AGGRAVATED W/MTR VEH,2,Assault - Nonsexual,Agg Assault
+ASSLT-DEADLY WPN,21,Assault - Nonsexual,Agg Assault
+DEAD/ASLT IN LAWFUL DISCH/DUTY,4,Assault - Nonsexual,Agg Assault
+DEAD/ASLT P/OFF FIREARM RETAL,3,Assault - Nonsexual,Agg Assault
+DEADLY ASSLT-PEACE OFFICER,2,Assault - Nonsexual,Agg Assault
+INJ CHILD/ELDER/DISABL RECK BO,2,Assault - Nonsexual,Agg Assault
+INJ CHILD/ELDER/DISABL RECK SB,2,Assault - Nonsexual,Agg Assault
+INJ TO DISABLED - BOD INJ,171,Assault - Nonsexual,Agg Assault
+INJ TO DISABLED - CRIM NEG,16,Assault - Nonsexual,Agg Assault
+INJ TO DISABLED - SBI,5,Assault - Nonsexual,Agg Assault
+INJ TO DISABLED-RECK-BOD,18,Assault - Nonsexual,Agg Assault
+INJ TO ELDERLY BY OMISSION,4,Assault - Nonsexual,Agg Assault
+INJ TO ELDERLY-RECK-BOD INJ,49,Assault - Nonsexual,Agg Assault
+INJURY ELDERLY -CRIM NEG,47,Assault - Nonsexual,Agg Assault
+INJURY ELDERLY-SBI,39,Assault - Nonsexual,Agg Assault
+INJURY TO ELDERLY,838,Assault - Nonsexual,Agg Assault
+INJURY TO ELDERLY - SBI,44,Assault - Nonsexual,Agg Assault
+INJURY TO ELDERLY - SMD/I,2,Assault - Nonsexual,Agg Assault
+INJURY TO ELDERLY- BI,200,Assault - Nonsexual,Agg Assault
+OFFENSIVE CONTACT,113,Assault - Nonsexual,Agg Assault
+INJURY ELDERLY 65 BOD/INJURY,28,Assault - Nonsexual,Agg Assault
+ATT INJURY TO DISABLED PERSON,19,Assault - Nonsexual,Agg Assault
+ATTEMPT INJURY TO ELDERLY,17,Assault - Nonsexual,Agg Assault
+INJURY INVALID INDIVIDUAL B/I,8,Assault - Nonsexual,Agg Assault
+INJURY TO INVALID INDIVIDUAL,8,Assault - Nonsexual,Agg Assault
+INJ TO ELDERLY-RECK-SBI,7,Assault - Nonsexual,Agg Assault
+INJ TO ELDERLY-RECK-MEN INJ,2,Assault - Nonsexual,Agg Assault
+INJURY ELDERLY 65 AND UNDER,2,Assault - Nonsexual,Agg Assault
+AGG/ASLT CRT/PART/IN LAWFUL DU,1,Assault - Nonsexual,Agg Assault
+INJ TO DISABLED-RECK-MEN INJ,1,Assault - Nonsexual,Agg Assault
+INJ TO DISABLED-RECK-SBI,1,Assault - Nonsexual,Agg Assault
+INJURY TO ELDERLY - SD/D,1,Assault - Nonsexual,Agg Assault
+AGG ASSAULT - FAMILY MEMBER SB,58,Assault - Nonsexual,Agg Assault - Family
+AGG ASSAULT-FAMILY MEMBER,4356,Assault - Nonsexual,Agg Assault - Family
+AGG  ROBBERY-S-B-I,317,Assault - Nonsexual,Agg Robbery
+AGG ROBBERY-DEADLY WPN,35666,Assault - Nonsexual,Agg Robbery
+AGG ROBBERY-OVER 65 OR DISABLE,456,Assault - Nonsexual,Agg Robbery
+AGG ROBBERY-S-B-I,4248,Assault - Nonsexual,Agg Robbery
+ASLT BY FAM/HOUSE MEM 2+ W/IN,161,Assault - Nonsexual,Assault
+ASLT FAM/HOUSE MEM IMPED BRTH/,1752,Assault - Nonsexual,Assault
+ASLT TO MAIM PRIV/CITIZEN,2,Assault - Nonsexual,Assault
+ASSAULT,15616,Assault - Nonsexual,Assault
+ASSAULT - CONT EMPLOY OF JAIL/,24,Assault - Nonsexual,Assault
+ASSAULT - ENHANCED BY HATE CRI,4,Assault - Nonsexual,Assault
+ASSAULT - SECURITY OFFICER,73,Assault - Nonsexual,Assault
+ASSAULT - SPORTS PARTICIP,2,Assault - Nonsexual,Assault
+ASSAULT EMS PERSONNEL PROV SER,1,Assault - Nonsexual,Assault
+ASSAULT W/PREV CONV,1,Assault - Nonsexual,Assault
+ASSAULT-BOD INJ-PUB SERV/RETAL,4450,Assault - Nonsexual,Assault
+ASSAULT-BODILY INJURY,104247,Assault - Nonsexual,Assault
+ASSAULT-ELDERLY/DISABLED-CONTA,60,Assault - Nonsexual,Assault
+ASSAULT-ELDERLY/DISABLED-THREA,8,Assault - Nonsexual,Assault
+ASSAULT-PEACE OFFICER,54,Assault - Nonsexual,Assault
+ASSAULT-THREAT INJURY,567,Assault - Nonsexual,Assault
+ASSLT,1004,Assault - Nonsexual,Assault
+ASSLT FAM/HOUSEHOLD MEM W/PREV,6,Assault - Nonsexual,Assault
+ASSLT INT/RCK/IMP/BRTH/CIRC/PR,334,Assault - Nonsexual,Assault
+DIS CONDUCT FIGHT            P,180,Assault - Nonsexual,Assault
+DISARMING POLICE OFFICER,288,Assault - Nonsexual,Assault
+RECKLESSLY CAUSE BODILY INJUR,32,Assault - Nonsexual,Assault
+RIOT PARTICIPATION,77,Assault - Nonsexual,Assault
+TAKE WEAPON FROM POLICE OFFICE,56,Assault - Nonsexual,Assault
+TAMPER CONSUMER PROD-THREAT,2,Assault - Nonsexual,Assault
+HAZING W/O BODILY INJURY,16,Assault - Nonsexual,Assault
+FELONY TO INCITE RIOT,11,Assault - Nonsexual,Assault
+THREAT-SER BOD INJ,8,Assault - Nonsexual,Assault
+RIOT-INCITE,6,Assault - Nonsexual,Assault
+TAMPER CONSUMER PRODUCT,6,Assault - Nonsexual,Assault
+HAZING - BODILY INJURY,4,Assault - Nonsexual,Assault
+TAMPER CONSUMER PROD-SBI,1,Assault - Nonsexual,Assault
+ASSAULT - FAMILY MEMBER ENHANC,9,Assault - Nonsexual,Assault - Family
+ASSAULT FAMILY/HOUSEHOLD MEMBE,2,Assault - Nonsexual,Assault - Family
+ASSAULT-BOD INJ-FAMILY MEMBER,6143,Assault - Nonsexual,Assault - Family
+ASSAULT-FAM MEMB-2 PRIOR ASSAU,74,Assault - Nonsexual,Assault - Family
+ASSAULT-FAMILY MEMBER,60058,Assault - Nonsexual,Assault - Family
+ASSAULT-PHYS CONTACT-FAM MEMB,23,Assault - Nonsexual,Assault - Family
+ATT AGG ASLT PUBLIC SERVANT,13,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSAULT PEACE OFFICER,22,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSAULT W/DEADLY WEAPO,9,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSLT,67,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSLT SER BOD INJURY,20,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSLT-DEADLY WPM,31,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSLT-DEADLY WPN,50,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSLT-P-O,32,Assault - Nonsexual,Att Agg Assault
+ATT AGG ASSLT-S-B-I,44,Assault - Nonsexual,Att Agg Assault
+ATT DEADLY ASSLT-P-O,1,Assault - Nonsexual,Att Agg Assault
+ATTEMPT AGG ASSAULT ON FAMILY,1,Assault - Nonsexual,Att Agg Assault
+CONSP COMMIT AGG ASSAULT,1,Assault - Nonsexual,Att Agg Assault
+CONSP COMMIT AGG ASSAULT W/D.W,4,Assault - Nonsexual,Att Agg Assault
+ATT ASSAULT ON PUBLIC SERVANT,390,Assault - Nonsexual,Att Assault
+ATT ASSAULT PEACE OFFICER,125,Assault - Nonsexual,Att Assault
+ATT ASSAULT SECURITY OFFICER,7,Assault - Nonsexual,Att Assault
+ATT ASSLT-PEACE OFFICER,2,Assault - Nonsexual,Att Assault
+ATT INTOXICATED ASSAULT,4,Assault - Nonsexual,Att Assault
+ATT. DEADLY CONDUCT,303,Assault - Nonsexual,Att Assault
+ATTEMPT TO TAKE WEAPON FROM P.,62,Assault - Nonsexual,Att Assault
+ATTEMPTED ASSAULT,26,Assault - Nonsexual,Att Assault
+ATT TAKE WEAPON FROM P.O.,4,Assault - Nonsexual,Att Assault
+ATT ASLT FAM/HSE MEM IMPED BRT,49,Assault - Nonsexual,Att Assault - Family
+ATT ASLT FAM/MEMBER 2ND OFFEND,341,Assault - Nonsexual,Att Assault - Family
+ATT ASSLT FAM/HOUSE MEM 2+ W/1,10,Assault - Nonsexual,Att Assault - Family
+CONSP AGG ROB-S-B-I,38,Assault - Nonsexual,Att Robbery
+CRIM CONSP. W/I COMMIT AGG ROB,6,Assault - Nonsexual,Att Robbery
+ATT ROBBERY,69,Assault - Nonsexual,Att Robbery
+ATT ROBBERY BY ASSLT,50,Assault - Nonsexual,Att Robbery
+ATT ROBBERY BY ASSULT,76,Assault - Nonsexual,Att Robbery
+CONSP ATT ROB-DEADLY WPN,33,Assault - Nonsexual,Att Robbery
+CONSP ROB-BODILY INJURY,7,Assault - Nonsexual,Att Robbery
+CONSP ROB-THREAT,4,Assault - Nonsexual,Att Robbery
+DEADLY COND-DISCH F-ARM HAB/BL,995,Assault - Nonsexual,Deadly Conduct
+DEADLY CONDUCT,8006,Assault - Nonsexual,Deadly Conduct
+RECKLESS CONDUCT,5231,Assault - Nonsexual,Deadly Conduct
+ASSLT W-INTENT ROB,11,Assault - Nonsexual,Robbery
+ROBBERY,3451,Assault - Nonsexual,Robbery
+ROBBERY-BODILY INJURY,11212,Assault - Nonsexual,Robbery
+ROBBERY-THREATS,7528,Assault - Nonsexual,Robbery
+SOLICIT AGG ROBBERY,14,Assault - Nonsexual,Robbery
+TERRORISTIC THREAT,13570,Assault - Nonsexual,Terroristic Threat
+ATT BURG BLDG W/I COMMIT BURG,19,Burglary,Att Burglary
+ATT BURG OF A BUILDING,226,Burglary,Att Burglary
+ATT BURG W-INTENT COMMIT FEL,51,Burglary,Att Burglary
+ATT BURG W-INTENT THEFT,360,Burglary,Att Burglary
+ATT BURG W-INTENT-COMMIT FEL,290,Burglary,Att Burglary
+ATT BURGLARY,21,Burglary,Att Burglary
+ATT BURGLARY OF A BLDG,737,Burglary,Att Burglary
+ATT BURGLARY OF BUILDING,458,Burglary,Att Burglary
+ATT BURG RESULTING IN INJURY,4,Burglary,Att Burglary
+ATT ARMED BURGLARY,2,Burglary,Att Burglary
+SOLICIT-BURG W-INTENT CMIT FEL,2,Burglary,Att Burglary
+CONSP BURG W-INTENT THEFT,1,Burglary,Att Burglary
+CONSP-BURG W-INTENT,1,Burglary,Att Burglary
+SOLICIT-BURG W-INTENT THEFT,1,Burglary,Att Burglary
+SOLICIT-BURG W-INTENT-CMIT FEL,1,Burglary,Att Burglary
+ATT BURG HAB W/I COMMIT THEFT,82,Burglary,Att Burglary - Habitation
+ATT BURG HABIT W/I TO COMMIT F,10,Burglary,Att Burglary - Habitation
+ATT BURG HABITATION-THEFT,1093,Burglary,Att Burglary - Habitation
+ATT BURGLARY HABITATION,479,Burglary,Att Burglary - Habitation
+ATT BURG VEHICLE,1993,Burglary,Att Burglary - Vehicle
+ATT BURGLARY OF VEHICLE,372,Burglary,Att Burglary - Vehicle
+ARMED BURGLARY,172,Burglary,Burglary
+BURG BLDG,8246,Burglary,Burglary
+BURG BLDG W/I COMMIT AGG/ASLT,12,Burglary,Burglary
+BURG COIN-OP MACHINE,6,Burglary,Burglary
+BURG RAIL CAR W/INT COMMIT THE,3,Burglary,Burglary
+BURG RESULTING IN INJURY,28,Burglary,Burglary
+BURG W-INTENT COMMIT FELONY,123,Burglary,Burglary
+BURG W-INTENT MURDER,3,Burglary,Burglary
+BURG W-INTENT THEFT,10123,Burglary,Burglary
+BURG W-INTENT-COMMIT FELONY,428,Burglary,Burglary
+BURG W-INTENT-COMMIT OTHER FEL,1685,Burglary,Burglary
+BURGLARY,664,Burglary,Burglary
+BURGLARY OF A BUILDING,10997,Burglary,Burglary
+ARMED BURGLARY-BUILDING,15,Burglary,Burglary
+BURG BLDG W/I COMMIT THEFT,11,Burglary,Burglary
+BURG BLDG/HAB W/I COM FELONY A,14,Burglary,Burglary - Habitation
+BURG HAB W/I COMMIT FELONY,33,Burglary,Burglary - Habitation
+BURG HAB W/I COMMIT THEFT,38,Burglary,Burglary - Habitation
+BURG HABITATION-MURDER,9,Burglary,Burglary - Habitation
+BURG HABITATION-THEFT,20679,Burglary,Burglary - Habitation
+BURGLARY OF A HABITATION,2,Burglary,Burglary - Habitation
+BURGLARY OF HABITATION,18897,Burglary,Burglary - Habitation
+SOLICIT-BURG HABITATION,3,Burglary,Burglary - Habitation
+BURG MV W/I COMMIT THEFT,695,Burglary,Burglary - Vehicle
+BURG MV W/INT TO COMMIT THEFT,89,Burglary,Burglary - Vehicle
+BURG OF VEHICLE W/2 OR MORE CO,552,Burglary,Burglary - Vehicle
+BURG VEHICLE,15562,Burglary,Burglary - Vehicle
+BURGLARY MOTOR VEHICLE - ENHAN,1000,Burglary,Burglary - Vehicle
+BURGLARY OF MOTOR VEHICLE,436,Burglary,Burglary - Vehicle
+BURGLARY OF VEHICLE,17034,Burglary,Burglary - Vehicle
+ATT INDENCY CHILD EXPOSURE,84,Child Sex Crime,Att Indecency - Child
+ATT INDENCY W/CHILD,142,Child Sex Crime,Att Indecency - Child
+ATT AGG SEX ABUSE-CHILD,32,Child Sex Crime,Att Sexual Assault - Child
+ATT SEX ABUSE-CHILD,29,Child Sex Crime,Att Sexual Assault - Child
+SOLICIT AGG SEX ABUSE CHILD,2,Child Sex Crime,Att Sexual Assault - Child
+ATT AGG RAPE-CHILD,11,Child Sex Crime,Att Sexual Assault - Child
+ATT AGG SEX ASSLT CHILD <14,30,Child Sex Crime,Att Sexual Assault - Child
+ATT RAPE-CHILD,21,Child Sex Crime,Att Sexual Assault - Child
+ATT SEX ASSLT-CHILD,54,Child Sex Crime,Att Sexual Assault - Child
+ATT SEXUAL ASSAULT - CHILD,3,Child Sex Crime,Att Sexual Assault - Child
+CONSP COMMIT RAPE-CHILD,2,Child Sex Crime,Att Sexual Assault - Child
+ATT POSS OF CHILD PORN,13,Child Sex Crime,Child Porn
+POSS CHILD PORNOGRAPHY,974,Child Sex Crime,Child Porn
+PROMOTE CHILD PORNOGRAHPY,7,Child Sex Crime,Child Porn
+PROMOTE CHILD PORNOGRAPHY,136,Child Sex Crime,Child Porn
+POSS OBSC MATERIAL OF A MINOR,2,Child Sex Crime,Child Porn
+DISPLAY HARMFUL MATTER-MINOR,76,Child Sex Crime,Child Sex Crime - Other
+ATT SALE HRMFUL MATT-MINOR,1,Child Sex Crime,Child Sex Crime - Other
+OBSCN/PROM/OBSCN/MATTER/MINOR,1,Child Sex Crime,Child Sex Crime - Other
+IMPROPER RELAT W/STUDENT,46,Child Sex Crime,Child Sex Crime - Other
+ATTEMPT IMPROPER RELATION W/ST,1,Child Sex Crime,Child Sex Crime - Other
+INCEST CHILD,21,Child Sex Crime,Child Sex Crime - Other
+ATT SEX PERFORMANCE BY A CHILD,3,Child Sex Crime,Child Sex Crime - Other
+SEX/PER/BY CHILD/EMP/AUTH/INDC,100,Child Sex Crime,Child Sex Crime - Other
+SEX/PER/BY CHILD/PRO/DIR/PRO,36,Child Sex Crime,Child Sex Crime - Other
+SEX/PERF/B/CHILD/PAR/CNT/TO/PT,10,Child Sex Crime,Child Sex Crime - Other
+SEXUAL PERFOR B/CHILD <14YRS,3,Child Sex Crime,Child Sex Crime - Other
+INDECEN-CHILD EXPOSE-UNDER 12,24,Child Sex Crime,Indecency - Child
+INDECENCY CHILD-CTG,1024,Child Sex Crime,Indecency - Child
+INDECENCY CHILD-TB,2856,Child Sex Crime,Indecency - Child
+INDECENCY CHILD-TG,4409,Child Sex Crime,Indecency - Child
+INDECENCY W/CHILD,172,Child Sex Crime,Indecency - Child
+INDECENCY-CHILD EXPOSURE,3080,Child Sex Crime,Indecency - Child
+INDECENCY-FONDLING,624,Child Sex Crime,Indecency - Child
+COMPEL PROSTITUTION-MINOR,154,Child Sex Crime,Sexual Assault - Child
+ATT COMPEL PROSTITUTION-MINOR,6,Child Sex Crime,Sexual Assault - Child
+COMPELLING PROSTITUTION < 18 Y,4,Child Sex Crime,Sexual Assault - Child
+AGG SEX ABU CLD-THRT SBI/D D W,8,Child Sex Crime,Sexual Assault - Child
+AGG SEX ABUSE CHILD-UNDER 14,177,Child Sex Crime,Sexual Assault - Child
+AGG SEX ABUSE-CHILD,37,Child Sex Crime,Sexual Assault - Child
+CONTINUE SEX AB/CHILD,97,Child Sex Crime,Sexual Assault - Child
+SEX ABUSE - CHILD,9,Child Sex Crime,Sexual Assault - Child
+SEX ABUSE CHILD-PFO,2,Child Sex Crime,Sexual Assault - Child
+SEX ABUSE-CHILD,543,Child Sex Crime,Sexual Assault - Child
+SEX ABUSE-CHILD UNDER 12,1,Child Sex Crime,Sexual Assault - Child
+AGG RAPE CHILD- FEAR SBI/D,17,Child Sex Crime,Sexual Assault - Child
+AGG RAPE CHILD UNDER 14,81,Child Sex Crime,Sexual Assault - Child
+AGG RAPE CHILD-DEADLY WPN,6,Child Sex Crime,Sexual Assault - Child
+AGG RAPE CHILD-THREAT SBI/D,6,Child Sex Crime,Sexual Assault - Child
+AGG RAPE-CHILD,56,Child Sex Crime,Sexual Assault - Child
+AGG SEX ASSLT CHILD 14-17,208,Child Sex Crime,Sexual Assault - Child
+AGG SEX ASSLT CHILD-UNDER 12,9,Child Sex Crime,Sexual Assault - Child
+AGG SEX ASSLT CHILD-UNDER 14,8058,Child Sex Crime,Sexual Assault - Child
+AGG SEXUAL ASSAULT CHILD,3123,Child Sex Crime,Sexual Assault - Child
+RAPE-CHILD,526,Child Sex Crime,Sexual Assault - Child
+SEX ASSLT CHILD 14-17,4448,Child Sex Crime,Sexual Assault - Child
+SEX ASSLT-ANOTHER PERSON (CHIL,774,Child Sex Crime,Sexual Assault - Child
+SEX ASSLT-CHILD,125,Child Sex Crime,Sexual Assault - Child
+SUPER AGG SEX ASSLT CHILD < 6,93,Child Sex Crime,Sexual Assault - Child
+SUPER AGG SEX ASSLT CHILD 6-14,12,Child Sex Crime,Sexual Assault - Child
+SOLICTING A CHILD,52,Child Sex Crime,Soliciting - Child
+CRIMINAL SOLICITATION OF A MIN,54,Child Sex Crime,Soliciting - Child
+ATT SOLICITATION OF A MINOR,1,Child Sex Crime,Soliciting - Child
+ONLINE SOLICITATION OF MINOR,172,Child Sex Crime,Soliciting - Child
+BREACH COMPUTER SECURITY,24,Computer Crime,Computer Crime
+COMPUTER SECURITY BREACH,4,Computer Crime,Computer Crime
+COMPUTER SECURITY BREACH <$20K,16,Computer Crime,Computer Crime
+COMPUTER SECURITY BREACH>$20K<,1,Computer Crime,Computer Crime
+COMPUTER TAMPERING-DESTROY DAT,8,Computer Crime,Computer Crime
+HARMFUL ACCESS TO COMPUTER,7,Computer Crime,Computer Crime
+UNL ACCESS STORED COMMUN BENEF,2,Computer Crime,Computer Crime
+UNL INTERC WIRE/ORAL/ELEC COMM,19,Computer Crime,Computer Crime
+UNLAWFUL INSTALL OF TRACKING D,7,Computer Crime,Computer Crime
+UNLAWFUL INTERCEPT WIRE COMM,42,Computer Crime,Computer Crime
+MAN/SALE/DIST DECODING DEVICE,6,Computer Crime,Computer Crime
+COM SEC BREACH IDNT INFO FRM 1,3,Computer Crime,Computer Crime
+COMP SEC BREACH GVT/INFST COM,1,Computer Crime,Computer Crime
+UNL INTERC OF WIRE/ORAL/ELEC C,1,Computer Crime,Computer Crime
+CONSP. W-I DELMARIJUANA,13,Controlled Substances - Marijuana,CS Delivery Marijuana
+DEL MARIJ 5 TO 50 LBS,164,Controlled Substances - Marijuana,CS Delivery Marijuana
+DEL MARIJ 5-50 LB,382,Controlled Substances - Marijuana,CS Delivery Marijuana
+DEL MARIJ TO MINOR,17,Controlled Substances - Marijuana,CS Delivery Marijuana
+DELIVER MARIJUANA,921,Controlled Substances - Marijuana,CS Delivery Marijuana
+DELIVER MARIJUANA FREE,43,Controlled Substances - Marijuana,CS Delivery Marijuana
+MAN/DEL/POSS CS/MARIJ D/FREE Z,1,Controlled Substances - Marijuana,CS Delivery Marijuana
+POSS W-I TO DELIVER MARIJUANA,8,Controlled Substances - Marijuana,CS Delivery Marijuana
+POSS W/I TO DEL MARIJUANA,1,Controlled Substances - Marijuana,CS Delivery Marijuana
+SALE MARIJUANA,6,Controlled Substances - Marijuana,CS Delivery Marijuana
+CONSP W/I DEL MARIJ 50-2000 LB,1,Controlled Substances - Marijuana,CS Delivery Marijuana L
+CONSP W/I/DEL MARIJ 50-2000 LB,1,Controlled Substances - Marijuana,CS Delivery Marijuana L
+DEL MARIJ 200-2000 LB,102,Controlled Substances - Marijuana,CS Delivery Marijuana L
+DEL MARIJ 50-200 LB,371,Controlled Substances - Marijuana,CS Delivery Marijuana L
+DEL MARIJ 50-2000 LBS,207,Controlled Substances - Marijuana,CS Delivery Marijuana L
+DEL MARIJ OVER 2000 LB,8,Controlled Substances - Marijuana,CS Delivery Marijuana L
+DEL MARIJ 0-1/4 OZ N/REMUN,397,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ 0-1/4 OZ W/REMUN,2036,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ 1/4 OZ - 5 LBS,1327,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ 1/4 OZ LT 4 OZ,93,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ 1/4-4 OZ,1507,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ 4OZ-5LB,361,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ<=1/4OZ DRUG FREE ZON,3,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ<=1/4OZ REMUN D/FREE,1,Controlled Substances - Marijuana,CS Delivery Marijuana S
+DEL MARIJ<=5LBS>1/4OZ D/FREE Z,1,Controlled Substances - Marijuana,CS Delivery Marijuana S
+ATT POSSESS MARIJANA,18,Controlled Substances - Marijuana,CS Possession Marijuana
+ATTEMPT TO POSS MARIHUANA,7,Controlled Substances - Marijuana,CS Possession Marijuana
+ATTEMPTED POSS MARIJ 50-2000 L,2,Controlled Substances - Marijuana,CS Possession Marijuana
+POSS MARIJ  5 - 50 LBS.,2253,Controlled Substances - Marijuana,CS Possession Marijuana
+POSS MARIJ 5-50 LB,1541,Controlled Substances - Marijuana,CS Possession Marijuana
+POSS MARIJ 50-200 LB,429,Controlled Substances - Marijuana,CS Possession Marijuana
+POSS MARIJ>5LBS DRUG FREE ZONE,3,Controlled Substances - Marijuana,CS Possession Marijuana
+POSS MARIJUANA,105,Controlled Substances - Marijuana,CS Possession Marijuana
+TAKE MARIJUANA INTO PENAL INS,8,Controlled Substances - Marijuana,CS Possession Marijuana
+POS MARIJ OVER 2000 LB,115,Controlled Substances - Marijuana,CS Possession Marijuana L
+POSS MARIJ 200-2000 LB,259,Controlled Substances - Marijuana,CS Possession Marijuana L
+POSS MARIJ 50-2000 LBS.,1418,Controlled Substances - Marijuana,CS Possession Marijuana L
+POSS MARIJ  4 OZ. - 5 LBS.,6842,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJ 0-2 OZ,172310,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJ 4OZ-5LB,2503,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJ M/THAN 4OZS-LT 5LBS,176,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJ<=2OZ DRUG FREE ZONE,1326,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJ<=4OZ>2OZ DRUG FREE,17,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJ<=5LBS>4OZ DRUG FREE,10,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJUANA 0-2 0Z,11863,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJUANA 0-2 OZ,195,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJUANA 2-4 0Z,8928,Controlled Substances - Marijuana,CS Possession Marijuana S
+POSS MARIJUANA OVER 4 OZ,1824,Controlled Substances - Marijuana,CS Possession Marijuana S
+DRIVING UNDER INFLU DRUGS,1517,Controlled Substances - Other,CS - Driving
+DUICS/DRUG,2746,Controlled Substances - Other,CS - Driving
+ATT DEL CONTROLLED SUBSTANCE,30,Controlled Substances - Other,CS Delivery
+ATT DEL SIMULATED CONT SUBS,9,Controlled Substances - Other,CS Delivery
+ATT DELIVERY OF MARIJUANA 1/2-,1,Controlled Substances - Other,CS Delivery
+ATT MAN/DEL CS PG1 <1 GRAM,5,Controlled Substances - Other,CS Delivery
+ATT POSS CS/WI TO DELIV PG 3/4,1,Controlled Substances - Other,CS Delivery
+CONSP TO DEL SIM CON SUB,5,Controlled Substances - Other,CS Delivery
+DANGEROUS DRUGS DELIVERY,1061,Controlled Substances - Other,CS Delivery
+DEL ABUS GLUE/PNT-MINOR W/O PE,1,Controlled Substances - Other,CS Delivery
+DEL ABUSABLE GLUE/AERSL PAINT,9,Controlled Substances - Other,CS Delivery
+DEL CONT. SUBST.,588,Controlled Substances - Other,CS Delivery
+DEL CS TO A MINOR,17,Controlled Substances - Other,CS Delivery
+DEL CS TO MINOR - CSA,5,Controlled Substances - Other,CS Delivery
+DEL VOLATILE CHEMICALS,1,Controlled Substances - Other,CS Delivery
+DEL/OFFER DEL DANG DRUG,133,Controlled Substances - Other,CS Delivery
+DELIVER CONT SUBST,4,Controlled Substances - Other,CS Delivery
+DELIVER CONT SUBTANCE,192,Controlled Substances - Other,CS Delivery
+ENG/IN ORG/CRIME/MFG/NARC,46,Controlled Substances - Other,CS Delivery
+OFFER TO SELL CONTROLLED SUBTA,15,Controlled Substances - Other,CS Delivery
+POSS CONT SUBT W/I TO DEL 28-1,119,Controlled Substances - Other,CS Delivery
+POSS CONT SUBT W/I TO DELIV,51,Controlled Substances - Other,CS Delivery
+POSS W/I DEL.CONT. SUBST.,340,Controlled Substances - Other,CS Delivery
+POSS W/INT DEL CS 4G <200 GRAM,105,Controlled Substances - Other,CS Delivery
+UNL MAN DANG DRUG,1,Controlled Substances - Other,CS Delivery
+UNL/INT/DEL CONT SUBST,3,Controlled Substances - Other,CS Delivery
+UNLAW DEL SIMULATED CONT/SUBS,8,Controlled Substances - Other,CS Delivery
+CSP DEL COC 200-LT400G CRACK,1,Controlled Substances - Other,CS Delivery PG1 L
+CSP DEL COC 200-LT400G NON-CR,1,Controlled Substances - Other,CS Delivery PG1 L
+CSP DEL COC 400G OR MORE CRAC,1,Controlled Substances - Other,CS Delivery PG1 L
+CSP DEL COC 400G OR MORE NONC,6,Controlled Substances - Other,CS Delivery PG1 L
+DEL COC 200-LT400G NON-CRACK,67,Controlled Substances - Other,CS Delivery PG1 L
+DEL COC 28-LT200 G NON-CRACK,259,Controlled Substances - Other,CS Delivery PG1 L
+DEL COC 400G OR MORE NON-CRAC,488,Controlled Substances - Other,CS Delivery PG1 L
+DEL COC 400G OR MORE-CRACK,50,Controlled Substances - Other,CS Delivery PG1 L
+DEL COCAINE 200-LT400 G CRACK,17,Controlled Substances - Other,CS Delivery PG1 L
+DEL GP I CS- 200 - 300 G,178,Controlled Substances - Other,CS Delivery PG1 L
+DEL GP I CS- 400 G OR MORE,411,Controlled Substances - Other,CS Delivery PG1 L
+MAN/DEL CS PG I 200-400 GRAMS,844,Controlled Substances - Other,CS Delivery PG1 L
+MAN/DEL CS PG I OVER 400 GRAMS,2700,Controlled Substances - Other,CS Delivery PG1 L
+MFG GP I CS- 200-399G,7,Controlled Substances - Other,CS Delivery PG1 L
+MFG GP I CS- 400 G OR MORE,24,Controlled Substances - Other,CS Delivery PG1 L
+P/W INT DEL COC 200-LT400G CR,44,Controlled Substances - Other,CS Delivery PG1 L
+P/W INT DEL COC 200-LT400G NO,63,Controlled Substances - Other,CS Delivery PG1 L
+P/W INT DEL COC 400GOR MORE C,77,Controlled Substances - Other,CS Delivery PG1 L
+P/W INT DEL COC 400GOR MORE N,454,Controlled Substances - Other,CS Delivery PG1 L
+POSS WIM/D GP I CS- 200-399G,142,Controlled Substances - Other,CS Delivery PG1 L
+POSS WIM/D GP I CS-400G MORE,102,Controlled Substances - Other,CS Delivery PG1 L
+POSS WIM/D GP I CS-400G OR UP,134,Controlled Substances - Other,CS Delivery PG1 L
+MAN/DEL CS PG I <1GRAM,27528,Controlled Substances - Other,CS Delivery PG1 S
+MAN/DEL CS PG I 1-4 GRAMS,3050,Controlled Substances - Other,CS Delivery PG1 S
+MAN/DEL CS PG1 <1 GRAM,2,Controlled Substances - Other,CS Delivery PG1 S
+MAN/DEL CS PG1<1 G DRUG FREE Z,11,Controlled Substances - Other,CS Delivery PG1 S
+POSS W/INT MAN/DEL CS PG1 1<1,249,Controlled Substances - Other,CS Delivery PG1 S
+CONSP TO DELIVER COCAINE,35,Controlled Substances - Other,CS Delivery PG1/1A
+CONSP TO DELIVER HEROIN,2,Controlled Substances - Other,CS Delivery PG1/1A
+CONSP W-I TO DEL.METHAMPH,1,Controlled Substances - Other,CS Delivery PG1/1A
+CSP DEL COC 28-LT200 NON-CRAC,3,Controlled Substances - Other,CS Delivery PG1/1A
+CSP DEL COC LT 28G NON-CRACK,2,Controlled Substances - Other,CS Delivery PG1/1A
+CSP DEL COCAINE LT 28G CRACK,17,Controlled Substances - Other,CS Delivery PG1/1A
+DEL COCAINE 28-LT200 G-CRACK,142,Controlled Substances - Other,CS Delivery PG1/1A
+DEL COCAINE LT 28G NON CRACK,1572,Controlled Substances - Other,CS Delivery PG1/1A
+DEL COCAINE LT 28G-CRACK,9496,Controlled Substances - Other,CS Delivery PG1/1A
+DEL CS OXYCODONE,6,Controlled Substances - Other,CS Delivery PG1/1A
+DEL GP I CS- 28 - 199 G,891,Controlled Substances - Other,CS Delivery PG1/1A
+DEL GP I CS- LT 28 G,5239,Controlled Substances - Other,CS Delivery PG1/1A
+DELIV PG I 1-4GR DRUG FREE ZON,1,Controlled Substances - Other,CS Delivery PG1/1A
+DELIVER COCAINE,564,Controlled Substances - Other,CS Delivery PG1/1A
+DELIVER HEROIN,271,Controlled Substances - Other,CS Delivery PG1/1A
+DELIVER METHADONE,2,Controlled Substances - Other,CS Delivery PG1/1A
+DELIVER METHAMPH,403,Controlled Substances - Other,CS Delivery PG1/1A
+DELIVER OPIUM,3,Controlled Substances - Other,CS Delivery PG1/1A
+MAN/DEL CS PG I 4-200 GRAMS,3166,Controlled Substances - Other,CS Delivery PG1/1A
+MAN/DEL CS PG1>1G DRUG FREE ZO,3,Controlled Substances - Other,CS Delivery PG1/1A
+MANUFACTURE HEROIN,1,Controlled Substances - Other,CS Delivery PG1/1A
+MANUFACTURE METHAMPH,79,Controlled Substances - Other,CS Delivery PG1/1A
+MFG GP I CS- 28 - 199 G,16,Controlled Substances - Other,CS Delivery PG1/1A
+MFG GP I CS- LT 28 G,81,Controlled Substances - Other,CS Delivery PG1/1A
+P/W INT DEL COC 28-LT200G CRA,184,Controlled Substances - Other,CS Delivery PG1/1A
+P/W INT DEL COC 28-LT200G NON,137,Controlled Substances - Other,CS Delivery PG1/1A
+POSS CS W/I DEL MORPHINE,1,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO DELIVER COCAINE_C,372,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO DELIVER HEROIN,59,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO DELIVER METHAMPH,128,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO DELIVER OPIUM,2,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO MANUF COCAINE,4,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO MANUF HEROIN,1,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO MANUF METHAMPH,68,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W/I D COC LT28G N-CRACK,317,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W/I D COUNTERFEIT SUB COC,1,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W/I DEL COC LT28G CRACK,1217,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W/INT DEL CS PG1 1G <4 GR,1928,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W/INT DEL CS PG1>=4 <200,6899,Controlled Substances - Other,CS Delivery PG1/1A
+POSS WIM/D GP I CS- LT 28 G,685,Controlled Substances - Other,CS Delivery PG1/1A
+POSS WIM/D GP I CS-28-199 G,120,Controlled Substances - Other,CS Delivery PG1/1A
+DEL CS PG1A 20-79 ABUSE UNITS,2,Controlled Substances - Other,CS Delivery PG1/1A
+DELIVER LSD,93,Controlled Substances - Other,CS Delivery PG1/1A
+MANUFACTURE LSD,3,Controlled Substances - Other,CS Delivery PG1/1A
+POSS CS WIM/D PG1A 80-3999 AU',16,Controlled Substances - Other,CS Delivery PG1/1A
+POSS CS WIM/DEL PG1A 20-79 AU',16,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W-I TO DELIVER LSD,17,Controlled Substances - Other,CS Delivery PG1/1A
+DEL CS PG1A 80-3999 ABUSE UNIT,5,Controlled Substances - Other,CS Delivery PG1/1A
+MAN/DEL CS PG1A >= 4000 AU'S L,1,Controlled Substances - Other,CS Delivery PG1/1A
+POSS CS WIM/D PG1A => 4000 AU',4,Controlled Substances - Other,CS Delivery PG1/1A
+DEL CS PG1A <20 ABUSE UNITS LS,32,Controlled Substances - Other,CS Delivery PG1/1A
+MFG. CS PG1A <20 ABUSE UNITS L,1,Controlled Substances - Other,CS Delivery PG1/1A
+POSS CS WIM/DEL PG1A <20 AU'S,6,Controlled Substances - Other,CS Delivery PG1/1A
+CONSP W-I TO DELIVER AMPHET,1,Controlled Substances - Other,CS Delivery PG2
+DEL CS METHAQUALONE,52,Controlled Substances - Other,CS Delivery PG2
+DEL GP II CS- 28 - 399 G,92,Controlled Substances - Other,CS Delivery PG2
+DEL GP II CS- LT 28 G,221,Controlled Substances - Other,CS Delivery PG2
+DELIVER AMPHETAMINE,50,Controlled Substances - Other,CS Delivery PG2
+DELIVER HASHISH,32,Controlled Substances - Other,CS Delivery PG2
+DELIVER MESCALINE,6,Controlled Substances - Other,CS Delivery PG2
+MAN/DEL CS PG II 1-4 GRAMS,279,Controlled Substances - Other,CS Delivery PG2
+MAN/DEL CS PG2>1G DRUG FREE ZO,1,Controlled Substances - Other,CS Delivery PG2
+MANUFACTURE AMPHETAMINE,2,Controlled Substances - Other,CS Delivery PG2
+MANUFACTURE HASHISH,1,Controlled Substances - Other,CS Delivery PG2
+MFG GP II CS- LT 28 G,3,Controlled Substances - Other,CS Delivery PG2
+POSS CS W/I DEL METHAQUALONE,40,Controlled Substances - Other,CS Delivery PG2
+POSS W-I TO DELIVE AMPHETAMINE,31,Controlled Substances - Other,CS Delivery PG2
+POSS W-I TO DELIVER HASHISH,48,Controlled Substances - Other,CS Delivery PG2
+POSS W-I TO MANUF AMPHETAMINE,2,Controlled Substances - Other,CS Delivery PG2
+POSS WIM/D GP II CS- LT 28G,48,Controlled Substances - Other,CS Delivery PG2
+MAN/DEL CS PG II < 1 GRAMS,267,Controlled Substances - Other,CS Delivery PG2
+MAN/DEL CS PG2<1G DRUG FREE ZO,1,Controlled Substances - Other,CS Delivery PG2
+DEL GP II CS- 400 G OR MORE,22,Controlled Substances - Other,CS Delivery PG2 L
+MAN/DEL CS PG II 4-400 GRAMS,829,Controlled Substances - Other,CS Delivery PG2 L
+MAN/DEL CS PG II OVER 400 GRAM,152,Controlled Substances - Other,CS Delivery PG2 L
+MFG GP II CS- 28 - 399 G,92,Controlled Substances - Other,CS Delivery PG2 L
+MFG GP II CS- 400 G OR MORE,12,Controlled Substances - Other,CS Delivery PG2 L
+POSS WIM/D GP II CS- 28-399G,52,Controlled Substances - Other,CS Delivery PG2 L
+POSS WIM/D GP II CS-400G OR UP,35,Controlled Substances - Other,CS Delivery PG2 L
+DEL GP 3 OR 4 CS- LT 200G,782,Controlled Substances - Other,CS Delivery PG3/4
+DELIVER BARBITURATE,57,Controlled Substances - Other,CS Delivery PG3/4
+DELIVERY ANABOLIC STEROID,5,Controlled Substances - Other,CS Delivery PG3/4
+DISP/DEL ANABOLIC STEROID/PHAR,1,Controlled Substances - Other,CS Delivery PG3/4
+MAN/DEL CS PG III/IV 28-200 GR,500,Controlled Substances - Other,CS Delivery PG3/4
+MAN/DEL CS PG III/IV OVER 400,250,Controlled Substances - Other,CS Delivery PG3/4
+MAN/DEL CS PG3/4>28G DRUG FREE,4,Controlled Substances - Other,CS Delivery PG3/4
+MANUFACTURE BARBITURATE,1,Controlled Substances - Other,CS Delivery PG3/4
+MFG GP 3 OR 4 CS- LT 200 G,3,Controlled Substances - Other,CS Delivery PG3/4
+POSS W-I TO DELIVER BARBIT,46,Controlled Substances - Other,CS Delivery PG3/4
+POSS WIM/D GP 3/4 CS-400G & UP,261,Controlled Substances - Other,CS Delivery PG3/4
+DEL GP 3 OR 4 CS- 200-300 G,32,Controlled Substances - Other,CS Delivery PG3/4
+DEL GP 3 OR 4 CS- 400G OR MORE,64,Controlled Substances - Other,CS Delivery PG3/4
+MAN/DEL CS PG III/IV 200-400 G,152,Controlled Substances - Other,CS Delivery PG3/4
+MFG GP 3 OR 4 CS- 200-399 G,6,Controlled Substances - Other,CS Delivery PG3/4
+MFG GP 3 OR 4 CS- 400G OR MORE,4,Controlled Substances - Other,CS Delivery PG3/4
+POSS WIM/D GP 3/4 CS- 200-399G,197,Controlled Substances - Other,CS Delivery PG3/4
+MAN/DEL CS PG III/IV  <28 GRAM,503,Controlled Substances - Other,CS Delivery PG3/4
+MAN/DEL CS PG3/4<28G DRUG FREE,4,Controlled Substances - Other,CS Delivery PG3/4
+POSS WIM/D GP 3/4 CS- LT 28G,231,Controlled Substances - Other,CS Delivery PG3/4
+DEL SIMULATED CON SUBS 12.44A,138,Controlled Substances - Other,CS Delivery Simulated
+DEL SIMULATED CONTROLLED SUB.,2,Controlled Substances - Other,CS Delivery Simulated
+MAN/DEL CS NOT IN PG - SYNTHET,2,Controlled Substances - Other,CS Delivery Simulated
+MAN/DEL CS NOT IN PG DRUG FREE,3,Controlled Substances - Other,CS Delivery Simulated
+MAN/DEL SIM CS REP TO BE CS,28,Controlled Substances - Other,CS Delivery Simulated
+MAN/DEL SIM CS-MISLEAD PERS,1173,Controlled Substances - Other,CS Delivery Simulated
+MFG/DEL SIMULATED CONT SUBS,603,Controlled Substances - Other,CS Delivery Simulated
+POSS CONTERFEIT SUBST W/I D,3,Controlled Substances - Other,CS Delivery Simulated
+ATT CONTROLLED SUBSTANCE FRAUD,67,Controlled Substances - Other,CS Other
+ATT ILL BARTER/EXPEN PROP/FINA,1,Controlled Substances - Other,CS Other
+FALSIFY DRUG TEST RESULTS,119,Controlled Substances - Other,CS Other
+GLUE VIOLATION,131,Controlled Substances - Other,CS Other
+ILL EXPENDITURE INVESTMENT DRU,58,Controlled Substances - Other,CS Other
+ILLEGAL INVESTMENT DRUGS,152,Controlled Substances - Other,CS Other
+OBTAINING DRUGS BY TELEPHONE,163,Controlled Substances - Other,CS Other
+OBTAINING DRUGS BY TELEPHONE/P,37,Controlled Substances - Other,CS Other
+POSS ANABOLIC STEROID,5,Controlled Substances - Other,CS Other
+POSS/TRANS/CHEM W/I/M CS,85,Controlled Substances - Other,CS Other
+POSS/USE ABUSABLE VOLATILE,226,Controlled Substances - Other,CS Other
+POSS/USE VOLATILE CHEMICALS,66,Controlled Substances - Other,CS Other
+POSSESSION NITROUS OXIDE,4,Controlled Substances - Other,CS Other
+POSSESSION OF INHALANT,1297,Controlled Substances - Other,CS Other
+POSSESSION VOLATILE CHEMICLE,65,Controlled Substances - Other,CS Other
+UNLAW TRANS/RECEIPT CHEM PRECU,1,Controlled Substances - Other,CS Other
+ILLEGAL INVESTMENT,102,Controlled Substances - Other,CS Other
+AGG POSS OF CONTROLLED SUBS,10,Controlled Substances - Other,CS Other
+DEL DRUG PARA,7,Controlled Substances - Other,CS Paraphernalia
+DEL DRUG PARA-UNDER 18 YRS,7,Controlled Substances - Other,CS Paraphernalia
+DEL DRUG PARAPHERNALIA,72,Controlled Substances - Other,CS Paraphernalia
+DEL DRUG PARAPHERNALIA-ENH,1,Controlled Substances - Other,CS Paraphernalia
+DELIV DRUG PARAPHANAILIA,1,Controlled Substances - Other,CS Paraphernalia
+DELIV DRUG PARAPHERNALIA,4,Controlled Substances - Other,CS Paraphernalia
+INHALANT PARAPHERNALIA,131,Controlled Substances - Other,CS Paraphernalia
+MFG DRUG PARA - WID,1,Controlled Substances - Other,CS Paraphernalia
+POSS  DRUG PARAPHERNALIA,4867,Controlled Substances - Other,CS Paraphernalia
+POSS DRUG PARA - WID,28,Controlled Substances - Other,CS Paraphernalia
+POSS NARC PARAPHENALIA,32,Controlled Substances - Other,CS Paraphernalia
+ATT POSS DANGEROUS DRUGS,3,Controlled Substances - Other,CS Possession
+ATT TO ACQUIRE CONT SUBS,1,Controlled Substances - Other,CS Possession
+ATTEMPT TO POSS CONT SUBT,37,Controlled Substances - Other,CS Possession
+ATTEMPT TO POSSES CONTROL SUBS,91,Controlled Substances - Other,CS Possession
+ATT POSS PROH SUB CORRECT FACI,41,Controlled Substances - Other,CS Possession
+ATT POSS PG 1 1-4 GRAMS,49,Controlled Substances - Other,CS Possession
+ATT POSSESSION COCAINE       1,108,Controlled Substances - Other,CS Possession
+ATT POSS CS PG1 W/INT DEL=>400,1,Controlled Substances - Other,CS Possession
+ATT POSS CONT SUBT - PG II,10,Controlled Substances - Other,CS Possession
+ATT POSS CS PG 3 28-200 GRAMS,185,Controlled Substances - Other,CS Possession
+ATT POSS CS PG4>=28G <200 GRAM,259,Controlled Substances - Other,CS Possession
+CONTRABAND IN CORREC FACILITY,2,Controlled Substances - Other,CS Possession
+CONTROLLED SUBSTANCE,6674,Controlled Substances - Other,CS Possession
+DANGEROUS DRUGS,68,Controlled Substances - Other,CS Possession
+POSS CONT SUBSTANCE,12,Controlled Substances - Other,CS Possession
+POSS DANG DRUG - FREE SCHOOL Z,35,Controlled Substances - Other,CS Possession
+POSS DANGEROUS DRUG,5519,Controlled Substances - Other,CS Possession
+POSS W/INTENT TO INHALE,435,Controlled Substances - Other,CS Possession
+PROH SUBSTANCE CORRECT FACILIT,394,Controlled Substances - Other,CS Possession
+UNLAW INT/KNOW POSS CS <28 GRA,6,Controlled Substances - Other,CS Possession
+UNLAW INT/KNOW POSS DANG DRUG,1,Controlled Substances - Other,CS Possession
+POSS CS NOT IN PG - SYNTHETIC,13,Controlled Substances - Other,CS Possession
+POSS CS NOT IN PG DRUG FREE ZO,15,Controlled Substances - Other,CS Possession
+CSP POSS COC 200-LT400G NONCR,1,Controlled Substances - Other,CS Possession PG1 L
+CSP POSS COC 400G O/MORE NONC,3,Controlled Substances - Other,CS Possession PG1 L
+POSS COC 200-LT400G NON CRACK,70,Controlled Substances - Other,CS Possession PG1 L
+POSS COC 400G OR M/NON-CRACK,181,Controlled Substances - Other,CS Possession PG1 L
+POSS COCAINE 200-LT400G CRACK,59,Controlled Substances - Other,CS Possession PG1 L
+POSS COCAINE 400G OR M/CRACK,42,Controlled Substances - Other,CS Possession PG1 L
+POSS CS PG 1 200-400GR,462,Controlled Substances - Other,CS Possession PG1 L
+POSS GP I CS- 400 G OR MORE,619,Controlled Substances - Other,CS Possession PG1 L
+POSS PG 1 OVER 400 GRAMS,2,Controlled Substances - Other,CS Possession PG1 L
+POSS CS PG 1 <1G,136980,Controlled Substances - Other,CS Possession PG1 S
+POSS CS PG1 <1 GRAM,8,Controlled Substances - Other,CS Possession PG1 S
+POSS CS PG1<1G DRUG FREE ZONE,79,Controlled Substances - Other,CS Possession PG1 S
+CSP POSS COC  LT28G NON CRACK,3,Controlled Substances - Other,CS Possession PG1/1A
+CSP POSS COCAINE LT 28G-CRACK,7,Controlled Substances - Other,CS Possession PG1/1A
+POSS COC 28-LT 400G,7,Controlled Substances - Other,CS Possession PG1/1A
+POSS COC 28-LT200G-NON-CRACK,255,Controlled Substances - Other,CS Possession PG1/1A
+POSS COCAINE 28-LT200G CRACK,249,Controlled Substances - Other,CS Possession PG1/1A
+POSS COCAINE LT 28G-CRACK,27376,Controlled Substances - Other,CS Possession PG1/1A
+POSS COCAINE LT 28G-NON-CRACK,5943,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS MORPHINE,5,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS OXYCODONE,18,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG 1  1 - 4 GRAMS,13524,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG 1 4G - 200G,10931,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1 1-4 GRAMS,7,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1>1G DRUG FREE ZONE,27,Controlled Substances - Other,CS Possession PG1/1A
+POSS GP I CS- 28 - 399 G,902,Controlled Substances - Other,CS Possession PG1/1A
+POSS GP I CS- LT 28 G,18491,Controlled Substances - Other,CS Possession PG1/1A
+POSS LSD,144,Controlled Substances - Other,CS Possession PG1/1A
+POSS METHAMPHETAMINE,2023,Controlled Substances - Other,CS Possession PG1/1A
+POSSESS COCAINE,1512,Controlled Substances - Other,CS Possession PG1/1A
+POSSESS HEROIN,596,Controlled Substances - Other,CS Possession PG1/1A
+POSSESS METHADONE,20,Controlled Substances - Other,CS Possession PG1/1A
+POSSESS OPIUM,12,Controlled Substances - Other,CS Possession PG1/1A
+UNL INT/KNOW P/CS PG1 4-200G,1,Controlled Substances - Other,CS Possession PG1/1A
+UNLAW POSS  COCAINE,25,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1A >=80 ABUSE UNITS,19,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1A >=8000 ABUSE UNIT,1,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1A 20-79 ABUSE UNITS,31,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1A 4000-7999 AU'S LS,4,Controlled Substances - Other,CS Possession PG1/1A
+POSS CS PG1A <20 ABUSE UNITS L,153,Controlled Substances - Other,CS Possession PG1/1A
+POSS CONT SUBT - PG II,24,Controlled Substances - Other,CS Possession PG2
+POSS CS MESCALINE,1,Controlled Substances - Other,CS Possession PG2
+POSS CS PG 2 1-4 GRAMS,1151,Controlled Substances - Other,CS Possession PG2
+POSS CS PG2>1G DRUG FREE ZONE,15,Controlled Substances - Other,CS Possession PG2
+POSS GP 2 CS- 28 - 399 G,159,Controlled Substances - Other,CS Possession PG2
+POSS GP 2 CS- LT 28 G,986,Controlled Substances - Other,CS Possession PG2
+POSS MESCALINE,6,Controlled Substances - Other,CS Possession PG2
+POSSESS AMPHETAMINE,221,Controlled Substances - Other,CS Possession PG2
+POSSESS HASHISH,321,Controlled Substances - Other,CS Possession PG2
+POSS CS PG 2 4G - 400G,1215,Controlled Substances - Other,CS Possession PG2 L
+POSS CS PG 2-A > 4 OZ  < 5 LBS,2,Controlled Substances - Other,CS Possession PG2 L
+POSS GP 2 CS- 400 G OR MORE,84,Controlled Substances - Other,CS Possession PG2 L
+POSS CS PG 2 <1GRAM,2563,Controlled Substances - Other,CS Possession PG2 S
+POSS CS PG 2-A    < 2OZ,23,Controlled Substances - Other,CS Possession PG2 S
+POSS CS PG2<1 G DRUG FREE ZONE,24,Controlled Substances - Other,CS Possession PG2 S
+UNL/INT/KNOW POSS CS PG II <1,6,Controlled Substances - Other,CS Possession PG2 S
+POSS CS PG 3 28-200 GRAMS,1279,Controlled Substances - Other,CS Possession PG3/4
+POSS CS PG 4 <28 GRAMS,2352,Controlled Substances - Other,CS Possession PG3/4
+POSS CS PG 4 28-200 GRAMS,1264,Controlled Substances - Other,CS Possession PG3/4
+POSS CS PG3>28G DRUG FREE ZONE,25,Controlled Substances - Other,CS Possession PG3/4
+POSS GP 3 CS- LT 200 G,7448,Controlled Substances - Other,CS Possession PG3/4
+POSS GP 4 CS- LT 200 G,294,Controlled Substances - Other,CS Possession PG3/4
+POSS. ANABOLIC STEROID,2,Controlled Substances - Other,CS Possession PG3/4
+POSSESS BARBITURATE,98,Controlled Substances - Other,CS Possession PG3/4
+POSS CS PG 3 200-400 GRAMS,269,Controlled Substances - Other,CS Possession PG3/4 L
+POSS CS PG 4 200-400 GRAMS,1069,Controlled Substances - Other,CS Possession PG3/4 L
+POSS CS PG 4 OVER 400 GRAMS,660,Controlled Substances - Other,CS Possession PG3/4 L
+POSS CS PG3>1G DRUG FREE ZONE,17,Controlled Substances - Other,CS Possession PG3/4 L
+POSS GP 3 CS- 200-399 G,87,Controlled Substances - Other,CS Possession PG3/4 L
+POSS GP 3 CS- 400 G OR MORE,180,Controlled Substances - Other,CS Possession PG3/4 L
+POSS GP 4 CS- 200 - 399 G,92,Controlled Substances - Other,CS Possession PG3/4 L
+POSS GP 4 CS- 400 G OR MORE,72,Controlled Substances - Other,CS Possession PG3/4 L
+POSS CS PG 3 <28 GRAMS,18980,Controlled Substances - Other,CS Possession PG3/4 S
+POSS CS PG3<28G DRUG FREE ZONE,422,Controlled Substances - Other,CS Possession PG3/4 S
+POSS CS PG4<28G DRUG FREE ZONE,34,Controlled Substances - Other,CS Possession PG3/4 S
+ATT OBTN DRUG FALSE PRES-PHONE,53,Controlled Substances - Other,CS Prescription
+ATTEMPT TO OBTAIN DRUGS BY FRA,77,Controlled Substances - Other,CS Prescription
+FRAUD/DEL PRESC NOT MEDICAL,22,Controlled Substances - Other,CS Prescription
+ILLEGELLY POSS PRESCRP FORM,16,Controlled Substances - Other,CS Prescription
+ATT PASS FORGED PRESCRIPTION,14,Controlled Substances - Other,CS Prescription
+ALTER A PRESCRIPTION,262,Controlled Substances - Other,CS Prescription
+DISPENSE V DRUG-NON-MED PURP,77,Controlled Substances - Other,CS Prescription
+FORG/INCR PRES QTY/DANG DRUG,142,Controlled Substances - Other,CS Prescription
+FORGED PRESCRIPTION,309,Controlled Substances - Other,CS Prescription
+FRAUD INTENT OBTAIN CS SCH III,19,Controlled Substances - Other,CS Prescription
+FRAUD POSS CS PRESC SCH 2 & 3,86,Controlled Substances - Other,CS Prescription
+FRAUD POSS CS PRESCRIPTION,27,Controlled Substances - Other,CS Prescription
+FRAUD USE REG FORM SCH 3 & 4,743,Controlled Substances - Other,CS Prescription
+OBTAIN DRUGS BY FORGE PRESCRIP,83,Controlled Substances - Other,CS Prescription
+OBTAIN DRUGS BY FRAUD-SCH I-II,158,Controlled Substances - Other,CS Prescription
+OBTAIN DRUGS BY FRAUD-SCH III/,2039,Controlled Substances - Other,CS Prescription
+OBTAIN DRUGS BY FRAUD-SCH V,570,Controlled Substances - Other,CS Prescription
+POSS CS PRESCRIPTION,71,Controlled Substances - Other,CS Prescription
+POSS CS PRESCRIPTION SCH II/II,2,Controlled Substances - Other,CS Prescription
+POSS PRESCRIP FORM CON SUBS,48,Controlled Substances - Other,CS Prescription
+POSS/ATT POSS CS BY FRAUD SCH,99,Controlled Substances - Other,CS Prescription
+PRACTICE MEDICINE IN VIOL SUBT,48,Controlled Substances - Other,CS Prescription
+UNLAW-POSS.PRESCRIPTION FORM,14,Controlled Substances - Other,CS Prescription
+POSS PRESCRIPTION FORM,13,Controlled Substances - Other,CS Prescription
+ATT INJURE CHILD,6,Crime Against Children,Att Crime Against Children
+ATT INJURY CHILD,85,Crime Against Children,Att Crime Against Children
+ATT INJURY TO A CHILD,21,Crime Against Children,Att Crime Against Children
+ATT RECKLESS INJURY TO CHILD,12,Crime Against Children,Att Crime Against Children
+ATT ENDANGERING A CHILD,148,Crime Against Children,Att Endangering Child
+ATT ENTICING CHILD W/INT FELON,12,Crime Against Children,Att Endangering Child
+ATT INTERFERE CHILD CUSTODY,8,Crime Against Children,Child Custody
+CRIM NON-SUPPORT,163,Crime Against Children,Child Custody
+CRIM NON-SUPPORT-2ND(FEL),27,Crime Against Children,Child Custody
+CRIM NON-SUPPORT-OUT OF STATE,27,Crime Against Children,Child Custody
+INTERFERE CHILD CUSTODY,439,Crime Against Children,Child Custody
+INTERFERE CHILD CUSTODY OUT OF,1,Crime Against Children,Child Custody
+INTERFERE CHILD CUSTODY-12.44,8,Crime Against Children,Child Custody
+INTERFERE CHILD CUSTODY-RENUM,2,Crime Against Children,Child Custody
+INTERFERENCE W/CHILD CUSTODY,14,Crime Against Children,Child Custody
+ISSUANCE BAD CHECK CHILD SUPPO,1,Crime Against Children,Child Custody
+NON-SUPPORT CHILD,115,Crime Against Children,Child Custody
+CONSP INTRFRE CHILD CUSTODY,1,Crime Against Children,Child Custody
+CHILD ABUSE/NEGLECT REPORT,4,Crime Against Children,Crime Against Children
+CHILD DESERTION,2,Crime Against Children,Crime Against Children
+CHILD LABOR LAW VIOLATION,4,Crime Against Children,Crime Against Children
+CON USE MINOR-DISP HRMFUL MATT,17,Crime Against Children,Crime Against Children
+CONTRIB DELINQ CHILD,36,Crime Against Children,Crime Against Children
+CRIM NEG CHILD SBI UNDER 15,1,Crime Against Children,Crime Against Children
+EMPLOYMENT-HARMFUL TO A MINOR,11,Crime Against Children,Crime Against Children
+ENTICE CHILD,276,Crime Against Children,Crime Against Children
+ENTICING CHIL W/INT FELONY,87,Crime Against Children,Crime Against Children
+FAIL REPORT CHILD ABUSE,316,Crime Against Children,Crime Against Children
+FAIL RPT SEX/AGG ASLT CHILD,8,Crime Against Children,Crime Against Children
+FAIL TO REPORT CHILD ABUSE,14,Crime Against Children,Crime Against Children
+HARBORING RUNAWAY CHILD,846,Crime Against Children,Crime Against Children
+MAKE FIREARM ACCESSIBLE CHILD,1,Crime Against Children,Crime Against Children
+PASS STOPPED SCHOOL BUS,29,Crime Against Children,Crime Against Children
+PURCHASE OF A CHILD,1,Crime Against Children,Crime Against Children
+SALE OF A CHILD,9,Crime Against Children,Crime Against Children
+SALE/PURCH OF A CHILD,20,Crime Against Children,Crime Against Children
+UNLAWFUL RESTRAINT CHILD UNDER,69,Crime Against Children,Crime Against Children
+UNRESTRAINED CHILD,2,Crime Against Children,Crime Against Children
+HAR/RUNAWAY CHLD EXCP/CUSTODY,17,Crime Against Children,Crime Against Children
+ATT USE MINOR - DISP HARMF MAT,1,Crime Against Children,Crime Against Children
+DIST HARMFUL MATTER-MINOR,1,Crime Against Children,Crime Against Children
+HARMFUL MATERIAL TO MINOR,1,Crime Against Children,Crime Against Children
+SALE HARMFUL MATTER-MINOR,1,Crime Against Children,Crime Against Children
+ABAN/ENDANG CHILD W/INT TO RET,1464,Crime Against Children,Endangering Child
+ABAN/ENDANGER CHILD-CRIM NEG,292,Crime Against Children,Endangering Child
+ABAND CHILD UUNDER 15 DANGER,40,Crime Against Children,Endangering Child
+ABANDON/ENDANG CHILD W/O INT T,89,Crime Against Children,Endangering Child
+ABANDONING CHILD UNDER 15,105,Crime Against Children,Endangering Child
+ENDANGERING A CHILD,3323,Crime Against Children,Endangering Child
+LEAVING CHILD UNATTENDED IN VE,23,Crime Against Children,Endangering Child
+NEGLECTING CHILD,12,Crime Against Children,Endangering Child
+RECKLESSLY ENDANGERING A CHILD,4,Crime Against Children,Endangering Child
+INJURE CHILD,2654,Crime Against Children,Injury to Child
+INJURY CHILD UNDER 15 B/INJURY,4139,Crime Against Children,Injury to Child
+INJURY CHILD YOUNGER THAN 15,75,Crime Against Children,Injury to Child
+INJURY CHILD-CRIMINAL NEG,171,Crime Against Children,Injury to Child
+INJURY CHILD-RECK-BOD INJ,627,Crime Against Children,Injury to Child
+INJURY CHILD-RECK-MENT INJ,78,Crime Against Children,Injury to Child
+INJURY TO A CHILD,332,Crime Against Children,Injury to Child
+INJURY TO CHILD BY OMISSION,114,Crime Against Children,Injury to Child
+INJURY TO CHILD-SBI,1059,Crime Against Children,Injury to Child
+INJURY TO CHILD-SMD/I,6,Crime Against Children,Injury to Child
+INJURY TO CHILD-SPD/I,11,Crime Against Children,Injury to Child
+INJURY TO CHILD-UNDER 12,29,Crime Against Children,Injury to Child
+RECKLESS INJURY TO A CHILD,8,Crime Against Children,Injury to Child
+RECKLESS INJURY TO A CHILD B/I,482,Crime Against Children,Injury to Child
+RECKLESS INJURY TO CHILD,452,Crime Against Children,Injury to Child
+ABUSE OF OFF CAP >=500 <1500,4,Crime by Public Servants,Crime by Public Servants
+ABUSE OF OFF CAP>=20 <500,17,Crime by Public Servants,Crime by Public Servants
+ABUSE OF OFFICIAL CAPACITY,11,Crime by Public Servants,Crime by Public Servants
+OFFICIAL MISCONDUCT,56,Crime by Public Servants,Crime by Public Servants
+OFFICIAL MISCONDUCT-MISAPPLY,119,Crime by Public Servants,Crime by Public Servants
+OFFICIAL OPPRESSION,137,Crime by Public Servants,Crime by Public Servants
+OFFICIAL OPPRESSION-MISD,204,Crime by Public Servants,Crime by Public Servants
+PUBLIC SERV ACCEPT GIFT,36,Crime by Public Servants,Crime by Public Servants
+THEFT $20K-100K PUB SERV,63,Crime by Public Servants,Crime by Public Servants
+THEFT OVER $200K PUB SERV,9,Crime by Public Servants,Crime by Public Servants
+POLICE BRUTALITY,18,Crime by Public Servants,Crime by Public Servants
+CIVIL RIGHTS VIOL - PERS IN CU,10,Crime by Public Servants,Crime by Public Servants
+THEFT $500-1500 PUB SERV,50,Crime by Public Servants,Crime by Public Servants
+THEFT < 20.00 PUB SERVANT,1,Crime by Public Servants,Crime by Public Servants
+ABUSE OF OFF CAP>=1500 <20K,8,Crime by Public Servants,Crime by Public Servants
+PUBLIC SERVANT-MISAPPLY,6,Crime by Public Servants,Crime by Public Servants
+ABUSE OF OFF CAP >=20K <100K,3,Crime by Public Servants,Crime by Public Servants
+MISUSE OF CRIMINAL HIST INFORM,2,Crime by Public Servants,Crime by Public Servants
+MISUSE OF OFFICIAL INFORMATION,2,Crime by Public Servants,Crime by Public Servants
+COMPENSATE PAST BEHAVIOR,1,Crime by Public Servants,Crime by Public Servants
+MISUSE OF CRIMINAL HIST/INFO,1,Crime by Public Servants,Crime by Public Servants
+MISUSE PUBLIC INFO,1,Crime by Public Servants,Crime by Public Servants
+PUB SERVANT COLLECTING DEBTS,1,Crime by Public Servants,Crime by Public Servants
+PUB SERVANT FAIL TO DO DUTY,1,Crime by Public Servants,Crime by Public Servants
+STATE PROPERTY MISUSE,1,Crime by Public Servants,Crime by Public Servants
+VIOLATION OPEN MEETING ACT,1,Crime by Public Servants,Crime by Public Servants
+SHOOTING INVESTIGATION,1861,Crime by Public Servants,Shooting Investigation
+DIS CON UNRES NOISE PRI RES,31,Disorderly Conduct,Disorderly Conduct
+DIS COND UNREASON NOXIOUS ODOR,2,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT CHEM ODOR        P,1,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT HOTEL PEEPING    P,1,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT INDECENT EXPOS   P,153,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT INDECENT EXPOSURE,32,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT OFFENSE GESTURE,18,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT PEEPING TOM      P,1,Disorderly Conduct,Disorderly Conduct
+DISCON UNRES NOISE PUB PLA,59,Disorderly Conduct,Disorderly Conduct
+DISORDERLY CONDUCT,3049,Disorderly Conduct,Disorderly Conduct
+DISORDERLY CONDUCT - EXPOSURE,13,Disorderly Conduct,Disorderly Conduct
+DIS COND-ABUSIVE/THREATEN LANG,101,Disorderly Conduct,Disorderly Conduct
+DIS CONDUCT ABUSE/THREAT     P,217,Disorderly Conduct,Disorderly Conduct
+DISORD CONDUCT VULG LANG,103,Disorderly Conduct,Disorderly Conduct
+ATT ESCAPE,68,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT ESCAPE - ARR/CONF-FELONY,136,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT ESCAPE - PENAL INST,17,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT EVAD ARREST/DETENTION W/VE,69,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT EVADE ARREST - 2ND OFFENDE,7,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT EVADE ARREST W/M.V.,72,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT EVADING ARREST,45,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATTEMPT RESIST-ARREST,10,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATTEMPT TO JUMP BAIL-FAIL TO A,35,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT ESCAPE-WHL ARR/CONF-FELONY,19,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+ATT UNAUTH ABS COMM CORR FAC,11,Evading/Resisting/Escaping,Att Evading/Resisting/Escaping
+BAIL JUMP-FELONY,139,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+BAIL JUMP,29,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+BAIL JUMP-FAIL TO APPEAR,29,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+BAIL JUMP-FAIL TO APP-FEL,983,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+BOND JUMPING,20,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+DISARMING PEACE OFFICER,124,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+ESCAPE,3851,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+ESCAPE IMPLEMENTS,6,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+ESCAPE-CAUSE BODILY INJ,157,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+ESCAPE-PENAL INSTIT,155,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+ESCAPE-WHILE ARR/CONF-FELONY,2264,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVAD ARR/DET TIRE DEFLA DEV ON,2,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVAD ARREST/DETENTION W/PREV C,1099,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVAD ARREST/DETENTION W/VEH,2040,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST,25820,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST - 2ND OFFENDER,491,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST M/V DEADLY WEAPON,3,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST W/MOTOR VEHICLE,10271,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST-EXPOSE TO SBI,136,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST-RECKLESS ENDANGER,98,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST-SBI OR DEATH,56,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE DETENTION,26044,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST/DETENTION,5091,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST/DETENTION CAUSE,3,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST/DETENTION W/VEH,665,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST-2ND OFFENDER,234,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST-DEATH,10,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST-MOTOR VEHICLE,4318,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+HINDER APPREHENSION,3099,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+RESIST ARR-SEARCH,34159,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+RESIST ARR-SEARCH W-WPN,23,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+RESISTING ARREST,56,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+UNAUTH ABSENCE COMM CORR FAC,257,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+FUGITIVE,11,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+FLEEING FROM POLICE OFICER,153,Evading/Resisting/Escaping,Fleeing from police officer
+FLEEING P/O IMMINENT DANG/SBI,3,Evading/Resisting/Escaping,Fleeing from police officer
+FLEEING POLICE OFFICER,43,Evading/Resisting/Escaping,Fleeing from police officer
+FLEEING POLICE OFFICER W/SBI,2,Evading/Resisting/Escaping,Fleeing from police officer
+FLEEING/ATT ELUDE POLICE OFF,1178,Evading/Resisting/Escaping,Fleeing from police officer
+ATT FORGE COMMERCIAL DOCUMENT,56,Fraud/Forgery/Impersonation,Att Forgery
+ATT FORGE GOVE INSTR,993,Fraud/Forgery/Impersonation,Att Forgery
+ATT FORGE WRITING,46,Fraud/Forgery/Impersonation,Att Forgery
+ATT FORGERY OF GOVT INST,96,Fraud/Forgery/Impersonation,Att Forgery
+POSS CRIM INSTRUMENT-FORGERY,31,Fraud/Forgery/Impersonation,Att Forgery
+ATT FORGE GOVT INSTRUMENT,17,Fraud/Forgery/Impersonation,Att Forgery
+ATT PASS FORGED WRITING,11,Fraud/Forgery/Impersonation,Att Forgery
+ATT FORGE CHECK,218,Fraud/Forgery/Impersonation,Att Forgery
+ATT FRAUD/USE POSS IDENTIFY/IN,57,Fraud/Forgery/Impersonation,Att Fraud/Forgery/Impersonation
+ATT TAMPER GOVT RECORD,536,Fraud/Forgery/Impersonation,Att Fraud/Forgery/Impersonation
+ATT TAMPER GOVT RECORD-HARM,48,Fraud/Forgery/Impersonation,Att Fraud/Forgery/Impersonation
+ATTEMPTED FORGERY,55,Fraud/Forgery/Impersonation,Att Fraud/Forgery/Impersonation
+ATT CRED CARD ABUSE-SELLER,95,Fraud/Forgery/Impersonation,Credit Card Fraud
+ATT DEBIT CARD ABUSE,35,Fraud/Forgery/Impersonation,Credit Card Fraud
+ATT USE CRED CARD-FICT NR,24,Fraud/Forgery/Impersonation,Credit Card Fraud
+CRED CARD-FICT NUMBER,6,Fraud/Forgery/Impersonation,Credit Card Fraud
+CRED CARD-MISUSE-EXP,319,Fraud/Forgery/Impersonation,Credit Card Fraud
+CRED CARD-MISUSE-OTHER,445,Fraud/Forgery/Impersonation,Credit Card Fraud
+CRED CARD-PRESENT-OTHER,7893,Fraud/Forgery/Impersonation,Credit Card Fraud
+CREDIT CARD MISUSE,568,Fraud/Forgery/Impersonation,Credit Card Fraud
+CREDIT/DEBIT CARD ABUSE,8567,Fraud/Forgery/Impersonation,Credit Card Fraud
+DEBIT CARD-FICTITIOUS CARD,71,Fraud/Forgery/Impersonation,Credit Card Fraud
+DEBIT CARD-PRESENT/USE NON-EXP,132,Fraud/Forgery/Impersonation,Credit Card Fraud
+CREDIT CARD/DEBT CARD ABUSE EL,30,Fraud/Forgery/Impersonation,Credit Card Fraud
+CRED CARD-PRESENT-EXP,13,Fraud/Forgery/Impersonation,Credit Card Fraud
+ATT MISUSE CRED CARD-EXP,10,Fraud/Forgery/Impersonation,Credit Card Fraud
+ATT PRESENT CRED CARD-EXP,10,Fraud/Forgery/Impersonation,Credit Card Fraud
+CREDIT CARD TRNS LAUN>=20<500,10,Fraud/Forgery/Impersonation,Credit Card Fraud
+DEBIT CARD ABUSE - GENERAL,10,Fraud/Forgery/Impersonation,Credit Card Fraud
+STEAL CRED CARD,44,Fraud/Forgery/Impersonation,Credit Card Fraud
+DECEP SECURE EXEC DOCUMENT,127,Fraud/Forgery/Impersonation,Fiduciary Fraud
+FIDUCIARY MISAPP-$200-$10000,148,Fraud/Forgery/Impersonation,Fiduciary Fraud
+FIDUCIARY MISAPP-OVER $10000,90,Fraud/Forgery/Impersonation,Fiduciary Fraud
+MISAPP/FIDUC/FINAN 100K-200K,25,Fraud/Forgery/Impersonation,Fiduciary Fraud
+MISAPP/FIDUC/FINAN 1500-20K,44,Fraud/Forgery/Impersonation,Fiduciary Fraud
+MISAPP/FIDUC/FINAN 20K-100K,56,Fraud/Forgery/Impersonation,Fiduciary Fraud
+MISAPP/FIDUC/FINAN OVER 200K,61,Fraud/Forgery/Impersonation,Fiduciary Fraud
+"MISAPP/FIDUC/FINAN/ELD 1,500-2",2,Fraud/Forgery/Impersonation,Fiduciary Fraud
+SEC EXEC DOC BY DECEPT>=$500<$,66,Fraud/Forgery/Impersonation,Fiduciary Fraud
+SEC EXEC DOC BY DECEPT>=100K<2,15,Fraud/Forgery/Impersonation,Fiduciary Fraud
+SEC EXEC DOC BY DECEPT>=1500<2,133,Fraud/Forgery/Impersonation,Fiduciary Fraud
+SEC EXEC DOC BY DECEPT>=20K<10,49,Fraud/Forgery/Impersonation,Fiduciary Fraud
+"SEC EXEC DOC BY DECEPT >=$200,",15,Fraud/Forgery/Impersonation,Fiduciary Fraud
+MISAPP/FIDUC/FINAN 500-1500,12,Fraud/Forgery/Impersonation,Fiduciary Fraud
+FIDUCIARY MISAPP-UNDER $200,11,Fraud/Forgery/Impersonation,Fiduciary Fraud
+SEC EXEC DOC BY DECEPT(PRE 9/1,11,Fraud/Forgery/Impersonation,Fiduciary Fraud
+FORGE COMMERCIAL DOCUMENT,198,Fraud/Forgery/Impersonation,Forgery
+FORGE COMMERCIAL INSTRUMENT,57,Fraud/Forgery/Impersonation,Forgery
+FORGE COUNTERFEIT DL/OTHR INST,155,Fraud/Forgery/Impersonation,Forgery
+FORGE GOVT INSTRUMENT,2327,Fraud/Forgery/Impersonation,Forgery
+FORGE WRITING,493,Fraud/Forgery/Impersonation,Forgery
+FORGERY,20812,Fraud/Forgery/Impersonation,Forgery
+FORGERY BY UTTERING,338,Fraud/Forgery/Impersonation,Forgery
+FORGERY COMMERCIAL INSTRUMENT,224,Fraud/Forgery/Impersonation,Forgery
+FORGERY FINANCIAL INSTRUMENT E,18,Fraud/Forgery/Impersonation,Forgery
+FORGERY GOVERNMENT INSTRUMENT,945,Fraud/Forgery/Impersonation,Forgery
+FORGERY GOVT DOCUMENT,238,Fraud/Forgery/Impersonation,Forgery
+FORGERY GOVT FINANCIAL INST,1973,Fraud/Forgery/Impersonation,Forgery
+FORGERY GOVT FINANCIAL INSTRUM,66,Fraud/Forgery/Impersonation,Forgery
+TAMPER WITH I.D. NO POSSESS,25,Fraud/Forgery/Impersonation,Forgery
+POSS COUNTERFEIT DRIVERS-LIC,23,Fraud/Forgery/Impersonation,Forgery
+POSS CONTERFEIT IDENTIFICATION,22,Fraud/Forgery/Impersonation,Forgery
+FALSE ENTRY GOVERNMENT INSTR,18,Fraud/Forgery/Impersonation,Forgery
+FORGERY CRIM SIMULATION,17,Fraud/Forgery/Impersonation,Forgery
+PASS FORGED COMM DOCUMENT,13,Fraud/Forgery/Impersonation,Forgery
+PASS FORGED GOVT INSTRUMENT,13,Fraud/Forgery/Impersonation,Forgery
+REM/ALT/OBL/ID MARKS /POSSWOID,13,Fraud/Forgery/Impersonation,Forgery
+POSS FORGED GOVT INSTRUMENT,12,Fraud/Forgery/Impersonation,Forgery
+POSS FORGED COUNTERFIT DRIV LI,10,Fraud/Forgery/Impersonation,Forgery
+FALSE APPL. DRIV/LIC/CERT.,26,Fraud/Forgery/Impersonation,Forgery
+FALSE INFO. TITLE APPLICATION,28,Fraud/Forgery/Impersonation,Forgery
+FICTITIOUS INSPECTION STICKER,38,Fraud/Forgery/Impersonation,Forgery
+FICTITIOUS REGISTRATION,13,Fraud/Forgery/Impersonation,Forgery
+FICT. DL/CERT/ID,852,Fraud/Forgery/Impersonation,Forgery
+DRIVER LICENSE/ID FALSE,14,Fraud/Forgery/Impersonation,Forgery
+POSSESSION OF FICTITIOUS D.L.,14,Fraud/Forgery/Impersonation,Forgery
+FICTITIOUS INSPECTION CERT,118,Fraud/Forgery/Impersonation,Forgery
+FICTITIOUS LICENSE PLATE,453,Fraud/Forgery/Impersonation,Forgery
+MAN/W/INT S/COUNTERF INST/TDL,13,Fraud/Forgery/Impersonation,Forgery
+PASS FORGED WRITING,45,Fraud/Forgery/Impersonation,Forgery
+POSS CONTERFEIT DRIVERS LICENS,462,Fraud/Forgery/Impersonation,Forgery
+POSS FORGED DRIVERS LICENSE,41,Fraud/Forgery/Impersonation,Forgery
+POSS.FICT/CNTRFIT/INSP/CERT/IN,1116,Fraud/Forgery/Impersonation,Forgery
+POSS FORGED WRITING,26,Fraud/Forgery/Impersonation,Forgery
+FORGE CHECK,12978,Fraud/Forgery/Impersonation,Forgery - Check
+PASS FORGED CHECK,1203,Fraud/Forgery/Impersonation,Forgery - Check
+ISSUE BAD CHECK,434,Fraud/Forgery/Impersonation,Forgery - Check
+POSS FORGED CHECK,1154,Fraud/Forgery/Impersonation,Forgery - Check
+ILL USE/ALT/TRSNF FOOD STAMPS<,107,Fraud/Forgery/Impersonation,Fraud - Social Services
+ILL USE/ALT/TRSNF FOOD STAMPS>,113,Fraud/Forgery/Impersonation,Fraud - Social Services
+SECURING EXEC/DOC FOOD STAMPS,117,Fraud/Forgery/Impersonation,Fraud - Social Services
+UNEMPLOY COMPENSATE VIOL,1839,Fraud/Forgery/Impersonation,Fraud - Social Services
+UNLAWFUL POSS FOOD STAMPS,40,Fraud/Forgery/Impersonation,Fraud - Social Services
+WELFARE FRAUD,6551,Fraud/Forgery/Impersonation,Fraud - Social Services
+ILL REDEMPTION OF FOOD STAMPS,139,Fraud/Forgery/Impersonation,Fraud - Social Services
+UNAUTH POSS/USE FOOD STAMPS >=,8,Fraud/Forgery/Impersonation,Fraud - Social Services
+UNAUTH USE OF FOOD STAMPS,35,Fraud/Forgery/Impersonation,Fraud - Social Services
+ILL REDEMPTION F/STAMP BENEFIT,10,Fraud/Forgery/Impersonation,Fraud - Social Services
+ALTER OR REMOVE MTR VEH NO.,47,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+CLAIM LOTT PRZ BY FRD <$10K,34,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+CLAIM LOTT PRZ BY FRD <$200,41,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+DRUG MISBRANDING,68,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FALSE INFORMATION OR FORGERY,16,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FALSE STAT TO OB LICENSE (RACE,63,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FALSE STATE TO GET CREDIT,531,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FALSE STATEMENT TO OBTAIN CRED,580,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FALSE STATMNT OBT/PROP/CREDIT,76,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD,396,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD NON-GOVERNMENT WRITING,644,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD OBTAIN DENY BENEFITS =>$,9,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD TRANS MTR VEH <$20K,8,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD USE REG FORM SCH 1 & 2,28,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD USE REG FORM SCH 5,43,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/DESTR - PRICE TAG,639,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/DESTR WILLS/DEEDS/ETC,1,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/USE/POSS ID INFO,1449,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/USE/POSS ID INFO -10-49,73,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/USE/POSS ID INFO- 5-9 IT,98,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/USE/POSS ID INFO OVER 50,19,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD/USE/POSS ID INFO-LESS 5,916,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+HIND SEC CRED >=20K <100K,9,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+HINDER CREDITOR,75,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+LOTTERY ACT VIO-CLAIM PRIZE,39,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+LOTTERY-INFL SEL OF WINNER >$1,7,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+POSS OF VEH WITH ALTERED NUMBE,58,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+TAMPER WITH IDENTIFICATION NO,140,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+TRADEMARK COUNTERFEIT>=20K<100,33,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+TRADEMARK COUNTERFEITING>=$20<,31,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+TRADEMARK COUNTERFEITING>=1500,126,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+TRADEMARK COUNTERFEITING>=500<,101,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+UNLAWFUL PRACTICE DENTISTRY,60,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+VIO CONSTRUCTION FUND TRUST,43,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+CRIM SIMULATE-MAKE-ALTER,170,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+DECEPTIVE BUSINESS PRACTICE,169,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FRAUD TRANS MOTOR VEHICLE,25,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+SECURITIES OFFENSE,310,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+TAMPER W/I.D. PP-POSSESS,30,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+HINDER SECUR CRED REMOVE PROPE,27,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+UNLAWFULLY LABELING,21,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+ILLEGAL VOTING,20,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FAILURE TO RECORD,19,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+HIND SEC CRED >=1500 <20K,18,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FAILURE TO PAY SALES TAX,16,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FAL/FICT NAME TO PEACE OFF,16,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+MISREPRESENTATION OF PROPERTY,14,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+CURRENCY EXCHANGE VIOLATION,12,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+FAIL TO REMIT GAS TAX FUNDS 15,11,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+CLAIM LOTT PRZ BY FRD >$10K,10,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+SELL/POSS UNLAB/RCRD<65 RCRD,214,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+SELL/POSS UNLAB/RCRD>65 RCRD,265,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+ATT IMPERSON P-O,46,Fraud/Forgery/Impersonation,Impersonation
+FALSELY HOLDING ONESELF AS ATY,61,Fraud/Forgery/Impersonation,Impersonation
+IMPERSON P-O,791,Fraud/Forgery/Impersonation,Impersonation
+IMPERSON P-O-MISREPRESENT PROP,94,Fraud/Forgery/Impersonation,Impersonation
+IMPERSON PUBLIC SERVANT,191,Fraud/Forgery/Impersonation,Impersonation
+IMPERSONATE P-O,76,Fraud/Forgery/Impersonation,Impersonation
+IMPERSONATE SECURITY OFFICER,21,Fraud/Forgery/Impersonation,Impersonation
+"INS FRAUD-OVER 200,000 OR DEAT",26,Fraud/Forgery/Impersonation,Insurance Fraud
+INSURANCE FRAUD,9,Fraud/Forgery/Impersonation,Insurance Fraud
+"INSURANCE FRAUD $100,000-200,0",14,Fraud/Forgery/Impersonation,Insurance Fraud
+"INSURANCE FRAUD $1500-20,000",419,Fraud/Forgery/Impersonation,Insurance Fraud
+"INSURANCE FRAUD $20,000-100,00",171,Fraud/Forgery/Impersonation,Insurance Fraud
+INSURANCE FRAUD $50.00 - $500.,6,Fraud/Forgery/Impersonation,Insurance Fraud
+INSURANCE FRAUD $500-1500,69,Fraud/Forgery/Impersonation,Insurance Fraud
+ATT INSURANCE FRAUD $1500<$20K,17,Fraud/Forgery/Impersonation,Insurance Fraud
+DISP.FICT/CNTRFIT/INSP/CERT/IN,7871,Fraud/Forgery/Impersonation,Vehicle Sticker Fraud
+ATT COMMUN GAMB INFO,2,Gambling,Gambling
+COMMUNICATE GAMB INFO,12,Gambling,Gambling
+COMMUNICATE GAMBLING INFO,1,Gambling,Gambling
+ENGAGE IN BOOKMAKING,2,Gambling,Gambling
+GAMBLING,191,Gambling,Gambling
+GAMBLING GOODS-POSSESS,146,Gambling,Gambling
+GAMBLING PROMOTION,729,Gambling,Gambling
+GAMBLING PROMOTION=DICE,8,Gambling,Gambling
+GAMBLING PROMOTION-LOTTERY,12,Gambling,Gambling
+GAMBLING-CARDS,14,Gambling,Gambling
+KEEP GAMBLING PLACE,536,Gambling,Gambling
+KEEPING GAMBLING PLACE,33,Gambling,Gambling
+POSS GAMBL DEVICE,115,Gambling,Gambling
+POSS GAMBL DEVICE/EQUIP/PARA,801,Gambling,Gambling
+POSS GAMBL PARA,32,Gambling,Gambling
+CONSP PROM GAMBLING,9,Gambling,Gambling
+CONSP KEEP GAMBLING PLACE,8,Gambling,Gambling
+ATTEMPT GAMBL DEVICE/EQUIP/PAR,1,Gambling,Gambling
+CONSP COMMUN GAMB INFO,1,Gambling,Gambling
+CONSP PROM GAMBLING-DICE,1,Gambling,Gambling
+MAKE GAMBL DEVICE,1,Gambling,Gambling
+MAKE GAMBL PARA,1,Gambling,Gambling
+ATT HARASSMENT OF PUBLIC SERVA,64,Harassment/Stalking,Harassment-Stalking
+ATTEMPT HARASS B/PER IN CORR/F,43,Harassment/Stalking,Harassment-Stalking
+CIVIL RIGHTS,177,Harassment/Stalking,Harassment-Stalking
+HARASSING COMMUNICATION,4842,Harassment/Stalking,Harassment-Stalking
+HARASSMENT - VERBAL,2027,Harassment/Stalking,Harassment-Stalking
+HARASSMENT BY PERSON IN CORR/F,50,Harassment/Stalking,Harassment-Stalking
+HARASSMENT OF PUBLIC SERVANT,230,Harassment/Stalking,Harassment-Stalking
+ONLINE HARR-EMAIL/MESSAGE W/ID,6,Harassment/Stalking,Harassment-Stalking
+STALKING,373,Harassment/Stalking,Harassment-Stalking
+THREAT INJURE PERSON,458,Harassment/Stalking,Harassment-Stalking
+ATTEMPTED STALKING,12,Harassment/Stalking,Harassment-Stalking
+VIOL PROTECTIVE ORDER,3468,Harassment/Stalking,Violation of Protective Order
+VIOL PROTECTIVE ORDER - BIAS/P,180,Harassment/Stalking,Violation of Protective Order
+VIOL SEX ASSAULT PROT ORDER,3,Harassment/Stalking,Violation of Protective Order
+VIOL. OF PROTECTIVE ORDER ENH.,582,Harassment/Stalking,Violation of Protective Order
+VIOLATION OF PROTECTIVE ORDER,47,Harassment/Stalking,Violation of Protective Order
+VIOLATION PROTECTIVE ORDER,478,Harassment/Stalking,Violation of Protective Order
+ATT VIOLATION OF PROTECTIVE OR,15,Harassment/Stalking,Violation of Protective Order
+ATT CAP MURDER-MULTIPLE,17,Homicide,Att Capital Murder
+ATT CAP MURDER-POL OFF/FIREMAN,9,Homicide,Att Capital Murder
+ATT COMMIT CAP MURDER,803,Homicide,Att Capital Murder
+ATT COMMIT CAP MURDER-PO,628,Homicide,Att Capital Murder
+ATT COMMIT MURDER,3842,Homicide,Att Murder
+ATT COMMIT VOL MANSLAUGHTER,3,Homicide,Att Murder
+CAPITAL MURDER,1851,Homicide,Capital Murder
+CAPITAL MURDER (MULTI MURDER),259,Homicide,Capital Murder
+CAPITAL MURDER-POL OFF/FIREMAN,15,Homicide,Capital Murder
+CAPITAL MURDER-UNDER SIX YRS,64,Homicide,Capital Murder
+CONSP COMMIT CAP MURDER,46,Homicide,Consp Murder - Any
+SOLICIT CAPITAL MURDER,158,Homicide,Consp Murder - Any
+CONSP COMMIT MANSLAUGHTER,1,Homicide,Consp Murder - Any
+CONSP COMMIT MURDER,9,Homicide,Consp Murder - Any
+CONSP COMMIT VOL MANSLAUGHTER,2,Homicide,Consp Murder - Any
+SOLICIT MURDER,16,Homicide,Consp Murder - Any
+CRIM NEG HOMICIDE - OFF MISC,21,Homicide,Crim Negligent Homicide
+CRIM NEG HOMICIDE W/DEADLY WEA,39,Homicide,Crim Negligent Homicide
+CRIMINAL NEG HOMICIDE,926,Homicide,Crim Negligent Homicide
+HOMICIDE INVESTIGATION,68,Homicide,Crim Negligent Homicide
+HOMICIDE MTR VEH,8,Homicide,Crim Negligent Homicide
+NEG HOMICIDE,224,Homicide,Crim Negligent Homicide
+INTOX MANSLAUGHTER W/VEH,935,Homicide,Intoxicated Manslaughter
+INTOX MANSLAUGHTER W/VEHICLE,1,Homicide,Intoxicated Manslaughter
+INTOXICATION MANSLAUGHTER,1,Homicide,Intoxicated Manslaughter
+ATT COMMIT INVOL MANSL,2,Homicide,Manslaughter
+ATT COMMIT MANSLAUGHTER,6,Homicide,Manslaughter
+INVOL MANSLAUGHTER,1446,Homicide,Manslaughter
+INVOLUNTARY MANSL 12.44A,8,Homicide,Manslaughter
+MANSLAUGHTER,628,Homicide,Manslaughter
+VOL MANSLAUGHTER,310,Homicide,Murder
+MURDER,10397,Homicide,Murder
+MURDER BY OMMISSION,215,Homicide,Murder
+AGG KIDNAP REL VIC SAFE PLACE,12,Kidnapping,Agg Kidnapping
+AGG KIDNAPPING,2930,Kidnapping,Agg Kidnapping
+ATT COMMIT AGG KIDNAPPING,46,Kidnapping,Att Kidnapping
+ATT COMMIT KIDNAPPING,35,Kidnapping,Att Kidnapping
+ATTEMPT KIDNAPPING,47,Kidnapping,Att Kidnapping
+ATTEMPT UNLAWFUL RESTRAINT,5,Kidnapping,Att Kidnapping
+ATTEMPTED KIDNAPPING,11,Kidnapping,Att Kidnapping
+FALSE IMPRISON,557,Kidnapping,Kidnapping
+FALSE IMPRISON W-S-B-I RISK,57,Kidnapping,Kidnapping
+FALSE IMPRISONMENT,75,Kidnapping,Kidnapping
+KIDNAPPING,911,Kidnapping,Kidnapping
+SOLICIT AGG KIDNAPPING,6,Kidnapping,Kidnapping
+TRAFFICKING OF PERSON RESULT/D,2,Kidnapping,Kidnapping
+TRAFFICKING OF PERSONS,11,Kidnapping,Kidnapping
+UNLAW. RESTRAINT SBI COMPLAINT,65,Kidnapping,Kidnapping
+UNLAWFUL RESTRAINT,856,Kidnapping,Kidnapping
+UNLAWFUL RESTRAINT CHILD,72,Kidnapping,Kidnapping
+BODY/PIERCE PROH W/O PARENT CN,16,Licensing,Licensing
+FAIL PAY ST-TAX-POSS CONT SUBS,301,Licensing,Licensing
+FAIL TO POST PERMIT SEX/ORIENT,25,Licensing,Licensing
+FAILURE DEMOLISHER TO KEEP REC,27,Licensing,Licensing
+FALSE STATEMENT ON ALCOHOL LIC,51,Licensing,Licensing
+LIQUOR-LICENSE VIOLATION,66,Licensing,Licensing
+LIQUOR-POSS FOR W-O PRMIT,782,Licensing,Licensing
+LIQUOR-SALE W/O PERMIT WET ARE,650,Licensing,Licensing
+LIQUOR-SERVE NON-LIC BEVERAGE,107,Licensing,Licensing
+NO TEXAS OPERATORS LICENSE,53,Licensing,Licensing
+OPERATE CHILD CARE FAC W/O LIC,1,Licensing,Licensing
+OPERATE MASSAGE PARLOUR W/O LI,29,Licensing,Licensing
+OPERATE SEC SYSTEM SER W/O LIC,54,Licensing,Licensing
+OPPERATING MASSAGE PARLOUR W/O,298,Licensing,Licensing
+POSS CIGS W-O TAX STAMP,8,Licensing,Licensing
+POSS TOBACCO/PROD TAX >$50 REQ,1,Licensing,Licensing
+PRAC AS RN W/O LIC,7,Licensing,Licensing
+SELL W/O SALES TAX PERMIT,39,Licensing,Licensing
+TATTOOS PROHIB FOR PERSON W/18,24,Licensing,Licensing
+TEMP CARDBRD TAG DIST TO UNAUT,4,Licensing,Licensing
+ULAW LABELED RECORDINGS,35,Licensing,Licensing
+UNLAW LABELED RECORDINGS,279,Licensing,Licensing
+UNLAWFUL PRACTICE MEDICINE,45,Licensing,Licensing
+UNLICENSED DRIVER INSTRUCTOR,1,Licensing,Licensing
+VIO PRIV.INV/PRIV.SECURITY AG.,30,Licensing,Licensing
+VIOL PRIV/INV.SECURTY ACT,6,Licensing,Licensing
+VIOL SEX ORIENTED BUS REG,3,Licensing,Licensing
+WORKING AS MASSEUE WITH OUT LI,47,Licensing,Licensing
+COOP AGREE W/STATE FUEL TAX,30,Licensing,Licensing
+OWNING COIN-OP MACH W/O LIC,19,Licensing,Licensing
+USING ABBREV L.V.N W/O LICENSE,16,Licensing,Licensing
+MEDICAL OFFENSE,15,Licensing,Licensing
+MEDICAL REGISTER VIOLATION,12,Licensing,Licensing
+FAIL TO KEEP REC CONT/SUBSTANC,10,Licensing,Licensing
+CIG FAIL TO KEEP BOOKS/RECORDS,8,Licensing,Licensing
+UNL TRANS/REC CHEM PRECURSOR,430,Licensing,Licensing
+FAILED TO DISPLAY CERTIFICATE,9,Licensing,Licensing
+NO LIC. REPAIR DENTAL PROSTHES,9,Licensing,Licensing
+REAL ESTATE LIC ACT VIOL,9,Licensing,Licensing
+ATT TO SELL/POSS UNLAB/RCRD,8,Licensing,Licensing
+CIGARETTES SELL/OFFER UNSTAMP,8,Licensing,Licensing
+NO ALARM PERMIT,8,Licensing,Licensing
+PRACTICE CHIROPRACTIC W/OUT LI,8,Licensing,Licensing
+ACT AS INS/AGT LIC/REVOKED,7,Licensing,Licensing
+CIGARETTES POSS-REC W/O PERMIT,7,Licensing,Licensing
+GRAZING TOO MANY LIVESTOCK,7,Licensing,Licensing
+VIOLATION PAWNSHOP ACT,7,Licensing,Licensing
+BOXING-WRESTLING VIOLATION,6,Licensing,Licensing
+CHIROPRACTIC PRACTICE ACT,6,Licensing,Licensing
+FALSE STMT OBT LIC-RACE TRACK,6,Licensing,Licensing
+STATE TAX VIOLATION,6,Licensing,Licensing
+UNLAW PRACTICE OF LAW,6,Licensing,Licensing
+ILLEGAL USE OF BUYER'S TAG,5,Licensing,Licensing
+MAINT/OF RCDS. TATTOO/BODY PIE,5,Licensing,Licensing
+METAL RECYCLE OPERATING W/O PE,5,Licensing,Licensing
+REM UNAUTH VEH-TOWING CO,5,Licensing,Licensing
+VIOL SANITATION HEALTH STDS,5,Licensing,Licensing
+FAILURE TO DISPLAY TABC WARN S,4,Licensing,Licensing
+MASS THERAPY REGULATION W/PRIO,4,Licensing,Licensing
+OPERATING NURSING HOME W/O LI,4,Licensing,Licensing
+WORKING AS MASSEUR WITH OUT LI,4,Licensing,Licensing
+CIGARETTE PROHIBITIONS,3,Licensing,Licensing
+EMPLOY SECURITY GUARD W/O COMM,3,Licensing,Licensing
+NO ANNUAL INSPECTION     LIC.+,3,Licensing,Licensing
+POSS UNTAXED CIGARETTES,3,Licensing,Licensing
+PRACTICE MASSAGE THERAPY W/O L,3,Licensing,Licensing
+UNAUTHORIZED USE CPA TITLE,3,Licensing,Licensing
+UNLAWFUL POSS-GAME ANIMAL,3,Licensing,Licensing
+UNLAWFUL STAMP & PLAC OF MTR,3,Licensing,Licensing
+VIOL STRUCTURAL PEST CONTR ACT,3,Licensing,Licensing
+VIOLATION OF AGRICULTURE PROTE,3,Licensing,Licensing
+WHOLESALE FOOD VIOLATION,3,Licensing,Licensing
+AUCTIONEERING W/O A LICENSE,2,Licensing,Licensing
+CIG POSS UNSTAMPED M/T 10000,2,Licensing,Licensing
+DEALER DISP CRAFTED METAL,2,Licensing,Licensing
+DISP CONTACT LENSES W/O PRESCR,2,Licensing,Licensing
+DISP/PROV FALSE INFO METAL REC,2,Licensing,Licensing
+FAILURE TO COMPLY B/O FIRE MAR,2,Licensing,Licensing
+"FISH,ETC. W-O PROPER LICENSE",2,Licensing,Licensing
+FL TO EMPLOY REG MASSAGE THERA,2,Licensing,Licensing
+IMPROPER TOWING,2,Licensing,Licensing
+IMPROPERLY MARKDED CRAB TRAPS-,2,Licensing,Licensing
+INS AGENT VIOLATION,2,Licensing,Licensing
+LABELING VIOLATION,2,Licensing,Licensing
+LIQUID-ILL CONTRACTING,2,Licensing,Licensing
+PHYSICIANS ASST ACT W/O LICENS,2,Licensing,Licensing
+POSS ILLEGAL FISHING DEVICES,2,Licensing,Licensing
+RETRIEVAL AND WASTE OF GAME,2,Licensing,Licensing
+USE OF ILLEGAL LICENSE OR CERT,2,Licensing,Licensing
+VIOL. VETERINARY LICENSE ACT,2,Licensing,Licensing
+VIOLATE HEALTH & SAFETY CODE,2,Licensing,Licensing
+VIOLATION BUILDING STANDARD,2,Licensing,Licensing
+ADVERT AS BONDSMAN W/O LIC,1,Licensing,Licensing
+AIR CRAFT VIOLATION,1,Licensing,Licensing
+ATT UNLAWFUL PRACTICE DENTISTR,1,Licensing,Licensing
+CONSP TO COM ILL/USE/TRANS/FOO,1,Licensing,Licensing
+DEAL CRAFTED PRECIOUS METAL  9,1,Licensing,Licensing
+ENGAGE RETAIL SALES W/O PERMIT,1,Licensing,Licensing
+FL PRESENT MASSAGE THERIPIST L,1,Licensing,Licensing
+FL TO HAVE REQUIRED SALV YD GA,1,Licensing,Licensing
+FL TO MAINT PLACARD IN VISIBLE,1,Licensing,Licensing
+FUNERAL DIRECTOR VIOLATION,1,Licensing,Licensing
+JUNK DLR METAL VIOLATION,1,Licensing,Licensing
+LOCAL STOCK-LAW VIOLATION,1,Licensing,Licensing
+MASSAGE EST VIO/EMP UNLIC THER,1,Licensing,Licensing
+MASSAGE PARLOR INTNT VIO REGUL,1,Licensing,Licensing
+MASSAGE THERAPY LIC/OWN W 1-2,1,Licensing,Licensing
+MEDICAL CERTIFICATE INVALID,1,Licensing,Licensing
+OPERATING FIRE EXT. CO. W/O LI,1,Licensing,Licensing
+OPERATING SHOP WITHOUT A LICEN,1,Licensing,Licensing
+PHARMACY LICENSE VIOLATION,1,Licensing,Licensing
+POSS 10000 CIGAREETS NO STAMP,1,Licensing,Licensing
+POSS TOBACCO PRODUCTS/FAIL PAY,1,Licensing,Licensing
+POSS UNTAXED CIGARETES,1,Licensing,Licensing
+PROFESSIONAL COUNSELOR W/O LIC,1,Licensing,Licensing
+REFUSE TO ADMIT HEALTH INSP,1,Licensing,Licensing
+SALE W/O PERMIT VOLATILE CHEMI,1,Licensing,Licensing
+SALVAGE VEHICLE DEALER REGULAT,1,Licensing,Licensing
+TALENT AGENT REGULATIONS,1,Licensing,Licensing
+TATTOO WITH OUT LICENSE,1,Licensing,Licensing
+TAXICAB FARE INCREASE,1,Licensing,Licensing
+TRANSPORATION OF CIGARETTE,1,Licensing,Licensing
+UNAUTH SELL/DIST TEMP CARDBOAR,1,Licensing,Licensing
+UNL PRAC CHIROPRACTIC DR W/O L,1,Licensing,Licensing
+USE FLAME EFFECT,1,Licensing,Licensing
+VIO HARRIS COUNTY WRECKER ORD.,1,Licensing,Licensing
+ABUSE OF CORPSE,20,Low Level Crime,Low Level Crime
+CIVIL COMMITMENT REQUIR,119,Low Level Crime,Low Level Crime
+DISRUPT MEETING/PROCESSION,62,Low Level Crime,Low Level Crime
+ELECTION LAW VIOLATION,62,Low Level Crime,Low Level Crime
+GROUND TRANSPORTATION SOLICIT,16,Low Level Crime,Low Level Crime
+MANUF CRIM INSTRUMENT,71,Low Level Crime,Low Level Crime
+ORDINANCE VIOLATION,46,Low Level Crime,Low Level Crime
+PENALTY VIOL OF EMERG PLAN/CUR,3,Low Level Crime,Low Level Crime
+POSS CRIMINAL INSTRUMENT,35,Low Level Crime,Low Level Crime
+POSS ILLEGAL FIREWORKS,22,Low Level Crime,Low Level Crime
+POSS-UNL USE CRIM INSTR,69,Low Level Crime,Low Level Crime
+POSS-UNL USE OF CRIM INSTR,251,Low Level Crime,Low Level Crime
+UNLAW USE OF CRIMINAL INSTR,165,Low Level Crime,Low Level Crime
+VIO PRIV INV/SEC ACT,434,Low Level Crime,Low Level Crime
+VIOL OF AUTO SALVAGE DEALERS A,86,Low Level Crime,Low Level Crime
+BARRATRY ENHANCED,23,Low Level Crime,Low Level Crime
+DISRUPT ACTIVITY/SCHOOL,19,Low Level Crime,Low Level Crime
+BAIL BOND ACT VIOL,18,Low Level Crime,Low Level Crime
+FAILED TO STOP AND RENDER AID,18,Low Level Crime,Low Level Crime
+SILENT/ABUSIVE CALLS-911,18,Low Level Crime,Low Level Crime
+EXPARTE,16,Low Level Crime,Low Level Crime
+IMPROPER INFLUENCE,14,Low Level Crime,Low Level Crime
+STRICT LIABILITY VIOL,14,Low Level Crime,Low Level Crime
+WRIT OF HAB CORP,12,Unclassifiable,Unclassifiable
+CLASS C MISDMEANOR,11,Low Level Crime,Low Level Crime
+ENDANGERMENT,11,Low Level Crime,Low Level Crime
+MEDICAL PRACTICE ACT,11,Low Level Crime,Low Level Crime
+UNWARRANTED MENTAL HEALTH COMM,11,Low Level Crime,Low Level Crime
+ATT POSS GOVERNMENT RECORD,10,Low Level Crime,Low Level Crime
+BARRATRY,10,Low Level Crime,Low Level Crime
+FISHING OFFENSE,9,Low Level Crime,Low Level Crime
+HUNT AFTER HRS. WLD AMINAL/BIR,9,Low Level Crime,Low Level Crime
+ATT MANUF CRIM INSTRUMENT,7,Low Level Crime,Low Level Crime
+EXPOSING TO AIDS AND HIV,7,Low Level Crime,Low Level Crime
+SELL ADULERATED COMMODITY,7,Low Level Crime,Low Level Crime
+UNLAW CONDUCT VIOL/SOLID WASTE,7,Low Level Crime,Low Level Crime
+FAMILY OFFENSE,6,Low Level Crime,Low Level Crime
+HUNT ANIMALS AT NIGHT,6,Low Level Crime,Low Level Crime
+ILLEGAL TOWING,6,Low Level Crime,Low Level Crime
+SALE OF BASS-CRAPPIE-TROUT,6,Low Level Crime,Low Level Crime
+FISH WITHOUT LICENSE TX PKS WL,5,Low Level Crime,Low Level Crime
+DOGS AT LARGE,4,Low Level Crime,Low Level Crime
+EXCESSIVE NOISE,4,Low Level Crime,Low Level Crime
+FISH IN RESTRICTED AREA,4,Low Level Crime,Low Level Crime
+MISUSE OF CONFIDENTIAL INFORMA,4,Low Level Crime,Low Level Crime
+NEIGHBORHOOD NUISANCE,4,Low Level Crime,Low Level Crime
+TAKING WILDLIFE RESOURCES PROH,4,Low Level Crime,Low Level Crime
+VIOLATE SCHOOL RULE,4,Low Level Crime,Low Level Crime
+VICIOUS DOG-W/O RESTRAINT/INSU,3,Low Level Crime,Low Level Crime
+ADULTERATED PRODUCT SALE,2,Low Level Crime,Low Level Crime
+ATT - FAIL TO KEEP CIG BOOKS/R,2,Low Level Crime,Low Level Crime
+DESECRATE FLAG,2,Low Level Crime,Low Level Crime
+EXCEED LIMIT ON CRAB TRAPS-ENH,2,Low Level Crime,Low Level Crime
+ILLEGAL FENCES,2,Low Level Crime,Low Level Crime
+ILUM AIRCRAFT W/LASER POINT IM,2,Low Level Crime,Low Level Crime
+LIGHT ESCAPE,2,Low Level Crime,Low Level Crime
+QUARANTINE VIOLATION-MISD,2,Low Level Crime,Low Level Crime
+SIGN ILLEGALLY LOCATED PUB/ROA,2,Low Level Crime,Low Level Crime
+TRUANCY,2,Low Level Crime,Low Level Crime
+UNL TRAN/RECEIPT CHEM LAB APPA,2,Low Level Crime,Low Level Crime
+UNLAW TRANS/RECEIPT CHEM LAB A,2,Low Level Crime,Low Level Crime
+UNLAW.TRANS OF PRECUROR SUB.UN,2,Low Level Crime,Low Level Crime
+URINATING IN A PUBLIC PLACE,2,Low Level Crime,Low Level Crime
+VIOLATION OF POLYGRAPH EXAM/AC,2,Low Level Crime,Low Level Crime
+ABORTION,1,Low Level Crime,Low Level Crime
+AGRICULT-LIVESTOCK POOL VIOL,1,Low Level Crime,Low Level Crime
+AIDING SUICIDE,1,Low Level Crime,Low Level Crime
+ANIMAL NOT RESTRAINED,1,Low Level Crime,Low Level Crime
+ANIMAL NOT VACINATED,1,Low Level Crime,Low Level Crime
+ANIMAL VAC TAG NOT DISPLAYED,1,Low Level Crime,Low Level Crime
+ATTEMPTED BARRATRY,1,Low Level Crime,Low Level Crime
+DESTRUCT OF US/TEXAS FLAG,1,Low Level Crime,Low Level Crime
+DISRUPT SCHOOL,1,Low Level Crime,Low Level Crime
+DISRUPT SCHOOL TRANSPORTATION,1,Low Level Crime,Low Level Crime
+EXCEED TRAP LIMIT,1,Low Level Crime,Low Level Crime
+FAIL REGISTER DANG/ANIMAL 2ND,1,Low Level Crime,Low Level Crime
+FAIL REPORT ABUSE/NEG ELDER/DI,1,Low Level Crime,Low Level Crime
+FAIL TO ATTEND SCHOOL,1,Low Level Crime,Low Level Crime
+FAIL TO REGISTER ANIMAL  VC,1,Low Level Crime,Low Level Crime
+FAIL TO RESTRAIN ANIMAL VC,1,Low Level Crime,Low Level Crime
+FAIL TO RESTRAIN DOG OR CAT,1,Low Level Crime,Low Level Crime
+FAIL TO SURRENDER SUSPENDED IT,1,Low Level Crime,Low Level Crime
+FAIL/TO/MAINT/PROP/W/ORD.,1,Low Level Crime,Low Level Crime
+FAILURE TO KEEP BOOKS/RECORDS,1,Low Level Crime,Low Level Crime
+FISH FROM ROAD-BRIDGE,1,Low Level Crime,Low Level Crime
+HUNT ANIMALS OUT OF SEASON,1,Low Level Crime,Low Level Crime
+HUNT ANIMALS W-O LICENSE,1,Low Level Crime,Low Level Crime
+HUNT BIRDS OUT OF SEASON,1,Low Level Crime,Low Level Crime
+HUNT FROM VEHICLE,1,Low Level Crime,Low Level Crime
+HUNT W-O TRAPPER'S LIC,1,Low Level Crime,Low Level Crime
+HUNT/TARGET SHOOT W/O WRITT CO,1,Low Level Crime,Low Level Crime
+IMPROPERLY MARKED BUOYS,1,Low Level Crime,Low Level Crime
+INSUFFICIENT PER FLOATATION DE,1,Low Level Crime,Low Level Crime
+JAYWALK/CROSSED INTER DIAGONAL,1,Low Level Crime,Low Level Crime
+MAP-PLAT SUBDIVISION VIOL,1,Low Level Crime,Low Level Crime
+PLACE SERIAL NUMBER W/I CHANGE,1,Low Level Crime,Low Level Crime
+PUBLIC PEACE,1,Low Level Crime,Low Level Crime
+PURCHASE CRAFTED METAL F/MINOR,1,Low Level Crime,Low Level Crime
+SALE/OFF TO SALE PRISON PROD A,1,Low Level Crime,Low Level Crime
+SELL POSS UNLABEL RCRD<7 RCRD,1,Low Level Crime,Low Level Crime
+SHRIMP OFFENSE,1,Low Level Crime,Low Level Crime
+SOLICIT EMPL/BUS FM OCCU/VEH,1,Low Level Crime,Low Level Crime
+SOLICITING RIDE FROM PUBLIC RO,1,Low Level Crime,Low Level Crime
+TELEMARKETING REGISTRATION VIO,1,Low Level Crime,Low Level Crime
+UNAUTH CHARGING OF STORAGE FEE,1,Low Level Crime,Low Level Crime
+UNAUTHORIZED USE OF EMERGENCY,1,Low Level Crime,Low Level Crime
+UNWHOLESOME FOOD VIOL,1,Low Level Crime,Low Level Crime
+VIOL COMPETITIVE BID/PROC. REQ,1,Low Level Crime,Low Level Crime
+WALKED RDWAY WHERE SIDEWALKS P,1,Low Level Crime,Low Level Crime
+ATT HINDERING APPREHENSION,33,Obstructing,Att Obstructing
+ATT AGG PERJURY,617,Obstructing,Att Obstructing
+ATT RETALIATION,47,Obstructing,Att Obstructing
+ATT RETALIATION OR OBSTRUCTION,278,Obstructing,Att Obstructing
+ATT TAMPER WITH EVIDENCE,94,Obstructing,Att Obstructing
+ATT TAMPER WITH PHYSICAL EVIDE,1016,Obstructing,Att Obstructing
+ATT INTERFERE DUTIES PUB SERVA,29,Obstructing,Att Obstructing
+ATT HINDER APPREHENSION,16,Obstructing,Att Obstructing
+BRIBE PUBLIC SERVANT-OFFER,30,Obstructing,Obstructing
+BRIBERY-POLICE OFFICER,113,Obstructing,Obstructing
+COMMERCIAL BRIBE,74,Obstructing,Obstructing
+DISREGARD A PEACE OFFICER,573,Obstructing,Obstructing
+EXPARTE OUT OF STATE WITNESS,44,Obstructing,Obstructing
+FAIL REPORT SEX ABUSE CHILD,3,Obstructing,Obstructing
+FAIL TO EXHIBIT LICENSE,59,Obstructing,Obstructing
+FAILURE TO REPORT FELONY,16,Obstructing,Obstructing
+INTERFER W/EMER TEL CALL W/PRE,12,Obstructing,Obstructing
+INTERFER W/POLICE SERVICE ANIM,32,Obstructing,Obstructing
+INTERFERE DUTIES PUB SERVANT,5013,Obstructing,Obstructing
+INTERFERENCE W/EMERGENCY TELEP,3885,Obstructing,Obstructing
+OFFER GIFT TO PUBLIC SERVANT,35,Obstructing,Obstructing
+PERJURY,348,Obstructing,Obstructing
+POSS OFFER SALE UNLAW V/TAPE,37,Obstructing,Obstructing
+BRIBERY,547,Obstructing,Obstructing
+HINDER PROCEEDINGS-COURT,26,Obstructing,Obstructing
+COERCE PUB SERVANT/VOTER,24,Obstructing,Obstructing
+BRIBE PUBLIC SERVANT-GIVE,21,Obstructing,Obstructing
+BRIBERY-COMMERCIAL,21,Obstructing,Obstructing
+EXPARTE CONTEMPT OF COURT,20,Obstructing,Obstructing
+AGGRAVATED PERJURY,19,Obstructing,Obstructing
+INTERFER DUTIES POLICE OFF,17,Obstructing,Obstructing
+FAIL FURN EVID FINANCIAL RESP,10,Obstructing,Obstructing
+FAIL TO REPT ACCIDENT - S/R,10,Obstructing,Obstructing
+FAIL IDENT TO P-O,506,Obstructing,Obstructing - Failure to identify
+FAIL IDENT TO P-O-FUGITIVE,16832,Obstructing,Obstructing - Failure to identify
+FAIL TO ID TO P.O. FALSE INF,10454,Obstructing,Obstructing - Failure to identify
+FAIL TO ID TO P.O. FALSE INF/F,7786,Obstructing,Obstructing - Failure to identify
+FALSE IDENTIFICATION,20,Obstructing,Obstructing - Failure to identify
+FAIL TO IDENTIFY AS WITNESS,15,Obstructing,Obstructing - Failure to identify
+FAIL IDENT TO P/O FALSE INFO,11,Obstructing,Obstructing - Failure to identify
+FALSE ALARM/REPORT EMERGENCY,98,Obstructing,Obstructing - False Alarm/Report
+FALSE ALARM-REPORT,1821,Obstructing,Obstructing - False Alarm/Report
+FALSE INFO. ON ACCIDENT REPORT,52,Obstructing,Obstructing - False Alarm/Report
+FALSE REPORT,348,Obstructing,Obstructing - False Alarm/Report
+FALSE REPORT - CHILD ABUSE,2,Obstructing,Obstructing - False Alarm/Report
+FALSE REPORT RE MISSING CHILD/,2,Obstructing,Obstructing - False Alarm/Report
+FALSE REPORT TO POLICE OFFICER,2758,Obstructing,Obstructing - False Alarm/Report
+FALSE STATEMENT,87,Obstructing,Obstructing - False Alarm/Report
+ATT FALSE RPT. TO POLICE OFFIC,21,Obstructing,Obstructing - False Alarm/Report
+ATT FALSE STMT UNDER TX RACE A,18,Obstructing,Obstructing - False Alarm/Report
+RETALIATION,2727,Obstructing,Obstructing - Retaliation
+RETALIATION - 12.44,115,Obstructing,Obstructing - Retaliation
+TAMP W/EVIDENCE - HUMAN CORPSE,28,Obstructing,Obstructing - Tampering
+TAMPER EVIDENCE,213,Obstructing,Obstructing - Tampering
+TAMPER GOVT REC-DEFRAUD/HARM,827,Obstructing,Obstructing - Tampering
+TAMPER GOVT RECORD,4083,Obstructing,Obstructing - Tampering
+TAMPER GOVT RECORD-HARM,2136,Obstructing,Obstructing - Tampering
+TAMPER W/PHYSICAL EVIDENCE,9,Obstructing,Obstructing - Tampering
+TAMPER WITH WITNESS,181,Obstructing,Obstructing - Tampering
+TAMPER/FABRICATE EVIDENCE,2625,Obstructing,Obstructing - Tampering
+TAMPERING WITH RECORD,607,Obstructing,Obstructing - Tampering
+ATT TAMPER EVIDENCE,21,Obstructing,Obstructing - Tampering
+DEST-CONCEAL WRITING,18,Obstructing,Obstructing - Tampering
+TAMPER WITH WITNESS 12.44B,12,Obstructing,Obstructing - Tampering
+ATT ENGAGE IN ORG CRIME ACTIVI,22,Organized Crime,Organized Crime
+ATT MONEY LAUNDERING,24,Organized Crime,Organized Crime
+ATTEMPT SOLICT/COER INDUC GANG,2,Organized Crime,Organized Crime
+ENDLESS CHAIN SCHEME,90,Organized Crime,Organized Crime
+ENGAGING IN ORG CRIM ACT (GANG,25,Organized Crime,Organized Crime
+ENGAGING IN ORG CRIM ACTIVITY,4077,Organized Crime,Organized Crime
+MONEY LAUNDERING >$200K,56,Organized Crime,Organized Crime
+"MONEY LAUNDERING>=1,500<20K",77,Organized Crime,Organized Crime
+MONEY LAUNDERING>=100K<200K,58,Organized Crime,Organized Crime
+MONEY LAUNDERING>=20K<100K,83,Organized Crime,Organized Crime
+PYRAMID PROMOTIONAL SCHEME,51,Organized Crime,Organized Crime
+VIO ORDER ENJOIN ORG CRIM ACT,7,Organized Crime,Organized Crime
+COERCE/SOLICIT/INDUCE GANG MEM,1,Organized Crime,Organized Crime
+CRED CARD TRNS LAUN >=500 <150,1,Organized Crime,Organized Crime
+CRED CARD TRNS LAUN>1500 <20K,1,Organized Crime,Organized Crime
+AIR POLLUTION,728,Pollution,Pollution
+AIR POLLUTION RULE 114,2,Pollution,Pollution
+DUMPING,58,Pollution,Pollution
+HAZARDOUS WASTE,190,Pollution,Pollution
+HAZARDOUS WASTE RELEASE,39,Pollution,Pollution
+ILLEGAL DISPOSAL OF LITTER/SOL,156,Pollution,Pollution
+ILLEGAL DUMPING,1810,Pollution,Pollution
+ILLEGAL DUMPING 1ST OFFENSE,115,Pollution,Pollution
+ILLEGAL DUMPING ENHANCED BY PR,62,Pollution,Pollution
+TRANSPORTATION OF MEDICAL WAST,8,Pollution,Pollution
+USED OIL ACT VIOLATION,206,Pollution,Pollution
+WATER POLLUTION,1911,Pollution,Pollution
+ATT VIOL USED OIL ACT(371.041H,19,Pollution,Pollution
+REGISTRANT/DISPENSER COMM VIOL,17,Pollution,Pollution
+WATER POL/RECKLESS ENDANGERMEN,9,Pollution,Pollution
+DUMP TRASH ON HIGHWAY,8,Pollution,Pollution
+FAIL NOTIFY/REP WATER POLLUTIO,7,Pollution,Pollution
+LITTERING,6,Pollution,Pollution
+"USED OIL ACT VIOLATION, PREV.",4,Pollution,Pollution
+VIOL RELATING TO HAZARDOUS WAS,3,Pollution,Pollution
+"EMISS/AIR CONTAM.,KNOWING ENDA",2,Pollution,Pollution
+ILLEGAL SEWAGE DISCHARGE,2,Pollution,Pollution
+REL HAZARDOUS WASTE SBI/ENDANG,2,Pollution,Pollution
+UNAUTH. DISPOSAL LEAD ACT BATT,2,Pollution,Pollution
+VIOLATION HERBICIDE LAW,2,Pollution,Pollution
+VIOLATION WATER SAFETY ACT,2,Pollution,Pollution
+FAIL NOTIFY/REPORT CLEAN AIR A,1,Pollution,Pollution
+HAZARDOUS MATERIAL VIOLATION,1,Pollution,Pollution
+MEDICAL WASTE VIOLATION,1,Pollution,Pollution
+WATER POLLUTION/ENDANGERMENT,1,Pollution,Pollution
+AGG PROMOTION OF PROSTITUTION,11,Prostitution,Promote Prostitution
+AGG PROMOTION PROST,307,Prostitution,Promote Prostitution
+ATT AGG PROM OF PROSTITUTION,4,Prostitution,Promote Prostitution
+PROMOTE PROSTITUTION,1182,Prostitution,Promote Prostitution
+COMM.SEX-HOMOSEXUAL PROST.,4,Prostitution,Prostitution
+COMMERCIAL SEX,4,Prostitution,Prostitution
+PROSTITUTION,57847,Prostitution,Prostitution
+PROSTITUTION - NON PUBLIC OFFE,338,Prostitution,Prostitution
+PROSTITUTION - PUBLIC OFFER,71,Prostitution,Prostitution
+PROSTITUTION SOLICIT PERSON >1,1,Prostitution,Prostitution
+PROSTITUTION WITH 3 OR MORE PR,169,Prostitution,Prostitution
+PROSTITUTION-2ND,7214,Prostitution,Prostitution
+AGG SEX ABUSE,84,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-M/P THREAT SBI/D,3,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-P/A DEADLY WPN,13,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-P/A FEAR SBI/D,4,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-P/A THREAT SBI/D,1,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-P/M DEADLY WPN,23,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-P/M FEAR SBI/D,11,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-P/M THREAT SBI/D,4,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-PFO THREAT SBI/D,3,Sexual Assault,Agg Sexual Assault
+AGG SEX ABUSE-SBI/AD,6,Sexual Assault,Agg Sexual Assault
+AGG RAPE,1010,Sexual Assault,Agg Sexual Assault
+AGG RAPE- DEADLY WPN,129,Sexual Assault,Agg Sexual Assault
+AGG RAPE- THREAT SBI/D,42,Sexual Assault,Agg Sexual Assault
+AGG SEX ASSAULT,1312,Sexual Assault,Agg Sexual Assault
+AGG SEX ASSAULT ELDERLY/DISABL,37,Sexual Assault,Agg Sexual Assault
+AGG SEX ASSAULT-VICT 65 OR OVE,11,Sexual Assault,Agg Sexual Assault
+AGG SEXUAL ASSAULT,85,Sexual Assault,Agg Sexual Assault
+AGG SEXUAL ASSLT,1393,Sexual Assault,Agg Sexual Assault
+ATT AGG SEX ABUSE,62,Sexual Assault,Att Sexual Assault
+ATT AGG SEX ASSAULT-65 OR OVER,2,Sexual Assault,Att Sexual Assault
+ATT AGG SEX ASSLT ELDERLY/DISA,1,Sexual Assault,Att Sexual Assault
+ATT SEX ABUSE,88,Sexual Assault,Att Sexual Assault
+ATT SEX ABUSE 12.44,21,Sexual Assault,Att Sexual Assault
+SOLICIT AGG SEX ABUSE,1,Sexual Assault,Att Sexual Assault
+CONSP COMMIT AGG SEX ABUSE,4,Sexual Assault,Att Sexual Assault
+ATT AGG RAPE,45,Sexual Assault,Att Sexual Assault
+ATT IMPROPER SEX/ACT W/PERS IN,1,Sexual Assault,Att Sexual Assault
+ATT RAPE,184,Sexual Assault,Att Sexual Assault
+ATT SEX ASSLT,326,Sexual Assault,Att Sexual Assault
+ATT SEXUAL ASSAULT,181,Sexual Assault,Att Sexual Assault
+ATTEMPTED AGG SEXUAL ASSAULT,18,Sexual Assault,Att Sexual Assault
+ATTEMPTED RAPE,11,Sexual Assault,Att Sexual Assault
+CONSP COMMIT AGG RAPE,1,Sexual Assault,Att Sexual Assault
+SOLICIT AGG RAPE,2,Sexual Assault,Att Sexual Assault
+ATT BURG W-INTENT RAPE,5,Sexual Assault,Burglary - Sexual Intent
+BURG BLDG INTENT SEX ASSAULT,6,Sexual Assault,Burglary - Sexual Intent
+BURG BLDG INTENT SEX ASSALT,22,Sexual Assault,Burglary - Sexual Intent
+BURG W-INTENT RAPE,132,Sexual Assault,Burglary - Sexual Intent
+BURG HABITATION-RAPE,582,Sexual Assault,Burglary - Sexual Intent
+COMPEL PROSTITUTION,13,Sexual Assault,Sexual Assault
+COMPEL PROSTITUTION-FORCE,92,Sexual Assault,Sexual Assault
+SEX ABUSE,158,Sexual Assault,Sexual Assault
+SEX ABUSE-FORCE & THREATS,13,Sexual Assault,Sexual Assault
+RAPE,520,Sexual Assault,Sexual Assault
+SEX ASSLT,436,Sexual Assault,Sexual Assault
+SEXUAL ASSAULT,3020,Sexual Assault,Sexual Assault
+INDECENT EXPOSURE,8212,Sexual Non-Assault,Indecency
+"LIQUOR-LEWD,DISORDERLY PLACE",13,Sexual Non-Assault,Indecency
+PUBLIC LEWDNESS,8517,Sexual Non-Assault,Indecency
+CON EXHIBIT OBSCENE MATTER,13,Sexual Non-Assault,Obscene Material
+IMPROPER/PHOTOG/VISUAL RECORDI,100,Sexual Non-Assault,Obscene Material
+OBSC COMMERCIAL SALE,276,Sexual Non-Assault,Obscene Material
+OBSC DISPLAY,9,Sexual Non-Assault,Obscene Material
+OBSCENE MATERIAL,44,Sexual Non-Assault,Obscene Material
+OBSCENITY,56,Sexual Non-Assault,Obscene Material
+OBSCENITY WHOLESALE/PROMOTION,9,Sexual Non-Assault,Obscene Material
+OBSCN/PART/N/OBSC/PERFORMANCE,30,Sexual Non-Assault,Obscene Material
+OBSCN/POSS/MAT/FR/PROMOTION,182,Sexual Non-Assault,Obscene Material
+OBSCN/POSS/OF/DEVICE PROMOTION,220,Sexual Non-Assault,Obscene Material
+OBSCN/PRO/PRES/DIR/OBSC/PERFM,78,Sexual Non-Assault,Obscene Material
+OBSCN/PROM OF OBSCENE DEVICE,155,Sexual Non-Assault,Obscene Material
+OBSCN/PROM/OBSCN/MATERIAL,1230,Sexual Non-Assault,Obscene Material
+OBSCN/WHOLSLE/PRO/OLBSCN/MAT,24,Sexual Non-Assault,Obscene Material
+OPERATE SEX/ORI BUS W/O PERMIT,651,Sexual Non-Assault,Obscene Material
+"OPERATE SEX/ORIENT/ESTB. ""HCO""",40,Sexual Non-Assault,Obscene Material
+BIGAMY,67,Sexual Non-Assault,Other Sex Offense
+ATTEMPT IMPROPER VISUAL RECORD,12,Sexual Non-Assault,Other Sex Offense
+ATT. PROH. SEX CONDUCT/INCEST,4,Sexual Non-Assault,Other Sex Offense
+INCEST/PROH SEXUAL CONDUCT,51,Sexual Non-Assault,Other Sex Offense
+INCEST-ADULT,8,Sexual Non-Assault,Other Sex Offense
+IMPROPER SEX/ACT. W/PERSON CUS,31,Sexual Non-Assault,Other Sex Offense
+VIOL SEXUALLY ORIENTED ENTERPR,1854,Sexual Non-Assault,Other Sex Offense
+SEX OFFENSE,119,Sexual Non-Assault,Other Sex Offense
+HOMOSEXUAL CONDUCT,5,Sexual Non-Assault,Other Sex Offense
+IMPROPER SEXUAL ACTIVITY,1,Sexual Non-Assault,Other Sex Offense
+ATT FAIL REG AS SEX OFF,12,Sexual Non-Assault,SOR Violation
+ATT FAIL TO COMPLY AS SEX OFFE,98,Sexual Non-Assault,SOR Violation
+ATT FAIL. REGISTER AS SEX OFFE,161,Sexual Non-Assault,SOR Violation
+FAIL COMPLY SEX OFFENDER REGIS,219,Sexual Non-Assault,SOR Violation
+FAIL REGISTER/SEXUAL PROGRAM,23,Sexual Non-Assault,SOR Violation
+FAIL TO COMPLY AS SEX OFFENDER,2236,Sexual Non-Assault,SOR Violation
+FAIL TO REGISTER AS SEX OFFEND,1742,Sexual Non-Assault,SOR Violation
+SEX OFFENDER DUTY TO REGISTER,1,Sexual Non-Assault,SOR Violation
+SEX OFFENDERS FAIL TO COMPLY/C,1,Sexual Non-Assault,SOR Violation
+ATT AUTO THEFT,19,Theft,Att Theft
+ATT BURG COIN-OP MACHINE,328,Theft,Att Theft
+ATT THEFT $0 - $20,19,Theft,Att Theft
+ATT THEFT $20-$200,19,Theft,Att Theft
+ATT THEFT $200-$750,294,Theft,Att Theft
+ATT THEFT $20-200-VEH,32,Theft,Att Theft
+"ATT THEFT $750-$20,000",103,Theft,Att Theft
+ATT THEFT $750-$20000,57,Theft,Att Theft
+ATT THEFT FROM CORPSE,1,Theft,Att Theft
+ATT THEFT FROM PERSON,188,Theft,Att Theft
+ATT THEFT GAS/CRUDE EQUIP,3,Theft,Att Theft
+ATT THEFT OF ANIMAL,3,Theft,Att Theft
+ATT THEFT OVER $10000-ST PROP,1,Theft,Att Theft
+ATT THEFT OVER $20000,46,Theft,Att Theft
+ATT THEFT OVER $50.00,1,Theft,Att Theft
+ATT THEFT SERVICE-$200-10000,17,Theft,Att Theft
+ATT THEFT SERVICE-OVER $10000,51,Theft,Att Theft
+ATT THEFT TRADE SECRET,5,Theft,Att Theft
+ATT THEFT-$200-10000,121,Theft,Att Theft
+ATT THEFT-$200-10000-CHECK,13,Theft,Att Theft
+ATT THEFT-$200-10000-EMBEZ,5,Theft,Att Theft
+ATT THEFT$200-10000-EXTORT,1,Theft,Att Theft
+ATT THEFT-$200-10000-FLS PXT,4,Theft,Att Theft
+ATT THEFT-$200-10000-ST PROP,195,Theft,Att Theft
+ATT THEFT-$200-10000-VEH,161,Theft,Att Theft
+ATT THEFT-$20-10000,17,Theft,Att Theft
+ATT THEFT-$20-200,324,Theft,Att Theft
+ATT THEFT-$20-200-CHECK,5,Theft,Att Theft
+ATT THEFT-$20-200-EXTORT,2,Theft,Att Theft
+ATT THEFT-$20-200-FLS PXT,2,Theft,Att Theft
+ATT THEFT-$20-200-ST PROP,10,Theft,Att Theft
+ATT THEFT-$20-200-VEH,22,Theft,Att Theft
+ATT THEFT-$5-20,37,Theft,Att Theft
+ATT THEFT-$5-20-CHECK,1,Theft,Att Theft
+ATT THEFT-$5-20-EXTORT,1,Theft,Att Theft
+ATT THEFT-$5-20-FLS PXT,2,Theft,Att Theft
+ATT THEFT-$5-20-ST PROP,1,Theft,Att Theft
+ATT THEFT-$5-20-VEH,4,Theft,Att Theft
+ATT THEFT-OVER $10000,27,Theft,Att Theft
+ATT THEFT-OVER $10000-EXTORT,4,Theft,Att Theft
+ATT THEFT-OVER $10000-FLS PXT,1,Theft,Att Theft
+ATT THEFT-OVER $10000-ST PROP,1,Theft,Att Theft
+ATT THEFT-OVER $10000-VEH,16,Theft,Att Theft
+ATT. THEFT,347,Theft,Att Theft
+ATTEMPT THEFT OVER $200K,1,Theft,Att Theft
+ATTEMPTED THEFT FROM PERSON/EL,1,Theft,Att Theft
+CONSP THEFT $200-$750,15,Theft,Att Theft
+CONSP THEFT OVER $20000,15,Theft,Att Theft
+THEFT,3848,Theft,Theft
+THEFT - ANIMALS,36,Theft,Theft
+THEFT ATM,1,Theft,Theft
+THEFT BY RECEIVING,211,Theft,Theft
+THEFT BY THREAT OF MURDER,10,Theft,Theft
+THEFT OF ANIMAL,66,Theft,Theft
+THEFT OF LIVESTOCK,2,Theft,Theft
+THEFT OF TRADE SECRETS,2,Theft,Theft
+THEFT OVER $50.00,342,Theft,Theft
+THEFT TRADE SECRET,93,Theft,Theft
+POSS UNLAW. TELECOMMUNICATION,27,Theft,Theft
+SHOPLIFTING,16,Theft,Theft
+DEBIT CARD ABUSE-THEFT/RECEIVE,14,Theft,Theft
+UNLAWFUL CABLE-ATTACH DEVICE,13,Theft,Theft
+SHOPLIFTING-CHANGE PRICE TAG,10,Theft,Theft
+UNLAWFUL CABLE-INTERCEPT,10,Theft,Theft
+STEAL/REC UNSIGN CHECK/SIGHT O,16,Theft,Theft
+THEFT BY CHECK,41,Theft,Theft
+THEFT FROM CORPSE,15,Theft,Theft
+THEFT FROM HUMAN CORPSE/GRAVE,2,Theft,Theft
+THFT PROP GRAVE/HUMN CORPS/MIL,3,Theft,Theft
+THEFT BY CHECK F/ELDERLY,15,Theft,Theft
+THEFT FROM PERSON/ELDERLY,5,Theft,Theft
+THEFT PUBLIC SERVANT,106,Theft,Theft
+BURG COIN OPERATED MACHINE,2278,Theft,Theft - Coin Operated Machine
+THEFT BY RECEVING FIREARMS,12,Theft,Theft - Firearms
+THEFT OF FIREARM,1465,Theft,Theft - Firearms
+THEFT OF FIREARM OVER $400,75,Theft,Theft - Firearms
+THEFT BY CHECK 3RD OFFENDER,48,Theft,Theft - Prior
+THEFT-CHECK-HABITUAL,67,Theft,Theft - Prior
+THEFT-3RD OFFENDER,261,Theft,Theft - Prior
+THEFT-SECOND OFFENDER,550,Theft,Theft - Prior
+DRIVE VEH W/O OWNER CONSENT,40,Theft,Theft - Unauth Use of Vehicle
+UNAUTH USE OF VEHICLE,34257,Theft,Theft - Unauth Use of Vehicle
+UNAUTHORIZED USE MTR VEH,1480,Theft,Theft - Unauth Use of Vehicle
+UNAUTHORIZED USE MTR VEHICLE,89,Theft,Theft - Unauth Use of Vehicle
+THEFT - AUTO,594,Theft,Theft - Vehicle
+THEFT- VEHICLE,41,Theft,Theft - Vehicle
+THEFT-OVER $10000-VEH,510,Theft,Theft - Vehicle
+THEFT AUTO $750-20000,12436,Theft,Theft - Vehicle
+THEFT-$200-10000-VEH,8559,Theft,Theft - Vehicle
+THEFT-$20-200-VEH,1023,Theft,Theft - Vehicle
+"THEFT >= $100,000",61,Theft,Theft F1/F2
+"THEFT >= $200,000",726,Theft,Theft F1/F2
+"THEFT BY REC OVER $100,000",6,Theft,Theft F1/F2
+"THEFT F/ELDERLY >200,000",2,Theft,Theft F1/F2
+"THEFT - GOVN CONT. 100,000 - 2",15,Theft,Theft F1/F2
+THEFT $100K-200K PUB SERV,23,Theft,Theft F1/F2
+"THEFT F/ELDERLY 100,000-200,00",8,Theft,Theft F1/F2
+ORGANIZED RETAIL THEFT >$20K <,2,Theft,Theft F1/F2
+THEFT >$100K <$200K,4,Theft,Theft F1/F2
+"THEFT >=$100,000 <$200,000",574,Theft,Theft F1/F2
+THEFT GAS/CRUDE EQUIPMENT,2,Theft,Theft F1/F2
+THEFT OVER $20000,1426,Theft,Theft F1/F2
+THEFT-OVER $10000,331,Theft,Theft F1/F2
+THEFT-OVER $10000-ACFT,2,Theft,Theft F1/F2
+THEFT-OVER $10000-EMBEZZLE,10,Theft,Theft F1/F2
+THEFT-OVER $10000-EXTORT,13,Theft,Theft F1/F2
+THEFT-OVER $10000-FALS PRTEXT,4,Theft,Theft F1/F2
+THEFT-OVER $10000-STOLEN PROP,544,Theft,Theft F1/F2
+THEFT-OVER $10000-CHECK,24,Theft,Theft F1/F2
+THEFT-OVER-20000-CHECK,41,Theft,Theft F1/F2
+THEFT OF SERVICE $100K-200K,4,Theft,Theft F1/F2
+THEFT SERVICE-OVER $10000,13,Theft,Theft F1/F2
+"THEFT - GOVN CONT. 20,000 - 10",28,Theft,Theft F1/F2
+"THEFT F/ELDERLY 20,000 - 100,0",26,Theft,Theft F1/F2
+THEFT-$750-$20000 PUBLIC SERV,19,Theft,Theft F1/F2
+THFT ELDER NON/PROFIT ORG $20K,2,Theft,Theft F1/F2
+"THEFT SERVICE $750-$20,000",580,Theft,Theft F3 - Service
+"THEFT SERVICE $750-$20,000 DIV",25,Theft,Theft F3 - Service
+THEFT SERVICE $750-$20000,193,Theft,Theft F3 - Service
+THEFT SERVICE-$200-10000,549,Theft,Theft F3 - Service
+THEFT OF SERVICE $20K-100K,5,Theft,Theft F3 - Service
+THEFT FROM PERSON,6954,Theft,Theft from Person
+THEFT - WIRE OR CABLE,357,Theft,Theft FS/F3
+"THEFT >=$20,000 <$100,000",4021,Theft,Theft FS/F3
+"THEFT >=$750 <$20,000",12694,Theft,Theft FS/F3
+"THEFT BY REC $20,000-$100,000",49,Theft,Theft FS/F3
+"THEFT BY REC OVER $20,000",36,Theft,Theft FS/F3
+THEFT BY RECEIVING $750-$20000,3990,Theft,Theft FS/F3
+THEFT-$200-10000,6916,Theft,Theft FS/F3
+THEFT-$200-10000-ACFT,1,Theft,Theft FS/F3
+THEFT-$200-10000-EMBEZZLE,4,Theft,Theft FS/F3
+THEFT-$200-10000-FALS PRTEXT,25,Theft,Theft FS/F3
+THEFT-$200-10000-STOL PROP,7302,Theft,Theft FS/F3
+THEFT-$750-$20000,183,Theft,Theft FS/F3
+"THEFT - GOVN CONT. 1,500 - 20,",9,Theft,Theft FS/F3
+THEFT $1500-20K PUB SERV,99,Theft,Theft FS/F3
+"THEFT F/ELDERLY 1,500 - 20,000",60,Theft,Theft FS/F3
+ORGANIZED RETAIL THEFT >$1500,1,Theft,Theft FS/F3
+"ORGANIZED RETAIL THEFT 1,500-2",8,Theft,Theft FS/F3
+THEFT $1500-20K,26776,Theft,Theft FS/F3
+THEFT MTRL 50% ALUM/BRZE/CPPR,468,Theft,Theft FS/F3
+THFT MATERIAL ALUM/BRNZ/COPPR/,222,Theft,Theft FS/F3
+TELECOMM SERVICE THEFT>$1500,7,Theft,Theft FS/F3
+THEFT OF SERVICE $1500-20K,189,Theft,Theft FS/F3
+"THEFT - GOVN CONT. 500.00 - 1,",1,Theft,Theft FS/F3
+"THEFT <$1,500 2/MORE CONVIC.",2,Theft,Theft FS/F3
+"THEFT F/ELDERLY 500 - 1,500",26,Theft,Theft FS/F3
+THEFT-$200-10000-CHECK,3317,Theft,Theft FS/F3 - Check
+THEFT-$750-20000-CHECK,3887,Theft,Theft FS/F3 - Check
+"THEFT>=$1,500<$20K BY CHECK",1280,Theft,Theft FS/F3 - Check
+ORGANIZED RETAIL THEFT >$50 <$,7,Theft,Theft MA
+POSS/MAN/DIST INSTR TO COMMIT,44,Theft,Theft MA
+TAMPER W/I.D. PERSONAL PROP,254,Theft,Theft MA
+THEFT $200-$750,15224,Theft,Theft MA
+"THEFT >=$500 <$1,500",22196,Theft,Theft MA
+THEFT BY REC $200-$750 NAMED,745,Theft,Theft MA
+THEFT BY REC $200-$750 UNKNOWN,1375,Theft,Theft MA
+THEFT FROM PERSON  12.44,366,Theft,Theft MA
+THEFT OF EXACTLY $200.00,100,Theft,Theft MA
+THEFT OF EXACTLY $750.00,8,Theft,Theft MA
+THEFT-$20-200,26655,Theft,Theft MA
+THEFT-$20-200-EMBEZZLE,3,Theft,Theft MA
+THEFT-$20-200-EXTORT,17,Theft,Theft MA
+THEFT-$20-200-FALS PRTEXT,18,Theft,Theft MA
+THEFT $20-500 PUB SERV,119,Theft,Theft MA
+THEFT F/ELDERLY 50.00 - 500.00,21,Theft,Theft MA
+"THEFT BY CHECK $500.00 - 1,500",1617,Theft,Theft MA - Check
+THEFT-$200-750-CHECK,6623,Theft,Theft MA - Check
+THEFT UNDER $1500 - 3RD OFF.,15128,Theft,Theft MA - Prior
+THEFT-$200-$750 HABITUAL,5374,Theft,Theft MA - Prior
+THEFT OF SERVICE $500-1500,224,Theft,Theft MA - Service
+THEFT SERVICE $200-$750,252,Theft,Theft MA - Service
+THEFT SERVICE $200-$750  DIVE,9,Theft,Theft MA - Service
+THEFT SERVICE $200-$750 RENT,94,Theft,Theft MA - Service
+UNAU USE TELECOMM SRVCS>=$500<,28,Theft,Theft MA - Service
+THEFT-$20-200-STOL PROP,2169,Theft,Theft MA/B
+THEFT-$20-200-CHECK,42768,Theft,Theft MA/B - Check
+THEFT - $50-$500,92900,Theft,Theft MB
+THEFT - EXACT AMOUNT $50.00,237,Theft,Theft MB
+THEFT $20-$200,58174,Theft,Theft MB
+THEFT $20-500,7115,Theft,Theft MB
+THEFT OF EXACTLY $20.00,112,Theft,Theft MB
+THEFT-$50-500-STING,46,Theft,Theft MB
+THEFT-$5-20,11631,Theft,Theft MB
+THEFT-$5-20-EXTORT,2,Theft,Theft MB
+THEFT-$5-20-FALS PRTEXT,6,Theft,Theft MB
+THEFT-$5-20-STOL PROP,69,Theft,Theft MB
+THEFT-$5-20-VEH,41,Theft,Theft MB
+THEFT-AGGREGATE $50-500,926,Theft,Theft MB
+THEFT <$20 - ENHANCED,70,Theft,Theft MB
+THEFT <$20 PUB SERV,67,Theft,Theft MB
+THEFT <$20 PUB SERV - 2ND,213,Theft,Theft MB
+THEFT F/ELDERLY <50.00,4,Theft,Theft MB
+THEFT BY CHECK $20.00 - $500.0,3321,Theft,Theft MB - Check
+THEFT BY CHECK $50.00 - $500.0,12616,Theft,Theft MB - Check
+THEFT CHECK $20 - $500,4382,Theft,Theft MB - Check
+THEFT-$5-20-CHECK,2987,Theft,Theft MB - Check
+UNLAWFUL CABLE-MAKE/MAINT CON,44,Theft,Theft MB - Service
+UNLAWFUL CABLE-TAMPER,29,Theft,Theft MB - Service
+TELECOMM SERVICE THEFT <$500,4,Theft,Theft MB - Service
+THEFT OF SERVICE $20-500,194,Theft,Theft MB - Service
+THEFT OF SERVICE-DECEP 50-500,736,Theft,Theft MB - Service
+THEFT OF SERVICE-DIVER 50-500,77,Theft,Theft MB - Service
+THEFT OF SERVICE-RENT AGR 50-5,32,Theft,Theft MB - Service
+THEFT SERVICE-$20-200,1333,Theft,Theft MB - Service
+THEFT SERVICE-$5-20,340,Theft,Theft MB - Service
+THEFT UNDER $5,359,Theft,Theft MC
+THEFT UNDER $50 (UNDER $20 BY,56,Theft,Theft MC
+THEFT UNDER $50.00,546,Theft,Theft MC
+THEFT UNDER $5-ACFT,1,Theft,Theft MC
+THEFT UNDER $5-EXTORT,4,Theft,Theft MC
+THEFT UNDER $5-FALS PRTEXT,3,Theft,Theft MC
+THEFT UNDER $5-STOL PROP,35,Theft,Theft MC
+THEFT UNDER $5-VEH,22,Theft,Theft MC
+THEFT UNDER $5-CHECK,80,Theft,Theft MC
+THEFT OF SERVICE UNDER $20,322,Theft,Theft MC
+THEFT SERVICE UNDER $5,7,Theft,Theft MC
+POSS VEH WITH ALT NUMBER,12,Traffic Offense,Traffic Offense
+ACCIDENT INVOLVING INJURY,90,Traffic Offense,Traffic Offense
+ACCIDENT INVOLVING INJURY/DEAT,208,Traffic Offense,Traffic Offense
+ATT DRIVING W/LIC SUSPENDED,1,Traffic Offense,Traffic Offense - No License
+ATT UNAUTH USE OF MOTOR VEH,136,Theft,Theft - Unauth Use of Vehicle
+AUTO OFFENSE,50,Traffic Offense,Traffic Offense
+BACKED WITHOUT SAFETY,1,Traffic Offense,Traffic Offense
+BACKING NOT IN SAFETY,2,Traffic Offense,Traffic Offense
+DEFECTIVE EXHAUST,1,Traffic Offense,Traffic Offense
+DEFECTIVE HEAD LIGHTS,1,Traffic Offense,Traffic Offense
+DEFECTIVE LICENSE LIGHT (WHITW,1,Traffic Offense,Traffic Offense
+DEFECTIVE TAIL LIGHT,1,Traffic Offense,Traffic Offense
+DRIVING UNSAFE VEH ENDANGER PU,1,Traffic Offense,Traffic Offense
+DRIVING WRONG WAY ON DIVIDED R,1,Traffic Offense,Traffic Offense
+DROVE WHERE PROHIBITED,1,Traffic Offense,Traffic Offense
+DROVE WITHOUT LIGHTS WHEN REQ.,1,Traffic Offense,Traffic Offense
+EXHIBITION OF ACCELERATION,7,Traffic Offense,Traffic Offense
+EXHIBITION OF ACCELERATION OF,16,Traffic Offense,Traffic Offense
+EXP INSP STICKER (OUT OF STATE,10,Traffic Offense,Traffic Offense
+EXPIRED - NO INSPECTION,158,Traffic Offense,Traffic Offense
+EXPIRED LICENSE PLATES ON DISP,5,Traffic Offense,Traffic Offense
+EXPIRED REGISTRATION,61,Traffic Offense,Traffic Offense
+FAIL MAINT/VEH TITLE SERV RECO,89,Traffic Offense,Traffic Offense
+FAIL TO CNTL SPEED TO AVD ACC,19,Traffic Offense,Traffic Offense
+FAILURE TO CONTROL SPEED,19,Traffic Offense,Traffic Offense
+FAILURE TO DRIVE IN SINGLE MAR,22,Traffic Offense,Traffic Offense
+FAILURE TO GIVE PROPER SIGNAL,2,Traffic Offense,Traffic Offense
+FAILURE TO RECORD MOTOR VEH RE,379,Traffic Offense,Traffic Offense
+FAILURE TO WEAR SEAT BELT,1,Traffic Offense,Traffic Offense
+ILLEGAL PASS ON RIGHT,1,Traffic Offense,Traffic Offense
+ILLEGALLY PARKED (TRAFFIC HAZA,1,Traffic Offense,Traffic Offense
+IMPROPER TURN,1,Traffic Offense,Traffic Offense
+MVI MOTOR VEHICLE INSPECTION E,226,Traffic Offense,Traffic Offense
+NO LIC PLATE VISIBLE/UNSECURED,1,Traffic Offense,Traffic Offense
+NO OPERATORS LICENSE ON DEMAND,657,Traffic Offense,Traffic Offense
+NO SEAT BELT-DRIVER,1,Traffic Offense,Traffic Offense
+OBSTRUCT HIGHWAY/PASSAGEWAY,564,Traffic Offense,Traffic Offense
+OPER OF VEHICLE W/WRONG PLATE,1,Traffic Offense,Traffic Offense
+PASSED STOPPED SCHOOL BUSS,3,Traffic Offense,Traffic Offense
+PASSED W/INSUFFICIENT CLEARANC,1,Traffic Offense,Traffic Offense
+PASSING IN NO PASSING ZONE,1,Traffic Offense,Traffic Offense
+RACING ON HIGHWAY,1064,Traffic Offense,Traffic Offense
+RACING ON HIGHWAY - SER BOD IN,25,Traffic Offense,Traffic Offense
+RACING ON HIGHWAY- BODILY INJ,9,Traffic Offense,Traffic Offense
+RACING ON HIGHWAY W/2 ENHAN,3,Traffic Offense,Traffic Offense
+RACING ON HIGHWAY W/ENHAN,25,Traffic Offense,Traffic Offense
+RAN STOP SIGN,8,Traffic Offense,Traffic Offense
+SPEEDING,655,Traffic Offense,Traffic Offense
+TRAFFIC OFFENSE,79,Traffic Offense,Traffic Offense
+UNCLEAN LICENSE PLATE,1,Traffic Offense,Traffic Offense
+UNSAFE SPEED,4,Traffic Offense,Traffic Offense
+UNSAFE START FROM PARKED/STOP/,1,Traffic Offense,Traffic Offense
+VIO RULES THE ROAD BY BICYCLE,1,Traffic Offense,Traffic Offense
+VIOLATE D.L. RESTRICTION,1,Traffic Offense,Traffic Offense
+WRONG COLOR LIC PLATE LIGHT,1,Traffic Offense,Traffic Offense
+WRONG OR UNCLEAN NUMBER PLATE,72,Traffic Offense,Traffic Offense
+VEH MOTOR ID NUMBER VIOLATION,22,Traffic Offense,Traffic Offense
+DISPLAY FICITIOUS LICENSE PLAT,14,Traffic Offense,Traffic Offense
+NO TEXAS REGISTRATION,14,Traffic Offense,Traffic Offense
+FAIL SHOW PROOF LIAB INS,12,Traffic Offense,Traffic Offense - No Insurance
+ALLOW DANG DRVR BORROW MTR VH,11,Traffic Offense,Traffic Offense
+IMPROPER CHANGE OF LANES,11,Traffic Offense,Traffic Offense
+RAN RED LIGHT,11,Traffic Offense,Traffic Offense
+FAIL TO STOP  RENDER ASSIST,2063,Traffic Offense,Traffic Offense - Hit and Run
+FAIL TO STOP AND RENDER AID,902,Traffic Offense,Traffic Offense - Hit and Run
+FAILURE TO GIVE INFO-LANDSCAP,1764,Traffic Offense,Traffic Offense - Hit and Run
+FAILURE TO STOP & GIVE INFO,27953,Traffic Offense,Traffic Offense - Hit and Run
+FAILURE TO STOP AND GIVE INFO,84,Traffic Offense,Traffic Offense - Hit and Run
+FAIL TO STOP RENDER ASSISTANCE,15,Traffic Offense,Traffic Offense - Hit and Run
+ATT FAILURE TO STOP AND RENDER,11,Traffic Offense,Traffic Offense - Hit and Run
+ATT FSRA FAIL TO STOP/RENDER A,10,Traffic Offense,Traffic Offense - Hit and Run
+FSRA ACC INVOLVING DEATH_(C)(1,5,Traffic Offense,Traffic Offense - Hit and Run
+FSRA ACC INVOLVING INJURY,213,Traffic Offense,Traffic Offense - Hit and Run
+FSRA FAIL TO STOP AND REN ASSI,19,Traffic Offense,Traffic Offense - Hit and Run
+EXPIRED INSURANCE,3,Traffic Offense,Traffic Offense - No Insurance
+FAILURE MAINTAIN FINANCIAL RES,497,Traffic Offense,Traffic Offense - No Insurance
+FAILURE TO MAIN FINANCIAL RES,642,Traffic Offense,Traffic Offense - No Insurance
+NO LIABILITY  INS,68,Traffic Offense,Traffic Offense - No Insurance
+DL/ID-REFUSE TO SURRENDER,43,Traffic Offense,Traffic Offense - No License
+DRIVE W/DISQUALIFIED COM/VEH,25,Traffic Offense,Traffic Offense - No License
+DRIVERS LICENSE VIOLATION CODE,21,Traffic Offense,Traffic Offense - No License
+DRIVING W/O OP LIC - 3RD,654,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LIC SUSPENDED -,4834,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LIC SUSPENDED,59613,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LIC. SUSP./ENHAN,10315,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LICENSE INVALID,38,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LICENSE SUSP.,95647,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LICENSE SUSP/INV,37,Traffic Offense,Traffic Offense - No License
+DRV W/LIC INV W/PR CN/SUS/W/O,8866,Traffic Offense,Traffic Offense - No License
+EXPIRED DRIVERS LICENSE,19,Traffic Offense,Traffic Offense - No License
+NO DRIVER LICENSE ON DEMAND,348,Traffic Offense,Traffic Offense - No License
+VIO OF RESTRICTION J TDL,12,Traffic Offense,Traffic Offense - No License
+RECKLESS DRIVING,5367,Traffic Offense,Traffic Offense - Reckless Driving
+RECKLESS CONDUCT-TRAFFIC,29,Traffic Offense,Traffic Offense - Reckless Driving
+RACING/DRAG RACING/ACCEL CONTE,10,Traffic Offense,Traffic Offense - Reckless Driving
+ATT CRIM MISCH >=$1500 <$20K,3,Trespass,Crim Mischief
+ATTEMPTED CRIM MISCHIEF,9,Trespass,Crim Mischief
+CRIM MISCH < $50,163,Trespass,Crim Mischief
+CRIM MISCH UNDER $20,267,Trespass,Crim Mischief
+CRIM MISCH UNDER $5,130,Trespass,Crim Mischief
+CRIMINAL MISCHIEF,96,Trespass,Crim Mischief
+CRIM MISCH <1500 IMP/INT PB SE,100,Trespass,Crim Mischief - Public Service
+CRIM MISCH.RAILROAD PROP,1,Trespass,Crim Mischief - Public Service
+CRIM MISCHF IMP/INT PUB SERV <,258,Trespass,Crim Mischief - Public Service
+CRIM MISCH-PUBLIC SERVICE,562,Trespass,Crim Mischief - Public Service
+CRIMINAL MISCH - COMMUNICATE E,3,Trespass,Crim Mischief - Public Service
+CRIMINAL MISCHIEF - WATER SUPP,51,Trespass,Crim Mischief - Public Service
+CRIMINAL MISCHIEF PUBLIC SERVI,76,Trespass,Crim Mischief - Public Service
+CRIM MISCH >$200K,10,Trespass,Crim Mischief F1/F2
+CRIM MISCH >=$100K <$200K,15,Trespass,Crim Mischief F1/F2
+CRIM MISCH OVER 10000,24,Trespass,Crim Mischief F1/F2
+CRIM MISCH-OVER $10000,3,Trespass,Crim Mischief F1/F2
+CRIM MISCH >=$20K <$100K,81,Trespass,Crim Mischief FS/F3
+CRIM MISCH-$200-10000,1810,Trespass,Crim Mischief FS/F3
+CRIM MISCH-ANIMAL,1,Trespass,Crim Mischief FS/F3
+CRIM MISCHIEF $750-$20000,2248,Trespass,Crim Mischief FS/F3
+"AGG CRIMINAL MISCH >1,500",2,Trespass,Crim Mischief FS/F3
+CRIM MISCH >=$1500 <$20K,3497,Trespass,Crim Mischief FS/F3
+CRIM MISCH (PLACE/F WORSHIP/BU,2,Trespass,Crim Mischief FS/F3
+CRIM MISCH HAB.<$1500 GUN/EXPL,3,Trespass,Crim Mischief FS/F3
+CRIM MISCH,551,Trespass,Crim Mischief MA
+CRIM MISCH >=$500 <$1500,8433,Trespass,Crim Mischief MA
+CRIMINAL MISCHIEF  $200-$750,5969,Trespass,Crim Mischief MA
+CRIM MISCH-$20-200,11983,Trespass,Crim Mischief MA/B
+CRIM MISCH >= $50 <= $500,16135,Trespass,Crim Mischief MB
+CRIM MISCH >=$20 <$500,3652,Trespass,Crim Mischief MB
+CRIM MISCH-$5-20,466,Trespass,Crim Mischief MB
+ATT CRIMINAL TRESPASS HABITATI,38,Trespass,Trespass
+ATT TRESPASS PROPERTY,102,Trespass,Trespass
+CRIMINAL TRESPASS,9317,Trespass,Trespass
+CRIMINAL TRESPASS - VEHICLE,222,Trespass,Trespass
+CRIMINAL TRESPASS-HABITATION,14553,Trespass,Trespass
+GRAFFITI <$500,261,Trespass,Trespass
+GRAFFITI >=$500 BUT <$1500,184,Trespass,Trespass
+GRAFFITI CHURCH BURIAL FACIL.,4,Trespass,Trespass
+GRAFFITI MEDICAL EDUC FACIL. <,109,Trespass,Trespass
+GRAFFITI>=$1500 BUT <$20K,47,Trespass,Trespass
+HUNTING W/O LAND OWNER CONSENT,30,Trespass,Trespass
+RAILROAD PROP-INTERF 1500-20K,3,Trespass,Trespass
+RECKLESS DAMAGE PROPERTY,36,Trespass,Trespass
+TRESPASS ELECTRIC PLANT/UTIL,13,Trespass,Trespass
+TRESPASS LIC. CONCEALED GUN HO,5,Trespass,Trespass
+TRESPASS ON AGRICULTURAL LAND,28,Trespass,Trespass
+TRESPASS PROP/BLDG-D WPN-N/DEP,211,Trespass,Trespass
+TRESPASS PROP/BLDG-DEADLY WPN,76,Trespass,Trespass
+TRESPASS PROP/BLDG-NO DEPART,19856,Trespass,Trespass
+VIO TEXAS PROPERTY CODE,72,Trespass,Trespass
+TRESPASS ON SCHOOL PROP,20,Trespass,Trespass
+GRAFFITI,11,Trespass,Trespass
+THREAT DAMAGE PROPERTY,10,Trespass,Trespass
+TRESPASS PROP/BLDG-NO FORB ENT,38286,Trespass,Trespass - No Initial Notice
+CRIMINAL ATTEMPT,715,Unclassifiable,Unclassifiable
+OFFENSE UNKNOWN,95,Unclassifiable,Unclassifiable
+,18,Unclassifiable,Unclassifiable
+EXPUNGED RECORD,15,Unclassifiable,Unclassifiable
+ATT POSS FIREARM,446,Weapons - Unlawful Possession/Conduct,Att - Guns - Felon in Possession of Weapon
+ATT POSS FIREARM BY FELON,120,Weapons - Unlawful Possession/Conduct,Att - Guns - Felon in Possession of Weapon
+FELON POSS WPN,8958,Weapons - Unlawful Possession/Conduct,Guns - Felon in Possession of Weapon
+FELON POSS WEAPON,10,Weapons - Unlawful Possession/Conduct,Guns - Felon in Possession of Weapon
+UNLAW CARRY WEAPON-AIRPORT,217,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+UNLAW CARRY WPN,73912,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+UNLAW CARRY WPN-LIC PREMISE,2727,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+UNLAW. CARRY WPN/LIC/HOLDER IN,137,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+UNLAW/CARRY/WPN/LISC/PREMISE,79,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+ATT CARRY WPN ON LIQ/LIC PREMI,24,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+ATT POSS PROHIBITED WEAPON,179,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS PROH KNIFE,17,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS PROH EXPLOSIVE 12.44,14,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+CARRY PROH WPN PROHBITED PLACE,635,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+CARRY/POSS WEAPON W/I PARK WHR,15,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+CARRYING LOADED SHOTGUN-RIFLE,104,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DEADLY COND-DISCH F-ARM INDIV(,186,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DEADLY WEAPON,9,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DEADLY WEAPON-PENAL INST,112,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DIS COND DSCHG FI/ARM PUB RD P,30,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DISCHARGE FIREARM METRO AREA,1282,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DISORDERLY COND/FIREARM/DEADLY,2335,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+EXHIBIT FIREARM/CAMPUS/SCHOOL,15,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+FIREARM ACCESSABLE TO A CHILD,35,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+FIREARM SMUGGLING 3 OR MORE FI,1,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+HOAX BOMB WEAPONS FREE ZONE,1,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS COMPONENTS OF EXPLOSIVE,14,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS EXPLOSIVE WPN,142,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS FIREARM PRIOR ASSAULT FM,23,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS FIREARM-SCHOOL PREMISES,475,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS OF PROHIBITED WEAPON,2822,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS PROH FIREARM,1410,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS PROH WPN,1230,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSS. WEAPON GOVERNMENT BLDG.,10,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+RECKLESS CONDUCT-FIREARM,780,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+UNL CARRY HANDGUN - LIC HOLDER,125,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+UNLAW POSS B/FELON METAL/BODY,84,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+UNLAWFUL TRANSFER OF FIREARM,11,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+WEAPON FREE SCHOOL ZONE-PROH W,58,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+WEAPON FREE SCHOOL ZONE-UNLAW,24,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+WEAPON OFFENSE,710,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+WEAPON-POSSESSION OF,9864,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+WEAPON-POSSESSION OF-PISTOL,1111,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+POSSESSION OF A HOAX BOMB,20,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+ATT DEADLY CONDUCT,15,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+FAIL DISPLAY HANDGUN LICENSE,15,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+RECKLESS CONDUCT FIREARM,13,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+ADVERTISING PLACEMENT OF CHILD,2,,
+ALLOW SEXUAL ORIENT BUS W-O PE,7,,
+ATT ABAN/ENDANG CHILD W/INT TO,12,,
+ATT AGG ROBBERY - DEADLY WEAPO,8,,
+ATT FALSE HOLD SELF AS ATTY 12,1,,
+ATT FORG GOVT/NATL INST/MONEY/,26,,
+ATT FRAUD OF MOTOR VEHICLE <$2,1,,
+ATT ONLINE SOLICITATION OF MIN,1,,
+ATT POSS COMPONENTS OF EXPLOSI,1,,
+ATT PRACTICE MED IN VIOL SUBTI,2,,
+ATT SUPER AGG SEX ASSLT CHILD,1,,
+ATT THEFT-$200-10000-EXTORT,1,,
+ATT THFT ALUM/BRNZ/COPPER/BRAS,7,,
+ATTEMPT MONEY LAUNDERING >20K,2,,
+ATTEMPT THEFT PROP >$20K <$100,1,,
+ATTEMPT THEFT SERVICE $1500 -,2,,
+ATTEMPT THEFT UNDER $50,1,,
+ATTEMPTED BREACH COMPUTER SECU,2,,
+ATTEMPTED MAN/DEL CS PG I >= 4,1,,
+BOATING W/INTOX BAC .08,9,,
+COCKFIGHT: SPACE/OWNS/TRAINS/E,6,,
+COMP SEC BREACH <200K GVT/INFS,1,,
+CONDUCT SEX ORI BUSINESS W-O P,19,,
+CRAFTED PRECIOUS METAL REGULAT,7,,
+CRIMINAL CONSPIRACY TO COMMIT,1,,
+EMPLOYEE SEX ORIENT BUS W-O PE,27,,
+ENGAGE SEX ACTS AT SEX ORIENTE,2,,
+ENTRY/INSP POSSIBLE STOLEN VEH,1,,
+EXPARTE SHOW CAUSE,1,,
+EXPIRED INSPECTION CERTIFICATE,152,,
+EXPLOITATION OF CHILD/ELDER/DI,2,,
+FAIL COMPL LOCAL/SANITARY LAWS,2,,
+FAIL TO GIVE INFO AMUSEMENT PA,2,,
+"FAIL TO PAY TAX >= $1500, < $2",1,,
+FAIL TO REG A CERTIFICATE_TX B,1,,
+FAIL TO REGISTER AS DEALER,2,,
+FAIL TO SIGNAL TURN,2,,
+FIRE EXT SRVCE & INSTALL PROH,1,,
+FRAUD DEL CS/PRESCRIPT SCH 3/4,4,,
+FRAUD EMISSION INSPECT W/PRE O,1,,
+FRAUD INTENT OBTAIN CS SCH V,10,,
+FRAUD POSS CS PRESCRIPTION SCH,2,,
+FRAUD USE OF DEA REG NUMBR SCH,1,,
+GAME RM VIOL DOORS AND FIRE CO,9,,
+GAME RM VIOL FAIL DISPLAY PERM,3,,
+GAME RM VIOL GAME RM MEMBERCHI,20,,
+GAME RM VIOL OPER W/O PERMIT L,21,,
+GAME RM VIOL PERM REDEMPT MACH,3,,
+GAME RM VIOL RECORD KEEPING LG,8,,
+GAME RM VIOL WINDOW AND GLASS,1,,
+HARASSMENT - PRIOR CONVICTION,9,,
+ILL BARTER/EXPENDITURE PROP/FI,2,,
+ILLEGAL SEXUALLY ORIENTED BUSI,11,,
+INTERF W/RIGHT OF GUARDIAN,1,,
+INV FIRE FOR SAFETY HAZARDS VI,1,,
+LEWD/IMMORAL/INDECENT CONDUCT,6,,
+MAN DEL CS NOT IN PG,12,,
+MAN/PRODUCE FORGED/COUNTERFEIT,1,,
+MEDICAID FRAUD >$200K,1,,
+METAL RECYC OPR W/O PERMIT PRE,3,,
+MISAPP TRUST FUND >=$500 DEFRA,1,,
+NUDE AT SEXUALLY ORIENTED BUSI,23,,
+OFFER/ACCEPT GRATUITY AT S/O B,5,,
+OP SEWAGE FACILITY/NO INSPEC W,1,,
+ORGANIZED RETAIL THEFT >$500 <,21,,
+PERFORMING <6 FT SEX ORI BUSIN,28,,
+POS CONTRBAND CORRECTIONAL FAC,1,,
+POSS CS PG 2-A >2 OZ < 4 OZ,4,,
+POSS CS PG 2 < 1G,3,,
+POSSESSION VOLATILE CHEMICAL,89,,
+PRAC MASSAGE THERAPY W/O LICEN,8,,
+PRESENCE OF PERSON <18 AT S.O.,2,,
+PROB. VIOL.,2,,
+PROMOTION OF PROSTITUTION W/ P,1,,
+RACING W/O A LICENSE (DOG/HORS,8,,
+RACING WITHOUT LICENSE (DOG/HO,8,,
+REC PROP-CRED CARD ABUSE,1,,
+REFUSE TO ALLOW SEARCH/STOP VE,2,,
+REQUEST NUDITY AT SEXUALLY ORI,21,,
+SELL/POSS UNLAB RCD>7RCRD W/I,2,,
+SPEEDING 15MPH OR OVER POSTED,2,,
+STP/PRK ON BRIDGE 6701D 95,1,,
+TAKE WILDLIFE RESOURCES W/O CO,3,,
+TAMP GOV REC LIC/SEAL/DEFR/HRM,1,,
+TAMP GOVT/SCL REC LIC/SEAL/PER,1,,
+TAMPER W/GOVERNMENT RECORD,2,,
+TAMPER/FABRICATE PHYSICAL EVID,2,,
+TAMPERING WITH A WITNESS ENHAN,1,,
+THEFT - AGGREGATE $1500 - $20K,375,,
+THEFT FROM PERSON 12.44B,1,,
+THEFT SERVICE $500-$1500 RENT,16,,
+THFT METAL ALUM/BRNZE/COPPER/B,2,,
+TRADEMARK COUNTERFEIT >$100K <,1,,
+"TRADEMARK COUNTERFEITING >200,",1,,
+TURNED LEFT FROM WRONG LANE,2,,
+VEHICLE TOWING VIO KNOW/INTENT,4,,
+VIOL OF MOTOR FUEL TAX REQUIRE,1,,
+VIOLATE DRIVERS LICENSE RESTRI,6,,
+DWI 1ST OFFENDER BAC>=0.1,,Alcohol - Driving,DWI 1ST
+DWI 2ND OFFENDER BAC>=0.1,,Alcohol - Driving,DWI 2ND
+INTOXICATED ASSLT W/VEH S,,Alcohol - Driving,Intoxicated Assault
+POSS ALCOHOLIC BEV IN MOT,,Alcohol - Driving,Open Container
+DWI W / CHILD PASSENGER,,Alcohol - Driving,
+DWI W / CHILD UNDER 15 YOA,,Alcohol - Driving,
+INTOXICATED ASSLT W / VEH SBI,,Alcohol - Driving,
+DWI / OPEN ALCOHOL CONTAINER,,Alcohol - Driving,
+POSS ALCOHOLIC BEV IN MOTOR VE,2,Alcohol - Other,
+CRUELTY NON-LIVESTOCK ANI,,Animal Violence,Animal Violence
+AGG ASSAULT W/DEADLY WEAP,,Assault - Nonsexual,Agg Assault
+ASSAULT-BOD INJ-PUB SERV/,,Assault - Nonsexual,Agg Assault
+INJ CHILD/ELD/DISABLE W/I,,Assault - Nonsexual,Agg Assault
+ASLT FAM/HOUSE MEM IMPED,,Assault - Nonsexual,Agg Assault - Family
+ASSAULT-BOD INJ-FAMILY ME,,Assault - Nonsexual,Assault - Family
+AGG ASSAULT W / DEADLY WEAPON,,Assault - Nonsexual,
+ASLT BY FAM / HOUSE MEM 2+ W / IN,,Assault - Nonsexual,
+ASLT FAM / HOUSE MEM IMPED BRTH /,,Assault - Nonsexual,
+ASSAULT-BOD INJ-PUB SERV / RETAL,,Assault - Nonsexual,
+ASSLT INT / RCK / IMP / BRTH / CIRC / PR,,Assault - Nonsexual,
+ILUM AIRCRAFT W / LASER POINT IM,,Assault - Nonsexual,
+CRIM SOLICITATION AGG ROBBERY,1,Assault - Nonsexual,Robbery
+ASSLT FAM / HOUSEHOLD MEM W / PREV,,Assault - Nonsexual,Assault - Family
+BURG W-INTENT-COMMIT OTHE,,Burglary,Burglary
+BURG OF BUILDING W / I TO COMMIT THEF,,Burglary,
+ONLINE SOLICITATION OF MI,,Child Sex Crime,Soliciting - Child
+CONTINUE SEX AB / CHILD,,Child Sex Crime,
+IMPROPER / PHOTOG / VISUAL RECORDI,,Child Sex Crime,
+POSS MARIJ<=2OZ DRUG FREE,,Controlled Substances - Marijuana,CS Delivery Marijuana S
+POSS MARIJ 4 OZ. - 5 LBS,,Controlled Substances - Marijuana,CS Possession Marijuana S
+DEL MARIJ 1 / 4 OZ - 5 LBS,,Controlled Substances - Marijuana,
+POSS MARIHUANA UNDER 2 OZ (HSC),,Controlled Substances - Marijuana,
+POSS MARIJ 4 OZ. - 5 LBS.,,Controlled Substances - Marijuana,
+POSS MARIJ 5 - 50 LBS.,,Controlled Substances - Marijuana,
+POSS WIM/D GP I CS-400G M,,Controlled Substances - Other,CS Delivery PG1 L
+MAN/DEL CS PG I 4-200 GRA,,Controlled Substances - Other,CS Delivery PG1/1A
+POSS W/INT DEL CS PG1>=4,,Controlled Substances - Other,CS Delivery PG1/1A
+POSS CS NOT IN PG,,Controlled Substances - Other,CS Other
+POSS DRUG PARAPHERNALIA,,Controlled Substances - Other,CS Paraphernalia
+POSS CS PG 1 1 - 4 GRAMS,,Controlled Substances - Other,CS Possession PG1
+POSS GP 3 CS- 400 G OR MO,,Controlled Substances - Other,CS Possession PG3/4
+FRAUD POSS CS/PRESCRIPT S,,Controlled Substances - Other,CS Prescription
+ATT POSSESSION COCAINE 1,,Controlled Substances - Other,
+FRAUD INTENT OBTAIN CS SCH III / IV,,Controlled Substances - Other,
+FRAUD POSS CS / PRESCRIPT SCH III / IV,,Controlled Substances - Other,
+MAN / DEL CS PG I <1GRAM,,Controlled Substances - Other,
+MAN / DEL CS PG I 1-4 GRAMS,,Controlled Substances - Other,
+MAN / DEL CS PG I 200-400 GRAMS,,Controlled Substances - Other,
+MAN / DEL CS PG I 4-200 GRAMS,,Controlled Substances - Other,
+MAN / DEL CS PG I OVER 400 GRAMS,,Controlled Substances - Other,
+MAN / DEL CS PG II 4-400 GRAMS,,Controlled Substances - Other,
+MAN / DEL CS PG III / IV OVER 400,,Controlled Substances - Other,
+MAN / DEL SIM CS-MISLEAD PERS,,Controlled Substances - Other,
+P / W INT DEL COC 28-LT200G CRA,,Controlled Substances - Other,
+POSS CS PG 2-A < 2OZ,,Controlled Substances - Other,
+POSS W / INT DEL CS PG1 1G <4 GR,,Controlled Substances - Other,
+POSS W / INT DEL CS PG1>=4 <200,,Controlled Substances - Other,
+POSS WIM / D GP I CS-400G MORE,,Controlled Substances - Other,
+DISPENSE W-O PRESCRIPTION-II,8,Controlled Substances - Other,CS Prescription
+ATT POSS FRAUD PRESCP,7,Controlled Substances - Other,CS Prescription
+DISPENSE W-O PRESCRIP-III-IV,7,Controlled Substances - Other,CS Prescription
+FAILURE KEEP NARC SALES,7,Controlled Substances - Other,
+ATT ILL. EXPENDITURE/INVSTMT.,6,Controlled Substances - Other,
+"ENGA/IN ORG CRIME/ACCT ""NARC""",6,Controlled Substances - Other,
+ATT ILLEGAL INVESTMENT,5,Controlled Substances - Other,
+ATT OBTAIN DRUGS BY FRAUD SH I,4,Controlled Substances - Other,CS Prescription
+PASSING FORGED PRESCRIPTION,4,Controlled Substances - Other,CS Prescription
+POSS ANHYDROUS AMMONIA,4,Controlled Substances - Other,
+ATT POSS. HYDROCODENE,3,Controlled Substances - Other,
+ATT TO POSS CS BY FRAUD SCH 1/,2,Controlled Substances - Other,
+FRAUD INT OBTAIN CONT SUB SCH,2,Controlled Substances - Other,CS Prescription
+FRAUD POSS CS/PRESCRIPT SCH II,2,Controlled Substances - Other,CS Prescription
+INTRO C/SUBSTANCE PENAL INST,2,Controlled Substances - Other,
+ATT POSS PROH SUB CORR FACILIT,1,Controlled Substances - Other,
+ATT UNLAW TRANS/REC CHEM PRECU,1,Controlled Substances - Other,
+CRIMINAL CONSP POSS CONT SUB.,1,Controlled Substances - Other,
+DISPENSE DRUG NON-MED PURPOSE,1,Controlled Substances - Other,
+DISPENSE REFILL-II,1,Controlled Substances - Other,
+DIVERT CON SUBSTANCE PERSONAL,1,Controlled Substances - Other,
+DIVERT CS FOR ANOTHER PERSONS,1,Controlled Substances - Other,
+GIVE ALCOHOL-NARC TO PRISONER,1,Controlled Substances - Other,
+REFILLING PRESCRIPTION W/O AUT,1,Controlled Substances - Other,
+SELL ABU GLUE/PNT-MINOR W/O PR,1,Controlled Substances - Other,
+UNAUT COMMUNICATION OF PRESCRI,1,Controlled Substances - Other,
+CHILD SUPPORT VIOLATION,,Crime Against Children,Child Custody
+VIO CONTIN OBLIG BY CHILD,,Crime Against Children,Child Custody
+ABAN/ENDANG CHILD W/INT T,,Crime Against Children,Endangering Child
+PARENT CONTRIBUTING TO TR,,Crime Against Children,Endangering Child
+UNRESTRAINED CHILD UNDER,,Crime Against Children,Endangering Child
+UNSEC CHILD UND 17/TALLER,,Crime Against Children,Endangering Child
+UNSEC CHILD UND 8/LESS TH,,Crime Against Children,Endangering Child
+INJURY CHILD UNDER 15 B/I,,Crime Against Children,Injury to Child
+INJURY CHILD-RECK-MENT IN,,Crime Against Children,Injury to Child
+ABAN / ENDANG CHILD W / INT TO RET,,Crime Against Children,
+ENTICING CHIL W / INT FELONY,,Crime Against Children,
+INJURY CHILD UNDER 15 B / INJURY,,Crime Against Children,
+EMPLOYMENT-HARM TO MINORS,5,Crime Against Children,
+DIS CONDUCT FIGHT,,Disorderly Conduct,Disorderly Conduct
+DIS CON UNRES NOISE PRI R,,Disorderly Conduct,Public Nuisance
+EVAD ARREST/DETENTION W/P,,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADE ARREST W/MOTOR VEHI,,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVADING ARREST-MOTOR VEHI,,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+OUT OF STATE - FUGITIVE,,Evading/Resisting/Escaping,Evading/Resisting/Escaping
+EVAD ARREST / DETENTION W / PREV CONV,,Evading/Resisting/Escaping,
+EVADE ARREST W / MOTOR VEHICLE,,Evading/Resisting/Escaping,
+EVADING ARREST / DETENTION,,Evading/Resisting/Escaping,
+EVADING ARREST / DETENTION W / VEHICLE,,Evading/Resisting/Escaping,
+FUGITIVE - IN STATE - FELONY,,Evading/Resisting/Escaping,
+FUGITIVE - OUT OF STATE,,Evading/Resisting/Escaping,
+ATT ESCAPE IMPLEMENTS,8,Evading/Resisting/Escaping,
+ATT ESCAPE-PENAL INSTIT,8,Evading/Resisting/Escaping,
+RETALITAION AGNST/EASE OFFICER,7,Evading/Resisting/Escaping,
+ATT ESCAPE IMPL-DEADLY WPN,3,Evading/Resisting/Escaping,
+ATT ESCAPE-DEADLY WPN,2,Evading/Resisting/Escaping,
+CONSP ESCAPE IMPLEMENTS,2,Evading/Resisting/Escaping,
+CONSP PERM ESCAPE-FEL,2,Evading/Resisting/Escaping,
+PERMIT ESCAPE-FEL,2,Evading/Resisting/Escaping,
+ATTEMPTED EVADING ARREST,1,Evading/Resisting/Escaping,
+CONSP ESCAPE-FEL,1,Evading/Resisting/Escaping,
+ESCAPE IMPLEMENTS-DEADLY WPN,1,Evading/Resisting/Escaping,
+ESCAPE-SBI-THREAT OF D/WPN,1,Evading/Resisting/Escaping,
+ATT CRED CARD ABUSE-SELLE,,Fraud/Forgery/Impersonation,Credit Card Fraud
+DISPLAY FICTITIOUS LICENS,,Fraud/Forgery/Impersonation,Forgery
+FRAUD INTENT OBTAIN CS SC,,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+SEC EXEC DOC BY DECEPT>=$,,Fraud/Forgery/Impersonation,Fraud/Forgery/Impersonation
+ILLEGAL USE OF BUYER'S TA,,Fraud/Forgery/Impersonation,Tax Evasion
+CREDIT / DEBIT CARD ABUSE,,Fraud/Forgery/Impersonation,
+CREDIT CARD / DEBT CARD ABUSE EL,,Fraud/Forgery/Impersonation,
+DISP.FICT / CNTRFIT / INSP / CERT / IN,,Fraud/Forgery/Impersonation,
+DISPLAY FICITIOUS LICENSE PLATE,,Fraud/Forgery/Impersonation,
+FAIL TO ID TO P.O. FALSE INF / F,,Fraud/Forgery/Impersonation,
+FICT. DL / CERT / ID,,Fraud/Forgery/Impersonation,
+ALTERED DRIVERS LICENSE,9,Fraud/Forgery/Impersonation,
+DECEPTIVE TRADE PRACTICE,9,Fraud/Forgery/Impersonation,
+DL/ID-FICTIOUS-DISP TO ANOTHER,9,Fraud/Forgery/Impersonation,
+POSS FORGED COMM DOCUMENT,9,Fraud/Forgery/Impersonation,
+SEC EXEC DOC BY DECEPT>=$20<$5,9,Fraud/Forgery/Impersonation,
+ATT FALSE STMT. TO OBTAIN CRED,8,Fraud/Forgery/Impersonation,
+FALSE CERTIFICATION-APPLICANT,8,Fraud/Forgery/Impersonation,
+FALSE INFO TO OBTAIN CREDIT,8,Fraud/Forgery/Impersonation,
+STATE WELFARE VIOLATION,8,Fraud/Forgery/Impersonation,
+UNAUTH POSS/USE FOOD STAMPS <$,8,Fraud/Forgery/Impersonation,
+WORKERS COMP VIOL,8,Fraud/Forgery/Impersonation,
+HINDERING SECURED CREDITORS,7,Fraud/Forgery/Impersonation,
+LOTTERY ACT VIO-AID/CLM/PRIZE,7,Fraud/Forgery/Impersonation,
+LOTTERY ACT VIO-FORGE/ACT,7,Fraud/Forgery/Impersonation,
+ALTER/FORGE LOTT TICK <$10K,6,Fraud/Forgery/Impersonation,
+ATT IMPERSON PUBLIC SERVANT,6,Fraud/Forgery/Impersonation,
+ATT PASS FORGED COMM DOCUMENT,6,Fraud/Forgery/Impersonation,
+ATT TAMPER W/GOVT RECORD,6,Fraud/Forgery/Impersonation,
+DL/ID-POSS MORE THAN ONE VALID,6,Fraud/Forgery/Impersonation,
+FORGERY-DEFRAUD OR HARM ELDERL,6,Fraud/Forgery/Impersonation,
+FRAUD USE SELLER-CRED CARD,6,Fraud/Forgery/Impersonation,
+ATT PASS FORGED GOVT INSTR,5,Fraud/Forgery/Impersonation,
+ATT TAMPER WITH ID NO.,5,Fraud/Forgery/Impersonation,
+ATTEMPT LOTTERY FRAUD,5,Fraud/Forgery/Impersonation,
+UNLAWFUL TRANSFER FOOD STAMP,5,Fraud/Forgery/Impersonation,
+ATT MANUF CRIM INSTR-FORGERY,4,Fraud/Forgery/Impersonation,
+CREDIT CARD LAUNDER-VENDOR,4,Fraud/Forgery/Impersonation,
+FALSE INFO TO-BY CREDIT BUREAU,4,Fraud/Forgery/Impersonation,
+FALSE STMT. CERT/RECORD OR REP,4,Fraud/Forgery/Impersonation,
+IMPERSONATE A CHIROPRACTOR,4,Fraud/Forgery/Impersonation,
+"MISAPP/FIDUC/FINAN/ELD 20,000-",4,Fraud/Forgery/Impersonation,
+POSSESSION OF DECEPTIVE DL/ID,4,Fraud/Forgery/Impersonation,
+REC STOLEN CRED CARD,4,Fraud/Forgery/Impersonation,
+SIMULATED OBJ-SELL,4,Fraud/Forgery/Impersonation,
+ATT PASS FORGED CHECK,3,Fraud/Forgery/Impersonation,
+ATT SELL CRIM SIMLTD OBJ,3,Fraud/Forgery/Impersonation,
+ATT VIOL PRIV INV/SEC ACT,3,Fraud/Forgery/Impersonation,
+BUY STOLEN CRED CARD,3,Fraud/Forgery/Impersonation,
+CONSP FORGE COMM DOCUMENT,3,Fraud/Forgery/Impersonation,
+FALSIFYING TAX FORMS,3,Fraud/Forgery/Impersonation,
+FRAUD/DEL PRESC NOT MED SCH 3/,3,Fraud/Forgery/Impersonation,
+LOTTERY-INFL SEL OF WINNER <$1,3,Fraud/Forgery/Impersonation,
+MISAPP/FIDUC/FINAN $20-500,3,Fraud/Forgery/Impersonation,
+ALTER/FORGE LOTT TICK >$10K,2,Fraud/Forgery/Impersonation,
+ASSUMED NAME VIOLATION,2,Fraud/Forgery/Impersonation,
+ATT DECEIVE EXEC DOCUMENT,2,Fraud/Forgery/Impersonation,
+ATTEMPT INSUR FRAUD DEATH/SBI,2,Fraud/Forgery/Impersonation,
+CONSP FORGE GOVT INSTRUMENT,2,Fraud/Forgery/Impersonation,
+CONSP MISUSE CRED CARD-EXP,2,Fraud/Forgery/Impersonation,
+CONSP PRESENT CRED CARD-EXP,2,Fraud/Forgery/Impersonation,
+DEBIT CARD ABUSE-POSSESSION,2,Fraud/Forgery/Impersonation,
+FRAUDLENT LIEN/CLAIM REF. RELE,2,Fraud/Forgery/Impersonation,
+HIND SEC CRED >=100K <200K,2,Fraud/Forgery/Impersonation,
+"INSURANCE FRAUD >200,000",2,Fraud/Forgery/Impersonation,
+LOTT-FALSE STATEMENT,2,Fraud/Forgery/Impersonation,
+MAKE/PROVIDE/POSS PEACE OFF ID,2,Fraud/Forgery/Impersonation,
+"MISAPP/FIDUC/FINAN OVER 200,00",2,Fraud/Forgery/Impersonation,
+POSS. FICTITIOUS POLICE DEPT.,2,Fraud/Forgery/Impersonation,
+SELL STOLEN CRED CARD,2,Fraud/Forgery/Impersonation,
+SIMLTD OBJ-FLS CERTIF,2,Fraud/Forgery/Impersonation,
+SIMULATED OBJ-POSS TO SELL,2,Fraud/Forgery/Impersonation,
+ANTI-TRUST VIOLATION,1,Fraud/Forgery/Impersonation,
+ATT BUY STOLEN CRED CARD,1,Fraud/Forgery/Impersonation,
+ATT DEST-CONCEAL WRITING,1,Fraud/Forgery/Impersonation,
+ATT FALSE STATEMENT TO OBT CRE,1,Fraud/Forgery/Impersonation,
+ATT FALSELY HLD ONESELF AS ATT,1,Fraud/Forgery/Impersonation,
+ATT FRAUD/DESTR - PRICE TAG,1,Fraud/Forgery/Impersonation,
+ATT ILL USE/ALT/TRSNF FOOD STA,1,Fraud/Forgery/Impersonation,
+ATT MAKE CRIM SIMLTD OBJ,1,Fraud/Forgery/Impersonation,
+ATT SELL STOLEN CRED CARD,1,Fraud/Forgery/Impersonation,
+ATTEMPT TAMPER W/ODOMETER,1,Fraud/Forgery/Impersonation,
+CONSP FORGE CHECK,1,Fraud/Forgery/Impersonation,
+CONSP MANUF CR INST-FORGERY,1,Fraud/Forgery/Impersonation,
+CONSP USE CRED CARD-FICT NR,1,Fraud/Forgery/Impersonation,
+COUNTERFEIT TAX STAMPS,1,Fraud/Forgery/Impersonation,
+CRED CARD-CANNOT PAY,1,Fraud/Forgery/Impersonation,
+DEBIT CARD-PRESENT/USE EXPIRED,1,Fraud/Forgery/Impersonation,
+DECEP CAUSE PERSON SGN/EXC DOC,1,Fraud/Forgery/Impersonation,
+"DEST-CONCEAL WILL,DEED ETC",1,Fraud/Forgery/Impersonation,
+ELECTION LAWS,1,Fraud/Forgery/Impersonation,
+EMBEZZLE-BANKING-TYPE-INST,1,Fraud/Forgery/Impersonation,
+FAIL TO PAY TAXES $10K < $20K,1,Fraud/Forgery/Impersonation,
+FIDUCIARY MISAPP,1,Fraud/Forgery/Impersonation,
+FORGERY ON TITLE DOCUMENT,1,Fraud/Forgery/Impersonation,
+FRAUD - PUBLIC ASSISTANCE,1,Fraud/Forgery/Impersonation,
+"FRAUD OBT/W/COMP INS COVER<$1,",1,Fraud/Forgery/Impersonation,
+FRAUD OBT/W/COMP INS COVER=>$1,1,Fraud/Forgery/Impersonation,
+FRAUD REC MONEY-FAILING INST,1,Fraud/Forgery/Impersonation,
+FRAUD RECORD KEEP PHARMACIST,1,Fraud/Forgery/Impersonation,
+FRAUD TRANS MTR VEH >$20K,1,Fraud/Forgery/Impersonation,
+FRAUD/SUBSTANDARD/FICTICOUS DE,1,Fraud/Forgery/Impersonation,
+FRD FINANCE STATE FALSE/GRNDLE,1,Fraud/Forgery/Impersonation,
+HIND SEC CRED >=500 <1500,1,Fraud/Forgery/Impersonation,
+HIND SEC CRED PROC >200<1500,1,Fraud/Forgery/Impersonation,
+IDENTITY THEFT B/ELECT DEVICE,1,Fraud/Forgery/Impersonation,
+ILL-USE LICENSE OF ANOTHER,1,Fraud/Forgery/Impersonation,
+LOTTERY ACT VIOL - SELL TICKET,1,Fraud/Forgery/Impersonation,
+"MEDICAID FRAUD 20,000 - 100,00",1,Fraud/Forgery/Impersonation,
+MISREPRESENTATION OF AGE BY MI,1,Fraud/Forgery/Impersonation,
+POSS FORGED BIRTH CERTIFICATE,1,Fraud/Forgery/Impersonation,
+POSSESSION OF FORGED INSTRUMEN,1,Fraud/Forgery/Impersonation,
+PURPORTS TO ACT AS VOTER AGENT,1,Fraud/Forgery/Impersonation,
+RIG PUBLIC CONTEST,1,Fraud/Forgery/Impersonation,
+SECURE EXECUTION DECEPTION ELD,1,Fraud/Forgery/Impersonation,
+SOL/FALSE STATE CHAR DONATION,1,Fraud/Forgery/Impersonation,
+TRADEMARK COUNTERFEITING_< $20,1,Fraud/Forgery/Impersonation,
+VIOL CONSTRUCTION TRUST FUND,1,Fraud/Forgery/Impersonation,
+WORKERS COMP VIOL <$750,1,Fraud/Forgery/Impersonation,
+HARASSMENT OF PUBLIC SERV,,Harassment/Stalking,Harassment-Stalking
+VIOL. OF PROTECTIVE ORDER,,Harassment/Stalking,Violation of Protective Order
+VIOLATION PROTECTIVE ORDE,,Harassment/Stalking,Violation of Protective Order
+ATTEMPT HARASSMENT,6,Harassment/Stalking,
+ONLINE HAR-NAME/PERSONA CREATE,5,Harassment/Stalking,
+HARASSMENT,2,Harassment/Stalking,
+RUDELY ACCOSTING FEMALE,2,Harassment/Stalking,
+TRESPASS VIOL COURT ORDER,2,Harassment/Stalking,
+VIOL BOND/PROT ORDER W/2 PREV,1,Harassment/Stalking,
+ATT UNLAW RESTRAINT RISK/SBI,7,Kidnapping,
+BURG W-INTENT KIDNAP,2,Kidnapping,
+CONSP COMMIT KIDNAPPING,1,Kidnapping,
+SMUGGLING OF PERSONS:  SBI OR,1,Kidnapping,
+INTERSTATE COMPACT AGREEM,,Licensing,Licensing
+POSS/PUR/CONS/REC TOBACCO,,Licensing,Licensing
+FAIL TO STOP RENDER ASSI,,Low Level Crime,Low Level Crime
+FAILURE OR REFUSAL TO PAY,,Low Level Crime,Low Level Crime
+FAILURE TO ATTEND SCHOOL,,Low Level Crime,Low Level Crime
+INTERFERE DUTIES PUB SERV,,Low Level Crime,Low Level Crime
+SPEEDING IN A SCHOOL ZONE,,Low Level Crime,Low Level Crime
+UNLAW USE OF CRIMINAL INS,,Low Level Crime,Low Level Crime
+FAILURE TO APPEAR,,Obstructing,Obstructing - Failure to appear
+FAILURE TO APPEAR IN COUR,,Obstructing,Obstructing - Failure to appear
+VIOLAT PROMISE TO APPEAR,,Obstructing,Obstructing - Failure to appear
+VIOLATE PROMISE TO APPEAR,,Obstructing,Obstructing - Failure to appear
+FAIL IDENT TO P-O-FUGITIV,,Obstructing,Obstructing - Failure to identify
+FAIL TO ID TO P.O. FALSE,,Obstructing,Obstructing - Failure to identify
+FALSE STATEMENT TO OBTAIN,,Obstructing,Obstructing - False Alarm/Report
+ATT BRIBE PUBLIC SERVANT-GIVE,9,Obstructing,
+ATT TAMPER WITH WITNESS,9,Obstructing,
+ATT BRIBERY-COMMERCIAL,7,Obstructing,
+ATT FALSE STATEMENT (RACE TRAC,7,Obstructing,
+ATTEMPT DISARM WEAPON FROM P/O,7,Obstructing,
+FAIL ID AS WITNESS TO POLICE,6,Obstructing,
+FAIL TO DISPLAY COURT ORDER,6,Obstructing,
+OBSTRUCT,6,Obstructing,
+TAMP.FABRICATE PYH.EVID.HUM.RE,6,Obstructing,
+ATT BRIBE PUBLIC SERVANT-OFFER,5,Obstructing,
+ATT INTERF W/EMERG TELEP CALL,5,Obstructing,
+CONTEMPT OF COURT,5,Obstructing,
+ATT BRIBERY,4,Obstructing,
+FABRICATE PHYSICAL EVIDENCE,4,Obstructing,
+FAILURE TO APPEAR IN COURT,3,Obstructing,
+FALS NAME WHL WITNS/ CRM PROSE,3,Obstructing,
+REMOVAL OF GOVERNMENT RECORD,3,Obstructing,
+WITNESS BENEFIT FROM TAMPERING,3,Obstructing,
+ATT COMMERCIAL BRIBE,2,Obstructing,
+FABRICATING EVIDENCE,2,Obstructing,
+FAIL TO REPORT DEATH,2,Obstructing,
+FAIL TO REPT INJ/ACC AT ONCE,2,Obstructing,
+FAIL/ALLOW INSPECTION OF RECOR,2,Obstructing,
+INJ OR INTERFERE PO SUPV ANIM,2,Obstructing,
+INTERFERRING WITH TABC OFFICER,2,Obstructing,
+OBSTRUCT POLICE,2,Obstructing,
+PREVENTING EXECUTION CIVIL PRO,2,Obstructing,
+REFUSE TO SURRENDER DL/ID,2,Obstructing,
+RETAL/AGAINST A CRT PARTICIP,2,Obstructing,
+TAMPER W/WITNESS/OFFER TO A WI,2,Obstructing,
+CONSP COMMERCIAL BRIBE,1,Obstructing,
+INTER W/POLICE SERVICE ANIMAL,1,Obstructing,
+INTERFERRING WITH A FIREMAN,1,Obstructing,
+OBEDIENCE REQU TO P.O.,1,Obstructing,
+SOLICIT BRIBE-PUBLIC SERVANT,1,Obstructing,
+SUBORNATION OF PERJURY,1,Obstructing,
+TAMPERING WITH A WITNESS,1,Obstructing,
+VOTER ACCEPTING BRIBE,1,Obstructing,
+TAMPER / FABRICATE EVIDENCE,,Obstructing,
+ENGAGING IN ORG CRIM ACTI,,Organized Crime,Organized Crime
+BENCH WARRANT,,Procedure,Procedure
+FEDERAL PRISONER (HOLD FO,,Procedure,Procedure
+MOTION TO REVOKE PAROLE,,Procedure,Procedure
+PROSTITUTION - NON PUBLIC,,Prostitution,Prostitution
+PROSTITUTION - PUBLIC OFF,,Prostitution,Prostitution
+VIOL SEXUALLY ORIENTED EN,,Prostitution,Prostitution
+PROSTITUTION - NON PUBLIC OFFER,,Prostitution,
+PROSTITUTION WITH 3 OR MORE PRIORS,,Prostitution,
+COMPEL PROST BY FORCE/THREAT/F,3,Sexual Assault,
+IMPROPER CONTACT WITH VICTIM,2,Sexual Assault,
+ATT COMPL PROSTITUTION-FORCE,1,Sexual Assault,
+CIVIL RIGHTS VIOL SEXUAL,1,Sexual Assault,
+CONSP COMPEL PROST-FORCE,1,Sexual Assault,
+TOUCHING,1,Sexual Assault,
+IMPROPER/PHOTOG/VISUAL RE,,Sexual Non-Assault,Obscene Material
+OBSC DISTRIBUTION,6,Sexual Non-Assault,
+PUB LEWDNESS-ANIMAL,5,Sexual Non-Assault,
+OBSC COMMERCIAL THEATER,4,Sexual Non-Assault,
+OBSC/POSS/PRO/MAT/CORP,4,Sexual Non-Assault,
+OBSCN/POSS/OBSCN/MAT/WHOL/PRO,4,Sexual Non-Assault,
+INCEST-ADULT 12.44A,3,Sexual Non-Assault,
+LEWD DANCING,3,Sexual Non-Assault,
+OBSC/PROM/MAT/CORP,3,Sexual Non-Assault,
+OBSCN/WHOL/PROM OF OBSCENE DEV,2,Sexual Non-Assault,
+OBSC COMMERCIAL DIST,1,Sexual Non-Assault,
+ORGANIZED RETAIL THEFT <$,,Theft,Theft
+THFT MATERIAL ALUM/BRNZ/C,,Theft,Theft
+ATT UNAUTH USE OF MOTOR V,,Theft,Theft - Unauth Use of Vehicle
+THEFT OF SERVICE $1500-20,,Theft,Theft F3 - Service
+THEFT - AGGREGATE $1500 -,,Theft,Theft FS/F3
+THEFT OF SERVICE UNDER $2,,Theft,Theft MA - Service
+THEFT >=$100<$750,,Theft,Theft MB
+THEFT OF SERVICE $500-150,,Theft,Theft MB - Service
+THEFT UNDER $50 (UNDER $2,,Theft,Theft MC
+ORGANIZED RETAIL THEFT >$1500 <$20K,,Theft,
+THEFT $100 - $750,,Theft,
+"THEFT AGGREGATE =>$2,500<=$30K 1CW",,Theft,
+THEFT-THIRD OFFENDER,,Theft,
+THFT MATERIAL ALUM / BRNZ / COPPR / BRASS,,Theft,
+THEFT - AGGREGATE $1500 - $20K,,Theft,
+CONSP THEFT >=$1500 <$20K,7,Theft,
+POSS OF POLICE PARAPHENALIA,7,Theft,
+SHOPLIFTING 3RD OFFENDER,7,Theft,
+LARC,6,Theft,
+EXTORT,5,Theft,
+CONSP THEFT $0 - #20,4,Theft,
+CONSP THEFT-$200-10000,4,Theft,
+CONSPIR COMMIT UUMV,4,Theft,
+ATT POSS UNLAW TELECOMM SRVCS>,3,Theft,
+CONSP THEFT-$200-10000-VEH,3,Theft,
+STOLEN PROP,3,Theft,
+UNAUTH RECORDING IN THEATER,3,Theft,
+UNAUTH USE OF CABLE TELEVISION,3,Theft,
+ATT POSS UNLAW TELECOMM DEVICE,2,Theft,
+CONSP THEFT-OVER $10000,2,Theft,
+THREAT-PROP,2,Theft,
+ATT STEAL CRED CARD,1,Theft,
+CONSP THEFT $20-$200,1,Theft,
+CONSP THEFT $750-$20000,1,Theft,
+CONSP THEFT TRADE SECRET,1,Theft,
+NON-PAYMENT ON TIMBER CONTRACT,1,Theft,
+SOLICIT-COMMIT FELONY THEFT,1,Theft,
+STOLEN VEHICLE,1,Theft,
+THREAT-FALSE INFO,1,Theft,
+THEFT 2500-30K,,Theft,
+DEFECT/IMPROP EXHAUST SYS,,Traffic Offense,Traffic Offense
+DISGARD FLASHING RED LIGH,,Traffic Offense,Traffic Offense
+DISREG TRAFFIC CONTROL DE,,Traffic Offense,Traffic Offense
+DROVE WITHOUT LIGHTS WHEN,,Traffic Offense,Traffic Offense
+DROVE WRONG SIDE OF ROAD,,Traffic Offense,Traffic Offense
+FAIL STOP DESIG POINT/STO,,Traffic Offense,Traffic Offense
+FAIL TO CHANGE ADDRESS OF,,Traffic Offense,Traffic Offense
+FAIL TO SIGNAL LANE CHANG,,Traffic Offense,Traffic Offense
+FAIL TO YIELD AT INTERSEC,,Traffic Offense,Traffic Offense
+FAILURE TO DRIVE IN SINGL,,Traffic Offense,Traffic Offense
+NO SEAT BELT-PASSENGER,,Traffic Offense,Traffic Offense
+NO STOP LIGHTS,,Traffic Offense,Traffic Offense
+PARKED ON BRIDGE OR IN TU,,Traffic Offense,Traffic Offense
+TIRE VIOLATION COMMERCIAL,,Traffic Offense,Traffic Offense
+TURN OPPOSITE DIR CURVE/G,,Traffic Offense,Traffic Offense
+TURNED LEFT FROM WRONG LA,,Traffic Offense,Traffic Offense
+EXPIRED INSPECTION CERTIF,,Traffic Offense,Traffic Offense
+EXPIRED LICENSE PLATES ON,,Traffic Offense,Traffic Offense
+OPERATE UNREGISTERED MOTO,,Traffic Offense,Traffic Offense
+DISP.FICT/CNTRFIT/INSP/CE,,Traffic Offense,Traffic Offense
+OPER OF VEH W/O LIC PLT O,,Traffic Offense,Traffic Offense
+FAILURE TO GIVE INFO-LAND,,Traffic Offense,Traffic Offense - Hit and Run
+FAILURE TO STOP & GIVE IN,,Traffic Offense,Traffic Offense - Hit and Run
+FAIL TO MAINT FINAN RESP-,,Traffic Offense,Traffic Offense - No Insurance
+FAILURE MAINTAIN FINANCIA,,Traffic Offense,Traffic Offense - No Insurance
+FORGERY GOVT FINANCIAL IN,,Traffic Offense,Traffic Offense - No Insurance
+NO LIABILITY INS,,Traffic Offense,Traffic Offense - No Insurance
+DRIVERS LICENSE VIOLATION,,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LIC SUSPEND,,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LIC. SUSP./,,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LICENSE INV,,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LICENSE SUS,,Traffic Offense,Traffic Offense - No License
+DRV W/LIC INV W/PR CN/SUS,,Traffic Offense,Traffic Offense - No License
+NO DRIVER LICENSE ON DEMA,,Traffic Offense,Traffic Offense - No License
+NO DRIVER'S LICENSE,,Traffic Offense,Traffic Offense - No License
+NO MOTOR CYCLE LICENSE,,Traffic Offense,Traffic Offense - No License
+NO MOTORCYCLE LICENSE,,Traffic Offense,Traffic Offense - No License
+NO OPERATORS LICENSE ON D,,Traffic Offense,Traffic Offense - No License
+DRIVING WHILE LIC. SUSP. / ENHAN,,Traffic Offense,
+DRV W / LIC INV W / PR CN / SUS / W / O,,Traffic Offense,
+FAIL TO STOP RENDER ASSIST,,Traffic Offense,
+ACCIDENT INVOLVING INJURY / DEAT,,Traffic Offense,Traffic Offense - Hit and Run
+DRIVING VIOL OF DRIV RESTRICTI,9,Traffic Offense,
+DISPLAY SUSPND DL,8,Traffic Offense,
+OPR CERTAIN MV ON/NEAR PUBLIC,8,Traffic Offense,
+FAIL STOP DESIG POINT/STOP SIG,7,Traffic Offense,
+FAILED TO YEILD TO EMERGENCY V,7,Traffic Offense,
+FOLLOWING TOO CLOSELY,7,Traffic Offense,
+COUNTERFEIT DISABLED PARK PLAC,6,Traffic Offense,
+INSPECT STICKER-DISPLAY FICT,6,Traffic Offense,
+SPINNING TIRES ON PAVEMENT,6,Traffic Offense,
+UNLICENSED MOTOR VEH/TITLE SER,6,Traffic Offense,
+DISPLAYED FICTITIOUS DRIVER LI,5,Traffic Offense,
+DRIVING WHILE LIC INVALID PRE/,5,Traffic Offense,
+FAIL TO SIGNAL LANE CHANGE,5,Traffic Offense,
+ALTER MVI STICKER,4,Traffic Offense,
+CERTIFICATE OF TITLE VIOL,4,Traffic Offense,
+DISPLACED FICITIOUS REGISTRATI,4,Traffic Offense,
+DRIVE WRONG SIDE ROAD - NO PAS,4,Traffic Offense,
+DRIVING ON SHOULDER,4,Traffic Offense,
+FAIL TO YEILD RIGHT OF WAY,4,Traffic Offense,
+ILLEGIBLE PLATES DISLAYED,4,Traffic Offense,
+PASSED WHEN UNSAFE,4,Traffic Offense,
+UNAUTH INSURANCE PROHIBITED,4,Traffic Offense,
+V/RES. B ACCOMP/BY LIC DRIV.OV,4,Traffic Offense,
+ATT DISP. FICT/INSP/CERTIF,3,Traffic Offense,
+DISP INSP CERT ISS OTHER VEH,3,Traffic Offense,
+DISPLAY FICITIOUS MTR VEH REGI,3,Traffic Offense,
+FAIL TO CHANGE ADDRESS OF DRIV,3,Traffic Offense,
+FAIL TO USE DESIGNATED LANE,3,Traffic Offense,
+FAILURE TO STOP AND GIVE REPT,3,Traffic Offense,
+FAILURE TO YEILD AT STOP INTER,3,Traffic Offense,
+IMPEDING TRAFFIC,3,Traffic Offense,
+OBSCUR/INTERFER TRAF CONT DEV,3,Traffic Offense,
+OPERATE UNREGISTERED MOTOR VEH,3,Traffic Offense,
+PASS WHEN UNSAFE,3,Traffic Offense,
+POSS/OPERATE SALVAGE MOTOR VEH,3,Traffic Offense,
+SPEEDING MOT DRIV CYCLE (OVER,3,Traffic Offense,
+TAMPER GOVT RECORD/LICENSE PLA,3,Traffic Offense,
+BLOCKING MOVING LANE OF TRAFFI,2,Traffic Offense,
+"CONTEST OF SPEED ""DRAG RACING""",2,Traffic Offense,
+DISPLAY EXPIRED TEXAS REGISTRA,2,Traffic Offense,
+DISPLAY SUSP DRIVER LICENSE,2,Traffic Offense,
+DL/ID-LEND/PERMIT USE BY OTHER,2,Traffic Offense,
+DRIVING NO PLATES,2,Traffic Offense,
+DRIVING WRONG WAY ON ONE WAY R,2,Traffic Offense,
+FAIL DISP LIC REC - COMM VEH,2,Traffic Offense,
+FAIL TO KEEP RCDS VEH REPAIRS,2,Traffic Offense,
+FAIL TO TIMELY FILE FINANCIAL,2,Traffic Offense,
+FALSE SWEARING ON DL APPLICATI,2,Traffic Offense,
+ILLEGAL DR LIC / PERS ID CERT,2,Traffic Offense,
+MOTOR VEHICLE INSPECTION VIOL,2,Traffic Offense,
+NO LICENSE PLATE LIGHT,2,Traffic Offense,
+NO TAIL LIGHT,2,Traffic Offense,
+NO TDL DISPLAY ON DEMAND 3RD O,2,Traffic Offense,
+PASSING EMERGENCY VEHICLE,2,Traffic Offense,
+SPEEDING IN AN URBAN DISTRICT,2,Traffic Offense,
+TAMP W/GOVN RECORD - M.V. TRAN,2,Traffic Offense,
+TAMPER WITH ODOMETER,2,Traffic Offense,
+TRAFFIC  MISDEMEANOR,2,Traffic Offense,
+TURN IN UNSAFE MANNER,2,Traffic Offense,
+"UNSAFE DRIV (TOO MANY, FRONT S",2,Traffic Offense,
+VIOLATE D.L. RESTRICTION CODE,2,Traffic Offense,
+ACCIDENT INVOL DAMAGE VEH >=$2,1,Traffic Offense,
+ALTER TEXAS DRIVERS LICENSE,1,Traffic Offense,
+ATT TO REMOVE LIC/TAG STICKER,1,Traffic Offense,
+CROSSING MEDIAN TO EXIT FREEWA,1,Traffic Offense,
+DEFACE TEXAS LICENSE PLATE,1,Traffic Offense,
+DEFECTIVE EQUIPMENT,1,Traffic Offense,
+DISGARD TO TRAFFIC CONTROL DEV,1,Traffic Offense,
+DISOBEY WARN SIGN/BARRICADE,1,Traffic Offense,
+DISP LIC PLT BELONG OTHER VEH,1,Traffic Offense,
+DISPLAY FICTITIOUS LICENSE PLA,1,Traffic Offense,
+DISREG NO LANE CHANGE SIGN,1,Traffic Offense,
+DISREGARD BARRICADE,1,Traffic Offense,
+DL/ID-FICTIOUS-UNLAWFUL DISP,1,Traffic Offense,
+DRV W/VIO FI RES ACCIDENT SBI/,1,Traffic Offense,
+"ENTER FREEWAY, UNAUTHORIZED AC",1,Traffic Offense,
+FAIL COMPLY STRIK UNATTEN VEH,1,Traffic Offense,
+FAIL COMPLY W/DUTY STRIKE UNAT,1,Traffic Offense,
+FAIL MAKE WRIT ACC REP TO DPS,1,Traffic Offense,
+FAIL TO CHGE VEHICLE REGISTRAT,1,Traffic Offense,
+FAIL TO OBTAIN LICENSE,1,Traffic Offense,
+FAIL TO REGISTER COMM VEH/TOW,1,Traffic Offense,
+FAIL TO SIGNAL FOR STOP,1,Traffic Offense,
+FAIL TO USE TURN INDICATOR,1,Traffic Offense,
+FAIL TO YIELD AT INTERSECTION,1,Traffic Offense,
+FAIL YLD ROW CHANGING LANES,1,Traffic Offense,
+FAIL YLD ROW PEDES/CROSSWALK,1,Traffic Offense,
+FAIL YLD TO VEH ENTER FROM HWY,1,Traffic Offense,
+FAIL/STOP @ DESIGN.POINT  6701,1,Traffic Offense,
+FAILURE OR REFUSAL TO PAY TOLL,1,Traffic Offense,
+FAILURE OR REFUSEING TO PAY TO,1,Traffic Offense,
+FAILURE TO EXIT WHEN SUPPOSED,1,Traffic Offense,
+FRAUDULENT EMISSIONS INSPECTIO,1,Traffic Offense,
+HEADLAMP(S) GLARING/NOT ADJUST,1,Traffic Offense,
+IMPROPER DISPLAY OF FRONT PLAT,1,Traffic Offense,
+IMPROPERLY PASS EMERGENCY VEHI,1,Traffic Offense,
+INADEQUATE BED(DEFECTIVE) LOOS,1,Traffic Offense,
+ISS INSP CERT W/KNOW NOT REPAI,1,Traffic Offense,
+ISSUE INSPEC W/O INSPEC VEH,1,Traffic Offense,
+LEAVE UNATT VEH W/O STOPPING E,1,Traffic Offense,
+NEGLIGENT  COLLISION,1,Traffic Offense,
+NO CHAUFFEUR'S LIC WHEN REQ,1,Traffic Offense,
+NO COM. D L COM MOT VEH SAFETY,1,Traffic Offense,
+NO LIABILITY INSURANCE (2ND),1,Traffic Offense,
+NO LICENSE PLATE ON TRAILER,1,Traffic Offense,
+NO MOTOR CYCLE HELMET,1,Traffic Offense,
+NO RACING COMMISSION LICENSE,1,Traffic Offense,
+NO/IMPR DISPLAY OF IDENTIFY NU,1,Traffic Offense,
+OBSTR VIEW WINDSHIELD NOT PASS,1,Traffic Offense,
+OBSTRUCTING RAILROAD CROSSING,1,Traffic Offense,
+OPER OF VEH W/O LIC PLT OR REG,1,Traffic Offense,
+OPER OF VEHICLE WITH WRONG REG,1,Traffic Offense,
+OPERATING UNREGISTERED MOTOR V,1,Traffic Offense,
+OPPER. MOTOR VEH. W/ONE LIC. P,1,Traffic Offense,
+PERMIT UNAUTH PERSON TO DRIVE,1,Traffic Offense,
+POSS MORE THAN ONE VALID DL,1,Traffic Offense,
+POSSESS ALTERED DRIVERS LIC,1,Traffic Offense,
+SALE OFFER-SALE REGROOVED TIRE,1,Traffic Offense,
+VIOL DRIVER & TRAFFIC SAF ED.,1,Traffic Offense,
+CRIMINAL MISCHIEF $200-$,,Trespass,Crim Mischief
+TRESPASS PROP/BLDG-NO DEP,,Trespass,Trespass
+TRESPASS PROP/BLDG-NO FOR,,Trespass,Trespass
+CRIM MISCH >=100 <750,,Trespass,
+CRIMINAL MISCHIEF $200-$750,,Trespass,Crim Mischief
+TRESPASS PROP / BLDG-NO DEPART,,Trespass,
+TRESPASS PROP / BLDG-NO FORB ENT,,Trespass,
+INTERFERENCE RAILROAD PROPERTY,7,Trespass,
+DESCERATE GRAVE,6,Trespass,
+CRIM TRES HAB/SHLTR/SUPRFUND/I,5,Trespass,
+CRIM TRESPASS SCHOOL GROUNDS,5,Trespass,
+DAMAGE PROP,5,Trespass,
+ENTRY AFTER EJECTION (RACETRAC,4,Trespass,
+DESECRATE VENERATED OBJECT,3,Trespass,
+GRAFFITI PUBLIC CIVIC FACIL. <,3,Trespass,
+MALICIOUS MISCHIEF(MISD.),3,Trespass,Crim Mischief
+GRAFFITI>=$20K BUT <$100K,2,Trespass,
+INTERFERE W/ RAILROAD PROPERTY,2,Trespass,
+RAILROAD PROP-INTERF $20-500,2,Trespass,
+ATTEMPT CRIMINAL TRESPASS,1,Trespass,
+CLIMB ON PLANT BED AREA W/I PA,1,Trespass,
+GRAFFITI>=$100K BUT <$200K,1,Trespass,
+RAILROAD PROP-INTERF $500-1500,1,Trespass,
+RECKLESS DAMAGE OR DESTRUCTION,1,Trespass,
+TAMPERING WITH A BARICADE,1,Trespass,
+CRIM MISCH >=$2500 <$30K,,Trespass,Crim Mischief
+DUTY STATUS REPORT NOT CU,,Unclassifiable,Unclassifiable
+EXPARTE PETITION FOR FORFEITU,,Unclassifiable,Unclassifiable
+OUT OF COUNTY,,Unclassifiable,Unclassifiable
+PROH WEAPONS/WEAPONS FREE,,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+UNLAW CARRY WPN-LIC PREMI,,Weapons - Unlawful Possession/Conduct,Guns - Unlawful Carry
+DEADLY COND-DISCH F-ARM H,,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+DISCHARGE FIREARM METRO A,,Weapons - Unlawful Possession/Conduct,Weapons - Unlawful Possession/Conduct
+CARRYING HANDGUN IN MOTOR VEHICLE,,Weapons - Unlawful Possession/Conduct,
+DEADLY COND-DISCH F-ARM HAB / BL,,Weapons - Unlawful Possession/Conduct,
+ATT UNLAW POSS B/FELON MET/BOD,9,Weapons - Unlawful Possession/Conduct,
+MFG/POSS HOAX BOMB,8,Weapons - Unlawful Possession/Conduct,
+POSS ARMOR PIERCING AMMO,6,Weapons - Unlawful Possession/Conduct,
+SALE OF PROHIBITED WEPON,6,Weapons - Unlawful Possession/Conduct,
+PROH WEAP SWITCHBLADE/KNUCKLES,4,Weapons - Unlawful Possession/Conduct,
+MANUFACTURE EXPLOSIVE WEAPON,3,Weapons - Unlawful Possession/Conduct,
+POSS WPN-GOVERNMENT BLDG,3,Weapons - Unlawful Possession/Conduct,
+PROH S/BLADE KNUCKLES WPN/F/ZO,3,Weapons - Unlawful Possession/Conduct,
+ATT POSS OF A HOAX BOMB,2,Weapons - Unlawful Possession/Conduct,
+ATT TRANSPORT EXPLOSIVE WPN,2,Weapons - Unlawful Possession/Conduct,
+FELON POSS WPN W/1 ENH.,2,Weapons - Unlawful Possession/Conduct,
+FIREARM SMUGGLING,2,Weapons - Unlawful Possession/Conduct,
+POSS CHEMICAL DISPENSING DEV,2,Weapons - Unlawful Possession/Conduct,
+PROH WEAPON TIRE DEFLATION DEV,2,Weapons - Unlawful Possession/Conduct,
+SHOOTING ON PUBLIC ROAD,2,Weapons - Unlawful Possession/Conduct,
+VIO EMER MGT PLAN SALE/USE FIR,2,Weapons - Unlawful Possession/Conduct,
+CONSP TRANS EXPLOSIVE WPN,1,Weapons - Unlawful Possession/Conduct,
+POS GUNPOW/COMB/EXPL/FIREW W/I,1,Weapons - Unlawful Possession/Conduct,
+POSS AN EXPLOSIVE DEVICE,1,Weapons - Unlawful Possession/Conduct,
+UNLAW INT ATTEMPT P/WPN,1,Weapons - Unlawful Possession/Conduct,
+UNLAW TRANSPORT EXPLOSIVE WPN,1,Weapons - Unlawful Possession/Conduct,
