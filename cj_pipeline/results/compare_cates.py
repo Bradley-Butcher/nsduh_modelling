@@ -1,36 +1,60 @@
-import pandas as pd
+import json
+import pathlib
 import numpy as np
-# import matplotlib.pyplot as plt
-# pd.options.plotting.backend = 'matplotlib'
-
-
+import pandas as pd
 from cj_pipeline.config import BASE_DIR
-from cj_pipeline.utils import subset_pd
 
 
-def main():
-  observed  = BASE_DIR / 'data/counterfact/1992-2012_2/02-04-10/subsampled_White-Black_observed_flame_nomrep_0b1b2b4b6b9b19b49-cate.csv'
-  synth = BASE_DIR / 'data/counterfact/1992-2012_9/02-04-11/subsampled_White-Black_synth_flame_nomrep_lam3e1000_om3e1000_0_0b1b2b4b6b9b19b49-cate.csv'
-  # synth = base_path / '02-01-18/subsampled_White-Black_synth_flame_nomrep_lam3e1000om3e1000_1_0b1b2b4b6b9b19b49-cate.csv'
-  # observed = base_path / '1992-2012_2/02-04-10/subsampled_White-Black_observed_flame_nomrep_0b1b2b4b6b9b19b49-cate.csv'
+def _load_cate(path_object):
+  with open(path_object, 'r') as f:
+    experiment = json.load(f)
+    experiment['crime_bins'] = ' '.join(experiment['crime_bins'])
+  fname = path_object.name[:path_object.name.rfind('.')]
+  cate = pd.read_csv(path_object.parents[0] / f"{fname}-cate.csv")
+  return cate
 
-  synth = pd.read_csv(synth)
-  observed = pd.read_csv(observed)
-  conditions = {
-     'score': 'nca',  # 'nca', 'nvca', 'ogrs3', 'vprai', 'fta'
-     'age_cat': '> 29',  # '> 29', '18-29'
-     'def.gender': 'Female',  # 'Male', 'Female', '*'
-  }
 
-  sub_synth = subset_pd(synth, **conditions)
-  sub_observed = subset_pd(observed, **conditions)
+def _load_data(data_path):
+  data_path = pathlib.Path(data_path)
+  if not data_path.is_absolute():
+    data_path = BASE_DIR / data_path
 
-  weighted_avg_synth = np.average(sub_synth['cate'], weights=sub_synth['group_size'])
-  weighted_avg_obs = np.average(sub_observed['cate'], weights=sub_observed['group_size'])
+  # load observed data
+  observed_paths = list(data_path.rglob('*_observed_*.json'))
+  if len(observed_paths) > 1:
+    raise ValueError(f'More than one non-synth results in "{data_path}"')
+  observed = _load_cate(observed_paths[0])
 
-  print(weighted_avg_obs)
-  print(weighted_avg_synth)
+  # load synth data
+  synth = []
+  for path_object in data_path.rglob('*.json'):
+    if '_observed_' in path_object.name:
+      continue
+    synth.append(_load_cate(path_object))
+  synth = pd.concat(synth)
+
+  return observed, synth
+
+
+def aggregate(data_path, remove_mixed=False):
+  observed, synth = _load_data(data_path)
+
+  groups = ['score', 'age_cat', 'def.gender']
+  _average = lambda g: np.average(g['cate'], weights=g['group_size'])
+  results = pd.merge(
+    observed.groupby(groups).apply(_average).to_frame('observed').reset_index(),
+    synth.groupby(groups).apply(_average).to_frame('synth').reset_index(),
+    on=groups, how='outer',
+  )
+  results['diff'] = results['synth'] - results['observed']
+  if remove_mixed:
+    for col in groups:
+      results = results[results[col] != '*']
+
+  return results
 
 
 if __name__ == '__main__':
-  main()
+  data_path = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
+  results = aggregate(data_path, remove_mixed=True)
+  results.to_csv(data_path / 'results_cate.csv', index=False)

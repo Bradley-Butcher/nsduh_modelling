@@ -1,6 +1,6 @@
 .DS_store
 .idea/
 poetry.lock
-*__pycache__/
+__pycache__/
 cj_pipeline/results/data/
 data/scratch/

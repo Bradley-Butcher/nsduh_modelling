@@ -1,15 +1,19 @@
 import json
 import pathlib
 import pandas as pd
-
-from cj_pipeline.config import SCORES
-RESULTS_DIR = pathlib.Path(__file__).parents[0] / 'data'
-RESULTS_PATH = RESULTS_DIR / 'results.csv'
+from cj_pipeline.config import SCORES, BASE_DIR
 
 
-def aggregate(drop_constant_cols: bool = True):
+def aggregate(
+    data_path: str | pathlib.Path = None,
+    drop_constant_cols: bool = True,
+) -> pd.DataFrame:
+  data_path = pathlib.Path(data_path)
+  if not data_path.is_absolute():
+    data_path = BASE_DIR / data_path
+
   results = []
-  for path_object in RESULTS_DIR.rglob('*.json'):
+  for path_object in data_path.rglob('*.json'):
     with open(path_object, 'r') as f:
       experiment = json.load(f)
       experiment['crime_bins'] = ' '.join(experiment['crime_bins'])
@@ -30,10 +34,10 @@ def aggregate(drop_constant_cols: bool = True):
     results.groupby(gcols, dropna=False, as_index=False)[SCORES].sem(),
     how='left', on=gcols, suffixes=('_mean', '_sem'),
   )
-
   return results
 
 
 if __name__ == '__main__':
-  results = aggregate(drop_constant_cols=True)
-  results.to_csv(RESULTS_PATH, index=False)
+  data_path = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
+  results = aggregate(data_path=data_path, drop_constant_cols=True)
+  results.to_csv(data_path / 'results_ate.csv', index=False)
