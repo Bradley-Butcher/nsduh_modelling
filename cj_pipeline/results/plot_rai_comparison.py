@@ -14,7 +14,7 @@ def _load_data(ignore_cols=None):
     synth = synth[synth['synth']]
   else:
     synth['synth'] = True
-    observed = _load_observed(ignore_cols=ignore_cols)
+    observed = _load_observed()
   df = pd.concat([observed, synth], ignore_index=True)
 
   def _melt(id_vars, suffix, value_name):
