@@ -39,9 +39,9 @@ def _load_data(ignore_cols=None):
   return df
 
 
-def _load_observed(ignore_cols):
+def _load_observed():
   # CAVEAT: assumes synth is based on run of `aggregate` & that binning didn't change
-  synth = aggregate(drop_constant_cols=False, ignore_cols=ignore_cols)
+  synth = aggregate(drop_constant_cols=False)
   exp = synth[synth.columns[synth.nunique() == 1]]
   exp = exp.drop_duplicates().iloc[0]  # only one row by def
 
