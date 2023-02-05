@@ -47,15 +47,31 @@ def aggregate(
     data_path: str | pathlib.Path = DEFAULT_DIR,
     remove_mixed: bool = False,
 ) -> pd.DataFrame:
+  val_col, weight_col = 'cate', 'group_size'
   observed, synth = _load_data(data_path)
 
+  def _mean(group):
+    mean = np.average(group[val_col], weights=group[weight_col])
+    return mean
+
+  def _sem(group):
+    mean = _mean(group)
+    variance = np.average((group[val_col] - mean)**2, weights=group[weight_col])
+    sem = (variance / len(group))**0.5
+    return sem
+
   groups = ['score', 'age_cat', 'def.gender']
-  _average = lambda g: np.average(g['cate'], weights=g['group_size'])
-  results = pd.merge(
-    observed.groupby(groups).apply(_average).to_frame('observed').reset_index(),
-    synth.groupby(groups).apply(_average).to_frame('synth').reset_index(),
+  means = pd.merge(
+    observed.groupby(groups).apply(_mean).to_frame('observed').reset_index(),
+    synth.groupby(groups).apply(_mean).to_frame('synth').reset_index(),
     on=groups, how='outer',
   )
+  sems = pd.merge(
+    observed.groupby(groups).apply(_sem).to_frame('observed_sem').reset_index(),
+    synth.groupby(groups).apply(_sem).to_frame('synth_sem').reset_index(),
+    on=groups, how='outer',
+  )
+  results = pd.merge(means, sems, how='inner', on=groups)
   results['diff'] = results['synth'] - results['observed']
   if remove_mixed:
     for col in groups:

@@ -6,7 +6,7 @@ from cj_pipeline.config import BASE_DIR, SMOOTHING
 DATA_DIR = BASE_DIR / 'data' / 'processed'
 
 
-def _mean_and_var(df, n_years):
+def _mean_and_sem(df, n_years):
   def _sem(group):
     weights = group['count'] / group['count'].sum()
     errors = weights * (group['arrest_rate'] - group['arrest_rate_smooth'])**2
@@ -23,7 +23,7 @@ def _mean_and_var(df, n_years):
 def _load_ncvs(smoothing):
   ncvs = pd.read_csv(DATA_DIR / f'ncvs_{smoothing}.csv')
   ncvs = ncvs[ncvs['offender_age'] != '< 18']
-  ncvs = _mean_and_var(ncvs, n_years=ncvs['ncvs_year'].nunique())
+  ncvs = _mean_and_sem(ncvs, n_years=ncvs['ncvs_year'].nunique())
   ncvs['crime_recode'] = ncvs['crime_recode'].str.capitalize()
   return ncvs
 
@@ -52,7 +52,7 @@ def _load_nsduh(smoothing):
   )
   nsduh = nsduh[nsduh['crime_recode'] != 'drugs_any']
 
-  nsduh = _mean_and_var(nsduh, n_years=nsduh['YEAR'].nunique())
+  nsduh = _mean_and_sem(nsduh, n_years=nsduh['YEAR'].nunique())
   nsduh['crime_recode'].replace(
     {
       'dui': 'DUI',
