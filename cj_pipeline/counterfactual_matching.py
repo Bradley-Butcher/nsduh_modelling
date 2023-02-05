@@ -247,9 +247,11 @@ def main(_):
     f'mcvs3e{int(FLAGS.rate_mult_ncvs * 1000)}',
     f'mcvs3e{int(FLAGS.rate_mult_nsduh * 1000)}',
     f'{FLAGS.smoothing}',
-    f'{FLAGS.seed}',
   ]
-  file_name += ['b'.join(FLAGS.crime_bins[1:-1])]
+  file_name += [
+    f'{FLAGS.seed}',
+    'b'.join(FLAGS.crime_bins[1:-1]),
+  ]
   file_name = '_'.join(file_name)
 
   ates.to_csv(data_path / f'{file_name}-ate.csv', index=False)
