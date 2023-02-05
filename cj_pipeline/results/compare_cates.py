@@ -21,8 +21,8 @@ def _load_data(data_path):
 
   # load observed data
   observed_paths = list(data_path.rglob('*_observed_*.json'))
-  if len(observed_paths) > 1:
-    raise ValueError(f'More than one non-synth results in "{data_path}"')
+  if len(observed_paths) != 1:
+    raise ValueError(f'{len(observed_paths)} non-synth results in "{data_path}"')
   observed = _load_cate(observed_paths[0])
 
   # load synth data
@@ -55,6 +55,6 @@ def aggregate(data_path, remove_mixed=False):
 
 
 if __name__ == '__main__':
-  data_path = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
+  data_path = BASE_DIR / pathlib.Path('results/data')
   results = aggregate(data_path, remove_mixed=True)
   results.to_csv(data_path / 'results_cate.csv', index=False)

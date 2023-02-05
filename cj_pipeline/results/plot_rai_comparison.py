@@ -7,14 +7,14 @@ from cj_pipeline.results.compare_ates import aggregate
 from cj_pipeline.counterfactual_matching import average_treatment_effect
 
 
-def _load_data():
-  synth = aggregate(drop_constant_cols=True)
+def _load_data(ignore_cols=None):
+  synth = aggregate(drop_constant_cols=True, ignore_cols=ignore_cols)
   if 'synth' in synth.columns and not all(synth['synth']):
     observed = synth[~synth['synth']]
     synth = synth[synth['synth']]
   else:
     synth['synth'] = True
-    observed = _load_observed()
+    observed = _load_observed(ignore_cols=ignore_cols)
   df = pd.concat([observed, synth], ignore_index=True)
 
   def _melt(id_vars, suffix, value_name):
@@ -39,9 +39,9 @@ def _load_data():
   return df
 
 
-def _load_observed():
+def _load_observed(ignore_cols):
   # CAVEAT: assumes synth is based on run of `aggregate` & that binning didn't change
-  synth = aggregate(drop_constant_cols=False)
+  synth = aggregate(drop_constant_cols=False, ignore_cols=ignore_cols)
   exp = synth[synth.columns[synth.nunique() == 1]]
   exp = exp.drop_duplicates().iloc[0]  # only one row by def
 
@@ -103,5 +103,6 @@ def plot_rais(df, gap=0.1, width=0.2, exclude=None):
 
 
 if __name__ == '__main__':
-  df = _load_data()
+  ignore_cols = ['commit', 'crime_bins']
+  df = _load_data(ignore_cols=ignore_cols)
   plot_rais(df, exclude=['fta'])

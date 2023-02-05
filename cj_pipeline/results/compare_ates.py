@@ -3,12 +3,15 @@ import pathlib
 import pandas as pd
 from cj_pipeline.config import SCORES, BASE_DIR
 
+from typing import List
+
 DEFAULT_DIR = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
 
 
 def aggregate(
     data_path: str | pathlib.Path = DEFAULT_DIR,
     drop_constant_cols: bool = True,
+    ignore_cols: List = None,
 ) -> pd.DataFrame:
   data_path = pathlib.Path(data_path)
   if not data_path.is_absolute():
@@ -24,6 +27,11 @@ def aggregate(
     experiment.update({s: ate[ate.score == s]['ate'].iloc[0] for s in SCORES})
     results.append(experiment)
   results = pd.DataFrame(results)
+
+  if ignore_cols is not None:
+    if 'seed' in ignore_cols:
+      raise ValueError('Never drop the seed column')
+    results = results.drop(columns=ignore_cols)
 
   const_cols = results.columns[results.nunique() == 1]
   varying_cols = results.columns.difference(const_cols)
