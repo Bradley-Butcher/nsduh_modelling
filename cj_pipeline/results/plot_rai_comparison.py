@@ -68,14 +68,14 @@ def _load_observed():
   return observed
 
 
-def plot_rais(df, gap=0.1, width=0.2, exclude=None):
+def plot_rais(df, gap=0.1, width=0.2, use_offset=False, exclude=None):
   sns.set_style('whitegrid')
   sns.set(font_scale=1.25)
 
   synth, observed = df[df.synth], df[~df.synth]
   for score in SCORES:
     idx = synth.score == score
-    offset = observed[observed.score == score]['mean'].iloc[0]
+    offset = observed[observed.score == score]['mean'].iloc[0] if use_offset else 0
     synth.loc[idx, 'mean'] = 100 * (synth[idx]['mean'] - offset)
     synth.loc[idx, 'sem'] = 100 * synth[idx]['sem']
 
@@ -91,18 +91,20 @@ def plot_rais(df, gap=0.1, width=0.2, exclude=None):
     hue='omega', col='score',
     width=width, gap=gap,
     xlabel_map=xlabel_map,
-    err_clip=(-100.0, 100.0),
+    err_clip=(-100.0, 100.0) if use_offset else (0.0, 100.0),
   )
 
   grid.fig.supxlabel(r'$\lambda$')
-  grid.set_axis_labels(x_var='', y_var='% point score change')
+  grid.set_axis_labels(
+    x_var='', y_var='% point score change' if use_offset else 'Estimated treatment')
   grid.set_titles(row_template='{row_name}', col_template='{col_name}')
   grid.add_legend(title=r'$\omega$')
 
-  grid.figure.savefig(BASE_DIR / 'data' / 'scratch' / 'rais.pdf')
+  grid.figure.savefig(
+    BASE_DIR / 'data' / 'scratch' / f'rais_{"offset" if use_offset else "raw"}.pdf')
 
 
 if __name__ == '__main__':
   ignore_cols = ['commit', 'crime_bins']
   df = _load_data(ignore_cols=ignore_cols)
-  plot_rais(df, exclude=['fta'])
+  plot_rais(df, exclude=['fta'], use_offset=False)
