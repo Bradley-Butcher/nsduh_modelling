@@ -1,10 +1,9 @@
 import pandas as pd
 import seaborn as sns
 
+from cj_pipeline.results import utils
 from cj_pipeline.config import SCORES, BASE_DIR
-from cj_pipeline.results.utils import barplot
 from cj_pipeline.results.compare_ates import aggregate
-from cj_pipeline.counterfactual_matching import average_treatment_effect
 
 
 def _load_data(use_offset, ignore_cols=None):
@@ -39,27 +38,7 @@ def _load_data(use_offset, ignore_cols=None):
 
 
 def _load_observed():
-  # CAVEAT: assumes synth is based on run of `aggregate` & that binning didn't change
-  synth = aggregate(drop_constant_cols=False)
-  exp = synth[synth.columns[synth.nunique() == 1]]
-  exp = exp.drop_duplicates().iloc[0]  # only one row by def
-
-  # ignoring git commit information for now
-  ate, _ = average_treatment_effect(
-    start_year=exp.start_year,
-    end_year=exp.end_year,
-    treatment='calc.race',
-    binary_treatment_set={exp.baseline: 0, exp.treatment: 1},
-    use_synth=False,
-    matching_alg=exp.matching,
-    repeat_match=exp.repeat_match,
-    n_subsample=exp.n_subsample,
-    crime_bins=tuple(int(n) for n in exp.crime_bins.split()),
-    seed=0,  # TODO: only affects subsampling -> don't iterate atm
-    smoothing=exp.smoothing,
-    rate_mult_ncvs=None, rate_mult_nsduh=None,  # does not affect non-synth
-  )
-
+  ate, _ = utils.load_observed()
   observed = pd.DataFrame({
     f'{s}_mean': [ate[ate.score == s]['ate'].iloc[0]] for s in SCORES
   })
@@ -84,7 +63,7 @@ def plot_rais(df, gap=0.1, width=0.2, use_offset=False, exclude=None):
   synth['ci'] = 1.96 * synth['sem']
   synth['score'] = synth['score'].str.upper()
   xlabel_map = lambda lbl: 'est' if pd.isna(lbl) else str(lbl)
-  grid = barplot(
+  grid = utils.barplot(
     df=synth,
     x='lam', y='mean', yerr='ci',
     hue='omega', col='score',
@@ -104,7 +83,7 @@ def plot_rais(df, gap=0.1, width=0.2, use_offset=False, exclude=None):
 
 
 if __name__ == '__main__':
-  use_offset = False
+  use_offset = True
   ignore_cols = ['commit']
   df = _load_data(use_offset=use_offset, ignore_cols=ignore_cols)
   plot_rais(df, exclude=['fta'], use_offset=use_offset)

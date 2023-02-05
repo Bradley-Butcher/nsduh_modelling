@@ -3,6 +3,9 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+from cj_pipeline.results.compare_ates import aggregate
+from cj_pipeline.counterfactual_matching import average_treatment_effect
+
 from typing import Callable, Tuple
 
 
@@ -62,3 +65,28 @@ def barplot(
   grid.map_dataframe(errplot, x=x, y=y, yerr=yerr)
 
   return grid
+
+
+def load_observed():
+  # CAVEAT: assumes synth is based on run of `aggregate` & that binning didn't change
+  synth = aggregate(drop_constant_cols=False)
+  exp = synth[synth.columns[synth.nunique() == 1]]
+  exp = exp.drop_duplicates().iloc[0]  # only one row by def
+
+  # ignoring git commit information for now
+  ates, cates = average_treatment_effect(
+    start_year=exp.start_year,
+    end_year=exp.end_year,
+    treatment='calc.race',
+    binary_treatment_set={exp.baseline: 0, exp.treatment: 1},
+    use_synth=False,  # ensures this is based on non-synthetic data
+    matching_alg=exp.matching,
+    repeat_match=exp.repeat_match,
+    n_subsample=exp.n_subsample,
+    crime_bins=tuple(int(n) for n in exp.crime_bins.split()),
+    seed=0,  # TODO: only affects subsampling -> don't iterate atm
+    smoothing=exp.smoothing,
+    rate_mult_ncvs=None, rate_mult_nsduh=None,  # does not affect non-synth
+  )
+
+  return ates, cates

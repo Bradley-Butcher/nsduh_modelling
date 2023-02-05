@@ -2,13 +2,17 @@ import json
 import pathlib
 import numpy as np
 import pandas as pd
+
+from cj_pipeline.results import utils
 from cj_pipeline.config import BASE_DIR
+
+DEFAULT_DIR = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
 
 
 def _load_cate(path_object):
-  with open(path_object, 'r') as f:
-    experiment = json.load(f)
-    experiment['crime_bins'] = ' '.join(experiment['crime_bins'])
+  # with open(path_object, 'r') as f:
+  #   experiment = json.load(f)
+  #   experiment['crime_bins'] = ' '.join(experiment['crime_bins'])
   fname = path_object.name[:path_object.name.rfind('.')]
   cate = pd.read_csv(path_object.parents[0] / f"{fname}-cate.csv")
   return cate
@@ -21,9 +25,12 @@ def _load_data(data_path):
 
   # load observed data
   observed_paths = list(data_path.rglob('*_observed_*.json'))
-  if len(observed_paths) != 1:
+  if len(observed_paths) == 0:
+    _, observed = utils.load_observed()
+  elif len(observed_paths) == 1:
+    observed = _load_cate(observed_paths[0])
+  else:
     raise ValueError(f'{len(observed_paths)} non-synth results in "{data_path}"')
-  observed = _load_cate(observed_paths[0])
 
   # load synth data
   synth = []
@@ -36,7 +43,10 @@ def _load_data(data_path):
   return observed, synth
 
 
-def aggregate(data_path, remove_mixed=False):
+def aggregate(
+    data_path: str | pathlib.Path = DEFAULT_DIR,
+    remove_mixed: bool = False,
+) -> pd.DataFrame:
   observed, synth = _load_data(data_path)
 
   groups = ['score', 'age_cat', 'def.gender']
@@ -55,6 +65,6 @@ def aggregate(data_path, remove_mixed=False):
 
 
 if __name__ == '__main__':
-  data_path = BASE_DIR / pathlib.Path('results/data')
+  data_path = DEFAULT_DIR
   results = aggregate(data_path, remove_mixed=True)
   results.to_csv(data_path / 'results_cate.csv', index=False)
