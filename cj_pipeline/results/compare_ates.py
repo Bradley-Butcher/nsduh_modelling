@@ -3,9 +3,11 @@ import pathlib
 import pandas as pd
 from cj_pipeline.config import SCORES, BASE_DIR
 
+DEFAULT_DIR = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
+
 
 def aggregate(
-    data_path: str | pathlib.Path = None,
+    data_path: str | pathlib.Path = DEFAULT_DIR,
     drop_constant_cols: bool = True,
 ) -> pd.DataFrame:
   data_path = pathlib.Path(data_path)
@@ -38,6 +40,6 @@ def aggregate(
 
 
 if __name__ == '__main__':
-  data_path = BASE_DIR / pathlib.Path('cj_pipeline/results/data')
+  data_path = DEFAULT_DIR
   results = aggregate(data_path=data_path, drop_constant_cols=True)
   results.to_csv(data_path / 'results_ate.csv', index=False)

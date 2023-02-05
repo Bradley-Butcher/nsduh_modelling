@@ -86,7 +86,7 @@ def plot_arrests(df, age_label_order, gap=0.2, width=0.3):
     df=df,
     x='offender_sex', y='mean', yerr='ci',
     hue='offender_age', row='offender_race', col='crime_recode',
-    width=width, gap=gap,
+    width=width, gap=gap, err_clip=(0.0, 1.0),
   )
 
   grid.fig.supxlabel('Gender')

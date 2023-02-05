@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from typing import Callable
+from typing import Callable, Tuple
 
 
 def _nan2none(val):
@@ -20,6 +20,7 @@ def barplot(
     gap: float,
     tick_rotation: int = 0,
     xlabel_map: Callable[[float], str] = None,
+    err_clip: Tuple[float, float] = (-np.inf, np.inf),
     **kwargs,
 ):
   xs, hues = df[x].unique(), df[hue].unique()
@@ -52,7 +53,8 @@ def barplot(
     for _, row in data.iterrows():
       xpos = positions[_nan2none(row[x])][_nan2none(row[hue])]
       err = np.array([
-        np.minimum(row[yerr], row[y]), np.minimum(row[yerr], 1 - row[y])
+        np.minimum(row[yerr], row[y] - err_clip[0]),
+        np.minimum(row[yerr], err_clip[1] - row[y]),
       ])[:, None]
       ax.bar(xpos, row[y], yerr=err, width=width, align='edge', **kwargs)
     ax.set_xticks(xticks)

@@ -3,7 +3,7 @@ import seaborn as sns
 
 from cj_pipeline.config import SCORES, BASE_DIR
 from cj_pipeline.results.utils import barplot
-from cj_pipeline.results.compare import aggregate
+from cj_pipeline.results.compare_ates import aggregate
 from cj_pipeline.counterfactual_matching import average_treatment_effect
 
 
@@ -91,6 +91,7 @@ def plot_rais(df, gap=0.1, width=0.2, exclude=None):
     hue='omega', col='score',
     width=width, gap=gap,
     xlabel_map=xlabel_map,
+    err_clip=(-100.0, 100.0),
   )
 
   grid.fig.supxlabel(r'$\lambda$')
