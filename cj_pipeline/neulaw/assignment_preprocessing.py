@@ -3,7 +3,7 @@ import pandas as pd
 
 from functools import reduce, lru_cache
 from cj_pipeline.neulaw.load import load as load_neulaw
-from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP, DEMOGRAPHICS
+from cj_pipeline.config import logger, CRIMES, CRIMES_GROUP, DEMOGRAPHICS, SMOOTHING
 
 base_path = Path(__file__).parents[2] / 'data'
 
@@ -206,8 +206,25 @@ def _ncvs_crime_lambdas(neulaw):
 
 
 if __name__ == '__main__':
-  neulaw_gen, _ = init_neulaw(start_year=1992, window=20)
+  start_year, window = 1992, 20
 
-  years_df = neulaw_gen(1992)
-  lambdas = _ncvs_crime_lambdas(years_df)
-  lambdas.to_csv(base_path / 'processed' / 'crime_lambdas.csv', index=False)
+  neulaw_gen, _ = init_neulaw(start_year=start_year, window=window)
+  neulaw = neulaw_gen(start_year)
+  lambdas_ncvs = _ncvs_crime_lambdas(neulaw)
+
+  lambdas_nsduh = []
+  for smoothing in SMOOTHING:
+    nsduh_gen, _ = init_nsduh(
+        start_year=start_year, window=window, smoothing=smoothing)
+    nsduh = nsduh_gen(start_year)
+    nsduh = nsduh[CRIMES_GROUP + ['lambda', 'lambda_smooth']]
+    nsduh.rename(
+        columns={'lambda_smooth': f'lambda_nsduh_{smoothing}'}, inplace=True)
+    lambdas_nsduh.append(nsduh)
+  lambdas_nsduh = reduce(
+      lambda df0, df1: pd.merge(df0, df1, on=CRIMES_GROUP + ['lambda']),
+      lambdas_nsduh
+  )
+
+  lambdas = pd.concat([lambdas_ncvs, lambdas_nsduh])
+  lambdas.to_csv(base_path / 'processed' / 'lambdas_all.csv', index=False)
