@@ -105,7 +105,7 @@ def _add_age(df, end_year):  # TODO: code duplication with assignment_preprocess
 
 def _count_unobserved(pop, lam, arrest_col, lambda_col):
   total_crimes = pop['offense_count'] / pop[arrest_col]
-  total_crimes *= pop[lambda_col] if lam is None else lam
+  total_crimes *= pop[lambda_col] if lam is None else lam  # TODO: enforce lam >= AR
   pop['total_crimes'] = np.where(
     pop[arrest_col] > 0, total_crimes, pop['offense_count']
   ).round().astype('int')
